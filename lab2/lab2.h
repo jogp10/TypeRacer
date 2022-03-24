@@ -7,7 +7,7 @@
  */
 #include <stdint.h>
 
-#include "timer.h"
+#include <lcom/timer.h>
 
 /**
  * @brief Tests display of timer config
