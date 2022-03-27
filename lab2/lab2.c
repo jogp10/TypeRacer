@@ -58,11 +58,6 @@ int(timer_test_int)(uint8_t time) {
   message msg;
   count = 0;
 
-  if (timer_set_frequency(0, 60)!=0) {
-    printf("Error setting frequency\n");
-    return 1;
-  }
-
   if (timer_subscribe_int(&bit_no)!=0) {
       printf("Error subscribing timer interrupts.\n");
       return 1;
@@ -77,7 +72,7 @@ int(timer_test_int)(uint8_t time) {
     if (is_ipc_notify(ipc_status)) { /* received notification */
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */
-          if (msg.m_notify.interrupts & bit_no) { /* subscribed interrupt*/
+          if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt*/
             timer_int_handler();
             if( (count%sys_hz()) == 0 ) {
               timer_print_elapsed_time();
