@@ -22,7 +22,7 @@ int (util_sys_inb)(int port, uint8_t *value) {
   /* To be implemented by the students */
   
   uint32_t new_val;
-
+  
   if(sys_inb(port, &new_val)!=0){
     printf("Error in util_sys_inb\n");
     return 1;

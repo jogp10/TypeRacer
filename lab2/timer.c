@@ -5,15 +5,17 @@
 
 #include "i8254.h"
 
-int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
-  /* To be implemented by the students */
- 
+unsigned int count = 0;
+int hook_id = 2;
+
+int (timer_set_frequency)(uint8_t timer, uint32_t freq) { 
+
   uint8_t st;
+
   if (timer_get_conf(timer, &st) != 0) {
     printf("Error getting configuration in timer_set_frequency\n");
     return 1;
   }
-
 
   uint8_t ctrlw;
   uint8_t lsb, msb;
@@ -49,30 +51,33 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
       printf("Error selecting Timer\n");
       return 1;
   }
+
   return 0;
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-    /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  *bit_no = hook_id;
+  if(sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id)!=0){
+    printf("Error subscribing int\n");
+    return 1;
+  }
+  return 0;
 }
 
 int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  if(sys_irqrmpolicy(&hook_id)!=0){
+    printf("Error unsubscribing int\n");
+    return 1;
+  }
 
-  return 1;
+  return 0;
 }
 
 void (timer_int_handler)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  count++;
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-  /* To be implemented by the students */
   
   uint8_t read_back = (TIMER_RB_CMD | TIMER_RB_COUNT_ | TIMER_RB_SEL(timer));
 
@@ -109,7 +114,7 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
 int (timer_display_conf)(uint8_t timer, uint8_t st,
                         enum timer_status_field field) {
-  /* To be implemented by the students */
+
   if ( timer < 0 || timer > 2){
     printf("Invalid TIMER REG.\n");
     return 1;
