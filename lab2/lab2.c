@@ -69,6 +69,7 @@ int(timer_test_int)(uint8_t time) {
       printf("driver_receive failed with: %d", r);
       continue;
     }
+    
     if (is_ipc_notify(ipc_status)) { /* received notification */
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */
