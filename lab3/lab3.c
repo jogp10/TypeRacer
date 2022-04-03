@@ -3,9 +3,11 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include "kbd.h"
 #include "i8042.h"
 
-extern uint8_t scan_reg;
+extern uint8_t scan_code;
+extern uint32_t count;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -32,13 +34,15 @@ int main(int argc, char *argv[]) {
 }
 
 int(kbd_test_scan)() {
-
-  uint8_t bit_no, size, byte[2];
+  uint8_t bit_no;
   int ipc_status, r;
   message msg;
+
+  uint8_t size=1, byte[2];
   count = 0;
 
-  if (kbc_subscribe_int(&bit_no)!=0) {
+  // Subscribe kbc interrupts
+  if (kbd_subscribe_int(&bit_no)!=0) {
     printf("Error subscribing kbc interrupts.\n");
     return 1;
   }
@@ -54,20 +58,26 @@ int(kbd_test_scan)() {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt*/
-            kdb_ih();
-            kbd_print_scancode(, size, byte);
+            printf("Int\n");
+            kbd_ih();
+          
+            if(kbd_scancode_complete(byte, &size)) {
+              kbd_print_scancode(!(scan_code & MAKE_CODE), size, byte);
+              size = 1;
+            }
           }
-          break;
-        default:
           break;
       }
     }
   }
 
-  if (kbc_unsubscribe_int()!=0) {
+  if (kbd_unsubscribe_int()!=0) {
     printf("Error unsubscribing kdb interrupts.\n");
     return 1;
   }
+
+  kbd_print_no_sysinb(count);
+
   return 0;
 }
 

@@ -44,7 +44,7 @@ int (kbd_test_timed_scan)(uint8_t n);
 /** 
  * @brief Interrupt handler to read scancodes in C.
  */
-void (kbc_ih)(void);
+//void (kbc_ih)(void);
 
 /**
  * @brief To print the scancodes
