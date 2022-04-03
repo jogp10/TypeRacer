@@ -15,4 +15,8 @@ int (kbd_unsubscribe_int)();
 
 int (kbd_scancode_complete) (uint8_t byte[], uint8_t *size);
 
+void (read_scancode)();
+
+int (enable_kbd_interrupts) ();
+
 #endif /*_LCOM_KBC_H_ */

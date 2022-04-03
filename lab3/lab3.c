@@ -58,7 +58,6 @@ int(kbd_test_scan)() {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt*/
-            printf("Int\n");
             kbd_ih();
           
             if(kbd_scancode_complete(byte, &size)) {
@@ -82,8 +81,21 @@ int(kbd_test_scan)() {
 }
 
 int(kbd_test_poll)() {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  count = 0;
+  uint8_t size=0, byte[2];
+
+  while (scan_code != ESC_BREAK) {
+    read_scancode();
+
+    if(kbd_scancode_complete(byte, &size)) {
+      kbd_print_scancode(!(scan_code & MAKE_CODE), size, byte);
+      size = 1;
+    }
+  }
+
+  enable_kbd_interrupts();
+
+  kbd_print_no_sysinb(count);
 
   return 1;
 }

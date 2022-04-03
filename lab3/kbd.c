@@ -6,26 +6,7 @@ int hook_id = KEYBOARD_IRQ;
 unsigned int count = 0;
 
 void (kbd_ih)() {
-    uint8_t status_reg=false;
-
-    count++;
-    if (util_sys_inb(STATUS_REG, &status_reg)!=0) {
-      printf("Error reading status.\n");
-      return;
-    }
-
-    if ((status_reg & STAT_REG_OBF) && !(status_reg & (STAT_REG_PAR|STAT_REG_TIMEOUT|STAT_REG_AUX))) {
-        //Data available for reading and no Errors
-        count++;
-        if (util_sys_inb(OUTPUT_BUF, &scan_code)!=0) {
-          printf("Error reading output.\n");
-          return;
-        }
-    } else {
-      error = true;
-      return;
-    }
-    return;
+  read_scancode();
 }
 
 int (kbd_subscribe_int)(uint8_t *bit_no) {
@@ -61,4 +42,39 @@ int (kbd_scancode_complete) (uint8_t byte[], uint8_t *size) {
 
   byte[(*size)-1] = scan_code;
   return 1; 
+}
+
+void read_scancode() {
+  uint8_t status_reg=false;
+
+  count++;
+  if (util_sys_inb(STATUS_REG, &status_reg)!=0) {
+    printf("Error reading status.\n");
+    return;
+  }
+
+  if ((status_reg & STAT_REG_OBF) && !(status_reg & (STAT_REG_PAR|STAT_REG_TIMEOUT|STAT_REG_AUX))) {
+    //Data available for reading and no Errors
+    count++;
+    if (util_sys_inb(OUTPUT_BUF, &scan_code)!=0) {
+      printf("Error reading output.\n");
+      return;
+    }
+  } else {
+    error = true;
+    return;
+  }
+  return;
+}
+
+int enable_kbd_interrupts() {
+  /*if(kbc_issue_command(READ_CMD_BYTE)) return 1;
+  
+  uint8_t command_byte;
+  if(kbc_read_return_value(&command_byte)) return 1;
+
+  uint8_t arg = command_byte | ENABLE_INTERRUPT;
+  if(kbc_issue_command_with_arg(WRITE_CMD_BYTE, arg)) return 1;
+  */
+	return 0;
 }

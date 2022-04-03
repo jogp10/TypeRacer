@@ -32,4 +32,9 @@
 #define TWO_BYTE_SCANCODE   0xE0 /* Two-byte long scancodes use 0xE0 as their first byte */
 #define MAKE_CODE           BIT(7)
 
+/* KBC */
+#define WRITE_CMD_BYTE      0x60
+#define READ_CMD_BYTE       0x20
+#define ENABLE_INTERRUPT    1
+
 #endif /* _LCOM_I8042_H */
