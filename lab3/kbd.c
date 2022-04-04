@@ -68,13 +68,6 @@ void read_scancode() {
 }
 
 int enable_kbd_interrupts() {
-  /*if(kbc_issue_command(READ_CMD_BYTE)) return 1;
-  
-  uint8_t command_byte;
-  if(kbc_read_return_value(&command_byte)) return 1;
 
-  uint8_t arg = command_byte | ENABLE_INTERRUPT;
-  if(kbc_issue_command_with_arg(WRITE_CMD_BYTE, arg)) return 1;
-  */
-	return 0;
+	return 1;
 }
