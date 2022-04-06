@@ -86,7 +86,7 @@ int(timer_test_int)(uint8_t time) {
       }
     }
   }
-
+  
   if (timer_unsubscribe_int()!=0) {
     printf("Error unsubscribing timer interrupts\n");
     return 1;

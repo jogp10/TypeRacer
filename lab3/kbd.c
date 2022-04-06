@@ -68,6 +68,5 @@ void read_scancode() {
 }
 
 int enable_kbd_interrupts() {
-
 	return 1;
 }

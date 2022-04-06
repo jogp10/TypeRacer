@@ -91,13 +91,15 @@ int(kbd_test_poll)() {
       kbd_print_scancode(!(scan_code & MAKE_CODE), size, byte);
       size = 1;
     }
+
+    tickdelay(micros_to_ticks(DELAY_US));
   }
 
   enable_kbd_interrupts();
 
   kbd_print_no_sysinb(count);
 
-  return 1;
+  return 0;
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
