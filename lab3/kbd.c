@@ -1,17 +1,23 @@
+#include <lcom/lcf.h>
+
+#include <stdint.h>
+
 #include "kbd.h"
+#include "utils.c"
+#include "i8042.h"
 
 uint8_t scan_code; // make code or break code
 bool error = false;
-int hook_id = KEYBOARD_IRQ;
-unsigned int count = 0;
+int hook_id_k = KEYBOARD_IRQ;
+unsigned int count_k = 0;
 
 void (kbd_ih)() {
   read_scancode();
 }
 
 int (kbd_subscribe_int)(uint8_t *bit_no) {
-  *bit_no = hook_id;
-  if(sys_irqsetpolicy(KEYBOARD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id)!=0){
+  *bit_no = hook_id_k;
+  if(sys_irqsetpolicy(KEYBOARD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id_k)!=0){
     printf("Error subscribing int.\n");
     return 1;
   }
@@ -19,7 +25,7 @@ int (kbd_subscribe_int)(uint8_t *bit_no) {
 }
 
 int (kbd_unsubscribe_int)() {
-  if(sys_irqrmpolicy(&hook_id)!=0){
+  if(sys_irqrmpolicy(&hook_id_k)!=0){
     printf("Error unsubscribing int.\n");
     return 1;
   }
@@ -47,7 +53,7 @@ int (kbd_scancode_complete) (uint8_t byte[], uint8_t *size) {
 void read_scancode() {
   uint8_t status_reg=false;
 
-  count++;
+  count_k++;
   if (util_sys_inb(STATUS_REG, &status_reg)!=0) {
     printf("Error reading status.\n");
     return;
@@ -55,7 +61,7 @@ void read_scancode() {
 
   if ((status_reg & STAT_REG_OBF) && !(status_reg & (STAT_REG_PAR|STAT_REG_TIMEOUT|STAT_REG_AUX))) {
     //Data available for reading and no Errors
-    count++;
+    count_k++;
     if (util_sys_inb(OUTPUT_BUF, &scan_code)!=0) {
       printf("Error reading output.\n");
       return;

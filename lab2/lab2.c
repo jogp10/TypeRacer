@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-extern unsigned int count;
+extern unsigned int count_t;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -56,14 +56,14 @@ int(timer_test_int)(uint8_t time) {
   uint8_t bit_no;
   int ipc_status, r;
   message msg;
-  count = 0;
+  count_t = 0;
 
   if (timer_subscribe_int(&bit_no)!=0) {
       printf("Error subscribing timer interrupts.\n");
       return 1;
   }
 
-  while (count/sys_hz() < time) {
+  while (count_t/sys_hz() < time) {
     /* Get a request message. */
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
@@ -75,7 +75,7 @@ int(timer_test_int)(uint8_t time) {
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt*/
             timer_int_handler();
-            if( (count%sys_hz()) == 0 ) {
+            if( (count_t%sys_hz()) == 0 ) {
               timer_print_elapsed_time();
             }
           }

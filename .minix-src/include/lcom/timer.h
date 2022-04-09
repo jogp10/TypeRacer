@@ -76,6 +76,13 @@ int(timer_unsubscribe_int)();
 void(timer_int_handler)();
 
 /**
+ * @brief Timer 0 interrupt handler
+ *
+ * Resets counter
+ */
+void(timer_int_reset)();
+
+/**
  * @brief Reads the input timer configuration (status) via read-back command
  *
  * @param timer Timer whose configuration to read (Ranges from 0 to 2)

@@ -1,6 +1,13 @@
 {
     "files.associations": {
         "lab3.h": "c",
-        "lcf.h": "c"
+        "lcf.h": "c",
+        "lab2.h": "c",
+        "kbd.h": "c",
+        "timer.h": "c",
+        "stdint.h": "c",
+        "time.h": "c",
+        "i8254.h": "c",
+        "stdbool.h": "c"
     }
 }
