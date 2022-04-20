@@ -35,6 +35,6 @@
 /* KBC */
 #define WRITE_CMD_BYTE      0x60
 #define READ_CMD_BYTE       0x20
-#define ENABLE_INTERRUPT    1
+#define ENABLE_INTERRUPT    0x01
 
 #endif /* _LCOM_I8042_H */

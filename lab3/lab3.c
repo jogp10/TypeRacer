@@ -85,7 +85,7 @@ int(kbd_test_scan)() {
 
 int(kbd_test_poll)() {
   count_k = 0;
-  uint8_t size=0, byte[2];
+  uint8_t size=1, byte[2];
 
   while (scan_code != ESC_BREAK) {
     read_scancode();

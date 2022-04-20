@@ -45,7 +45,7 @@ int (kbd_scancode_complete) (uint8_t byte[], uint8_t *size) {
     printf("TWO BYTE\n");
     return 0;
   }
-
+  printf("ONE BYTE\n");
   byte[(*size)-1] = scan_code;
   return 1; 
 }
@@ -56,23 +56,37 @@ void read_scancode() {
   count_k++;
   if (util_sys_inb(STATUS_REG, &status_reg)!=0) {
     printf("Error reading status.\n");
-    return;
-  }
-
-  if ((status_reg & STAT_REG_OBF) && !(status_reg & (STAT_REG_PAR|STAT_REG_TIMEOUT|STAT_REG_AUX))) {
-    //Data available for reading and no Errors
-    count_k++;
-    if (util_sys_inb(OUTPUT_BUF, &scan_code)!=0) {
-      printf("Error reading output.\n");
-      return;
-    }
-  } else {
     error = true;
     return;
   }
-  return;
+
+  if (status_reg & (STAT_REG_OBF|STAT_REG_AUX)) {
+    count_k++;
+    error = false;
+    if (util_sys_inb(OUTPUT_BUF, &scan_code)!=0) {
+        printf("Error reading output.\n");
+        error = true;
+        return;
+    }
+
+    if (status_reg & (STAT_REG_PAR|STAT_REG_TIMEOUT)) {
+      error = true;
+      return;
+    }
+  } 
+  else error = true;
 }
 
 int enable_kbd_interrupts() {
+  uint8_t cmd_byte = 0x00;
+
+  sys_outb(STATUS_REG, READ_CMD_BYTE);
+  util_sys_inb(INPUT_BUF, &cmd_byte);
+
+  cmd_byte = cmd_byte | ENABLE_INTERRUPT;
+
+  sys_outb(STATUS_REG, WRITE_CMD_BYTE);
+  sys_outb(OUTPUT_BUF, cmd_byte);
+
 	return 1;
 }
