@@ -1,13 +1,14 @@
 #include <lcom/lcf.h>
 #include <lcom/lab3.h>
 #include "kbd.h"
+#include "timer.c"
 
 #include <stdbool.h>
 #include <stdint.h>
 
 #include "i8042.h"
 
-extern unsigned int counter_kbd;
+extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
 int main(int argc, char *argv[]) {
@@ -94,7 +95,7 @@ int(kbd_test_scan)() {
 
 int(kbd_test_poll)() {
   uint8_t scan_code[2], size = 1;
-  counter_kbd = 0;
+  counter_kbd = 0, counter_timer = 0;
 
   while(code != ESC_BREAK) {
     kbc_ih();
@@ -121,8 +122,77 @@ int(kbd_test_poll)() {
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t bit_no_kbd, bit_no_t;
+  int ipc_status, r;
+  message msg;
+  uint8_t scan_code[2], size=1;
+  counter_kbd = 0;
+
+  /* Subscribing int */
+  if( (r = kbc_subscribe_int(&bit_no_kbd)) ) {
+    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+  if( (r = timer_subscribe_int(&bit_no_t)) ) {
+    printf("Error subscribing timer interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  do {
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */
+          if (msg.m_notify.interrupts & BIT(bit_no_kbd)) { /* subscribed kbd interrupt */
+            /* process it */
+            counter_timer = 0;
+            kbc_ih();
+
+            if( kbc_code_complete(scan_code, &size) ) {
+              kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
+              size = 1;
+            }
+          }
+          if (msg.m_notify.interrupts & BIT(bit_no_t)) { /* subscribed timer interrupt */
+            /* process it */
+            timer_int_handler();
+
+            if (counter_timer%sys_hz()==0) {
+              timer_print_elapsed_time();
+            }
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */
+      }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+    TIME_DELAY; // e.g. tickdelay()
+  } while (code != ESC_BREAK && counter_timer/sys_hz()<n ); // while escape not released
+
+  /* Unsubscribing int */
+  if ( (r = kbc_unsubscribe_int()) ) {
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+  if ( (r = timer_unsubscribe_int()) ) {
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
+
+  if (kbd_print_no_sysinb(counter_kbd)) {
+    printf("Error printing number of sys inb calls.\n");
+    return 1;
+  };
+
+  return 0;
+
 
   return 1;
 }

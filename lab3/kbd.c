@@ -4,13 +4,13 @@
 #include "i8042.h"
 
 unsigned int counter_kbd;
-int hook_id = KBD_IRQ;
+int hook_id_kbd = KBD_IRQ;
 bool error;
 uint8_t code;
 
 int (kbc_subscribe_int)(uint8_t *bit_no) {
-  *bit_no = hook_id;
-  if(sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id)) {
+  *bit_no = hook_id_kbd;
+  if(sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id_kbd)) {
     printf("Error subscribing kbc interruption.\n");
     return 1;
   }
@@ -19,7 +19,7 @@ int (kbc_subscribe_int)(uint8_t *bit_no) {
 }
 
 int (kbc_unsubscribe_int)(uint8_t *bit_no) {
-  if(sys_irqrmpolicy(&hook_id)) {
+  if(sys_irqrmpolicy(&hook_id_kbd)) {
     printf("Error unsubscribing timer interruption.\n");
     return 1;
   };
