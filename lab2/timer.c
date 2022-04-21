@@ -5,6 +5,9 @@
 
 #include "i8254.h"
 
+unsigned int counter_timer;
+int hook_id = TIMER0_IRQ;
+
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   
   uint8_t status;
@@ -52,22 +55,25 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-    /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  *bit_no = hook_id;
+  if (sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id)) {
+    printf("Error subscribing timer interruption.\n");
+    return 1;
+  }
 
-  return 1;
+  return 0;
 }
 
 int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  if(sys_irqrmpolicy(&hook_id)) {
+    printf("Error unsubscribing timer interruption.\n");
+    return 1;
+  };
+  return 0;
 }
 
 void (timer_int_handler)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  counter_timer++;
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
