@@ -28,10 +28,9 @@ int (kbc_unsubscribe_int)(uint8_t *bit_no) {
 
 void (kbc_ih)() {
   uint8_t status;
-  error = true;
 
-  while( error ) {
-    error = true;
+  while( 1 ) {
+    error = false;
 
     counter_kbd++;
     /* Read status register */
