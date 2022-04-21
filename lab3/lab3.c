@@ -72,6 +72,7 @@ int(kbd_test_scan)() {
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
+    TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */
@@ -80,16 +81,43 @@ int(kbd_test_scan)() {
     return 1;
   }
 
+
+  if (kbd_print_no_sysinb(counter_kbd)) {
+    printf("Error printing number of sys inb calls.\n");
+    return 1;
+  };
+
   return 0;
 }
 
 
 
 int(kbd_test_poll)() {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t scan_code[2], size = 1;
+  counter_kbd = 0;
 
-  return 1;
+  while(code != ESC_BREAK) {
+    kbc_ih();
+
+    if( kbc_code_complete(scan_code, &size) ) {
+      kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
+      size = 1;
+    }
+
+    TIME_DELAY;
+  }
+
+  if (kbc_reenable_int()) {
+    printf("Error reenabling kbc interrupts.\n");
+    return 1;
+  }
+
+  if (kbd_print_no_sysinb(counter_kbd)) {
+    printf("Error printing number of sys inb calls.\n");
+    return 1;
+  };
+
+  return 0;
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {

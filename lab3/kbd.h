@@ -34,4 +34,11 @@ void(kbc_ih)();
  */
 bool(kbc_code_complete)(uint8_t scan_code[], uint8_t *size);
 
+/**
+ * @brief Reenable kbc interrupts
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
+int(kbc_reenable_int)();
+
 #endif /* __KBD_H */

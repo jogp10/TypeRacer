@@ -58,8 +58,6 @@ void (kbc_ih)() {
 
       return;
     }
-
-    TIME_DELAY; // e.g. tickdelay()
   }
 
 }
@@ -72,4 +70,18 @@ bool(kbc_code_complete) (uint8_t scan_code[], uint8_t *size) {
   }
   scan_code[(*size)-1] = code;
   return true;
+}
+
+int(kbc_reenable_int)() {
+  uint8_t cmmd;
+
+  sys_outb(KBC_ST_REG, CMMD_B_READ);
+  util_sys_inb(KBC_IN_BUF, &cmmd);
+
+  cmmd = cmmd | ENABLE_INT;
+
+  sys_outb(KBC_ST_REG, CMMD_B_WRITE);
+  sys_outb(KBC_OUT_BUF, cmmd);
+
+  return 0;
 }
