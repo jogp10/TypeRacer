@@ -75,14 +75,14 @@ bool(kbc_code_complete) (uint8_t scan_code[], uint8_t *size) {
 int(kbc_reenable_int)() {
   uint8_t cmmd;
 
-  sys_outb(KBC_ST_REG, CMMD_B_READ);
+  sys_outb(KBC_ST_REG, CMMD_B_READ); // saying status reg, going to read cmmd
   counter_kbd++;
-  util_sys_inb(KBC_IN_BUF, &cmmd);
+  util_sys_inb(KBC_IN_BUF, &cmmd); // reading cmmd
 
-  cmmd = cmmd | ENABLE_INT;
+  cmmd = cmmd | ENABLE_INT; // enabling int
 
-  sys_outb(KBC_ST_REG, CMMD_B_WRITE);
-  sys_outb(KBC_OUT_BUF, cmmd);
+  sys_outb(KBC_ST_REG, CMMD_B_WRITE); // saying status reg, going to write cmmd
+  sys_outb(KBC_OUT_BUF, cmmd); // writing cmmd
 
   return 0;
 }
