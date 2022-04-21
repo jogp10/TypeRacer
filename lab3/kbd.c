@@ -76,6 +76,7 @@ int(kbc_reenable_int)() {
   uint8_t cmmd;
 
   sys_outb(KBC_ST_REG, CMMD_B_READ);
+  counter_kbd++;
   util_sys_inb(KBC_IN_BUF, &cmmd);
 
   cmmd = cmmd | ENABLE_INT;
