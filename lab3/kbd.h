@@ -1,42 +1,44 @@
-#ifndef __KBD_H_
-#define __KBD_H_
+#ifndef __KBD_H
+#define __KBD_H
 
-#include <lcom/lcf.h>
+#include <stdbool.h>
 #include <stdint.h>
 
-/** @defgroup kbd kbd
- * @{
- *
- * Functions for using the i8042 kbd
- */
-
 /**
- * @brief KBD interrupt handler
- *
- * 
- */
-void (kbd_ih)();
-
-/**
- * @brief Subscribes and enables KBD interrupts
+ * @brief Subscribes and enables KBC interrupts
  *
  * @param bit_no address of memory to be initialized with the
  *         bit number to be set in the mask returned upon an interrupt
  * @return Return 0 upon success and non-zero otherwise
  */
-int(kbd_subscribe_int)(uint8_t *bit_no);
+int(kbc_subscribe_int)(uint8_t *bit_no);
 
 /**
- * @brief Unsubscribes KBD interrupts
+ * @brief Unsubscribes KBC interrupts
  *
  * @return Return 0 upon success and non-zero otherwise
  */
-int(kbd_unsubscribe_int)();
+int(kbc_unsubscribe_int)();
 
-int(kbd_scancode_complete) (uint8_t byte[], uint8_t *size);
+/**
+ * @brief KBC interrupt handler
+ *
+ * Read scan code
+ */
+void(kbc_ih)();
 
-void(read_scancode)();
+/**
+ * @brief Checks code if completed
+ *
+ * @return Return true upon completion and false otherwise 
+ */
+bool(kbc_code_complete)(uint8_t scan_code[], uint8_t *size);
 
-int(enable_kbd_interrupts) ();
+/**
+ * @brief Reenable kbc interrupts
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
+int(kbc_reenable_int)();
 
-#endif /*__KBD_H_ */
+#endif /* __KBD_H */

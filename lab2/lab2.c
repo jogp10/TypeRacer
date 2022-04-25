@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-extern unsigned int count_t;
+extern unsigned int counter_timer;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -31,64 +31,66 @@ int main(int argc, char *argv[]) {
 }
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
-  /* To be implemented by the students */
-  
-  uint8_t st;
-
-  if(timer_get_conf(timer, &st)==0)
-    if(timer_display_conf(timer, st, field)==0) return 0;
-  printf("Error in function timer_test_read_config.\n");
-  return 1;
-}
-
-int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
-  /* To be implemented by the students */
-
-  if (timer_set_frequency(timer, freq) == 1) {
-    printf("Error setting frequency.\n");
+  uint8_t status;
+  if (timer_get_conf(timer, &status)) {
+    printf("Error getting timer conf.\n");
+    return 1;
+  }
+  if (timer_display_conf(timer, status, field)) {
+    printf("Error displaying timer conf.\n");
     return 1;
   }
   return 0;
 }
 
-int(timer_test_int)(uint8_t time) {
+int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
+  if(timer_set_frequency(timer, freq)) {
+    printf("Error setting frequency.\n");
+    return 1;
+  };
+  return 0;
+}
 
+int(timer_test_int)(uint8_t time) {
   uint8_t bit_no;
   int ipc_status, r;
   message msg;
-  count_t = 0;
+  counter_timer = 0;
 
-  if (timer_subscribe_int(&bit_no)!=0) {
-      printf("Error subscribing timer interrupts.\n");
-      return 1;
+  /* Subcribing int */
+  if ( (r = timer_subscribe_int(&bit_no)) ) {
+    printf("Error subscribing timer interrupts with: %d", r);
+    return 1;
   }
 
-  while (count_t/sys_hz() < time) {
+  while (counter_timer/sys_hz() < time) {
     /* Get a request message. */
-    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
       printf("driver_receive failed with: %d", r);
       continue;
     }
-    
     if (is_ipc_notify(ipc_status)) { /* received notification */
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */
-          if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt*/
+          if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
+            /* process it */
             timer_int_handler();
-            if( (count_t%sys_hz()) == 0 ) {
+            if (counter_timer%sys_hz()==0) {
               timer_print_elapsed_time();
             }
           }
           break;
-        
         default:
-          break;
+          break; /* no other notifications expected: do nothing */
       }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
     }
   }
-  
-  if (timer_unsubscribe_int()!=0) {
-    printf("Error unsubscribing timer interrupts\n");
+
+  /* Unsubscribing int */
+  if ( (r = timer_unsubscribe_int()) ) {
+    printf("Error unsubscribing timer interrupts with: %d", r);
     return 1;
   }
 

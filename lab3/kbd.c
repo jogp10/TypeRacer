@@ -1,92 +1,88 @@
 #include <lcom/lcf.h>
-
-#include <stdint.h>
-
 #include "kbd.h"
-#include "utils.c"
+
 #include "i8042.h"
 
-uint8_t scan_code; // make code or break code
-bool error = false;
-int hook_id_k = KEYBOARD_IRQ;
-unsigned int count_k = 0;
+unsigned int counter_kbd;
+int hook_id_kbd = KBD_IRQ;
+bool error;
+uint8_t code;
 
-void (kbd_ih)() {
-  read_scancode();
-}
-
-int (kbd_subscribe_int)(uint8_t *bit_no) {
-  *bit_no = hook_id_k;
-  if(sys_irqsetpolicy(KEYBOARD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id_k)!=0){
-    printf("Error subscribing int.\n");
-    return 1;
-  }
-  return 0;
-}
-
-int (kbd_unsubscribe_int)() {
-  if(sys_irqrmpolicy(&hook_id_k)!=0){
-    printf("Error unsubscribing int.\n");
+int (kbc_subscribe_int)(uint8_t *bit_no) {
+  *bit_no = hook_id_kbd;
+  if(sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id_kbd)) {
+    printf("Error subscribing kbc interruption.\n");
     return 1;
   }
 
   return 0;
 }
 
-int (kbd_scancode_complete) (uint8_t byte[], uint8_t *size) {
-  if(error) {
-    printf("Error\n");
-    return 0;
-  }
-
-  if(scan_code == TWO_BYTE_SCANCODE) {
-    byte[(*size)-1] = TWO_BYTE_SCANCODE;
-    *size = 2;
-    printf("TWO BYTE\n");
-    return 0;
-  }
-  printf("ONE BYTE\n");
-  byte[(*size)-1] = scan_code;
-  return 1; 
+int (kbc_unsubscribe_int)(uint8_t *bit_no) {
+  if(sys_irqrmpolicy(&hook_id_kbd)) {
+    printf("Error unsubscribing timer interruption.\n");
+    return 1;
+  };
+  return 0;
 }
 
-void read_scancode() {
-  uint8_t status_reg=false;
+void (kbc_ih)() {
+  uint8_t status;
 
-  count_k++;
-  if (util_sys_inb(STATUS_REG, &status_reg)!=0) {
-    printf("Error reading status.\n");
-    error = true;
-    return;
-  }
-
-  if (status_reg & (STAT_REG_OBF|STAT_REG_AUX)) {
-    count_k++;
+  while( 1 ) {
     error = false;
-    if (util_sys_inb(OUTPUT_BUF, &scan_code)!=0) {
-        printf("Error reading output.\n");
-        error = true;
-        return;
-    }
 
-    if (status_reg & (STAT_REG_PAR|STAT_REG_TIMEOUT)) {
+    counter_kbd++;
+    /* Read status register */
+    if (util_sys_inb(KBC_ST_REG, &status)) {
+      printf("Error reading status register.\n");
       error = true;
       return;
     }
-  } 
-  else error = true;
+
+    /* loop while 8042 output buffer is empty */
+    if( status & (KBC_OBF) ) {
+
+      counter_kbd++;
+      if (util_sys_inb(KBC_OUT_BUF, &code)) { /* read output buffer */
+        error = true;
+        printf("Error reading output buffer.\n");
+        return;
+      }
+
+      if ( (status & (KBC_PAR_ERR | KBC_TO_ERR)) ){ /* parity or timeout error */
+        error = true;
+        printf("Error parity or timeout error.\n");
+        return;
+      } else error = false;
+
+      return;
+    }
+  }
+
 }
 
-int enable_kbd_interrupts() {
-  uint8_t cmd_byte = 0x00;
+bool(kbc_code_complete) (uint8_t scan_code[], uint8_t *size) {
+  if (code == TWO_BYTE) {
+    scan_code[0] = TWO_BYTE;
+    *size = 2;
+    return false;
+  }
+  scan_code[(*size)-1] = code;
+  return true;
+}
 
-  sys_outb(STATUS_REG, READ_CMD_BYTE);
-  util_sys_inb(INPUT_BUF, &cmd_byte);
+int(kbc_reenable_int)() {
+  uint8_t cmmd;
 
-  cmd_byte = cmd_byte | ENABLE_INTERRUPT;
+  sys_outb(KBC_ST_REG, CMMD_B_READ); // saying status reg, going to read cmmd
+  counter_kbd++;
+  util_sys_inb(KBC_IN_BUF, &cmmd); // reading cmmd
 
-  sys_outb(STATUS_REG, WRITE_CMD_BYTE);
-  sys_outb(OUTPUT_BUF, cmd_byte);
+  cmmd = cmmd | ENABLE_INT; // enabling int
 
-	return 1;
+  sys_outb(KBC_ST_REG, CMMD_B_WRITE); // saying status reg, going to write cmmd
+  sys_outb(KBC_OUT_BUF, cmmd); // writing cmmd
+
+  return 0;
 }
