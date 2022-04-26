@@ -33,8 +33,6 @@ int main(int argc, char *argv[]) {
 }
 
 int(video_test_init)(uint16_t mode, uint8_t delay) {
-  /* To be completed */
-  printf("%s(0x%03x, %u): under construction\n", __func__, mode, delay);
 
   // switch video adapter to graphics mode using VBE
   if(vc_change_mode(mode)) {
@@ -46,30 +44,44 @@ int(video_test_init)(uint16_t mode, uint8_t delay) {
   tickdelay(micros_to_ticks(delay * 1000000));
 
   // switch to default text mode
-  uint16_t text_mode;
-  if(vc_change_mode(text_mode)) {
+  if(vg_exit()) {
     printf("Error changing vc mode back to text (default mode).\n");
     return 1;
   }
-
   return 0;
 }
 
 int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
                           uint16_t width, uint16_t height, uint32_t color) {
-  /* To be completed */
-  printf("%s(0x%03X, %u, %u, %u, %u, 0x%08x): under construction\n",
-         __func__, mode, x, y, width, height, color);
 
-  return 1;
+  // switch video adapter to graphics mode using VBE
+  if(vc_change_mode(mode)) {
+    printf("Error changing vc mode to %03x.\n", mode);
+    return 1;
+  };
+
+  // switch to default text mode
+  if(vg_exit()) {
+    printf("Error changing vc mode back to text (default mode).\n");
+    return 1;
+  }
+  return 0;
 }
 
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
-  /* To be completed */
-  printf("%s(0x%03x, %u, 0x%08x, %d): under construction\n", __func__,
-         mode, no_rectangles, first, step);
+  
+  // switch video adapter to graphics mode using VBE
+  if(vc_change_mode(mode)) {
+    printf("Error changing vc mode to %03x.\n", mode);
+    return 1;
+  };
 
-  return 1;
+  // switch to default text mode
+  if(vg_exit()) {
+    printf("Error changing vc mode back to text (default mode).\n");
+    return 1;
+  }
+  return 0;
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
@@ -94,4 +106,3 @@ int(video_test_controller)() {
 
   return 1;
 }
-

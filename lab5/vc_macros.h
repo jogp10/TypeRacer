@@ -12,4 +12,6 @@
 
 /**@}*/
 
+#define VBE_MODE 
+
 #endif /* _LCOM_VC_MACROS_H_ */
