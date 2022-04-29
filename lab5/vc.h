@@ -13,6 +13,10 @@
  */
 int (vc_change_mode)(uint16_t mode);
 
+int (map_memory)();
+
+int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info);
+
 
 
 #endif /* __VC_H */
