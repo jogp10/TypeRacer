@@ -171,3 +171,9 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   return 0;
 }
 
+vbe_mode_info_t get_info() {
+  return info;
+}
+
+
+

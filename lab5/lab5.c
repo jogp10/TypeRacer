@@ -142,6 +142,42 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
     return 1;
   };
 
+  vbe_mode_info_t info = get_info();
+
+  /** Rectangle size */
+  uint16_t width = info.XResolution / no_rectangles;
+  uint16_t height = info.YResolution / no_rectangles;
+  uint32_t color;
+
+  for (uint r = 0; r < no_rectangles; r++) {
+    if ((r*height) >= (info.YResolution - info.YResolution%no_rectangles)) break;
+
+    for (uint c = 0; c < no_rectangles; c++) {
+      if ((c*width) >= (info.XResolution - info.XResolution&no_rectangles)) break;
+
+      if (mode == INDEXED_COLOR) {
+        color = (first + (r * no_rectangles + c) * step) % (1 << info.BitsPerPixel);
+      } else {
+          uint8_t red_first = first >> info.RedFieldPosition % (BIT(info.RedMaskSize) -1);
+          uint8_t green_first = first >> info.GreenFieldPosition % (BIT(info.GreenMaskSize) -1);
+          uint8_t blue_first = first >> info.BlueFieldPosition % (BIT(info.BlueMaskSize) -1);
+
+          uint8_t red = (red_first + c*step) % BIT(info.RedMaskSize);
+          uint8_t green = (green_first + r*step) % BIT(info.GreenMaskSize);
+          uint8_t blue = (blue_first + (c+r)*step) % BIT(info.BlueMaskSize);
+
+          color = (red << info.RedFieldPosition) | (green << info.GreenFieldPosition) | (blue << info.BlueFieldPosition);
+      }
+
+      if (vg_draw_rectangle(c * width, r*height, width, height, color)) {
+        vg_exit();
+        printf("Failed to draw rectangle at (%d, %d)", c*width, r*height);
+        return 1;
+      };
+    }
+  }
+
+
 
 
     /* Subscribing int */

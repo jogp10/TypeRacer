@@ -41,5 +41,7 @@ int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info);
  */
 int (vc_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
 
+vbe_mode_info_t get_info();
+
 
 #endif /* __VC_H */
