@@ -6,9 +6,9 @@
 
 #include "vc_macros.h"
 
-static void *video_mem; /* frame-buffer VM address */
+static void *video_mem;         /* frame-buffer VM address */
 
-static vbe_mode_info_t info; /* VBE information on input mode */
+static vbe_mode_info_t info;    /* VBE information on input mode */
 
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
@@ -101,8 +101,8 @@ int (map_memory)() {
 
   /* Allow memory mapping */
 
-  mr.mr_base = (phys_bytes) vram_base;	
-  mr.mr_limit = mr.mr_base + vram_size; 
+  mr.mr_base = (phys_bytes) vram_base;
+  mr.mr_limit = mr.mr_base + vram_size;
 
   if ((r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr))) {
     panic("sys_privct1 (ADD_MEM) failed: %d\n", r);
@@ -118,3 +118,56 @@ int (map_memory)() {
   }
   return 0;
 }
+
+int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
+  for (uint16_t j=0; j<height; j++) {
+    if (j + y >= v_res) {
+      printf("End of screen");
+      break; // end of screen
+    }
+    if (vg_draw_hline(x, j, width, color)) {
+      printf("Failed to draw line (%d, %d)", x, j);
+      return 1;
+    }
+  }
+  return 0;
+}
+
+int (vc_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
+  if ( !(x < h_res && y < v_res)) {
+    printf("End of screen");
+    return 0;
+  }
+
+  /** pixel address */
+  uint8_t *pixel_add = (uint8_t *) video_mem + ((int) ceil(bits_per_pixel / 8.0) * (h_res*y + x) );
+
+  if ( (info.MemoryModel != DIRECT_COL_MODEL_1) && (info.MemoryModel != DIRECT_COL_MODEL_2)) {
+    color &= 0xFFFF;
+  } else color &= 0xFFFFFF;
+  
+  uint8_t tmp;
+
+  for (uint i = 0; i < ceil (bits_per_pixel / 8); i++) {
+    tmp = color & 0xFF;
+    *(pixel_add + i) = tmp;
+    color = color >> 8;
+  }
+
+  return 0;
+}
+
+int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
+  for (uint16_t i=0; i<len; i++) {
+    if (i + x >= h_res) {
+      printf("End of screen");
+      break; // end of screen
+    }
+    if (vc_draw_pixel(i,  y, color)) {
+      printf("Failed to draw pixel (%d, %d)", i, y);
+      return 1;
+    }
+  }
+  return 0;
+}
+
