@@ -132,7 +132,8 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
   return 0;
 }
 
-int (vc_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
+
+int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   if ( !(x < h_res && y < v_res)) {
     printf("End of screen");
     return 0;
@@ -162,7 +163,7 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
       printf("End of screen");
       break; // end of screen
     }
-    if (vc_draw_pixel(x + i,  y, color)) {
+    if (vg_draw_pixel(x + i,  y, color)) {
       printf("Failed to draw pixel (%d, %d)", i, y);
       return 1;
     }
@@ -170,9 +171,28 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   return 0;
 }
 
-vbe_mode_info_t get_info() {
-  return info;
+int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
+
+  xpm_image_t img;
+  uint8_t *map;
+  // get the pixmap from the XPM
+  map = xpm_load(xpm, XPM_INDEXED, &img);
+  // copy it to graphics memory
+
+  if (map == NULL){
+    printf("Error getting pixmap.\n");
+    return 1;
+  }
+
+  uint index = 0;
+
+  for (unsigned int i=0; i<img.height; i++) {
+    for (unsigned int j=0; j<img.width; j++) {
+      uint32_t color = map[index];
+      index++;
+      vg_draw_pixel(x + j, y + i, color);
+    }
+  }
+
+  return 0;
 }
-
-
-

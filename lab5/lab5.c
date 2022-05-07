@@ -4,13 +4,14 @@
 #include "vc.h"
 #include "kbd.h"
 
+#include "i8254.h"
 #include "i8042.h"
 #include "vc_macros.h"
 
 #include <stdint.h>
 #include <stdio.h>
 
-extern unsigned int counter_kbd;
+extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
 // Any header files included below this line should have been created by you
@@ -142,7 +143,8 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
     return 1;
   };
 
-  vbe_mode_info_t info = get_info();
+  vbe_mode_info_t info;
+  vc_get_mode_info(mode, &info);
 
   /** Rectangle size */
   uint16_t width = info.XResolution / no_rectangles;
@@ -225,19 +227,165 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u): under construction\n", __func__, xpm, x, y);
+  uint8_t bit_no;
+  int ipc_status, r;
+  message msg;
+  uint8_t scan_code[2], size=1;
+  counter_kbd = 0;
 
-  return 1;
+
+  // switch video adapter to graphics mode using VBE
+  if(vc_change_mode(MODE1)) {
+    printf("Error changing vc mode to %03x.\n", MODE1);
+    vg_exit();
+    return 1;
+  };
+
+  if (vg_draw_xpm(xpm, x, y)) {
+    printf("Error drawing xpm.\n");
+    return 1;
+  }
+
+  /* Subscribing int */
+  if( (r = kbc_subscribe_int(&bit_no)) ) {
+    vg_exit();
+    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  do {
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */
+          if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
+            /* process it */
+            kbc_ih();
+
+            if( kbc_code_complete(scan_code, &size) ) {
+              size = 1;
+            }
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */
+      }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+    TIME_DELAY; // e.g. tickdelay()
+  } while (code != ESC_BREAK); // while escape not released
+
+
+      /* Unsubscribing int */
+  if ( (r = kbc_unsubscribe_int()) ) {
+    vg_exit();
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  // switch to default text mode
+  if(vg_exit()) {
+    printf("Error changing vc mode back to text (default mode).\n");
+    return 1;
+  }
+
+  return 0;
 }
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u, %u, %u, %d, %u): under construction\n",
-         __func__, xpm, xi, yi, xf, yf, speed, fr_rate);
+  uint8_t bit_no_kbd, bit_no_t;
+  int ipc_status, r;
+  message msg;
+  uint8_t scan_code[2], size=1;
+  counter_kbd = 0;
+  counter_timer = 0;
 
-  return 1;
+  // switch video adapter to graphics mode using VBE
+  if(vc_change_mode(MODE1)) {
+    printf("Error changing vc mode to %03x.\n", MODE1);
+    vg_exit();
+    return 1;
+  };
+
+  // animation
+  if (vg_draw_xpm(xpm, xi, yi)) {
+    printf("Error drawing initial xpm position.\n");
+    return 1;
+  }
+
+
+  /* Subscribing int */
+  if( (r = kbc_subscribe_int(&bit_no_kbd)) ) {
+    vg_exit();
+    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+    if( (r = timer_subscribe_int(&bit_no_t)) ) {
+    printf("Error subscribing timer interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  do {
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */
+          if (msg.m_notify.interrupts & BIT(bit_no_kbd)) { /* subscribed interrupt */
+            /* process it */
+            kbc_ih();
+            if( kbc_code_complete(scan_code, &size) ) {
+              size = 1;
+            }
+          }
+          if (msg.m_notify.interrupts & BIT(bit_no_t)) { /* subscribed timer interrupt */
+            /* process it */
+            timer_int_handler();
+
+            (counter_timer%sys_hz()==0); // onde second passed
+
+            // draw xpm
+            if(speed > 0) {
+              
+            } else if (speed < 0) {}
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */
+      }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+    TIME_DELAY; // e.g. tickdelay()
+  } while (code != ESC_BREAK); // while escape not released
+
+  /* Unsubscribing int */
+  if ( (r = kbc_unsubscribe_int()) ) {
+    vg_exit();
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+    if ( (r = timer_unsubscribe_int()) ) {
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  // switch to default text mode
+  if(vg_exit()) {
+    printf("Error changing vc mode back to text (default mode).\n");
+    return 1;
+  }
+
+  return 0;
 }
 
 int(video_test_controller)() {

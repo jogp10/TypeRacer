@@ -39,9 +39,9 @@ int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info);
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (vc_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
+int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
 
-vbe_mode_info_t get_info();
+int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
 
 #endif /* __VC_H */
