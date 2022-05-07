@@ -100,7 +100,6 @@ int (map_memory)() {
 
 
   /* Allow memory mapping */
-
   mr.mr_base = (phys_bytes) vram_base;
   mr.mr_limit = mr.mr_base + vram_size;
 
@@ -125,7 +124,7 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
       printf("End of screen");
       break; // end of screen
     }
-    if (vg_draw_hline(x, j, width, color)) {
+    if (vg_draw_hline(x, y + j, width, color)) {
       printf("Failed to draw line (%d, %d)", x, j);
       return 1;
     }
@@ -159,11 +158,11 @@ int (vc_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
 
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   for (uint16_t i=0; i<len; i++) {
-    if (i + x >= h_res) {
+    if (i + x > h_res) {
       printf("End of screen");
       break; // end of screen
     }
-    if (vc_draw_pixel(i,  y, color)) {
+    if (vc_draw_pixel(x + i,  y, color)) {
       printf("Failed to draw pixel (%d, %d)", i, y);
       return 1;
     }

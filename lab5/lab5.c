@@ -150,17 +150,14 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   uint32_t color;
 
   for (uint r = 0; r < no_rectangles; r++) {
-    if ((r*height) >= (info.YResolution - info.YResolution%no_rectangles)) break;
-
     for (uint c = 0; c < no_rectangles; c++) {
-      if ((c*width) >= (info.XResolution - info.XResolution&no_rectangles)) break;
 
       if (mode == INDEXED_COLOR) {
         color = (first + (r * no_rectangles + c) * step) % (1 << info.BitsPerPixel);
       } else {
-          uint8_t red_first = first >> info.RedFieldPosition % (BIT(info.RedMaskSize) -1);
-          uint8_t green_first = first >> info.GreenFieldPosition % (BIT(info.GreenMaskSize) -1);
-          uint8_t blue_first = first >> info.BlueFieldPosition % (BIT(info.BlueMaskSize) -1);
+          uint8_t red_first = first >> info.RedFieldPosition & (BIT(info.RedMaskSize) -1);
+          uint8_t green_first = first >> info.GreenFieldPosition & (BIT(info.GreenMaskSize) -1);
+          uint8_t blue_first = first >> info.BlueFieldPosition & (BIT(info.BlueMaskSize) -1);
 
           uint8_t red = (red_first + c*step) % BIT(info.RedMaskSize);
           uint8_t green = (green_first + r*step) % BIT(info.GreenMaskSize);
@@ -178,10 +175,9 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   }
 
 
-
-
     /* Subscribing int */
   if( (r = kbc_subscribe_int(&bit_no)) ) {
+    vg_exit();
     printf("Error subscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
@@ -215,6 +211,7 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 
     /* Unsubscribing int */
   if ( (r = kbc_unsubscribe_int()) ) {
+    vg_exit();
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
