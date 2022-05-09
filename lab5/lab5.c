@@ -3,6 +3,7 @@
 #include <lcom/lab5.h>
 #include "vc.h"
 #include "kbd.h"
+#include "timer.c"
 
 #include "i8254.h"
 #include "i8042.h"
@@ -11,7 +12,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
-extern unsigned int counter_kbd, counter_timer;
+extern unsigned int counter_kbd;
+extern unsigned int counter_timer;
 extern uint8_t code;
 
 // Any header files included below this line should have been created by you
@@ -305,6 +307,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   uint8_t scan_code[2], size=1;
   counter_kbd = 0;
   counter_timer = 0;
+  int x = xi, y = yi;
 
   // switch video adapter to graphics mode using VBE
   if(vc_change_mode(MODE1)) {
@@ -314,7 +317,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   };
 
   // animation
-  if (vg_draw_xpm(xpm, xi, yi)) {
+  if (vg_draw_xpm(xpm, x, y)) {
     printf("Error drawing initial xpm position.\n");
     return 1;
   }
@@ -328,6 +331,11 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   }
     if( (r = timer_subscribe_int(&bit_no_t)) ) {
     printf("Error subscribing timer interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  if (timer_set_frequency(0, fr_rate)) {
+    printf("Error setting timer frequency to %d.\n", fr_rate);
     return 1;
   }
 
@@ -350,13 +358,19 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
           if (msg.m_notify.interrupts & BIT(bit_no_t)) { /* subscribed timer interrupt */
             /* process it */
             timer_int_handler();
-
-            (counter_timer%sys_hz()==0); // onde second passed
-
+            //(counter_timer%sys_hz()==0); // onde second passed
             // draw xpm
             if(speed > 0) {
-              
-            } else if (speed < 0) {}
+              if(x!=xf)x = x + speed;
+              if(y!=yf)y = y + speed;
+              vg_draw_xpm(xpm, x, y);
+            } else if (speed < 0) {
+              if (counter_timer%abs(speed)==0) {
+                if(x!=xf)x++;
+                if(y!=yf)y++;
+                vg_draw_xpm(xpm, x, y);
+              }
+            }
           }
           break;
         default:
@@ -366,7 +380,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
         /* no standard messages expected: do nothing */
     }
     TIME_DELAY; // e.g. tickdelay()
-  } while (code != ESC_BREAK); // while escape not released
+  } while (code != ESC_BREAK && !(x==xf && y==yf)); // while escape not released
 
   /* Unsubscribing int */
   if ( (r = kbc_unsubscribe_int()) ) {
