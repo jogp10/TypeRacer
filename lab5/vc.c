@@ -196,3 +196,11 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   return 0;
 }
+
+int (vg_move_xpm)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf) {
+  if (vg_draw_xpm(xpm, xf, yf)) {
+    printf("Failed to draw xpm\n");
+    return 1;
+  }
+  return 0;
+}

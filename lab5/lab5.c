@@ -360,17 +360,18 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
             timer_int_handler();
             //(counter_timer%sys_hz()==0); // onde second passed
             // draw xpm
-            if(speed > 0) {
-              if(x!=xf)x = x + speed;
-              if(y!=yf)y = y + speed;
-              vg_draw_xpm(xpm, x, y);
-            } else if (speed < 0) {
-              if (counter_timer%abs(speed)==0) {
-                if(x!=xf)x++;
-                if(y!=yf)y++;
-                vg_draw_xpm(xpm, x, y);
-              }
+            uint16_t xn=x, yn=y;
+            if(speed >= 0) {
+              if(x-xf!=0) xn = x + speed;
+              if(y-yf!=0) yn = y + speed;
+              vg_move_xpm(xpm, x, y, xn, yn);
+            } else if (counter_timer%abs(speed)==0) {
+              if(x-xf!=0) xn=x+1;
+              if(y-yf!=0) yn=y+1;
+              vg_move_xpm(xpm, x, y, xn, yn);
             }
+            x = xn;
+            y = yn;
           }
           break;
         default:
@@ -380,7 +381,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
         /* no standard messages expected: do nothing */
     }
     TIME_DELAY; // e.g. tickdelay()
-  } while (code != ESC_BREAK && !(x==xf && y==yf)); // while escape not released
+  } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */
   if ( (r = kbc_unsubscribe_int()) ) {
