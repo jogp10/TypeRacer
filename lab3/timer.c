@@ -6,7 +6,7 @@
 #include "i8254.h"
 
 unsigned int counter_timer;
-int hook_id = TIMER0_IRQ;
+int hook_id_t = TIMER0_IRQ;
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   
@@ -55,8 +55,8 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-  *bit_no = hook_id;
-  if (sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id)) {
+  *bit_no = hook_id_t;
+  if (sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id_t)) {
     printf("Error subscribing timer interruption.\n");
     return 1;
   }
@@ -65,7 +65,7 @@ int (timer_subscribe_int)(uint8_t *bit_no) {
 }
 
 int (timer_unsubscribe_int)() {
-  if(sys_irqrmpolicy(&hook_id)) {
+  if(sys_irqrmpolicy(&hook_id_t)) {
     printf("Error unsubscribing timer interruption.\n");
     return 1;
   };

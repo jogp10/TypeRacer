@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "timer.h"
+#include "utils.h"
+
 /** @defgroup lab3 lab3
  * @{
  *
@@ -44,7 +47,7 @@ int (kbd_test_timed_scan)(uint8_t n);
 /** 
  * @brief Interrupt handler to read scancodes in C.
  */
-void (kbc_ih)(void);
+/*void (kbd_ih)(void); */
 
 /**
  * @brief To print the scancodes
