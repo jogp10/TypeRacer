@@ -197,8 +197,52 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   return 0;
 }
 
-int (vg_move_xpm)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf) {
-  if (vg_draw_xpm(xpm, xf, yf)) {
+int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
+
+  xpm_image_t img;
+  uint8_t *map;
+  // get the pixmap from the XPM
+  map = xpm_load(xpm, XPM_INDEXED, &img);
+  // copy it to graphics memory
+
+  if (map == NULL){
+    printf("Error getting pixmap.\n");
+    return 1;
+  }
+
+  uint index = 0;
+
+  for (unsigned int i=0; i<img.height; i++) {
+    for (unsigned int j=0; j<img.width; j++) {
+      uint32_t color = 0;
+      index++;
+      vg_draw_pixel(x + j, y + i, color);
+    }
+  }
+
+  return 0;
+}
+
+int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed) {
+  if (vg_clean_xpm(xpm, *xi, *yi)) {
+    printf("Failed to erase xpm\n");
+    return 1;
+  }
+
+  if (xf!=*xi) {
+    if(abs(xf-*xi)<speed) speed = abs(xf-*xi);
+    if(xf-*xi>0) *xi = *xi + speed;
+    else *xi = *xi - speed;
+  }
+
+  if (yf!=*yi) {
+    if(abs(yf-*yi)<speed) speed = abs(yf-*yi);
+    if(yf-*yi>0) *yi = *yi + speed;
+    else *yi = *yi - speed;
+  }
+
+
+  if (vg_draw_xpm(xpm, *xi, *yi)) {
     printf("Failed to draw xpm\n");
     return 1;
   }

@@ -307,7 +307,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   uint8_t scan_code[2], size=1;
   counter_kbd = 0;
   counter_timer = 0;
-  int x = xi, y = yi;
+  uint16_t x = xi, y = yi;
 
   // switch video adapter to graphics mode using VBE
   if(vc_change_mode(MODE1)) {
@@ -358,20 +358,13 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
           if (msg.m_notify.interrupts & BIT(bit_no_t)) { /* subscribed timer interrupt */
             /* process it */
             timer_int_handler();
-            //(counter_timer%sys_hz()==0); // onde second passed
+            //(counter_timer%sys_hz()==0); // one second passed
             // draw xpm
-            uint16_t xn=x, yn=y;
-            if(speed >= 0) {
-              if(x-xf!=0) xn = x + speed;
-              if(y-yf!=0) yn = y + speed;
-              vg_move_xpm(xpm, x, y, xn, yn);
+            if(speed > 0) {
+              vg_move_xpm(xpm, &x, &y, xf, yf, speed);
             } else if (counter_timer%abs(speed)==0) {
-              if(x-xf!=0) xn=x+1;
-              if(y-yf!=0) yn=y+1;
-              vg_move_xpm(xpm, x, y, xn, yn);
+              vg_move_xpm(xpm, &x, &y, xf, yf, 1);
             }
-            x = xn;
-            y = yn;
           }
           break;
         default:
