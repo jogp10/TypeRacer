@@ -86,3 +86,72 @@ int(kbc_reenable_int)() {
 
   return 0;
 }
+
+int (kbc_issue_command)(uint8_t cmd) 
+{
+	uint8_t status;
+	uint8_t num_tries = 0;
+
+  // reads the status of the keyboard
+	while(num_tries < MAX_TRIES)
+  {
+		if(util_sys_inb(KBC_ST_REG, &status)) return 1; 	
+		// loops while 8042 input buffer is not empty
+		if( (status & KBC_IBF) == 0 ) 
+    {	
+			sys_outb(KBC_IN_BUF, cmd);
+			return 0;
+		}
+		
+		num_tries++;
+		TIME_DELAY;
+	}
+
+	return 1;
+}
+
+int (kbc_issue_command_with_arg)(uint8_t cmd, uint8_t arg) {
+	uint8_t status;
+	uint8_t num_tries = 0;
+
+	// issues the command byte and error checks
+	if(kbc_issue_command(cmd)) return 1;
+  
+	// issues the argument and error checks
+	while(num_tries < MAX_TRIES) 
+  {
+		if(util_sys_inb(KBC_ST_REG, &status)) return 1;
+		if((status & KBC_IBF) == 0)
+    {	
+			sys_outb(KBC_IN_BUF, arg);	
+			return 0;
+		}
+		
+		num_tries++;
+		TIME_DELAY;
+	}
+
+	return 1;
+}
+
+int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte) 
+{
+  int num_tries = 0;
+  uint8_t status;
+
+  while(num_tries < MAX_TRIES)
+  {
+    num_tries++;
+	  if(util_sys_inb(KBC_ST_REG, &status)) continue;
+    if((status & KBC_OBF) == 0) continue;
+    if(util_sys_inb(KBC_OUT_BUF, acknowledgment_byte)) continue;
+
+    if((*acknowledgment_byte != MC_ACK) 
+    && (*acknowledgment_byte != MC_NACK) 
+    && (*acknowledgment_byte != MC_ERROR)) continue;
+
+    return 0;
+  }
+
+  return 1;
+}

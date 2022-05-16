@@ -9,6 +9,8 @@
         "time.h": "c",
         "i8254.h": "c",
         "stdbool.h": "c",
-        "lab4.h": "c"
-    }
+        "lab4.h": "c",
+        "i8042.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
