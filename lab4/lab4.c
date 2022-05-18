@@ -9,8 +9,6 @@
 
 // Any header files included below this line should have been created by you
 
-extern unsigned int counter_mouse;
-
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -40,9 +38,9 @@ int (mouse_test_packet)(uint32_t cnt) {
   uint8_t bit_no;
   int ipc_status, r;
   message msg;
-  counter_mouse = 0;
   uint8_t packets[3];
   struct packet pp;
+  uint8_t size = 1;
 
   /* Subscribing int */
   if( (r = mouse_subscribe_int(&bit_no)) ) {
@@ -55,7 +53,7 @@ int (mouse_test_packet)(uint32_t cnt) {
     return 1;
   }
 
-  do {
+  while(cnt>0) {
     /* Get a request message. */
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
       printf("driver_receive failed with: %d", r);
@@ -68,9 +66,10 @@ int (mouse_test_packet)(uint32_t cnt) {
             /* process it */
             mouse_ih();
 
-            if (counter_mouse%3==0) {
+            if (mouse_packet_complete(packets, &size)) {
               build_packet_struct(packets, &pp);
               cnt--;
+              size = 1;
               mouse_print_packet(&pp);
             }
           }
@@ -82,7 +81,7 @@ int (mouse_test_packet)(uint32_t cnt) {
         /* no standard messages expected: do nothing */
     }
     TIME_DELAY; // e.g. tickdelay()
-  } while (cnt>0); // while escape not released
+  }
 
   if (mouse_disable_data_rep()) {
     printf("Error enabling mouse data report\n");

@@ -36,13 +36,18 @@
 #define CMMD_B_WRITE  0x60
 #define ENABLE_INT    0x01
 
-/* KBC Command byte */
+/* KBC STATUS REGISTER byte */
 
 #define KBC_PAR_ERR   BIT(7)
 #define KBC_TO_ERR    BIT(6)
 #define KBC_AUX       BIT(5)
 #define KBC_IBF       BIT(1)
 #define KBC_OBF       BIT(0)
+
+/* KBC COMMAND BYTE */
+
+#define KBC_ENABLE_MOUSE_INT BIT(1)
+#define KBC_ENABLE_KBD_INT BIT(0)
 
 
 /* Mouse */
@@ -57,10 +62,6 @@
 #define Y_SIGN  BIT(5)
 #define X_OVF   BIT(6)
 #define Y_OVF   BIT(7)
-
-/* PS2 mode */
-#define AUX_DEV    BIT(5)
-#define PS2_TIME_OUT        BIT(6)
 
 //PS/2 Mouse Commands
 

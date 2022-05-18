@@ -137,19 +137,13 @@ int (kbc_issue_command_with_arg)(uint8_t cmd, uint8_t arg) {
 int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte) 
 {
   int num_tries = 0;
-  uint8_t status;
 
   while(num_tries < MAX_TRIES)
   {
     num_tries++;
-	  if(util_sys_inb(KBC_ST_REG, &status)) continue;
-    if((status & KBC_OBF) == 0) continue;
     if(util_sys_inb(KBC_OUT_BUF, acknowledgment_byte)) continue;
 
-    if((*acknowledgment_byte != MC_ACK) 
-    && (*acknowledgment_byte != MC_NACK) 
-    && (*acknowledgment_byte != MC_ERROR)) continue;
-
+    if((*acknowledgment_byte != MC_ACK) && (*acknowledgment_byte != MC_NACK) && (*acknowledgment_byte != MC_ERROR)) continue;
     return 0;
   }
 

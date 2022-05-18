@@ -7,7 +7,6 @@
 #include "i8042.h"
 
 int hook_id_mouse = 2;
-unsigned int counter_mouse;
 bool error;
 uint8_t packet;
 
@@ -28,8 +27,8 @@ int (mouse_unsubscribe_int)() {
     return 0;
 }
 
-void (mouse_enable_int)() {sys_irqenable(&hook_id_mouse);}
-void (mouse_disable_int)() {sys_irqdisable(&hook_id_mouse);}
+int (mouse_enable_int)() { return sys_irqenable(&hook_id_mouse);}
+int (mouse_disable_int)() { return sys_irqdisable(&hook_id_mouse);}
 
 int (mouse_issue_command)(uint8_t cmd) {
     uint8_t acknowledgment_byte = MC_NACK;
@@ -37,23 +36,60 @@ int (mouse_issue_command)(uint8_t cmd) {
 
     while(acknowledgment_byte == MC_NACK && num_tries < MAX_TRIES) 
     {
-        if(kbc_issue_command_with_arg(MC_WRITE, cmd)) return 1;
-        if(kbc_read_acknowledgment(&acknowledgment_byte)) return 1;
-        if(acknowledgment_byte == MC_ERROR) return 1;
+        if(kbc_issue_command_with_arg(MC_WRITE, cmd)) {
+            printf("Error issuing command with arg (kbc)");
+            return 1;
+        }
+        if(kbc_read_acknowledgment(&acknowledgment_byte)) {
+            printf("Error reading ack byte.");
+            return 1;
+        }
+        if(acknowledgment_byte == MC_ERROR) {
+            printf("Ack byte read error.");
+            return 1;
+        }
 
         num_tries++;
     }
-
     return acknowledgment_byte != MC_ACK;
 }
 
 int (mouse_set_stream_mode)()  { return mouse_issue_command(MC_SET_STREAM_MODE); }
-int (mouse_enable_data_rep)()  { return mouse_issue_command(MC_EN_DATA_REP); }
-int (mouse_disable_data_rep)() { return mouse_issue_command(MC_DIS_DATA_REP); }
+int (mouse_enable_data_rep)()  { 
+    if (mouse_disable_int()) {
+        printf("Error disabling interrupt");
+        return 1;
+    }
+    if (mouse_issue_command(MC_EN_DATA_REP)) {
+        printf("Error issuing command.");
+        return 1;
+    } 
+    if (mouse_enable_int()) {
+        printf("Error enabling interrupt");
+        return 1;
+    }
+    return 0;
+}
+
+int (mouse_disable_data_rep)() {
+    if (mouse_disable_int()) {
+        printf("Error disabling interrupt");
+        return 1;
+    }
+    if (mouse_issue_command(MC_DIS_DATA_REP)) {
+        printf("Error issuing command.");
+        return 1;
+    } 
+    if (mouse_enable_int()) {
+        printf("Error enabling interrupt");
+        return 1;
+    }
+    return 0;
+}
 
 void (mouse_ih)() {
-    uint8_t packet_b;
     uint8_t status;
+    error = false;
 
     if (util_sys_inb(KBC_ST_REG, &status)) {
       printf("Error reading status register.\n");
@@ -61,30 +97,38 @@ void (mouse_ih)() {
       return;
     }
 
-    if (util_sys_inb(KBC_OUT_BUF, &packet_b)) { /* read output buffer */
+    if (util_sys_inb(KBC_OUT_BUF, &packet)) { /* read output buffer */
         error = true;
         printf("Error reading output buffer.\n");
         return;
     }
 
-    if ( (status & (KBC_PAR_ERR | PS2_TIME_OUT)) && !(status & AUX_DEV)) {
+    if(!(status & KBC_AUX)) {
+        printf("Not Aux device data");
+        return;
+    }
+
+    if ( (status & (KBC_PAR_ERR | KBC_TO_ERR))) {
         error = true;
         printf("Error parity or timeout error.\n");
         return;
     } else error = false;
-
-    counter_mouse++;
-    packet = packet_b;
 }
 
 bool (mouse_packet_complete)(uint8_t packets[], uint8_t *size) {
-    if (error) return false;
-    if (*size==1 && !(packet & FIRST_PACKET)) return false;
+    if (error) {
+        printf("error\n");
+        return false;
+    }
+    if (*size==1 && !(packet & FIRST_PACKET)) {
+        printf("Not first packet");
+        return false;
+    }
 
     packets[(*size)-1] = packet;
     if(*size==3) return true;
     (*size)++;
-
+    printf("not complete\n");
     return false;
 }
 
@@ -104,13 +148,12 @@ int (build_packet_struct)(uint8_t packets[], struct packet *pp) {
     pp->y_ov = (packets[0] & Y_OVF);
 
     // Determines if x is negative
-    if (packets[0] & X_SIGN) pp->delta_x = (packets[1] | 0xFF00);
+    if (packets[0] & X_SIGN) pp->delta_x = -((packets[1] ^= 0xFF) + 1);
     else pp->delta_x = packets[1];
 
     // Determines if y is negative
-    if (packets[0] & Y_SIGN) pp->delta_y = (packets[2] | 0xFF00);
+    if (packets[0] & Y_SIGN) pp->delta_y = -((packets[2] ^= 0xFF) + 1);
     else pp->delta_y = packets[2];
 
     return 0;
 }
-

@@ -20,8 +20,8 @@ int (mouse_subscribe_int)(uint8_t *bit_no);
  */
 int (mouse_unsubscribe_int)();
 
-void (mouse_enable_int)();
-void (mouse_disable_int)();
+int (mouse_enable_int)();
+int (mouse_disable_int)();
 
 int (mouse_issue_command)(uint8_t cmd);
 
