@@ -33,7 +33,7 @@ int (mouse_issue_command)(uint8_t cmd) {
 
     while(acknowledgment_byte == MC_NACK && num_tries < MAX_TRIES) 
     {
-        if(kbc_issue_command_with_arg(cmd, MC_WRITE)) {
+        if(kbc_issue_command_with_arg(MC_WRITE, cmd)) {
             printf("Error issuing command with arg (kbc)");
             return 1;
         }

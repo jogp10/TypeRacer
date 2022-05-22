@@ -6,7 +6,7 @@ SRCS = lab4.c mouse.c kbd.c utils.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic
+CFLAGS += -pedantic -DALB4
 
 # list of library dependencies
 DPADD += ${LIBLCF}

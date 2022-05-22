@@ -99,7 +99,8 @@ int (kbc_issue_command)(uint8_t cmd)
 		// loops while 8042 input buffer is not empty
 		if( (status & KBC_IBF) == 0 ) 
     {	
-			sys_outb(KBC_IN_BUF, cmd);
+      uint8_t x = 0x64;
+			sys_outb(x, cmd);
 			return 0;
 		}
 		
@@ -123,7 +124,7 @@ int (kbc_issue_command_with_arg)(uint8_t cmd, uint8_t arg) {
 		if(util_sys_inb(KBC_ST_REG, &status)) return 1;
 		if((status & KBC_IBF) == 0)
     {	
-			sys_outb(KBC_IN_BUF, arg);	
+			sys_outb(CMMD_B_REG, arg);	
 			return 0;
 		}
 		
@@ -137,15 +138,20 @@ int (kbc_issue_command_with_arg)(uint8_t cmd, uint8_t arg) {
 int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte) 
 {
   int num_tries = 0;
+  uint8_t stat;
 
   while(num_tries < MAX_TRIES)
   {
+    TIME_DELAY;
     num_tries++;
-    if(util_sys_inb(KBC_OUT_BUF, acknowledgment_byte)) continue;
+    if((util_sys_inb(KBC_ST_REG, &stat))) continue;
+    if ( (stat & KBC_OBF)) continue;
 
-    if((*acknowledgment_byte != MC_ACK) && (*acknowledgment_byte != MC_NACK) && (*acknowledgment_byte != MC_ERROR)) continue;
+    if((util_sys_inb(KBC_OUT_BUF, acknowledgment_byte))) continue;
+
+    if (*acknowledgment_byte != MC_ACK && *acknowledgment_byte != MC_ACK && *acknowledgment_byte != MC_ERROR) continue;
+
     return 0;
   }
-
   return 1;
 }
