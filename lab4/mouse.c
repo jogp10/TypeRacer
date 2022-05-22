@@ -148,11 +148,11 @@ int (build_packet_struct)(uint8_t packets[], struct packet *pp) {
     pp->y_ov = (packets[0] & Y_OVF);
 
     // Determines if x is negative
-    if (packets[0] & X_SIGN) pp->delta_x = -((packets[1] ^= 0xFF) + 1);
+    if (packets[0] & X_SIGN) pp->delta_x = packets[1] - 256;
     else pp->delta_x = packets[1];
 
     // Determines if y is negative
-    if (packets[0] & Y_SIGN) pp->delta_y = -((packets[2] ^= 0xFF) + 1);
+    if (packets[0] & Y_SIGN) pp->delta_y = packets[2] - 256;
     else pp->delta_y = packets[2];
 
     return 0;
