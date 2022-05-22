@@ -123,7 +123,7 @@ int (kbc_issue_command_with_arg)(uint8_t arg) {
 		if(util_sys_inb(KBC_ST_REG, &status)) return 1;
 		if((status & KBC_IBF) == 0)
     {	
-			sys_outb(KBC_IN_BUF, arg);	
+			sys_outb(CMMD_B_REG, arg);	
 			return 0;
 		}
 		
@@ -150,6 +150,5 @@ int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte)
     TIME_DELAY;
     num_tries++;
   }
-
   return 1;
 }
