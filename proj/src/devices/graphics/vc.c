@@ -1,4 +1,3 @@
-#include <lcom/lcf.h>
 #include "vc.h"
 #include <math.h>
 #include <stdint.h>

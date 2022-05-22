@@ -8,6 +8,7 @@
         "stdint.h": "c",
         "time.h": "c",
         "i8254.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "lab5.h": "c"
     }
 }

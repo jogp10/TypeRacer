@@ -1,5 +1,3 @@
-#include <lcom/lcf.h>
-
 #include <stdint.h>
 #include "utils.h"
 

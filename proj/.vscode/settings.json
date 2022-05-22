@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "kbd.h": "c",
-        "i8042.h": "c"
-    }
-}

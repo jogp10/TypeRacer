@@ -1,4 +1,3 @@
-#include <lcom/lcf.h>
 #include "timer.h"
 #include <stdint.h>
 #include "i8254.h"

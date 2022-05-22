@@ -1,6 +1,7 @@
 #ifndef __TIMER_H
 #define __TIMER_H
 
+#include <lcom/lcf.h>
 #include <stdbool.h>
 #include <stdint.h>
 

@@ -1,6 +1,7 @@
 #ifndef __KBD_H
 #define __KBD_H
 
+#include <lcom/lcf.h>
 #include <stdbool.h>
 #include <stdint.h>
 

@@ -1,6 +1,7 @@
 #ifndef __VC_H
 #define __VC_H
 
+#include <lcom/lcf.h>
 #include <stdbool.h>
 #include <stdint.h>
 
