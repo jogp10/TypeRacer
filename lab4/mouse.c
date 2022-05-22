@@ -31,15 +31,26 @@ int (mouse_issue_command)(uint8_t cmd) {
     uint8_t acknowledgment_byte = MC_NACK;
     uint8_t num_tries = 0;
 
-    while(acknowledgment_byte == MC_NACK && num_tries < MAX_TRIES) 
+    while(num_tries < MAX_TRIES) 
     {
-        if(kbc_issue_command_with_arg(cmd, MC_WRITE)) {
+        if(kbc_issue_command(MC_WRITE)!=0) {
+            printf("Error issuing command with arg (kbc)");
+            return 1;
+        }
+
+
+        if(kbc_issue_command_with_arg(cmd)!=0) {
             printf("Error issuing command with arg (kbc)");
             return 1;
         }
         if(kbc_read_acknowledgment(&acknowledgment_byte)) {
             printf("Error reading ack byte.");
             return 1;
+        }
+        
+
+        if(acknowledgment_byte == MC_ACK) {
+            return 0;
         }
         if(acknowledgment_byte == MC_ERROR) {
             printf("Ack byte read error.");
@@ -48,12 +59,13 @@ int (mouse_issue_command)(uint8_t cmd) {
 
         num_tries++;
     }
-    return acknowledgment_byte != MC_ACK;
+    
+    return 1;
 }
 
 int (mouse_set_stream_mode)()  { return mouse_issue_command(MC_SET_STREAM_MODE); }
 int (mouse_enable_data_rep)()  { 
-    if (mouse_issue_command(MC_EN_DATA_REP)) {
+    if (mouse_issue_command(MC_EN_DATA_REP)!=0) {
         printf("Error issuing command.");
         return 1;
     } 
