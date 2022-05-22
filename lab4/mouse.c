@@ -27,16 +27,13 @@ int (mouse_unsubscribe_int)() {
     return 0;
 }
 
-int (mouse_enable_int)() { return sys_irqenable(&hook_id_mouse);}
-int (mouse_disable_int)() { return sys_irqdisable(&hook_id_mouse);}
-
 int (mouse_issue_command)(uint8_t cmd) {
     uint8_t acknowledgment_byte = MC_NACK;
     uint8_t num_tries = 0;
 
     while(acknowledgment_byte == MC_NACK && num_tries < MAX_TRIES) 
     {
-        if(kbc_issue_command_with_arg(MC_WRITE, cmd)) {
+        if(kbc_issue_command_with_arg(cmd, MC_WRITE)) {
             printf("Error issuing command with arg (kbc)");
             return 1;
         }
@@ -56,34 +53,18 @@ int (mouse_issue_command)(uint8_t cmd) {
 
 int (mouse_set_stream_mode)()  { return mouse_issue_command(MC_SET_STREAM_MODE); }
 int (mouse_enable_data_rep)()  { 
-    if (mouse_disable_int()) {
-        printf("Error disabling interrupt");
-        return 1;
-    }
     if (mouse_issue_command(MC_EN_DATA_REP)) {
         printf("Error issuing command.");
         return 1;
     } 
-    if (mouse_enable_int()) {
-        printf("Error enabling interrupt");
-        return 1;
-    }
     return 0;
 }
 
 int (mouse_disable_data_rep)() {
-    if (mouse_disable_int()) {
-        printf("Error disabling interrupt");
-        return 1;
-    }
     if (mouse_issue_command(MC_DIS_DATA_REP)) {
         printf("Error issuing command.");
         return 1;
     } 
-    if (mouse_enable_int()) {
-        printf("Error enabling interrupt");
-        return 1;
-    }
     return 0;
 }
 
