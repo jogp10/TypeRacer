@@ -48,10 +48,13 @@ int (mouse_test_packet)(uint32_t cnt) {
     return 1;
   }
 
+  mouse_enable_data_reporting();
+  /**
   if (mouse_enable_data_rep()) {
     printf("Error enabling mouse data report\n");
     return 1;
   }
+  */
 
   while(cnt>0) {
     /* Get a request message. */
@@ -84,7 +87,7 @@ int (mouse_test_packet)(uint32_t cnt) {
   }
 
   if (mouse_disable_data_rep()) {
-    printf("Error enabling mouse data report\n");
+    printf("Error disable mouse data report\n");
     return 1;
   }
 
