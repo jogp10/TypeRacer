@@ -1,6 +1,6 @@
 #include "devices/graphics/vc.h"
 #include "devices/kbd/kbd.h"
-#include "devices/timer/timer.h"
+#include <lcom/timer.h>
 #include "devices/utils/utils.h"
 
 
@@ -32,5 +32,6 @@ int main(int argc, char *argv[]) {
 int(proj_main_loop)(int argc, char* argv[])
 {
     /* your main loop code here */
+    printf("Start\n");
     return 0;
 }
