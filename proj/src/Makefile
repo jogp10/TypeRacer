@@ -4,6 +4,7 @@ PROG=proj
 # source code files to be compiled
 SRCS = proj.c vc.c kbd.c timer.c utils.c
 
+.PATH: ${.CURDIR}
 .PATH: ${.CURDIR}/devices/graphics
 .PATH: ${.CURDIR}/devices/kbd
 .PATH: ${.CURDIR}/devices/mouse
