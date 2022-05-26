@@ -139,7 +139,7 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   /** pixel address */
   uint8_t *pixel_add = (uint8_t *) video_mem + ((int) ceil(bits_per_pixel / 8.0) * (h_res*y + x) );
 
-  if ( (info.MemoryModel != DIRECT_COL_MODEL_1) && (info.MemoryModel != DIRECT_COL_MODEL_2)) {
+  if ((info.MemoryModel != DIRECT_COL_MODEL_1) && (info.MemoryModel != DIRECT_COL_MODEL_2)) {
     color &= 0xFFFF;
   } else color &= 0xFFFFFF;
   

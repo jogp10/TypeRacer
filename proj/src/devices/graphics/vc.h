@@ -42,9 +42,14 @@ int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info);
  */
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
 
+int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
+
+int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
+
 int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
 int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed);
+
 
 
 #endif /* __VC_H */
