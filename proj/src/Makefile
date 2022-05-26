@@ -13,7 +13,7 @@ SRCS = proj.c vc.c kbd.c timer.c utils.c game.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic
+CFLAGS += -pedantic -D__LCOM_OPTIMIZED__
 
 # list of library dependencies
 DPADD += ${LIBLCF}
