@@ -12,7 +12,7 @@ static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 
 int (vg_change_mode)(uint16_t mode) {
     // Information on mode
-    if (vbe_get_mode_info(mode, &info)) {
+    if (vbe_get_info_mode(mode, &info)) {
         printf("Error getting information on mode.\n");
         return 1;
     }
@@ -76,6 +76,43 @@ int (map_memory)() {
         return 1;
     }
     return 0;
+}
+
+int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info) {
+  reg86_t r;
+
+  /* Specify the appropriate register values */
+  memset(&r, 0, sizeof(r)); /* zero the stucture */
+
+  mmap_t mem_map;
+  if (lm_alloc(sizeof(vbe_mode_info_t), &mem_map) == NULL) {
+    printf("Failed to allocate mem, vc_get_mode_info.\n");
+    return 1;
+  }
+
+  r.intno = 0x10;     /* BIOS video services */
+  r.ax = 0x4F01;        /* VBE call */
+  r.cx = mode; /* Indexed Color Model, 8 bits per pixel */
+  r.es = PB2BASE(mem_map.phys); /* Pointer to ModeInfoBlock struct */
+  r.di = PB2OFF(mem_map.phys);
+
+
+  /* Make the BIOS call */
+  if (sys_int86(&r) != OK) {
+    printf("vc_get_mode_info: sys_int86() failed \n");
+    return 1;
+  }
+
+    /* Function not supported or succesful */
+  if (r.ah != 0x00 || r.al != 0x4F) {
+      printf("Error in function call.\n");
+      lm_free(&mem_map);
+      return 1;
+  }
+
+  *info = *(vbe_mode_info_t *)mem_map.virt;
+  lm_free(&mem_map);
+  return 0;
 }
 
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
