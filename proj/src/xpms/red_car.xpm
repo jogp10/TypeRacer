@@ -1,5 +1,5 @@
 /* XPM */
-static xpm_row_t red_car[] = {
+static xpm_row_t const red_car[] = {
 "436 292 27 1 ",
 "  c None",
 ". c black",

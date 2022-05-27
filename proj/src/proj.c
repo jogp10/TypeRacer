@@ -49,7 +49,7 @@ int(proj_main_loop)(int argc, char* argv[])
   counter_kbd = 0;
 
   /* Subscribing int */
-  if( (r = kbc_subscribe_int(&kb_bit_no)) ) {
+  if( (r = kbd_subscribe_int(&kb_bit_no)) ) {
     printf("Error subscribing kbc interrupt with: %d.\n", r);
     return 1;
   }  
@@ -80,9 +80,9 @@ int(proj_main_loop)(int argc, char* argv[])
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* subscribed interrupt */
             /* process it */
-            kbc_ih();
+            kbd_ih();
 
-            if( kbc_code_complete(scan_code, &size) ) {
+            if( kbd_code_complete(scan_code, &size) ) {
               kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
               size = 1;
             }
@@ -107,11 +107,11 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   if (timer_unsubscribe_int() != OK){
-    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    printf("Error unsubscribing timer interrupt with: %d.\n", r);
     return 1;
   }
 
-  if (kbc_unsubscribe_int() != OK){
+  if (kbd_unsubscribe_int() != OK){
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }

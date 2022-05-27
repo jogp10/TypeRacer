@@ -173,7 +173,7 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   xpm_image_t img;
   uint8_t *map;
   // get the pixmap from the XPM
-  map = xpm_load(xpm, XPM_INDEXED, &img);
+  map = xpm_load(xpm, XPM_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
