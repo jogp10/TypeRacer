@@ -1,24 +1,24 @@
 @lcflib.a:2019, lcf_start
   video_test_rectangle(mode, x, y, width, height, color)
 > video_test_rectangle(0x110, 0, 0, 600, 480, 0x000000f1 [241])
-  @vg.c:88, vbe_get_info_mode
+  @vg.c:83, vbe_get_info_mode
     lm_alloc(sizeof(vbe_mode_info_t), &mem_map)
   < lm_alloc(256, addr: 0xeffff518 [phys: 0x0008f000, virt: 0xefb8c000, size: 256 bytes]) -> (ret: 0xefb8c000)
-  @vg.c:101, vbe_get_info_mode
+  @vg.c:96, vbe_get_info_mode
     sys_int86(&r)
   > sys_int86(addr: 0xeffff528 [AX: 4f01, BX: 0000, CX: 0110, DX: 0000, ES: 8000, DI: f000])
   < sys_int86(addr: 0xeffff528 [AX: 004f, BX: 0000, CX: 0110, DX: 0000, ES: 8000, DI: f000]) -> (ret: 0)
   @vg.c:114, vbe_get_info_mode
     lm_free(&mem_map)
   < lm_free(addr: 0xeffff518 [phys: 0x0008f000, virt: 0xefb8c000, size: 256 bytes]) -> (ret: 1)
-  @vg.c:65, map_memory
+  @vg.c:61, map_memory
     sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
   > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff548 [0xe0000000 - 0xe004b000 <300 KiB>])
   < sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr) -> (ret: 0)
-  @vg.c:72, map_memory
+  @vg.c:67, map_memory
     vm_map_phys(SELF, (void *)mr.mr_base, vram_size)
   < vm_map_phys(SELF, addr: 0xe0000000, 300 KiB) -> (ret: 0xef9b0000)
-  @vg.c:38, vg_change_mode
+  @vg.c:35, vg_change_mode
     sys_int86(&r86)
   > sys_int86(addr: 0xeffff578 [AX: 4f02, BX: 4110, CX: 0000, DX: 0000, ES: 0000, DI: 0000])
   < sys_int86(addr: 0xeffff578 [AX: 004f, BX: 4110, CX: 0000, DX: 0000, ES: 0000, DI: 0000]) -> (ret: 0)
