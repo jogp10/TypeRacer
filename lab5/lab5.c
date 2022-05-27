@@ -135,7 +135,7 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   // draw pattern
   uint16_t width = info.XResolution / no_rectangles;
   uint16_t height = info.YResolution / no_rectangles;
-  uint32_t color = 1;
+  uint32_t color;
 
   for (int row = 0; row < no_rectangles; row++) {
     for (int col = 0; col < no_rectangles; col++) {
@@ -143,6 +143,10 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
       if (mode == INDEXED_COLOR) {
         color = (first + (row * no_rectangles + col) * step) % (1 << info.BitsPerPixel);
       } else {
+        uint8_t red = (R(first) + col * step) % (1 << info.RedMaskSize);
+        uint8_t green = (G(first) + row * step) % (1 << info.GreenMaskSize);
+        uint8_t blue = (B(first) + (col + row) * step) % (1 << info.BlueMaskSize);
+        color = (red << info.RedFieldPosition) | (green << info.GreenFieldPosition) | (blue << info.BlueFieldPosition);
       }
 
       if (vg_draw_rectangle(col * width, row * height, width, height, color) ) {
