@@ -1,53 +1,56 @@
-#include "vc.h"
+#include "vg.h"
+#include "vg_macros.h"
+
 #include <math.h>
 #include <stdint.h>
-#include "vc_macros.h"
 
-static void *video_mem;         /* frame-buffer VM address */
+static void *video_mem;         /* VBE information on input mode */
 
-static vbe_mode_info_t info;    /* VBE information on input mode */
-
+vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 
-int (vc_change_mode)(uint16_t mode) {
-  reg86_t r;
+int (vg_change_mode)(uint16_t mode) {
+    reg86_t r86;
+    
+    // Information on mode
+    if (vbe_get_info_mode(mode, &info)) {
+        printf("Error getting information on mode.\n");
+        return 1;
+    }
 
-  if (vc_get_mode_info(mode, &info)) {
-    printf("Error getting minix mode info.\n");
-    return 1;
-  }
+    // Map memory
+    if (map_memory()) {
+        printf("Error mapping memmory.\n");
+        return 1;
+    }
 
-  if (map_memory()) {
-    printf("Error mapping memmory.\n");
-    return 1;
-  }
+    // Change to video graphics mode
+    memset(&r86, 0, sizeof(r86));
 
-  /* Specify the appropriate register values */
-  memset(&r, 0, sizeof(r)); /* zero the stucture */
+    r86.intno = VBE_INT;
+    r86.ah = VBE_CALL;
+    r86.al = VBE_VG;
+    r86.bx = VBE_VIDEO | mode;
 
-  r.intno = 0x10;     /* BIOS video services */
-  r.ah = 0x4F;        /* VBE call */
-  r.al = 0x02;         /* Set VBE mode function */
-  r.bx = BIT(14) | mode; /* Indexed Color Model, 8 bits per pixel */
+    if (sys_int86(&r86)) {
+        printf("call to system error.\n");
+        return 1;
+    }
 
-  /* Make the BIOS call */
-  if (sys_int86(&r) != OK) {
-    printf("set_vbe_mode: sys_int86() failed \n");
-    return 1;
-  }
-
-  /* Function not supported or succesful */
-  if (r.ah != 0x00 || r.al != 0x4F) {
-      printf("Error in function call.\n");
-      return 1;
-  }
-
-  return 0;
+    if (r86.al != VBE_SUPPORTED) {
+        printf("VBE Function not supported.\n");
+        return 1;
+    }
+    if (r86.ah != VBE_SUCCESS) {
+        printf("VBE Function failed.\n");
+        return 1;
+    }
+    return 0;
 }
 
-int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info) {
+int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info) {
   reg86_t r;
 
   /* Specify the appropriate register values */
@@ -80,21 +83,20 @@ int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info) {
   }
 
   *info = *(vbe_mode_info_t *)mem_map.virt;
+
+  h_res = info.XResolution;
+  v_res = info.YResolution;
+  bits_per_pixel = info.BitsPerPixel;
+
   lm_free(&mem_map);
   return 0;
 }
 
 int (map_memory)() {
-  h_res = info.XResolution;
-  v_res = info.YResolution;
-  bits_per_pixel = info.BitsPerPixel;
-
   struct minix_mem_range mr;
   unsigned int vram_base = info.PhysBasePtr;
   unsigned int vram_size = h_res * v_res * ceil(bits_per_pixel / 8.0);
-
   int r;
-
 
   /* Allow memory mapping */
   mr.mr_base = (phys_bytes) vram_base;
@@ -116,13 +118,9 @@ int (map_memory)() {
 }
 
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
-  for (uint16_t j=0; j<height; j++) {
-    if (j + y >= v_res) {
-      printf("End of screen");
-      break; // end of screen
-    }
-    if (vg_draw_hline(x, y + j, width, color)) {
-      printf("Failed to draw line (%d, %d)", x, j);
+  for (uint16_t i=0; i<height; i++) {
+    if (vg_draw_hline(x, y + i, width, color)) {
+      printf("Failed to draw line (%d, %d)", x, y + i);
       return 1;
     }
   }
@@ -131,17 +129,10 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
-  if ( !(x < h_res && y < v_res)) {
-    printf("End of screen");
-    return 0;
-  }
+  if (x < 0 || x >= h_res || y >= v_res || y < 0 ) return 0;
 
   /** pixel address */
   uint8_t *pixel_add = (uint8_t *) video_mem + ((int) ceil(bits_per_pixel / 8.0) * (h_res*y + x) );
-
-  if ((info.MemoryModel != DIRECT_COL_MODEL_1) && (info.MemoryModel != DIRECT_COL_MODEL_2)) {
-    color &= 0xFFFF;
-  } else color &= 0xFFFFFF;
   
   uint8_t tmp;
 
@@ -156,10 +147,6 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
 
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   for (uint16_t i=0; i<len; i++) {
-    if (i + x > h_res) {
-      printf("End of screen");
-      break; // end of screen
-    }
     if (vg_draw_pixel(x + i,  y, color)) {
       printf("Failed to draw pixel (%d, %d)", i, y);
       return 1;
@@ -167,6 +154,10 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   }
   return 0;
 }
+
+uint8_t (R)(uint32_t color) {return color >> info.RedFieldPosition % BIT(info.RedMaskSize);}
+uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.GreenMaskSize);}
+uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
 
 int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
