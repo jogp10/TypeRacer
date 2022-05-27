@@ -26,5 +26,7 @@
 #define DIRECT_COLOR_MODEL_1 6
 #define DIRECT_COLOR_MODEL_2 7
 
+#define INDEXED_COLOR   0x105
+
 
 #endif /* _LCOM_VC_MACROS_H_ */

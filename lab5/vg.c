@@ -110,3 +110,7 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     
     return 0;
 }
+
+uint8_t (R)(uint32_t color) {return (color >> info.RedFieldPosition & (BIT(info.RedMaskSize) - 1));}
+uint8_t (G)(uint32_t color) {return (color >> info.GreenFieldPosition & (BIT(info.GreenMaskSize) - 1));}
+uint8_t (B)(uint32_t color) {return (color >> info.BlueFieldPosition & (BIT(info.BlueMaskSize) - 1));}
