@@ -1,7 +1,8 @@
 #include <lcom/lcf.h>
 #include <lcom/proj.h>
 
-#include "devices/graphics/vc.h"
+#include "devices/graphics/vg.h"
+#include "devices/graphics/vg_macros.h"
 #include "devices/kbc/kbd.h"
 #include "devices/kbc/i8042.h"
 #include <lcom/timer.h>
@@ -64,8 +65,21 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  if(vg_init_graphics() != OK ){
-    printf("%s: Error initializing graphics", __func__);
+  if (vg_change_mode(0x14c)) {
+    vg_exit();
+    printf("%s: Error initializing graphics mode.", __func__);
+    return 1;
+  }
+
+  if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+    vg_exit();
+    printf("%s: Error drawing rectangle", __func__);
+    return 1;
+  }
+
+  if (vg_draw_xpm(red_car, 10, 10)) {
+    vg_exit();
+    printf("%s: Error drawing rectangle", __func__);
     return 1;
   }
 
@@ -98,7 +112,7 @@ int(proj_main_loop)(int argc, char* argv[])
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
+    tickdelay(micros_to_ticks(DELAY_US)); // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
   if(vg_exit() != OK){

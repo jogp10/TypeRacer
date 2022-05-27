@@ -84,9 +84,9 @@ int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info) {
 
   *info = *(vbe_mode_info_t *)mem_map.virt;
 
-  h_res = info.XResolution;
-  v_res = info.YResolution;
-  bits_per_pixel = info.BitsPerPixel;
+  h_res = info->XResolution;
+  v_res = info->YResolution;
+  bits_per_pixel = info->BitsPerPixel;
 
   lm_free(&mem_map);
   return 0;
