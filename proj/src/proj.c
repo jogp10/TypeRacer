@@ -43,17 +43,26 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  uint8_t bit_no;
   int ipc_status, r;
   message msg;
   uint8_t scan_code[2], size=1;
   counter_kbd = 0;
 
   /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
+  if( (r = kbc_subscribe_int(&kb_bit_no)) ) {
     printf("Error subscribing kbc interrupt with: %d.\n", r);
     return 1;
   }  
+
+  if( (r = timer_subscribe_int(&timer_bit_no)) ) {
+    printf("Error subscribing timer interrupt with: %d.\n", r);
+    return 1;
+  }  
+
+  if (timer_set_frequency(0, 60)) {
+    printf("Error setting timer 0 frequency.\n");
+    return 1;
+  }
 
   do {
     /* Get a request message. */
@@ -64,7 +73,7 @@ int(proj_main_loop)(int argc, char* argv[])
     if (is_ipc_notify(ipc_status)) { /* received notification */
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */
-          if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
+          if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* subscribed interrupt */
             /* process it */
             kbc_ih();
 
@@ -72,6 +81,10 @@ int(proj_main_loop)(int argc, char* argv[])
               kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
               size = 1;
             }
+          }
+          if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
+            /* process it */
+            timer_int_handler();
           }
           break;
         default:
@@ -83,6 +96,10 @@ int(proj_main_loop)(int argc, char* argv[])
     TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
+  if (timer_unsubscribe_int() != OK){
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
 
   if (kbc_unsubscribe_int() != OK){
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
