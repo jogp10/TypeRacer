@@ -1,12 +1,16 @@
 // IMPORTANT: you must include the following line in all your C files
 #include <lcom/lcf.h>
 #include <lcom/lab5.h>
-#include "vc.h"
+
+#include "vg.h"
+#include "vg_macros.h"
+#include "kbd.h"
+#include "i8042.h"
 
 #include <stdint.h>
 #include <stdio.h>
 
-// Any header files included below this line should have been created by you
+extern uint8_t code;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -33,35 +37,84 @@ int main(int argc, char *argv[]) {
 }
 
 int(video_test_init)(uint16_t mode, uint8_t delay) {
-  /* To be completed */
-  printf("%s(0x%03x, %u): under construction\n", __func__, mode, delay);
-
-  // switch video adapter to graphics mode using VBE
-  if(vc_change_mode(mode)) {
-    printf("Error changing vc mode to %03x.\n", mode);
-    return 1;
-  };
-
-  // delay
-  tickdelay(micros_to_ticks(delay * 1000000));
-
-  // switch to default text mode
-  uint16_t text_mode;
-  if(vc_change_mode(text_mode)) {
-    printf("Error changing vc mode back to text (default mode).\n");
+  // change to graphics mode
+  if (vg_change_mode(mode)) {
+    printf("Error setting graphics mode.\n");
     return 1;
   }
 
+  // delay
+  TIME_DELAY(delay);
+
+  // change to default's text mode
+  if (vg_exit()) {
+    printf("Error returning default's Minix text mode.\n");
+    return 1;
+  }
   return 0;
 }
 
 int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
                           uint16_t width, uint16_t height, uint32_t color) {
-  /* To be completed */
-  printf("%s(0x%03X, %u, %u, %u, %u, 0x%08x): under construction\n",
-         __func__, mode, x, y, width, height, color);
+  uint8_t bit_no;
+  int ipc_status, r;
+  message msg;
+  uint8_t scan_code[2], size=1;
 
-  return 1;
+  // change to graphics mode
+  if (vg_change_mode(mode)) {
+    printf("Error setting graphics mode.\n");
+    return 1;
+  }
+
+  vg_draw_rectangle(x, y, width, height, color);
+
+    /* Subscribing int */
+  if( (r = kbc_subscribe_int(&bit_no)) ) {
+    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  do {
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */
+          if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
+            /* process it */
+            kbc_ih();
+
+            if( kbc_code_complete(scan_code, &size) ) {
+              size = 1;
+            }
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */
+      }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+  } while (code != ESC_BREAK); // while escape not released
+
+  /* Unsubscribing int */
+  if ( (r = kbc_unsubscribe_int()) ) {
+    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  
+
+  // change to default's text mode
+  if (vg_exit()) {
+    printf("Error returning default's Minix text mode.\n");
+    return 1;
+  }
+  return 0;
 }
 
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
@@ -94,4 +147,3 @@ int(video_test_controller)() {
 
   return 1;
 }
-
