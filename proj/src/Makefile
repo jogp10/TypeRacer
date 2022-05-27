@@ -6,14 +6,14 @@ SRCS = proj.c vc.c kbd.c timer.c utils.c game.c
 
 .PATH: ${.CURDIR}
 .PATH: ${.CURDIR}/devices/graphics
-.PATH: ${.CURDIR}/devices/kbd
+.PATH: ${.CURDIR}/devices/kbc
 .PATH: ${.CURDIR}/devices/mouse
 .PATH: ${.CURDIR}/devices/timer
 .PATH: ${.CURDIR}/devices/utils
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic -D__LCOM_OPTIMIZED__
+CFLAGS += -pedantic -D__LCOM_OPTIMIZED__ -Wunreachable-code
 
 # list of library dependencies
 DPADD += ${LIBLCF}

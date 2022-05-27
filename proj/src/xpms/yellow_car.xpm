@@ -1,6 +1,5 @@
 /* XPM */
-static char *_4eb3d8d18b345ef83ed5737fc377180xV9IHmEGk1wyu9eJ[] = {
-/* columns rows colors chars-per-pixel */
+static char yellow_car[] = {
 "417 272 21 1 ",
 "  c None",
 ". c black",
@@ -23,7 +22,6 @@ static char *_4eb3d8d18b345ef83ed5737fc377180xV9IHmEGk1wyu9eJ[] = {
 "< c #C3E5EB",
 "1 c gray92",
 "2 c white",
-/* pixels */
 "                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
 "                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
 "                                                                                                                                                                                                                                                                                                                                                                                                                                 ",

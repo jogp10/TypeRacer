@@ -1,4 +1,6 @@
+#include <lcom/lcf.h>
 #include "kbd.h"
+
 #include "i8042.h"
 
 unsigned int counter_kbd;

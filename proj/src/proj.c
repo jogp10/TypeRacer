@@ -1,11 +1,17 @@
+#include <lcom/lcf.h>
+#include <lcom/proj.h>
+
 #include "devices/graphics/vc.h"
-#include "devices/kbd/kbd.h"
+#include "devices/kbc/kbd.h"
+#include "devices/kbc/i8042.h"
 #include <lcom/timer.h>
-#include "devices/utils/utils.h"
-#include <unistd.h>
-#include "devices/kbd/i8042.h"
 #include "devices/timer/i8254.h"
+#include "devices/utils/utils.h"
+
 #include "game.h"
+#include "xpms/xpm.h"
+
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -37,12 +43,6 @@ extern uint8_t code;
 
 int(proj_main_loop)(int argc, char* argv[])
 { 
-
-  if(vg_init_graphics() != OK ){
-    printf("%s: Error initializing graphics", __func__);
-    return 1;
-  }
-
   int ipc_status, r;
   message msg;
   uint8_t scan_code[2], size=1;
@@ -61,6 +61,11 @@ int(proj_main_loop)(int argc, char* argv[])
 
   if (timer_set_frequency(0, 60)) {
     printf("Error setting timer 0 frequency.\n");
+    return 1;
+  }
+
+  if(vg_init_graphics() != OK ){
+    printf("%s: Error initializing graphics", __func__);
     return 1;
   }
 
@@ -96,6 +101,11 @@ int(proj_main_loop)(int argc, char* argv[])
     TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
+  if(vg_exit() != OK){
+    printf("%s: Error exiting graphics mode.", __func__);
+    return 1;
+  }
+
   if (timer_unsubscribe_int() != OK){
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
@@ -103,11 +113,6 @@ int(proj_main_loop)(int argc, char* argv[])
 
   if (kbc_unsubscribe_int() != OK){
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
-    return 1;
-  }
-
-  if(vg_exit() != OK){
-    printf("%s: Error exiting graphics mode.", __func__);
     return 1;
   }
 

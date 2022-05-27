@@ -9,6 +9,7 @@
         "time.h": "c",
         "i8254.h": "c",
         "stdbool.h": "c",
-        "lab5.h": "c"
+        "lab5.h": "c",
+        "proj.h": "c"
     }
 }

@@ -1,6 +1,5 @@
 /* XPM */
-static char *_4716794085d47e9c3c4fb1da39e589at9fHUcEM85TzDkRc[] = {
-/* columns rows colors chars-per-pixel */
+static xpm_row_t red_car[] = {
 "436 292 27 1 ",
 "  c None",
 ". c black",
@@ -29,7 +28,6 @@ static char *_4716794085d47e9c3c4fb1da39e589at9fHUcEM85TzDkRc[] = {
 "6 c #C3E5EB",
 "7 c gray92",
 "8 c white",
-/* pixels */
 "                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
 "                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
 "                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
