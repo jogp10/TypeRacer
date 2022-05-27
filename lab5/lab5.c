@@ -11,7 +11,6 @@
 #include <stdio.h>
 
 extern uint8_t code;
-extern vbe_mode_info_t info;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -63,6 +62,13 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
   message msg;
   uint8_t scan_code[2], size=1;
 
+   /* Subscribing int */
+  if( (r = kbc_subscribe_int(&bit_no)) ) {
+    vg_exit();
+    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    return 1;
+  }
+
   // change to graphics mode
   if (vg_change_mode(mode)) {
     vg_exit();
@@ -70,12 +76,9 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
     return 1;
   }
 
-  vg_draw_rectangle(x, y, width, height, color);
-
-    /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
+  if (vg_draw_rectangle(x, y, width, height, color)) {
     vg_exit();
-    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    printf("Erro drawing rectangle");
     return 1;
   }
 
@@ -125,12 +128,15 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   int ipc_status, r;
   message msg;
   uint8_t scan_code[2], size=1;
+  vbe_mode_info_t info;
 
   // change to graphics mode
   if (vg_change_mode(mode)) {
     printf("Error setting graphics mode.\n");
     return 1;
   }
+
+  vbe_get_info_mode(mode, &info);
 
   // draw pattern
   uint16_t width = info.XResolution / no_rectangles;

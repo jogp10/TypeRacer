@@ -3,14 +3,16 @@
 
 #include <math.h>
 
-static void *video_mem;
+static void *video_mem;         /* VBE information on input mode */
 
-vbe_mode_info_t info;
+vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 
 int (vg_change_mode)(uint16_t mode) {
+    reg86_t r86;
+    
     // Information on mode
     if (vbe_get_info_mode(mode, &info)) {
         printf("Error getting information on mode.\n");
@@ -24,7 +26,6 @@ int (vg_change_mode)(uint16_t mode) {
     }
 
     // Change to video graphics mode
-    reg86_t r86;
     memset(&r86, 0, sizeof(r86));
 
     r86.intno = VBE_INT;
@@ -51,7 +52,7 @@ int (vg_change_mode)(uint16_t mode) {
 int (map_memory)() {
     struct minix_mem_range mr;
     unsigned int vram_base = info.PhysBasePtr;
-    unsigned int vram_size = v_res * h_res * (ceil(bits_per_pixel / 8));
+    unsigned int vram_size = v_res * h_res * (bits_per_pixel / 8);
     int r;
 
     /* Allow memory mapping */
