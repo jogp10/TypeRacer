@@ -18,9 +18,9 @@ int (kbc_subscribe_int)(uint8_t *bit_no) {
   return 0;
 }
 
-int (kbc_unsubscribe_int)() {
+int (kbc_unsubscribe_int)(uint8_t *bit_no) {
   if(sys_irqrmpolicy(&hook_id_kbd)) {
-    printf("Error unsubscribing kbc interruption.\n");
+    printf("Error unsubscribing timer interruption.\n");
     return 1;
   };
   return 0;

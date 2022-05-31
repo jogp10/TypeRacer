@@ -134,3 +134,5 @@ int (mouse_enable_data_reporting)(void);
  */
 
 uint8_t (minix_get_dflt_kbc_cmd_byte)(void);
+
+
