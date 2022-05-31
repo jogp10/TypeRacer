@@ -77,11 +77,6 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  if (vg_draw_xpm(red_car, 10, 10)) {
-    vg_exit();
-    printf("%s: Error drawing rectangle", __func__);
-    return 1;
-  }
 
   do {
     /* Get a request message. */

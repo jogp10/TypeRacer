@@ -28,6 +28,6 @@
 
 #define INDEXED_COLOR   0x105
 
+#define MODE1 0x105
 
 #endif /* _LCOM_VC_MACROS_H_ */
-

@@ -11,9 +11,6 @@
 
 #define KBD_IRQ       1 /**< @brief Keyboard IRQ line */
 
-#define DELAY_US      2000
-#define TIME_DELAY    tickdelay(micros_to_ticks(DELAY_US))
-
 /* Makecodes and Breakcodes */
 
 #define ESC_MAKE      0x01

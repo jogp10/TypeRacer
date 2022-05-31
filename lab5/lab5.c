@@ -1,22 +1,19 @@
 // IMPORTANT: you must include the following line in all your C files
 #include <lcom/lcf.h>
 #include <lcom/lab5.h>
-#include "vc.h"
-#include "kbd.h"
-#include "timer.c"
 
-#include "i8254.h"
+#include "vg.h"
+#include "vg_macros.h"
+#include "kbd.h"
 #include "i8042.h"
-#include "vc_macros.h"
+#include "timer.h"
+#include "i8254.h"
 
 #include <stdint.h>
 #include <stdio.h>
 
-extern unsigned int counter_kbd;
-extern unsigned int counter_timer;
 extern uint8_t code;
-
-// Any header files included below this line should have been created by you
+extern unsigned int counter_timer, counter_kbd;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -43,20 +40,19 @@ int main(int argc, char *argv[]) {
 }
 
 int(video_test_init)(uint16_t mode, uint8_t delay) {
-
-  // switch video adapter to graphics mode using VBE
-  if(vc_change_mode(mode)) {
-    printf("Error changing vc mode to %03x.\n", mode);
+  // change to graphics mode
+  if (vg_change_mode(mode)) {
     vg_exit();
+    printf("Error setting graphics mode.\n");
     return 1;
-  };
+  }
 
   // delay
-  tickdelay(micros_to_ticks(TO_SEC(delay)));
+  TIME_DELAY(delay);
 
-  // switch to default text mode
-  if(vg_exit()) {
-    printf("Error changing vc mode back to text (default mode).\n");
+  // change to default's text mode
+  if (vg_exit()) {
+    printf("Error returning default's Minix text mode.\n");
     return 1;
   }
   return 0;
@@ -68,24 +64,24 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
   int ipc_status, r;
   message msg;
   uint8_t scan_code[2], size=1;
-  counter_kbd = 0;
 
-  // switch video adapter to graphics mode using VBE
-  if(vc_change_mode(mode)) {
+   /* Subscribing int */
+  if( (r = kbc_subscribe_int(&bit_no)) ) {
     vg_exit();
-    printf("Error changing vc mode to %03x.\n", mode);
+    printf("Error subscribing kbc interrupt with: %d.\n", r);
     return 1;
-  };
+  }
+
+  // change to graphics mode
+  if (vg_change_mode(mode)) {
+    vg_exit();
+    printf("Error setting graphics mode.\n");
+    return 1;
+  }
 
   if (vg_draw_rectangle(x, y, width, height, color)) {
     vg_exit();
-    printf("Error drawing rectangle.\n");
-    return 1;
-  };
-
-    /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
-    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    printf("Erro drawing rectangle");
     return 1;
   }
 
@@ -113,71 +109,62 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
-    /* Unsubscribing int */
+  /* Unsubscribing int */
   if ( (r = kbc_unsubscribe_int()) ) {
+    vg_exit();
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
 
-  // switch to default text mode
-  if(vg_exit()) {
-    printf("Error changing vc mode back to text (default mode).\n");
+  // change to default's text mode
+  if (vg_exit()) {
+    printf("Error returning default's Minix text mode.\n");
     return 1;
   }
   return 0;
 }
 
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
-  
   uint8_t bit_no;
   int ipc_status, r;
   message msg;
   uint8_t scan_code[2], size=1;
-  counter_kbd = 0;
-
-  // switch video adapter to graphics mode using VBE
-  if(vc_change_mode(mode)) {
-    vg_exit();
-    printf("Error changing vc mode to %03x.\n", mode);
-    return 1;
-  };
-
   vbe_mode_info_t info;
-  vc_get_mode_info(mode, &info);
 
-  /** Rectangle size */
+  // change to graphics mode
+  if (vg_change_mode(mode)) {
+    printf("Error setting graphics mode.\n");
+    return 1;
+  }
+
+  vbe_get_info_mode(mode, &info);
+
+  // draw pattern
   uint16_t width = info.XResolution / no_rectangles;
   uint16_t height = info.YResolution / no_rectangles;
   uint32_t color;
 
-  for (uint r = 0; r < no_rectangles; r++) {
-    for (uint c = 0; c < no_rectangles; c++) {
+  for (int row = 0; row < no_rectangles; row++) {
+    for (int col = 0; col < no_rectangles; col++) {
 
       if (mode == INDEXED_COLOR) {
-        color = (first + (r * no_rectangles + c) * step) % (1 << info.BitsPerPixel);
+        color = (first + (row * no_rectangles + col) * step) % (1 << info.BitsPerPixel);
       } else {
-          uint8_t red_first = first >> info.RedFieldPosition & (BIT(info.RedMaskSize) -1);
-          uint8_t green_first = first >> info.GreenFieldPosition & (BIT(info.GreenMaskSize) -1);
-          uint8_t blue_first = first >> info.BlueFieldPosition & (BIT(info.BlueMaskSize) -1);
-
-          uint8_t red = (red_first + c*step) % BIT(info.RedMaskSize);
-          uint8_t green = (green_first + r*step) % BIT(info.GreenMaskSize);
-          uint8_t blue = (blue_first + (c+r)*step) % BIT(info.BlueMaskSize);
-
-          color = (red << info.RedFieldPosition) | (green << info.GreenFieldPosition) | (blue << info.BlueFieldPosition);
+        uint8_t red = (R(first) + col * step) % (1 << info.RedMaskSize);
+        uint8_t green = (G(first) + row * step) % (1 << info.GreenMaskSize);
+        uint8_t blue = (B(first) + (col + row) * step) % (1 << info.BlueMaskSize);
+        color = (red << info.RedFieldPosition) | (green << info.GreenFieldPosition) | (blue << info.BlueFieldPosition);
       }
 
-      if (vg_draw_rectangle(c * width, r*height, width, height, color)) {
+      if (vg_draw_rectangle(col * width, row * height, width, height, color) ) {
         vg_exit();
-        printf("Failed to draw rectangle at (%d, %d)", c*width, r*height);
+        printf("Error drawing rectangle.\n");
         return 1;
-      };
+      }
     }
   }
-
 
     /* Subscribing int */
   if( (r = kbc_subscribe_int(&bit_no)) ) {
@@ -210,19 +197,18 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
-    /* Unsubscribing int */
+  /* Unsubscribing int */
   if ( (r = kbc_unsubscribe_int()) ) {
     vg_exit();
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
 
-  // switch to default text mode
-  if(vg_exit()) {
-    printf("Error changing vc mode back to text (default mode).\n");
+  // change to default's text mode
+  if (vg_exit()) {
+    printf("Error returning default's Minix text mode.\n");
     return 1;
   }
   return 0;
@@ -237,7 +223,7 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
 
   // switch video adapter to graphics mode using VBE
-  if(vc_change_mode(MODE1)) {
+  if(vg_change_mode(MODE1)) {
     printf("Error changing vc mode to %03x.\n", MODE1);
     vg_exit();
     return 1;
@@ -279,7 +265,6 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
 
@@ -299,6 +284,7 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   return 0;
 }
 
+
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
   uint8_t bit_no_kbd, bit_no_t;
@@ -310,7 +296,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   uint16_t x = xi, y = yi;
 
   // switch video adapter to graphics mode using VBE
-  if(vc_change_mode(MODE1)) {
+  if(vg_change_mode(MODE1)) {
     printf("Error changing vc mode to %03x.\n", MODE1);
     vg_exit();
     return 1;
@@ -373,7 +359,6 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */

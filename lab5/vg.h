@@ -1,8 +1,4 @@
-#ifndef __VC_H
-#define __VC_H
-
-#include <stdbool.h>
-#include <stdint.h>
+#include <lcom/lcf.h>
 
 /**
  * @brief 
@@ -11,7 +7,7 @@
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (vc_change_mode)(uint16_t mode);
+int (vg_change_mode)(uint16_t mode);
 
 /**
  * @brief 
@@ -28,7 +24,18 @@ int (map_memory)();
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (vc_get_mode_info)(uint16_t mode, vbe_mode_info_t *info);
+int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info);
+
+int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
+
+int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t width, uint32_t color);
+
+int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
+
+uint8_t (R)(uint32_t color);
+uint8_t (G)(uint32_t color);
+uint8_t (B)(uint32_t color);
+
 
 /**
  * @brief 
@@ -45,5 +52,3 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
 int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed);
 
-
-#endif /* __VC_H */
