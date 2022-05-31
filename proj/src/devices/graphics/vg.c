@@ -159,7 +159,7 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   xpm_image_t img;
   // get the pixmap from the XPM
-  uint8_t *map = xpm_load(xpm, XPM_8_8_8, &img);
+  uint8_t *map = xpm_load(xpm, XPM_8_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
@@ -168,13 +168,12 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     return 1;
   }
 
-  unsigned int index = 0;
 
-  for (unsigned int i=0; i<img.height; i++) {
-    for (unsigned int j=0; j<img.width; j++) {
-      uint32_t color = map[index];
-      index++;
-      vg_draw_pixel(x + j, y + i, color);
+  for (unsigned int i=0; i<img.width; i++) {
+    for (unsigned int j=0; j<img.height; j++) {
+      uint32_t color;
+      memcpy(&color, map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0), ceil(bits_per_pixel / 8.0));
+      vg_draw_pixel(x + i, y + j, color);
     }
   }
 
@@ -186,7 +185,7 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   xpm_image_t img;
   uint8_t *map;
   // get the pixmap from the XPM
-  map = xpm_load(xpm, XPM_8_8_8, &img);
+  map = xpm_load(xpm, XPM_8_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
