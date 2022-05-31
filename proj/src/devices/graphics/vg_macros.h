@@ -13,7 +13,6 @@
 /**@}*/
 
 #define TO_SECONDS(n)   n * 1000000
-#define TIME_DELAY(delay)    tickdelay(micros_to_ticks(TO_SECONDS(delay)))
 
 #define VBE_INT         0x10
 #define VBE_CALL        0x4F

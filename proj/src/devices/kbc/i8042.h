@@ -13,6 +13,7 @@
 #define MOUSE_IRQ     12 /**< @brief Mouse IRQ line */
 
 #define DELAY_US      2000
+#define TIME_DELAY    tickdelay(micros_to_ticks(DELAY_US))
 #define MAX_TRIES      5
 
 /* Makecodes and Breakcodes */

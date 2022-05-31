@@ -142,7 +142,7 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     uint8_t *pixel = (uint8_t *) video_mem + (( (y * h_res) + x ) * (int) ceil(bits_per_pixel / 8.0));
 
     for (int i = 0; i < (int) ceil(bits_per_pixel / 8.0); i++) {
-        *pixel = color;
+        *pixel = color & 0xFF;
         color >>= 8;
         pixel++;
     }
@@ -159,7 +159,7 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   xpm_image_t img;
   // get the pixmap from the XPM
-  uint8_t *map = xpm_load(xpm, XPM_8_8_8_8, &img);
+  uint8_t *map = xpm_load(xpm, XPM_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
@@ -186,7 +186,7 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   xpm_image_t img;
   uint8_t *map;
   // get the pixmap from the XPM
-  map = xpm_load(xpm, XPM_8_8_8_8, &img);
+  map = xpm_load(xpm, XPM_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){

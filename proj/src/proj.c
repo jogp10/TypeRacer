@@ -76,16 +76,21 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-
-  if (vg_change_mode(0x14c)) {
+  if (vg_change_mode(0x115)) {
     vg_exit();
     printf("%s: Error initializing graphics mode.", __func__);
     return 1;
   }
 
-  if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+  if(vg_draw_rectangle(0, 0, 800, 600, 0x1F)){
     vg_exit();
     printf("%s: Error drawing rectangle", __func__);
+    return 1;
+  }
+
+  if(vg_draw_xpm(minix3_xpm, 10, 10)){
+    vg_exit();
+    printf("%s: Error drawing xpm", __func__);
     return 1;
   }
 

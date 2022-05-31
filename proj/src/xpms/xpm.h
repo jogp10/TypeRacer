@@ -3,9 +3,9 @@
 
 
 /** Vehicles **/
-#include "red_car.xpm"
-#include "yellow_car.xpm"
-#include "pikachu.xpm"
+#include "red_car.h"
+#include "yellow_car.h"
+#include "pikachu.h"
 
 /** Leaderboard **/
 
