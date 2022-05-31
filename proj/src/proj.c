@@ -2,10 +2,11 @@
 #include <lcom/proj.h>
 
 #include "devices/graphics/vg.h"
-#include "devices/graphics/vg_macros.h"
 #include "devices/kbc/kbd.h"
-#include "devices/kbc/i8042.h"
+#include "devices/kbc/mouse.h"
 #include <lcom/timer.h>
+#include "devices/graphics/vg_macros.h"
+#include "devices/kbc/i8042.h"
 #include "devices/timer/i8254.h"
 #include "devices/utils/utils.h"
 
@@ -46,8 +47,13 @@ int(proj_main_loop)(int argc, char* argv[])
 { 
   int ipc_status, r;
   message msg;
-  uint8_t scan_code[2], size=1;
+  uint8_t scan_code[2], size_kbd=1;
   counter_kbd = 0;
+  counter_timer = 0;
+  uint8_t packets[3];
+  struct packet pp;
+  uint8_t size_mouse = 1;
+
 
   /* Subscribing int */
   if( (r = kbd_subscribe_int(&kb_bit_no)) ) {
@@ -60,10 +66,16 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }  
 
+  if( (r = mouse_subscribe_int(&mouse_bit_no)) ) {
+    printf("Error subscribing mouse interrupt with: %d.\n", r);
+    return 1;
+  } 
+
   if (timer_set_frequency(0, 60)) {
     printf("Error setting timer 0 frequency.\n");
     return 1;
   }
+
 
   if (vg_change_mode(0x14c)) {
     vg_exit();
@@ -76,7 +88,6 @@ int(proj_main_loop)(int argc, char* argv[])
     printf("%s: Error drawing rectangle", __func__);
     return 1;
   }
-
 
   do {
     /* Get a request message. */
@@ -91,14 +102,24 @@ int(proj_main_loop)(int argc, char* argv[])
             /* process it */
             kbd_ih();
 
-            if( kbd_code_complete(scan_code, &size) ) {
-              kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
-              size = 1;
+            if( kbd_code_complete(scan_code, &size_kbd) ) {
+              kbd_print_scancode( !(code & MAKE_CODE), size_kbd, scan_code);
+              size_kbd = 1;
             }
           }
           if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
             /* process it */
             timer_int_handler();
+          }
+          if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
+            mouse_ih();
+
+            if (mouse_packet_complete(packets, &size_mouse)) {
+              build_packet_struct(packets, &pp);
+              size_mouse = 1;
+              mouse_print_packet(&pp);
+            }
+
           }
           break;
         default:
@@ -110,17 +131,22 @@ int(proj_main_loop)(int argc, char* argv[])
     tickdelay(micros_to_ticks(DELAY_US)); // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
-  if(vg_exit() != OK){
+  if(vg_exit()){
     printf("%s: Error exiting graphics mode.", __func__);
     return 1;
   }
 
-  if (timer_unsubscribe_int() != OK){
+  if (mouse_unsubscribe_int()){
+    printf("Error unsubscribing mouse interrupt with: %d.\n", r);
+    return 1;
+  }
+
+  if (timer_unsubscribe_int()){
     printf("Error unsubscribing timer interrupt with: %d.\n", r);
     return 1;
   }
 
-  if (kbd_unsubscribe_int() != OK){
+  if (kbd_unsubscribe_int()){
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }

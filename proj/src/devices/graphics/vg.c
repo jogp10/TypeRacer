@@ -158,17 +158,17 @@ uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.B
 int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   xpm_image_t img;
-  uint8_t *map;
   // get the pixmap from the XPM
-  map = xpm_load(xpm, XPM_INDEXED, &img);
+  uint8_t *map = xpm_load(xpm, XPM_8_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
+    vg_exit();
     printf("Error getting pixmap.\n");
     return 1;
   }
 
-  uint index = 0;
+  unsigned int index = 0;
 
   for (unsigned int i=0; i<img.height; i++) {
     for (unsigned int j=0; j<img.width; j++) {
@@ -186,7 +186,7 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   xpm_image_t img;
   uint8_t *map;
   // get the pixmap from the XPM
-  map = xpm_load(xpm, XPM_INDEXED, &img);
+  map = xpm_load(xpm, XPM_8_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
@@ -194,7 +194,7 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     return 1;
   }
 
-  uint index = 0;
+  unsigned int index = 0;
 
   for (unsigned int i=0; i<img.height; i++) {
     for (unsigned int j=0; j<img.width; j++) {

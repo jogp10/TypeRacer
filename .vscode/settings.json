@@ -11,6 +11,7 @@
         "stdbool.h": "c",
         "lab5.h": "c",
         "proj.h": "c",
-        "*.xpm": "c"
+        "*.xpm": "c",
+        "i8042.h": "c"
     }
 }

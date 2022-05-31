@@ -2,12 +2,11 @@
 PROG=proj
 
 # source code files to be compiled
-SRCS = proj.c vg.c kbd.c timer.c utils.c game.c
+SRCS = proj.c vg.c kbd.c timer.c utils.c game.c mouse.c
 
 .PATH: ${.CURDIR}
 .PATH: ${.CURDIR}/devices/graphics
 .PATH: ${.CURDIR}/devices/kbc
-.PATH: ${.CURDIR}/devices/mouse
 .PATH: ${.CURDIR}/devices/timer
 .PATH: ${.CURDIR}/devices/utils
 

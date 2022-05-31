@@ -41,5 +41,8 @@ bool(kbd_code_complete)(uint8_t scan_code[], uint8_t *size);
  */
 int(kbd_reenable_int)();
 
-#endif /* __KBD_H */
+int (kbc_issue_command)(uint8_t cmd);
+int (kbc_issue_command_with_arg)(uint8_t arg);
+int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte);
 
+#endif /* __KBD_H */
