@@ -88,12 +88,6 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  if(vg_draw_xpm(minix3_xpm, 10, 10)){
-    vg_exit();
-    printf("%s: Error drawing xpm", __func__);
-    return 1;
-  }
-
   do {
     /* Get a request message. */
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {

@@ -5,7 +5,7 @@
 #include <stdint.h>
 
 extern unsigned int counter_timer;
-
+/*
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
   lcf_cleanup();
 
   return 0;
-}
+}*/
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
   uint8_t status;

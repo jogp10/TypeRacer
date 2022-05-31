@@ -8,7 +8,7 @@
 #include "mouse.h"
 
 // Any header files included below this line should have been created by you
-
+/*
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
   lcf_cleanup();
 
   return 0;
-}
+}*/
 
 
 int (mouse_test_packet)(uint32_t cnt) {
@@ -86,7 +86,7 @@ int (mouse_test_packet)(uint32_t cnt) {
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
+    TIME_DELAY(DELAY_US); // e.g. tickdelay()
   }
 
   if (mouse_disable_data_rep()) {

@@ -4,7 +4,7 @@
 #include <stdint.h>
 //#include "keyboard.h"
 #include "../utils/utils.h"
-#include "../kbd/i8042.h"
+#include "i8042.h"
 
 /** @defgroup lab3 lab3
  * @{

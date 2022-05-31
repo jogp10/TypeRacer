@@ -104,7 +104,7 @@ int (kbc_issue_command)(uint8_t cmd)
 		}
 		
 		num_tries++;
-		TIME_DELAY;
+		TIME_DELAY(DELAY_US);
 	}
 
 	return 1;
@@ -128,7 +128,7 @@ int (kbc_issue_command_with_arg)(uint8_t arg) {
 		}
 		
 		num_tries++;
-		TIME_DELAY;
+		TIME_DELAY(DELAY_US);
 	}
 
 	return 1;
@@ -147,7 +147,7 @@ int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte)
       if((util_sys_inb(KBC_OUT_BUF, acknowledgment_byte))!=0) return 1;
       else return 0;
     }
-    TIME_DELAY;
+    TIME_DELAY(DELAY_US);
     num_tries++;
   }
   return 1;

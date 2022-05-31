@@ -2,7 +2,7 @@
 PROG=proj
 
 # source code files to be compiled
-SRCS = proj.c vg.c kbd.c timer.c utils.c game.c mouse.c
+SRCS = proj.c vg.c kbd.c mouse.c timer.c utils.c game.c
 
 .PATH: ${.CURDIR}
 .PATH: ${.CURDIR}/devices/graphics

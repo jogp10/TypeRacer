@@ -1,14 +1,14 @@
 #include <lcom/lcf.h>
 #include <lcom/lab3.h>
-#include "../kbd/kbd.h"
-#include "../timer/timer.h"
+#include "kbd.h"
+#include <lcom/timer.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include "../kbd/i8042.h"
+#include "i8042.h"
 
 extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
-
+/*
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
   lcf_cleanup();
 
   return 0;
-}
+}*/
 
 int(kbd_test_scan)() {
   uint8_t bit_no;
@@ -41,7 +41,7 @@ int(kbd_test_scan)() {
   counter_kbd = 0;
 
   /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
+  if( (r = kbd_subscribe_int(&bit_no)) ) {
     printf("Error subscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
@@ -57,9 +57,9 @@ int(kbd_test_scan)() {
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
             /* process it */
-            kbc_ih();
+            kbd_ih();
 
-            if( kbc_code_complete(scan_code, &size) ) {
+            if( kbd_code_complete(scan_code, &size) ) {
               kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
               size = 1;
             }
@@ -71,11 +71,11 @@ int(kbd_test_scan)() {
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
+    TIME_DELAY(DELAY_US); // e.g. tickdelay()
   } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */
-  if ( (r = kbc_unsubscribe_int()) ) {
+  if ( (r = kbd_unsubscribe_int()) ) {
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
@@ -96,17 +96,17 @@ int(kbd_test_poll)() {
   counter_kbd = 0, counter_timer = 0;
 
   while(code != ESC_BREAK) {
-    kbc_ih();
+    kbd_ih();
 
-    if( kbc_code_complete(scan_code, &size) ) {
+    if( kbd_code_complete(scan_code, &size) ) {
       kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
       size = 1;
     }
 
-    TIME_DELAY;
+    TIME_DELAY(DELAY_US);
   }
 
-  if (kbc_reenable_int()) {
+  if (kbd_reenable_int()) {
     printf("Error reenabling kbc interrupts.\n");
     return 1;
   }
@@ -127,7 +127,7 @@ int(kbd_test_timed_scan)(uint8_t n) {
   counter_kbd = 0;
 
   /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no_kbd)) ) {
+  if( (r = kbd_subscribe_int(&bit_no_kbd)) ) {
     printf("Error subscribing kbc interrupt with: %d.\n", r);
     return 1;
   }
@@ -148,9 +148,9 @@ int(kbd_test_timed_scan)(uint8_t n) {
           if (msg.m_notify.interrupts & BIT(bit_no_kbd)) { /* subscribed kbd interrupt */
             /* process it */
             counter_timer = 0;
-            kbc_ih();
+            kbd_ih();
 
-            if( kbc_code_complete(scan_code, &size) ) {
+            if( kbd_code_complete(scan_code, &size) ) {
               kbd_print_scancode( !(code & MAKE_CODE), size, scan_code);
               size = 1;
             }
@@ -170,11 +170,11 @@ int(kbd_test_timed_scan)(uint8_t n) {
     } else { /* received a standard message, not a notification */
         /* no standard messages expected: do nothing */
     }
-    TIME_DELAY; // e.g. tickdelay()
+    TIME_DELAY(DELAY_US); // e.g. tickdelay()
   } while (code != ESC_BREAK && counter_timer/sys_hz()<n ); // while escape not released
 
   /* Unsubscribing int */
-  if ( (r = kbc_unsubscribe_int()) ) {
+  if ( (r = kbd_unsubscribe_int()) ) {
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
     return 1;
   }

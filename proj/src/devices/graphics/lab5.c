@@ -4,17 +4,17 @@
 
 #include "vg.h"
 #include "vg_macros.h"
-#include "kbd.h"
-#include "i8042.h"
-#include "timer.h"
-#include "i8254.h"
+#include "../kbc/kbd.h"
+#include "../kbc/i8042.h"
+#include <lcom/timer.h>
+#include "../timer/i8254.h"
 
 #include <stdint.h>
 #include <stdio.h>
 
 extern uint8_t code;
 extern unsigned int counter_timer, counter_kbd;
-
+/*
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
   lcf_cleanup();
 
   return 0;
-}
+}*/
 
 int(video_test_init)(uint16_t mode, uint8_t delay) {
   // change to graphics mode
@@ -66,9 +66,9 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
   uint8_t scan_code[2], size=1;
 
    /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
+  if( (r = kbd_subscribe_int(&bit_no)) ) {
     vg_exit();
-    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    printf("Error subscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
@@ -96,9 +96,9 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
             /* process it */
-            kbc_ih();
+            kbd_ih();
 
-            if( kbc_code_complete(scan_code, &size) ) {
+            if( kbd_code_complete(scan_code, &size) ) {
               size = 1;
             }
           }
@@ -112,9 +112,9 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
   } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */
-  if ( (r = kbc_unsubscribe_int()) ) {
+  if ( (r = kbd_unsubscribe_int()) ) {
     vg_exit();
-    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    printf("Error unsubscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
@@ -167,9 +167,9 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   }
 
     /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
+  if( (r = kbd_subscribe_int(&bit_no)) ) {
     vg_exit();
-    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    printf("Error subscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
@@ -184,9 +184,9 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
             /* process it */
-            kbc_ih();
+            kbd_ih();
 
-            if( kbc_code_complete(scan_code, &size) ) {
+            if( kbd_code_complete(scan_code, &size) ) {
               size = 1;
             }
           }
@@ -200,9 +200,9 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */
-  if ( (r = kbc_unsubscribe_int()) ) {
+  if ( (r = kbd_unsubscribe_int()) ) {
     vg_exit();
-    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    printf("Error unsubscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
@@ -235,9 +235,9 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   }
 
   /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no)) ) {
+  if( (r = kbd_subscribe_int(&bit_no)) ) {
     vg_exit();
-    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    printf("Error subscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
@@ -252,9 +252,9 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no)) { /* subscribed interrupt */
             /* process it */
-            kbc_ih();
+            kbd_ih();
 
-            if( kbc_code_complete(scan_code, &size) ) {
+            if( kbd_code_complete(scan_code, &size) ) {
               size = 1;
             }
           }
@@ -269,9 +269,9 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
 
       /* Unsubscribing int */
-  if ( (r = kbc_unsubscribe_int()) ) {
+  if ( (r = kbd_unsubscribe_int()) ) {
     vg_exit();
-    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    printf("Error unsubscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
@@ -310,9 +310,9 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
 
 
   /* Subscribing int */
-  if( (r = kbc_subscribe_int(&bit_no_kbd)) ) {
+  if( (r = kbd_subscribe_int(&bit_no_kbd)) ) {
     vg_exit();
-    printf("Error subscribing kbc interrupt with: %d.\n", r);
+    printf("Error subscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
     if( (r = timer_subscribe_int(&bit_no_t)) ) {
@@ -336,8 +336,8 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
         case HARDWARE: /* hardware interrupt notification */
           if (msg.m_notify.interrupts & BIT(bit_no_kbd)) { /* subscribed interrupt */
             /* process it */
-            kbc_ih();
-            if( kbc_code_complete(scan_code, &size) ) {
+            kbd_ih();
+            if( kbd_code_complete(scan_code, &size) ) {
               size = 1;
             }
           }
@@ -362,13 +362,13 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   } while (code != ESC_BREAK); // while escape not released
 
   /* Unsubscribing int */
-  if ( (r = kbc_unsubscribe_int()) ) {
+  if ( (r = kbd_unsubscribe_int()) ) {
     vg_exit();
-    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    printf("Error unsubscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
     if ( (r = timer_unsubscribe_int()) ) {
-    printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+    printf("Error unsubscribing kbd interrupt with: %d.\n", r);
     return 1;
   }
 
