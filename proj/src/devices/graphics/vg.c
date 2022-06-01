@@ -231,3 +231,11 @@ int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16
   }
   return 0;
 }
+
+unsigned get_hres(){
+  return h_res;
+}
+
+unsigned get_vres(){
+  return v_res;
+}

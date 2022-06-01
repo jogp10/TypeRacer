@@ -39,6 +39,6 @@ int menu();
 
 int drawMenu();
 
-
+void mouse_handler(struct packet * p);
 
 #endif /* __GAME_H */

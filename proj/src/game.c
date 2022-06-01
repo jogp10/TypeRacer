@@ -30,13 +30,8 @@ int game_init(Game *self) {
     uint8_t packets[3];
     struct packet pp;
     uint8_t size_mouse = 1;
-
-    if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
-        vg_exit();
-        printf("%s: Error drawing rectangle", __func__);
-        return 1;
-    }
-
+    game->mouse.mouse_x=get_hres()/2;
+    game->mouse.mouse_y=get_vres()/2;
 
     do {
         /* Get a request message. */
@@ -52,8 +47,8 @@ int game_init(Game *self) {
                 kbd_ih();
 
                 if( kbd_code_complete(scan_code, &size_kbd) ) {
-                kbd_print_scancode( !(code & MAKE_CODE), size_kbd, scan_code);
-                size_kbd = 1;
+                    kbd_print_scancode( !(code & MAKE_CODE), size_kbd, scan_code);
+                    size_kbd = 1;
                 }
             }
             if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
@@ -72,9 +67,10 @@ int game_init(Game *self) {
                 mouse_ih();
 
                 if (mouse_packet_complete(packets, &size_mouse)) {
-                build_packet_struct(packets, &pp);
-                size_mouse = 1;
-                mouse_print_packet(&pp);
+                    build_packet_struct(packets, &pp);
+                    size_mouse = 1;
+                    mouse_print_packet(&pp);
+                    mouse_handler(&pp);
                 }
 
             }
@@ -85,12 +81,20 @@ int game_init(Game *self) {
         } else { /* received a standard message, not a notification */
             /* no standard messages expected: do nothing */
         }
-        tickdelay(micros_to_ticks(DELAY_US)); // e.g. tickdelay()
     } while (game->state.mode != EXIT && code != ESC_BREAK); // while escape not released
 
 
     return 0;
 
+}
+void mouse_handler(struct packet * p){
+    game->mouse.lmb = p->lb;
+    if(game->mouse.mouse_x + p->delta_x >= 0 && game->mouse.mouse_x + p->delta_x + 15 <= (int) get_hres()){
+        game->mouse.mouse_x += p->delta_x;
+    }
+    if(game->mouse.mouse_y - p->delta_y >= 0 && game->mouse.mouse_y - p->delta_y + 26 <= (int) get_vres()){
+        game->mouse.mouse_y -= p->delta_y;
+    }
 }
 
 int menu() {
@@ -102,17 +106,30 @@ int menu() {
 
     } else {
         drawMenu();
-
-        // draw rectangle highlights
-        if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= ) {
-            
-        }
     }
     return 0;
 }
 
 int drawMenu() {
+    if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+        vg_exit();
+        printf("%s: Error drawing rectangle", __func__);
+        return 1;
+    }
+    
     if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+
+    // draw rectangle highlights
+    if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
+        
+    }
+
+
+    if(vg_draw_xpm(mouse_cursor, game->mouse.mouse_x, game->mouse.mouse_y)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;

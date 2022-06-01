@@ -54,6 +54,19 @@ uint8_t (R)(uint32_t color);
 uint8_t (G)(uint32_t color);
 uint8_t (B)(uint32_t color);
 
+/**
+ * @brief Get horizontal resolution in pixels
+ * 
+ * @return horizontal resolution
+*/
+unsigned get_hres();
+
+/**
+ * @brief Get vertical resolution in pixels 
+ * 
+ * @return vertical resolution
+*/
+unsigned get_vres();
 
 
 #endif /* __VC_H */

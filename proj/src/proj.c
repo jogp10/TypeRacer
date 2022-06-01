@@ -66,7 +66,7 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   } 
 
-  if (timer_set_frequency(0, 60)) {
+  if (timer_set_frequency(0, 120)) {
     printf("Error setting timer 0 frequency.\n");
     return 1;
   }
@@ -78,6 +78,7 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   Game game;
+
   if (game_init(&game)) {
     vg_exit();
     printf("%s: Error playing game.", __func__);
