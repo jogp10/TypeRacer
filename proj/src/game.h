@@ -4,10 +4,31 @@
 
 #include <lcom/lcf.h>
 
+typedef struct {
+    int mouse_x;
+    int mouse_y;
+    bool lmb;
+} Mouse;
+
+typedef enum Mode {
+    MENU,
+    MULTIPLAYER,
+    SCOREBOARD,
+    EXIT
+} Mode;
+
+typedef struct {
+    Mode mode;
+    bool start;
+    bool draw;
+} State;
+
 typedef struct 
 {
     /* data */
-    int fullfill;
+    State state;
+
+    Mouse mouse;
 } Game;
 
 int game_init(Game *self);

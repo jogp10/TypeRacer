@@ -45,7 +45,6 @@ extern uint8_t code;
 
 int(proj_main_loop)(int argc, char* argv[])
 { 
-  Game game;
 
   int r;
 
@@ -78,6 +77,7 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
+  Game game;
   game_init(&game);
 
   if(vg_exit()){
