@@ -16,6 +16,12 @@ extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
 int game_init(Game *self) {
+    game = self;
+
+    game->state.mode = MENU;
+    game->state.draw = false;
+    game->state.start = true;
+
     int ipc_status, r;
     message msg;
     uint8_t scan_code[2], size_kbd=1;
@@ -28,12 +34,6 @@ int game_init(Game *self) {
     if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
         vg_exit();
         printf("%s: Error drawing rectangle", __func__);
-        return 1;
-    }
-
-    if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
-        vg_exit();
-        printf("%s: Error drawing xpm", __func__);
         return 1;
     }
 
@@ -59,6 +59,12 @@ int game_init(Game *self) {
             if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
                 /* process it */
                 timer_int_handler();
+
+                switch (game->state.mode) {
+                    case MENU:
+                        if (menu()) return 1;
+                        break;
+                }
             }
             if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
                 mouse_ih();
@@ -78,9 +84,33 @@ int game_init(Game *self) {
             /* no standard messages expected: do nothing */
         }
         tickdelay(micros_to_ticks(DELAY_US)); // e.g. tickdelay()
-    } while (code != ESC_BREAK); // while escape not released
+    } while (game->state.mode != EXIT && code != ESC_BREAK); // while escape not released
 
 
     return 0;
 
 }
+
+int menu() {
+    if (game->state.start) {
+        
+        game->mouse.lmb = false;
+        drawMenu();
+        game->state.start = false;
+
+    } else {
+        drawMenu();
+    }
+
+}
+
+int drawMenu() {
+    if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+
+}
+
+

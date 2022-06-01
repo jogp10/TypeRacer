@@ -31,6 +31,8 @@ typedef struct
     Mouse mouse;
 } Game;
 
+Game *game;
+
 int game_init(Game *self);
 
 
