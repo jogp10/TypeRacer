@@ -54,6 +54,7 @@ int(proj_main_loop)(int argc, char* argv[])
   struct packet pp;
   uint8_t size_mouse = 1;
 
+  //window size : 1152 x 864
 
   /* Subscribing int */
   if( (r = kbd_subscribe_int(&kb_bit_no)) ) {
@@ -88,7 +89,7 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  if(vg_draw_xpm(red_car, 10, 10)){
+  if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
     vg_exit();
     printf("%s: Error drawing xpm", __func__);
     return 1;
