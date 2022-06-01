@@ -2,4 +2,5 @@
 /lab5.2
 proj/src/*.o
 proj/src/.gdbinit
+proj/src/proj
 
