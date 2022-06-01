@@ -35,6 +35,10 @@ Game *game;
 
 int game_init(Game *self);
 
+int menu();
+
+int drawMenu();
+
 
 
 #endif /* __GAME_H */

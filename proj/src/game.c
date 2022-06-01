@@ -64,6 +64,8 @@ int game_init(Game *self) {
                     case MENU:
                         if (menu()) return 1;
                         break;
+                    default:
+                        break;
                 }
             }
             if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
@@ -93,7 +95,6 @@ int game_init(Game *self) {
 
 int menu() {
     if (game->state.start) {
-        
         game->mouse.lmb = false;
         drawMenu();
         game->state.start = false;
@@ -101,7 +102,7 @@ int menu() {
     } else {
         drawMenu();
     }
-
+    return 0;
 }
 
 int drawMenu() {
@@ -110,7 +111,7 @@ int drawMenu() {
         printf("%s: Error drawing xpm", __func__);
         return 1;
     }
-
+    return 0;
 }
 
 
