@@ -173,7 +173,7 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     for (unsigned int j=0; j<img.height; j++) {
       uint32_t color;
       memcpy(&color, map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0), ceil(bits_per_pixel / 8.0));
-      vg_draw_pixel(x + i, y + j, color);
+      if (color != xpm_transparency_color(img.type)) vg_draw_pixel(x + i, y + j, color);
     }
   }
 
