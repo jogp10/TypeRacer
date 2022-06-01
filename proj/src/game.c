@@ -95,12 +95,18 @@ int game_init(Game *self) {
 
 int menu() {
     if (game->state.start) {
+
         game->mouse.lmb = false;
         drawMenu();
         game->state.start = false;
 
     } else {
         drawMenu();
+
+        // draw rectangle highlights
+        if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= ) {
+            
+        }
     }
     return 0;
 }
