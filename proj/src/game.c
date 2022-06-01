@@ -24,6 +24,8 @@ int game_init(Game *self) {
     uint8_t packets[3];
     struct packet pp;
     uint8_t size_mouse = 1;
+    game->mouse.mouse_X=get_hres()/2;
+    game->mouse.mouse_Y=get_vres()/2;
 
     if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
         vg_exit();
@@ -32,6 +34,11 @@ int game_init(Game *self) {
     }
 
     if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+    if(vg_draw_xpm(mouse_cursor,mouse->mouse_X, mouse->mouse_Y)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
@@ -67,6 +74,7 @@ int game_init(Game *self) {
                 build_packet_struct(packets, &pp);
                 size_mouse = 1;
                 mouse_print_packet(&pp);
+                mouse_handler(&pp);
                 }
 
             }
@@ -83,4 +91,13 @@ int game_init(Game *self) {
 
     return 0;
 
+}
+void mouse_handler(struct packet * p){
+    game->mouse.lbPressed = p->lb;
+    if(game->mouse.mouse_X + p->delta_x >= 0 && game->mouse.mouse_X + p->delta_x + 15 <= (int) get_hres()){
+        game->mouse.mouse_X += p->delta_x;
+    }
+    if(game->mouse.mouseY-p->delta_y >= 0 && game->mouse.mouse_Y - p->delta_y + 26 <= (int) get_vres()){
+        game->mouse.mouse_Y -= p->delta_y;
+    }
 }

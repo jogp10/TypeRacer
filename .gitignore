@@ -3,4 +3,4 @@
 proj/src/*.o
 proj/src/.gdbinit
 proj/src/proj
-
+proj/src/.vscode

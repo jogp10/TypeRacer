@@ -1,3 +1,6 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "mouse_cursor.h": "c"
+    }
 }
