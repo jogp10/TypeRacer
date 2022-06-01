@@ -176,6 +176,8 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
       vg_draw_pixel(x + i, y + j, color);
     }
   }
+  vg_exit();
+  printf( (uint8_t *) video_mem + (( (10 * h_res) + 10 ) * (int) ceil(bits_per_pixel / 8.0));)
 
   return 0;
 }
