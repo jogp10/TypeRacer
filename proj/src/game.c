@@ -16,6 +16,12 @@ extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
 int game_init(Game *self) {
+    game = self;
+
+    game->state.mode = MENU;
+    game->state.draw = false;
+    game->state.start = true;
+
     int ipc_status, r;
     message msg;
     uint8_t scan_code[2], size_kbd=1;
@@ -24,8 +30,8 @@ int game_init(Game *self) {
     uint8_t packets[3];
     struct packet pp;
     uint8_t size_mouse = 1;
-    game->mouse.mouse_X=get_hres()/2;
-    game->mouse.mouse_Y=get_vres()/2;
+    game->mouse.mouse_x=get_hres()/2;
+    game->mouse.mouse_y=get_vres()/2;
 
     if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
         vg_exit();
@@ -33,16 +39,8 @@ int game_init(Game *self) {
         return 1;
     }
 
-    if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
-        vg_exit();
-        printf("%s: Error drawing xpm", __func__);
-        return 1;
-    }
-    if(vg_draw_xpm(mouse_cursor,mouse->mouse_X, mouse->mouse_Y)){
-        vg_exit();
-        printf("%s: Error drawing xpm", __func__);
-        return 1;
-    }
+
+    
 
 
     do {
@@ -66,6 +64,14 @@ int game_init(Game *self) {
             if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
                 /* process it */
                 timer_int_handler();
+
+                switch (game->state.mode) {
+                    case MENU:
+                        if (menu()) return 1;
+                        break;
+                    default:
+                        break;
+                }
             }
             if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
                 mouse_ih();
@@ -86,18 +92,46 @@ int game_init(Game *self) {
             /* no standard messages expected: do nothing */
         }
         tickdelay(micros_to_ticks(DELAY_US)); // e.g. tickdelay()
-    } while (code != ESC_BREAK); // while escape not released
+    } while (game->state.mode != EXIT && code != ESC_BREAK); // while escape not released
 
 
     return 0;
 
 }
 void mouse_handler(struct packet * p){
-    game->mouse.lbPressed = p->lb;
-    if(game->mouse.mouse_X + p->delta_x >= 0 && game->mouse.mouse_X + p->delta_x + 15 <= (int) get_hres()){
-        game->mouse.mouse_X += p->delta_x;
+    game->mouse.lmb = p->lb;
+    if(game->mouse.mouse_x + p->delta_x >= 0 && game->mouse.mouse_x + p->delta_x + 15 <= (int) get_hres()){
+        game->mouse.mouse_x += p->delta_x;
     }
-    if(game->mouse.mouseY-p->delta_y >= 0 && game->mouse.mouse_Y - p->delta_y + 26 <= (int) get_vres()){
-        game->mouse.mouse_Y -= p->delta_y;
+    if(game->mouse.mouse_y - p->delta_y >= 0 && game->mouse.mouse_y - p->delta_y + 26 <= (int) get_vres()){
+        game->mouse.mouse_y -= p->delta_y;
     }
 }
+
+int menu() {
+    if (game->state.start) {
+        game->mouse.lmb = false;
+        drawMenu();
+        game->state.start = false;
+
+    } else {
+        drawMenu();
+    }
+    return 0;
+}
+
+int drawMenu() {
+    if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+    if(vg_draw_xpm(mouse_cursor, game->mouse.mouse_x, game->mouse.mouse_y)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+    return 0;
+}
+
+

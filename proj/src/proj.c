@@ -78,7 +78,11 @@ int(proj_main_loop)(int argc, char* argv[])
   }
 
   Game game;
-  game_init(&game);
+  if (game_init(&game)) {
+    vg_exit();
+    printf("%s: Error playing game.", __func__);
+    return 1;
+  }
 
   if(vg_exit()){
     printf("%s: Error exiting graphics mode.", __func__);

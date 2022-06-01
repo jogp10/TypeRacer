@@ -31,8 +31,14 @@ typedef struct
     Mouse mouse;
 } Game;
 
+Game *game;
+
 int game_init(Game *self);
 
+int menu();
 
+int drawMenu();
+
+void mouse_handler(struct packet * p);
 
 #endif /* __GAME_H */
