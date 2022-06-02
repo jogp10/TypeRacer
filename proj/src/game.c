@@ -36,48 +36,48 @@ int game_init(Game *self) {
     do {
         /* Get a request message. */
         if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
-        printf("driver_receive failed with: %d", r);
-        continue;
+            printf("driver_receive failed with: %d", r);
+            continue;
         }
         if (is_ipc_notify(ipc_status)) { /* received notification */
-        switch (_ENDPOINT_P(msg.m_source)) {
-            case HARDWARE: /* hardware interrupt notification */
-            if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* subscribed interrupt */
-                /* process it */
-                kbd_ih();
+            switch (_ENDPOINT_P(msg.m_source)) {
+                case HARDWARE: /* hardware interrupt notification */
+                    if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* subscribed interrupt */
+                        /* process it */
+                        kbd_ih();
 
-                if( kbd_code_complete(scan_code, &size_kbd) ) {
-                    kbd_print_scancode( !(code & MAKE_CODE), size_kbd, scan_code);
-                    size_kbd = 1;
-                }
+                        if( kbd_code_complete(scan_code, &size_kbd) ) {
+                            kbd_print_scancode( !(code & MAKE_CODE), size_kbd, scan_code);
+                            size_kbd = 1;
+                        }
+                    }
+                    if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
+                        /* process it */
+                        timer_int_handler();
+
+                        switch (game->state.mode) {
+                            case MENU:
+                                if (menu()) return 1;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
+                        mouse_ih();
+
+                        if (mouse_packet_complete(packets, &size_mouse)) {
+                            build_packet_struct(packets, &pp);
+                            size_mouse = 1;
+                            mouse_print_packet(&pp);
+                            mouse_handler(&pp);
+                        }
+
+                    }
+                    break;
+                default:
+                break; /* no other notifications expected: do nothing */
             }
-            if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
-                /* process it */
-                timer_int_handler();
-
-                switch (game->state.mode) {
-                    case MENU:
-                        if (menu()) return 1;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
-                mouse_ih();
-
-                if (mouse_packet_complete(packets, &size_mouse)) {
-                    build_packet_struct(packets, &pp);
-                    size_mouse = 1;
-                    mouse_print_packet(&pp);
-                    mouse_handler(&pp);
-                }
-
-            }
-            break;
-            default:
-            break; /* no other notifications expected: do nothing */
-        }
         } else { /* received a standard message, not a notification */
             /* no standard messages expected: do nothing */
         }
@@ -134,6 +134,9 @@ int drawMenu() {
         printf("%s: Error drawing xpm", __func__);
         return 1;
     }
+
+    double_buffering();
+    
     return 0;
 }
 

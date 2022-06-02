@@ -68,5 +68,8 @@ unsigned get_hres();
 */
 unsigned get_vres();
 
+void (double_buffering)();
+
+char* (get_double_buffer)();
 
 #endif /* __VC_H */
