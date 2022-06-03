@@ -4,6 +4,7 @@
 #include <math.h>
 
 static void *video_mem;         /* VBE information on input mode */
+static char *double_buf;
 
 vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
@@ -71,6 +72,9 @@ int (map_memory)() {
         panic("couldn't map video memory");
         return 1;
     }
+
+    double_buf = (char*) malloc(vram_size);
+
     return 0;
 }
 
@@ -139,7 +143,7 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t width, uint32_t color) {
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     if (x < 0 || x >= h_res || y >= v_res || y < 0 ) return 0;
 
-    uint8_t *pixel = (uint8_t *) video_mem + (( (y * h_res) + x ) * (int) ceil(bits_per_pixel / 8.0));
+    uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * (int) ceil(bits_per_pixel / 8.0));
 
     for (int i = 0; i < (int) ceil(bits_per_pixel / 8.0); i++) {
         *pixel = color & 0xFF;
@@ -173,7 +177,7 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     for (unsigned int j=0; j<img.height; j++) {
       uint32_t color;
       memcpy(&color, map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0), ceil(bits_per_pixel / 8.0));
-      vg_draw_pixel(x + i, y + j, color);
+      if (color != xpm_transparency_color(img.type)) vg_draw_pixel(x + i, y + j, color);
     }
   }
 
@@ -230,4 +234,20 @@ int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16
     return 1;
   }
   return 0;
+}
+
+unsigned get_hres(){
+  return h_res;
+}
+
+unsigned get_vres(){
+  return v_res;
+}
+
+void (double_buffering)() {
+  memcpy(video_mem, double_buf, (h_res * v_res * ceil(bits_per_pixel / 8.0)));
+}
+
+char* (get_double_buffer)() {
+  return double_buf;
 }
