@@ -4,3 +4,4 @@ proj/src/*.o
 proj/src/.gdbinit
 proj/src/*.depend
 proj/src/*.d
+proj/src/proj
