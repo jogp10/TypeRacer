@@ -101,23 +101,53 @@ int menu() {
     if (game->state.start) {
 
         game->mouse.lmb = false;
-        drawMenu();
+        drawStartMenu();
         game->state.start = false;
 
     } else {
-        drawMenu();
+        drawStartMenu();
     }
     return 0;
 }
 
-int drawMenu() {
+int(drawStartMenu)(){
     if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
         vg_exit();
         printf("%s: Error drawing rectangle", __func__);
         return 1;
     }
     
-    if(vg_draw_xpm(menu_xpm, (1152-686)/2, (864-570)/2)){
+    if(vg_draw_xpm(menu_xpm, 0, 0)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+
+    // draw rectangle highlights
+    if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
+        
+    }
+
+
+    if(vg_draw_xpm(mouse_cursor, game->mouse.mouse_x, game->mouse.mouse_y)){
+        vg_exit();
+        printf("%s: Error drawing xpm", __func__);
+        return 1;
+    }
+
+    double_buffering();
+    
+    return 0;
+}
+
+int drawPauseMenu() {
+    if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+        vg_exit();
+        printf("%s: Error drawing rectangle", __func__);
+        return 1;
+    }
+    
+    if(vg_draw_xpm(pause_menu_xpm, (1152-686)/2, (864-570)/2)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
