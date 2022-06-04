@@ -12,13 +12,22 @@
 #include "xpms/xpm.h"
 
 uint8_t timer_bit_no, kb_bit_no, mouse_bit_no;
+int selector = 0;
 extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
 extern xpm_image_t mouse_img;
-extern uint8_t *mouse_cursor;
 extern xpm_image_t menu_start_img;
+extern xpm_image_t menu_single_img;
+extern xpm_image_t menu_multi_img;
+extern xpm_image_t menu_rules_img;
+extern xpm_image_t menu_leave_img;
+extern uint8_t *mouse_cursor;
 extern uint8_t *menu_start;
+extern uint8_t *menu_single;
+extern uint8_t *menu_multi;
+extern uint8_t *menu_rules;
+extern uint8_t *menu_leave;
 
 int game_init(Game *self) {
     game = self;
@@ -67,6 +76,7 @@ int game_init(Game *self) {
                         printf("keyboard\n");
                         if( kbd_code_complete(scan_code, &size_kbd) ) {
                             kbd_print_scancode(!(code & MAKE_CODE), size_kbd, scan_code);
+                            kbd_handler();
                             size_kbd = 1;
                         }
                     }
@@ -123,12 +133,46 @@ int(drawStartMenu)(){
         printf("%s: Error drawing rectangle", __func__);
         return 1;
     }
+    /* if(vg_draw_xpm(0,0, menu_start_img, menu_start)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+        }*/
+    switch (selector)
+    {
+    case 0:
+        if(vg_draw_xpm(0,0, menu_single_img, menu_single)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+        }
+       
+        break;
+    case 1:
+        if(vg_draw_xpm(0,0, menu_multi_img, menu_multi)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+        }
+        break;
+    case 2:
+        if(vg_draw_xpm(0,0, menu_rules_img, menu_rules)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+        }
+        break;
+    case 3:
+        if(vg_draw_xpm(0,0, menu_leave_img, menu_leave)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+        }
+        break;
+    default:
+        break;
+    }
     
-    /*if(vg_draw_xpm(0,0, menu_start_img, menu_start)){
-        vg_exit();
-        printf("%s: Error drawing xpm", __func__);
-        return 1;
-    }*/
 
     // draw rectangle highlights
     if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
@@ -175,6 +219,27 @@ int drawPauseMenu() {
     double_buffering();
     
     return 0;
+}
+
+int kbd_handler(){
+    switch (code)
+    {
+    case 0x4B: //ARROW LEFT
+        selector = selector-1;
+        if(selector < 0) selector = 3;
+        printf("left\n");
+        break;
+    case 0x4D: //ARROW RIGHT
+        printf("right\n");
+        selector = (selector+1)%4; 
+        break;
+    default:
+        break;
+    }
+    return 0;
+  
+
+  
 }
 
 

@@ -15,9 +15,17 @@ static unsigned BPP;
 
 xpm_image_t mouse_img;
 xpm_image_t menu_start_img;
+xpm_image_t menu_single_img;
+xpm_image_t menu_multi_img;
+xpm_image_t menu_rules_img;
+xpm_image_t menu_leave_img;
 // get the pixmap from the XPM
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
+uint8_t *menu_single;
+uint8_t *menu_multi;
+uint8_t *menu_rules;
+uint8_t *menu_leave;
 
 int(load_all_xpms)(){
   // get the pixmap from the XPM
@@ -29,6 +37,29 @@ int(load_all_xpms)(){
 
   menu_start = xpm_load(menu_xpm, XPM_8_8_8_8, &menu_start_img);
   if(menu_start == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+   menu_single = xpm_load(menu_single_xpm, XPM_8_8_8_8, &menu_single_img);
+  if(menu_single == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+    menu_rules = xpm_load(menu_rules_xpm, XPM_8_8_8_8, &menu_rules_img);
+  if(menu_rules == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+   menu_leave = xpm_load(menu_leave_xpm, XPM_8_8_8_8, &menu_leave_img);
+  if(menu_leave == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+  menu_multi = xpm_load(menu_multi_xpm, XPM_8_8_8_8, &menu_multi_img);
+  if(menu_multi == NULL){
     printf("start menu no load");
     return 1;
   }
