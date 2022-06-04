@@ -15,6 +15,11 @@ uint8_t timer_bit_no, kb_bit_no, mouse_bit_no;
 extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
+extern xpm_image_t mouse_img;
+extern uint8_t *mouse_cursor;
+extern xpm_image_t menu_start_img;
+extern uint8_t *menu_start;
+
 int game_init(Game *self) {
     game = self;
 
@@ -42,19 +47,11 @@ int game_init(Game *self) {
         if (is_ipc_notify(ipc_status)) { /* received notification */
             switch (_ENDPOINT_P(msg.m_source)) {
                 case HARDWARE: /* hardware interrupt notification */
-                    if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* subscribed interrupt */
-                        /* process it */
-                        kbd_ih();
-
-                        if( kbd_code_complete(scan_code, &size_kbd) ) {
-                            kbd_print_scancode( !(code & MAKE_CODE), size_kbd, scan_code);
-                            size_kbd = 1;
-                        }
-                    }
-                    if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* subscribed interrupt */
+                    if (msg.m_notify.interrupts & BIT(timer_bit_no)) { /* timer interrupt */
                         /* process it */
                         timer_int_handler();
 
+                        printf("timer\n");
                         switch (game->state.mode) {
                             case MENU:
                                 if (menu()) return 1;
@@ -63,9 +60,20 @@ int game_init(Game *self) {
                                 break;
                         }
                     }
-                    if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* subscribed interrupt */
+                    if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* keyboard interrupt */
+                        /* process it */
+                        kbd_ih();
+
+                        printf("keyboard\n");
+                        if( kbd_code_complete(scan_code, &size_kbd) ) {
+                            kbd_print_scancode(!(code & MAKE_CODE), size_kbd, scan_code);
+                            size_kbd = 1;
+                        }
+                    }
+                    if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* mouse interrupt */
                         mouse_ih();
 
+                        printf("mouse\n");
                         if (mouse_packet_complete(packets, &size_mouse)) {
                             build_packet_struct(packets, &pp);
                             size_mouse = 1;
@@ -81,12 +89,11 @@ int game_init(Game *self) {
         } else { /* received a standard message, not a notification */
             /* no standard messages expected: do nothing */
         }
-    } while (game->state.mode != EXIT && code != ESC_BREAK); // while escape not released
-
+    } while (game->state.mode != EXIT && code != ESC_BREAK);
 
     return 0;
-
 }
+
 void mouse_handler(struct packet * p){
     game->mouse.lmb = p->lb;
     if(game->mouse.mouse_x + p->delta_x >= 0 && game->mouse.mouse_x + p->delta_x + 15 <= (int) get_hres()){
@@ -117,7 +124,7 @@ int(drawStartMenu)(){
         return 1;
     }
     
-    if(vg_draw_xpm(menu_xpm, 0, 0)){
+    if(vg_draw_xpm(0,0, menu_start_img, menu_start)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
@@ -129,7 +136,7 @@ int(drawStartMenu)(){
     }
 
 
-    if(vg_draw_xpm(mouse_cursor, game->mouse.mouse_x, game->mouse.mouse_y)){
+    if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
@@ -141,7 +148,7 @@ int(drawStartMenu)(){
 }
 
 int drawPauseMenu() {
-    if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+    /*if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
         vg_exit();
         printf("%s: Error drawing rectangle", __func__);
         return 1;
@@ -151,7 +158,7 @@ int drawPauseMenu() {
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
-    }
+    }*/
 
     // draw rectangle highlights
     if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
@@ -159,7 +166,7 @@ int drawPauseMenu() {
     }
 
 
-    if(vg_draw_xpm(mouse_cursor, game->mouse.mouse_x, game->mouse.mouse_y)){
+    if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;

@@ -1,5 +1,5 @@
 /* XPM */
-static xpm_row_t const mouse_cursor[] = {
+static xpm_row_t const mouse_cursor_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "15 26 17 1 ",
 "  c None",

@@ -46,7 +46,8 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
 
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
 
-int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
+//int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
+int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map);
 
 int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed);
 
@@ -71,5 +72,7 @@ unsigned get_vres();
 void (double_buffering)();
 
 char* (get_double_buffer)();
+
+int(load_all_xpms)();
 
 #endif /* __VC_H */

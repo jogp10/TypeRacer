@@ -1,6 +1,5 @@
 #include <lcom/lcf.h>
 #include <lcom/proj.h>
-
 #include "devices/graphics/vg.h"
 #include "devices/kbc/kbd.h"
 #include "devices/kbc/mouse.h"
@@ -9,7 +8,6 @@
 #include "devices/kbc/i8042.h"
 #include "devices/timer/i8254.h"
 #include "devices/utils/utils.h"
-
 #include "game.h"
 #include "xpms/xpm.h"
 
@@ -45,10 +43,9 @@ extern uint8_t code;
 
 int(proj_main_loop)(int argc, char* argv[])
 { 
+  //window size : 1152 x 864
 
   int r;
-
-  //window size : 1152 x 864
 
   /* Subscribing int */
   if( (r = kbd_subscribe_int(&kb_bit_no)) ) {
@@ -58,71 +55,42 @@ int(proj_main_loop)(int argc, char* argv[])
 
   if( (r = timer_subscribe_int(&timer_bit_no)) ) {
     printf("Error subscribing timer interrupt with: %d.\n", r);
-    kbd_unsubscribe_int();
     return 1;
   }  
 
   if( (r = mouse_subscribe_int(&mouse_bit_no)) ) {
     printf("Error subscribing mouse interrupt with: %d.\n", r);
-    kbd_unsubscribe_int();
-    timer_unsubscribe_int();
     return 1;
   } 
-
-  if (timer_set_frequency(0, 60)) {
-    printf("Error setting timer 0 frequency.\n");
-    kbd_unsubscribe_int();
-    timer_unsubscribe_int();
-    mouse_unsubscribe_int();
-    return 1;
-  }
 
   if (vg_change_mode(0x14C)) {
-    vg_exit();
     printf("%s: Error initializing graphics mode.", __func__);
-    kbd_unsubscribe_int();
-    timer_unsubscribe_int();
-    mouse_unsubscribe_int();
     return 1;
   }
+
+  load_all_xpms();
 
   Game game;
-
-  if (game_init(&game)) {
-    printf("%s: Error playing game.", __func__);
-    vg_exit();
-    kbd_unsubscribe_int();
-    timer_unsubscribe_int();
-    mouse_unsubscribe_int();
-    return 1;
-  } 
-
-  if(vg_exit()){
-    printf("%s: Error exiting graphics mode.", __func__);
-    kbd_unsubscribe_int();
-    timer_unsubscribe_int();
-    mouse_unsubscribe_int();
-    return 1;
-  }
+  game_init(&game);
+  
 
   if (mouse_unsubscribe_int()){
     printf("Error unsubscribing mouse interrupt with: %d.\n", r);
-    kbd_unsubscribe_int();
-    timer_unsubscribe_int();
     return 1;
   }
 
   if (timer_unsubscribe_int()){
     printf("Error unsubscribing timer interrupt with: %d.\n", r);
-    kbd_unsubscribe_int();
-    mouse_unsubscribe_int();
     return 1;
   }
 
   if (kbd_unsubscribe_int()){
     printf("Error unsubscribing kbc interrupt with: %d.\n", r);
-    timer_unsubscribe_int();
-    mouse_unsubscribe_int();
+    return 1;
+  }
+
+  if(vg_exit()){
+    printf("%s: Error exiting graphics mode.", __func__);
     return 1;
   }
 

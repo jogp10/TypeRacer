@@ -1,5 +1,6 @@
 #include "vg.h"
 #include "vg_macros.h"
+#include "xpms/xpm.h"
 
 #include <math.h>
 
@@ -10,6 +11,31 @@ vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+static unsigned BPP;
+
+xpm_image_t mouse_img;
+xpm_image_t menu_start_img;
+// get the pixmap from the XPM
+uint8_t *mouse_cursor;
+uint8_t *menu_start;
+
+int(load_all_xpms)(){
+  // get the pixmap from the XPM
+  mouse_cursor = xpm_load(mouse_cursor_xpm, XPM_8_8_8_8, &mouse_img);
+  if(mouse_cursor == NULL){
+    printf("mouse cursor no load");
+    return 1;
+  }
+
+  menu_start = xpm_load(menu_xpm, XPM_8_8_8_8, &menu_start_img);
+  if(menu_start == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+  return 0;
+
+}
 
 int (vg_change_mode)(uint16_t mode) {
     reg86_t r86;
@@ -49,6 +75,7 @@ int (vg_change_mode)(uint16_t mode) {
     }
     return 0;
 }
+
 
 int (map_memory)() {
     struct minix_mem_range mr;
@@ -115,6 +142,7 @@ int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info) {
   h_res = info->XResolution;
   v_res = info->YResolution;
   bits_per_pixel = info->BitsPerPixel;
+  BPP = ceil(bits_per_pixel / 8.0);
 
   lm_free(&mem_map);
   return 0;
@@ -140,16 +168,18 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t width, uint32_t color) {
     return 0;
 }
 
+
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     if (x < 0 || x >= h_res || y >= v_res || y < 0 ) return 0;
 
-    uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * (int) ceil(bits_per_pixel / 8.0));
+    uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * BPP);
 
-    for (int i = 0; i < (int) ceil(bits_per_pixel / 8.0); i++) {
+    /*for (int i = 0; i < BPP; i++) {
         *pixel = color & 0xFF;
         color >>= 8;
         pixel++;
-    }
+    }*/
+    memcpy(pixel, &color, BPP);
 
     return 0;
 }
@@ -159,11 +189,8 @@ uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.
 uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
 
 
-int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
+int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map) {
 
-  xpm_image_t img;
-  // get the pixmap from the XPM
-  uint8_t *map = xpm_load(xpm, XPM_8_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
@@ -176,7 +203,10 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   for (unsigned int i=0; i<img.width; i++) {
     for (unsigned int j=0; j<img.height; j++) {
       uint32_t color;
-      memcpy(&color, map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0), ceil(bits_per_pixel / 8.0));
+      //color =*((uint32_t *)map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0));
+      //memcpy(&color, color =*((uint32_t *)map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0)), ceil(bits_per_pixel / 8.0));
+      
+      memcpy(&color, map + (j * img.width + i) * BPP, BPP);
       if (color != xpm_transparency_color(img.type)) vg_draw_pixel(x + i, y + j, color);
     }
   }
@@ -209,7 +239,7 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   return 0;
 }
-
+/*
 int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed) {
   if (vg_clean_xpm(xpm, *xi, *yi)) {
     printf("Failed to erase xpm\n");
@@ -234,7 +264,7 @@ int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16
     return 1;
   }
   return 0;
-}
+}*/
 
 unsigned get_hres(){
   return h_res;
@@ -245,7 +275,7 @@ unsigned get_vres(){
 }
 
 void (double_buffering)() {
-  memcpy(video_mem, double_buf, (h_res * v_res * ceil(bits_per_pixel / 8.0)));
+  memcpy(video_mem, double_buf, (h_res * v_res * BPP));
 }
 
 char* (get_double_buffer)() {
