@@ -124,11 +124,11 @@ int(drawStartMenu)(){
         return 1;
     }
     
-    if(vg_draw_xpm(0,0, menu_start_img, menu_start)){
+    /*if(vg_draw_xpm(0,0, menu_start_img, menu_start)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
-    }
+    }*/
 
     // draw rectangle highlights
     if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
