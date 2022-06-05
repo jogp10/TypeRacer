@@ -8,7 +8,7 @@
 #include "devices/kbc/i8042.h"
 #include "devices/timer/i8254.h"
 #include "devices/utils/utils.h"
-
+#include <lcom/lcf.h>
 #include "xpms/xpm.h"
 
 uint8_t timer_bit_no, kb_bit_no, mouse_bit_no;
@@ -41,11 +41,11 @@ int game_init(Game *self) {
     uint8_t scan_code[2], size_kbd=1;
     counter_kbd = 0;
     counter_timer = 0;
-    uint8_t packets[3];
-    struct packet pp;
-    uint8_t size_mouse = 1;
-    game->mouse.mouse_x=get_hres()/2;
-    game->mouse.mouse_y=get_vres()/2;
+    //uint8_t packets[3];
+    //struct packet pp;
+    //uint8_t size_mouse = 1;
+    //game->mouse.mouse_x=get_hres()/2;
+    //game->mouse.mouse_y=get_vres()/2;
 
     do {
         /* Get a request message. */
@@ -80,7 +80,8 @@ int game_init(Game *self) {
                             size_kbd = 1;
                         }
                     }
-                    if (msg.m_notify.interrupts & BIT(mouse_bit_no)) { /* mouse interrupt */
+                    /*
+                    if (msg.m_notify.interrupts & BIT(mouse_bit_no)) {  //mouse interrupt
                         mouse_ih();
 
                         printf("mouse\n");
@@ -91,7 +92,7 @@ int game_init(Game *self) {
                             mouse_handler(&pp);
                         }
 
-                    }
+                    }*/
                     break;
                 default:
                 break; /* no other notifications expected: do nothing */
@@ -99,7 +100,7 @@ int game_init(Game *self) {
         } else { /* received a standard message, not a notification */
             /* no standard messages expected: do nothing */
         }
-    } while (game->state.mode != EXIT && code != ESC_BREAK);
+    } while (game->state.mode != EXIT);
 
     return 0;
 }
@@ -175,16 +176,14 @@ int(drawStartMenu)(){
     
 
     // draw rectangle highlights
-    if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
-        
-    }
+    //if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {}
 
 
-    if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
+    /*if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
-    }
+    }*/
 
     double_buffering();
     
@@ -205,16 +204,14 @@ int drawPauseMenu() {
     }*/
 
     // draw rectangle highlights
-    if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {
-        
-    }
+    //if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {}
 
 
-    if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
+    /*if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
-    }
+    }*/
 
     double_buffering();
     
@@ -233,6 +230,12 @@ int kbd_handler(){
         printf("right\n");
         selector = (selector+1)%4; 
         break;
+    case 0x1C: //ENTER
+        printf("enter\n");
+        if (selector == 3){
+            game->state.mode = EXIT;
+        }
+        
     default:
         break;
     }

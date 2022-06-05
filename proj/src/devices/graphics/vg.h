@@ -19,17 +19,8 @@ int (vg_change_mode)(uint16_t mode);
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (map_memory)();
+int (map_memory)(uint16_t mode);
 
-/**
- * @brief 
- * 
- * @param mode get information about mode
- * @param info struct to return information on the mode
- * 
- * @return Return 0 upon success and non-zero otherwise
- */
-int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info);
 
 /**
  * @brief 

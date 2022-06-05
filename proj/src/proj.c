@@ -58,10 +58,10 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }  
 
-  if( (r = mouse_subscribe_int(&mouse_bit_no)) ) {
+  /*if( (r = mouse_subscribe_int(&mouse_bit_no)) ) {
     printf("Error subscribing mouse interrupt with: %d.\n", r);
     return 1;
-  } 
+  }*/ 
 
   if (vg_change_mode(0x14C)) {
     printf("%s: Error initializing graphics mode.", __func__);
@@ -74,10 +74,10 @@ int(proj_main_loop)(int argc, char* argv[])
   game_init(&game);
   
 
-  if (mouse_unsubscribe_int()){
+  /*if (mouse_unsubscribe_int()){
     printf("Error unsubscribing mouse interrupt with: %d.\n", r);
     return 1;
-  }
+  }*/
 
   if (timer_unsubscribe_int()){
     printf("Error unsubscribing timer interrupt with: %d.\n", r);

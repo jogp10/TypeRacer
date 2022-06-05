@@ -43,4 +43,6 @@ int drawPauseMenu();
 
 void mouse_handler(struct packet * p);
 
+int kbd_handler();
+
 #endif /* __GAME_H */
