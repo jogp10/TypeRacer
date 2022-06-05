@@ -1,6 +1,7 @@
 #include "vg.h"
 #include "vg_macros.h"
-
+#include "xpms/xpm.h"
+#include <lcom/lcf.h>
 #include <math.h>
 
 static void *video_mem;         /* VBE information on input mode */
@@ -10,114 +11,124 @@ vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+static unsigned bytes_per_pixel;
 
-int (vg_change_mode)(uint16_t mode) {
-    reg86_t r86;
+xpm_image_t mouse_img;
+xpm_image_t menu_start_img;
+xpm_image_t menu_single_img;
+xpm_image_t menu_multi_img;
+xpm_image_t menu_rules_img;
+xpm_image_t menu_leave_img;
+// get the pixmap from the XPM
+uint8_t *mouse_cursor;
+uint8_t *menu_start;
+uint8_t *menu_single;
+uint8_t *menu_multi;
+uint8_t *menu_rules;
+uint8_t *menu_leave;
+
+int(load_all_xpms)(){
+  // get the pixmap from the XPM
+  mouse_cursor = xpm_load(mouse_cursor_xpm, XPM_8_8_8_8, &mouse_img);
+  if(mouse_cursor == NULL){
+    printf("mouse cursor no load");
+    return 1;
+  }
+
+  menu_start = xpm_load(menu_xpm, XPM_8_8_8_8, &menu_start_img);
+  if(menu_start == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+   menu_single = xpm_load(menu_single_xpm, XPM_8_8_8_8, &menu_single_img);
+  if(menu_single == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+    menu_rules = xpm_load(menu_rules_xpm, XPM_8_8_8_8, &menu_rules_img);
+  if(menu_rules == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+   menu_leave = xpm_load(menu_leave_xpm, XPM_8_8_8_8, &menu_leave_img);
+  if(menu_leave == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+  menu_multi = xpm_load(menu_multi_xpm, XPM_8_8_8_8, &menu_multi_img);
+  if(menu_multi == NULL){
+    printf("start menu no load");
+    return 1;
+  }
+
+  return 0;
+
+}
+
+int (vg_change_mode)(uint16_t mode)
+{   
+    if(map_memory(mode) != OK){
+        printf("%s: Error maping memory", __func__);
+        return 1;
+    }
+
+    reg86_t reg86;
+    memset(&reg86, 0, sizeof(struct reg86));
+    reg86.intno = VBE_INT;
+    reg86.ah = VBE_SUPPORTED;
+    reg86.al = VBE_VG;
+    reg86.bx = mode | VBE_VIDEO;
     
-    // Information on mode
-    if (vbe_get_info_mode(mode, &info)) {
-        printf("Error getting information on mode.\n");
-        return 1;
-    }
 
-    // Map memory
-    if (map_memory()) {
-        printf("Error mapping memmory.\n");
-        return 1;
-    }
-
-    // Change to video graphics mode
-    memset(&r86, 0, sizeof(r86));
-
-    r86.intno = VBE_INT;
-    r86.ah = VBE_CALL;
-    r86.al = VBE_VG;
-    r86.bx = VBE_VIDEO | mode;
-
-    if (sys_int86(&r86)) {
-        printf("call to system error.\n");
-        return 1;
-    }
-
-    if (r86.al != VBE_SUPPORTED) {
-        printf("VBE Function not supported.\n");
-        return 1;
-    }
-    if (r86.ah != VBE_SUCCESS) {
-        printf("VBE Function failed.\n");
+    if(sys_int86(&reg86) != OK){
+        printf("%s: sys_int86() failed \n", __func__);
         return 1;
     }
     return 0;
 }
 
-int (map_memory)() {
+
+int (map_memory)(uint16_t mode){
+
+    if(vbe_get_mode_info(mode, &info) != OK){
+        printf("%s: vbe_get_mode_info() failed \n", __func__);
+        return 1;
+    }
+    
+    h_res = info.XResolution;
+    v_res = info.YResolution;
+    bits_per_pixel = info.BitsPerPixel;
+    bytes_per_pixel = ceil(bits_per_pixel/8.0);
+
     struct minix_mem_range mr;
-    unsigned int vram_base = info.PhysBasePtr;
-    unsigned int vram_size = v_res * h_res * (bits_per_pixel / 8.0);
+    unsigned int vram_base = info.PhysBasePtr; /* VRAM's physical addresss */
+    unsigned int vram_size = h_res * v_res * bytes_per_pixel; /* VRAM's size, but you can use the frame-buffer size, instead */
     int r;
 
     /* Allow memory mapping */
-    mr.mr_base = (phys_bytes) vram_base;	
-    mr.mr_limit = mr.mr_base + vram_size;  
+    mr.mr_base = (phys_bytes)vram_base;
+    mr.mr_limit = mr.mr_base + vram_size;
 
-    if( (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr))) {
-        panic("sys_privctl (ADD_MEM) failed: %d\n", r);
+    if ((r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)) != OK){
+        panic("Sys_privctl (ADD_MEM) failed: %d\n", r);
         return 1;
     }
 
     /* Map memory */
     video_mem = vm_map_phys(SELF, (void *)mr.mr_base, vram_size);
 
-    if(video_mem == MAP_FAILED) {
-        panic("couldn't map video memory");
+    if (video_mem == MAP_FAILED){
+        panic("Couldn't map video memory");
         return 1;
     }
 
     double_buf = (char*) malloc(vram_size);
 
     return 0;
-}
 
-int (vbe_get_info_mode)(uint16_t mode, vbe_mode_info_t *info) {
-  reg86_t r;
-
-  /* Specify the appropriate register values */
-  memset(&r, 0, sizeof(r)); /* zero the stucture */
-
-  mmap_t mem_map;
-  if (lm_alloc(sizeof(vbe_mode_info_t), &mem_map) == NULL) {
-    printf("Failed to allocate mem, vc_get_mode_info.\n");
-    return 1;
-  }
-
-  r.intno = 0x10;     /* BIOS video services */
-  r.ax = 0x4F01;        /* VBE call */
-  r.cx = mode; /* Indexed Color Model, 8 bits per pixel */
-  r.es = PB2BASE(mem_map.phys); /* Pointer to ModeInfoBlock struct */
-  r.di = PB2OFF(mem_map.phys);
-
-
-  /* Make the BIOS call */
-  if (sys_int86(&r)) {
-    printf("vc_get_mode_info: sys_int86() failed \n");
-    return 1;
-  }
-
-    /* Function not supported or succesful */
-  if (r.ah != VBE_SUCCESS || r.al != VBE_SUPPORTED) {
-      printf("Error in function call.\n");
-      lm_free(&mem_map);
-      return 1;
-  }
-
-  *info = *(vbe_mode_info_t *)mem_map.virt;
-
-  h_res = info->XResolution;
-  v_res = info->YResolution;
-  bits_per_pixel = info->BitsPerPixel;
-
-  lm_free(&mem_map);
-  return 0;
 }
 
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
@@ -140,16 +151,18 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t width, uint32_t color) {
     return 0;
 }
 
+
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     if (x < 0 || x >= h_res || y >= v_res || y < 0 ) return 0;
 
-    uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * (int) ceil(bits_per_pixel / 8.0));
+    uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * bytes_per_pixel);
 
-    for (int i = 0; i < (int) ceil(bits_per_pixel / 8.0); i++) {
+    /*for (int i = 0; i < BPP; i++) {
         *pixel = color & 0xFF;
         color >>= 8;
         pixel++;
-    }
+    }*/
+    memcpy(pixel, &color, bytes_per_pixel);
 
     return 0;
 }
@@ -159,11 +172,8 @@ uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.
 uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
 
 
-int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
+int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map) {
 
-  xpm_image_t img;
-  // get the pixmap from the XPM
-  uint8_t *map = xpm_load(xpm, XPM_8_8_8_8, &img);
   // copy it to graphics memory
 
   if (map == NULL){
@@ -176,7 +186,10 @@ int (vg_draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   for (unsigned int i=0; i<img.width; i++) {
     for (unsigned int j=0; j<img.height; j++) {
       uint32_t color;
-      memcpy(&color, map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0), ceil(bits_per_pixel / 8.0));
+      //color =*((uint32_t *)map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0));
+      //memcpy(&color, color =*((uint32_t *)map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0)), ceil(bits_per_pixel / 8.0));
+      
+      memcpy(&color, map + (j * img.width + i) * bytes_per_pixel, bytes_per_pixel);
       if (color != xpm_transparency_color(img.type)) vg_draw_pixel(x + i, y + j, color);
     }
   }
@@ -209,7 +222,7 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   return 0;
 }
-
+/*
 int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed) {
   if (vg_clean_xpm(xpm, *xi, *yi)) {
     printf("Failed to erase xpm\n");
@@ -234,7 +247,7 @@ int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16
     return 1;
   }
   return 0;
-}
+}*/
 
 unsigned get_hres(){
   return h_res;
@@ -245,7 +258,7 @@ unsigned get_vres(){
 }
 
 void (double_buffering)() {
-  memcpy(video_mem, double_buf, (h_res * v_res * ceil(bits_per_pixel / 8.0)));
+  memcpy(video_mem, double_buf, (h_res * v_res * bytes_per_pixel));
 }
 
 char* (get_double_buffer)() {

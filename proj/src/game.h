@@ -37,8 +37,12 @@ int game_init(Game *self);
 
 int menu();
 
-int drawMenu();
+int drawStartMenu();
+
+int drawPauseMenu();
 
 void mouse_handler(struct packet * p);
+
+int kbd_handler();
 
 #endif /* __GAME_H */
