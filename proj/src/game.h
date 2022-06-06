@@ -12,7 +12,9 @@ typedef struct {
 
 typedef enum Mode {
     MENU,
+    SINGLEPLAYER,
     MULTIPLAYER,
+    PAUSE,
     SCOREBOARD,
     EXIT
 } Mode;
@@ -37,6 +39,12 @@ int game_init(Game *self);
 
 int menu();
 
+int singlePlayer_mode();
+
+int pause();
+
+int drawPauseMenu();
+
 int drawStartMenu();
 
 int drawPauseMenu();
@@ -44,5 +52,7 @@ int drawPauseMenu();
 void mouse_handler(struct packet * p);
 
 int kbd_handler();
+
+int singlePlayer_start();
 
 #endif /* __GAME_H */

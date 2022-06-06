@@ -51,14 +51,14 @@ uint8_t (B)(uint32_t color);
  * 
  * @return horizontal resolution
 */
-unsigned get_hres();
+int get_hres();
 
 /**
  * @brief Get vertical resolution in pixels 
  * 
  * @return vertical resolution
 */
-unsigned get_vres();
+int get_vres();
 
 void (double_buffering)();
 

@@ -22,12 +22,14 @@ extern xpm_image_t menu_single_img;
 extern xpm_image_t menu_multi_img;
 extern xpm_image_t menu_rules_img;
 extern xpm_image_t menu_leave_img;
+extern xpm_image_t menu_pause_img;
 extern uint8_t *mouse_cursor;
 extern uint8_t *menu_start;
 extern uint8_t *menu_single;
 extern uint8_t *menu_multi;
 extern uint8_t *menu_rules;
 extern uint8_t *menu_leave;
+extern uint8_t *menu_pause;
 
 int game_init(Game *self) {
     game = self;
@@ -60,20 +62,27 @@ int game_init(Game *self) {
                         /* process it */
                         timer_int_handler();
 
-                        printf("timer\n");
+                        //printf("timer\n");
+                        
                         switch (game->state.mode) {
                             case MENU:
                                 if (menu()) return 1;
                                 break;
+                            case SINGLEPLAYER:
+                                if(singlePlayer_mode()) return 1;
+                                break;
+                            case PAUSE:
+                                if(pause()) return 1;
                             default:
                                 break;
                         }
+                        double_buffering();
                     }
                     if (msg.m_notify.interrupts & BIT(kb_bit_no)) { /* keyboard interrupt */
                         /* process it */
                         kbd_ih();
 
-                        printf("keyboard\n");
+                        
                         if( kbd_code_complete(scan_code, &size_kbd) ) {
                             kbd_print_scancode(!(code & MAKE_CODE), size_kbd, scan_code);
                             kbd_handler();
@@ -185,13 +194,13 @@ int(drawStartMenu)(){
         return 1;
     }*/
 
-    double_buffering();
+    //double_buffering();
     
     return 0;
 }
 
-int drawPauseMenu() {
-    /*if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+/*int drawPauseMenu() {
+    if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
         vg_exit();
         printf("%s: Error drawing rectangle", __func__);
         return 1;
@@ -201,44 +210,75 @@ int drawPauseMenu() {
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
-    }*/
+    }
 
     // draw rectangle highlights
     //if (game->mouse.mouse_x >= 0 && game->mouse.mouse_x <= (int) get_hres()) {}
 
 
-    /*if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
+    if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
         vg_exit();
         printf("%s: Error drawing xpm", __func__);
         return 1;
-    }*/
+    }
 
-    double_buffering();
+    //buffering();
     
     return 0;
-}
+}*/
+
 
 int kbd_handler(){
-    switch (code)
+  
+    
+    switch (game->state.mode)
     {
-    case 0x4B: //ARROW LEFT
-        selector = selector-1;
-        if(selector < 0) selector = 3;
-        printf("left\n");
-        break;
-    case 0x4D: //ARROW RIGHT
-        printf("right\n");
-        selector = (selector+1)%4; 
-        break;
-    case 0x1C: //ENTER
-        printf("enter\n");
-        if (selector == 3){
-            game->state.mode = EXIT;
+    case MENU:
+        if(code == 0x4B) { //ARROW LEFT 
+             selector = selector-1;
+            if(selector < 0) selector = 3;
+            printf("left\n");
         }
-        
+        if(code == 0x4D){ //ARROW RIGHT
+           printf("right\n");
+            selector = (selector+1)%4; 
+            break;
+        }
+        if(code == 0x1C){ //ENTER
+            if (selector == 3){
+                game->state.mode = EXIT;
+                
+            }
+            if(selector == 0){
+                game->state.mode = SINGLEPLAYER;
+                game->state.start = true;
+            
+            }
+        }   
+
+        break;
+    case SINGLEPLAYER:    
+        if(code == 0x11){ // W
+            game->state.mode = PAUSE;
+            game->state.start = true;
+            printf("W\n");
+        } 
+        if(code == 0x1C){ //ENTER
+            game->state.mode = MENU;
+            game->state.start = true;
+            printf("ENTER\n");
+        } 
+        break;
+    case PAUSE:
+        if(code == ESC_BREAK){ //ENTER
+            game->state.mode = SINGLEPLAYER;
+            game->state.start = true;
+        } 
+        break;
     default:
         break;
     }
+    
     return 0;
   
 
@@ -246,3 +286,61 @@ int kbd_handler(){
 }
 
 
+int singlePlayer_mode(){
+    if(game->state.start){
+        game->state.draw = true;
+        singlePlayer_start();
+        game->state.start = false;
+    }
+    else{
+      
+        
+
+    }
+    return 0;
+}
+
+int singlePlayer_start(){
+    if(game->state.draw){
+        if(vg_draw_rectangle(0, 0, 1152, 864, 0x1F)){
+        vg_exit();
+        printf("%s: Error drawing rectangle", __func__);
+        return 1;
+        }
+        printf("desenhaado jogo"); 
+        game->state.draw = false;
+    }
+    //double_buffering();
+    return 0;
+}
+
+int pause(){
+    if(game->state.start){
+        game->state.draw = true;
+        drawPauseMenu();
+        game->state.start = false;
+        printf("desenhaado pausa"); 
+    }
+    else{
+      
+        
+
+    }
+    return 0;
+}
+
+int drawPauseMenu(){
+    if(game->state.draw){
+        if(vg_draw_xpm((get_hres()-686)/2,(get_vres()-570)/2, menu_pause_img, menu_pause)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+        }
+        printf("desenhado pausa"); 
+        game->state.draw = false;
+    }
+    printf("desenhado pausa");
+    
+    //double_buffering();
+    return 0;
+}

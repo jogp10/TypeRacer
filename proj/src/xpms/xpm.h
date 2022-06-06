@@ -6,6 +6,7 @@
 #include "menu_rules.h"
 #include "menu_leave.h"
 #include "pause_menu.h"
+#include "motorway.h"
 
 /** Vehicles **/
 #include "red_car.h"

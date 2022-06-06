@@ -19,13 +19,14 @@ xpm_image_t menu_single_img;
 xpm_image_t menu_multi_img;
 xpm_image_t menu_rules_img;
 xpm_image_t menu_leave_img;
-// get the pixmap from the XPM
+xpm_image_t menu_pause_img;
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
 uint8_t *menu_single;
 uint8_t *menu_multi;
 uint8_t *menu_rules;
 uint8_t *menu_leave;
+uint8_t *menu_pause;
 
 int(load_all_xpms)(){
   // get the pixmap from the XPM
@@ -63,6 +64,13 @@ int(load_all_xpms)(){
     printf("start menu no load");
     return 1;
   }
+
+  menu_pause = xpm_load(pause_menu_xpm, XPM_8_8_8_8, &menu_pause_img);
+  if(menu_pause == NULL){
+    printf("pause menu no load");
+    return 1;
+  }
+
 
   return 0;
 
@@ -249,11 +257,11 @@ int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16
   return 0;
 }*/
 
-unsigned get_hres(){
+int get_hres(){
   return h_res;
 }
 
-unsigned get_vres(){
+int get_vres(){
   return v_res;
 }
 
