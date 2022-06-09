@@ -12,6 +12,7 @@ static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 static unsigned bytes_per_pixel;
+static unsigned size;
 
 xpm_image_t mouse_img;
 xpm_image_t menu_start_img;
@@ -20,6 +21,10 @@ xpm_image_t menu_multi_img;
 xpm_image_t menu_rules_img;
 xpm_image_t menu_leave_img;
 xpm_image_t menu_pause_img;
+xpm_image_t menu_pause_resume_img;
+xpm_image_t menu_pause_exit_img;
+xpm_image_t game_background_img;
+xpm_image_t red_car_img;
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
 uint8_t *menu_single;
@@ -27,6 +32,10 @@ uint8_t *menu_multi;
 uint8_t *menu_rules;
 uint8_t *menu_leave;
 uint8_t *menu_pause;
+uint8_t *menu_pause_resume;
+uint8_t *menu_pause_exit;
+uint8_t *game_background;
+uint8_t *red_car;
 
 int(load_all_xpms)(){
   // get the pixmap from the XPM
@@ -42,31 +51,56 @@ int(load_all_xpms)(){
     return 1;
   }
 
-   menu_single = xpm_load(menu_single_xpm, XPM_8_8_8_8, &menu_single_img);
+  menu_single = xpm_load(menu_single_xpm, XPM_8_8_8_8, &menu_single_img);
   if(menu_single == NULL){
-    printf("start menu no load");
+    printf("single menu no load");
     return 1;
   }
 
-    menu_rules = xpm_load(menu_rules_xpm, XPM_8_8_8_8, &menu_rules_img);
+  menu_rules = xpm_load(menu_rules_xpm, XPM_8_8_8_8, &menu_rules_img);
   if(menu_rules == NULL){
-    printf("start menu no load");
+    printf("rules menu no load");
     return 1;
   }
-   menu_leave = xpm_load(menu_leave_xpm, XPM_8_8_8_8, &menu_leave_img);
+   
+  menu_leave = xpm_load(menu_leave_xpm, XPM_8_8_8_8, &menu_leave_img);
   if(menu_leave == NULL){
-    printf("start menu no load");
+    printf("leave menu no load");
     return 1;
   }
 
   menu_multi = xpm_load(menu_multi_xpm, XPM_8_8_8_8, &menu_multi_img);
   if(menu_multi == NULL){
-    printf("start menu no load");
+    printf("multi menu no load");
     return 1;
   }
 
   menu_pause = xpm_load(pause_menu_xpm, XPM_8_8_8_8, &menu_pause_img);
   if(menu_pause == NULL){
+    printf("pause menu no load");
+    return 1;
+  }
+
+  menu_pause_resume = xpm_load(pause_menu_resume_xpm, XPM_8_8_8_8, &menu_pause_resume_img);
+  if(menu_pause_resume == NULL){
+    printf("pause resume menu no load");
+    return 1;
+  }
+
+  menu_pause_exit = xpm_load(pause_menu_exit_xpm, XPM_8_8_8_8, &menu_pause_exit_img);
+  if(menu_pause_exit == NULL){
+    printf("pause exit menu no load");
+    return 1;
+  }
+
+  game_background = xpm_load(background_xpm, XPM_8_8_8_8, &game_background_img);
+  if(game_background == NULL){
+    printf("game background no load");
+    return 1;
+  }
+
+  red_car = xpm_load(red_car_xpm, XPM_8_8_8_8, &red_car_img);
+  if(red_car == NULL){
     printf("pause menu no load");
     return 1;
   }
@@ -110,6 +144,7 @@ int (map_memory)(uint16_t mode){
     v_res = info.YResolution;
     bits_per_pixel = info.BitsPerPixel;
     bytes_per_pixel = ceil(bits_per_pixel/8.0);
+    size = (h_res * v_res * bytes_per_pixel);
 
     struct minix_mem_range mr;
     unsigned int vram_base = info.PhysBasePtr; /* VRAM's physical addresss */
@@ -266,9 +301,32 @@ int get_vres(){
 }
 
 void (double_buffering)() {
-  memcpy(video_mem, double_buf, (h_res * v_res * bytes_per_pixel));
+  memcpy(video_mem, double_buf, size);
 }
 
 char* (get_double_buffer)() {
   return double_buf;
 }
+
+int clear_xpm_with_cover(uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *map) {
+
+  if (map == NULL){
+    printf("Error getting pixmap.\n");
+    return 1;
+  }
+
+  unsigned int index = 0;
+
+  for (unsigned int i=x; i<maxX+x; i++) {
+    
+    for (unsigned int j=y; j<maxY+y; j++) {
+      uint32_t color = 0;
+      index++;
+       memcpy(&color, map + (j * background_img.width + i) * bytes_per_pixel, bytes_per_pixel);
+      if (color != xpm_transparency_color(background_img.type)) vg_draw_pixel(i,j, color);
+     
+    }
+  }
+  return 0;
+}
+

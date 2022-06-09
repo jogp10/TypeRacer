@@ -121,7 +121,7 @@ bool (mouse_packet_complete)(uint8_t packets[], uint8_t *size) {
     packets[(*size)-1] = packet;
     if(*size==3) return true;
     (*size)++;
-    printf("not complete\n");
+    //printf("not complete\n");
     return false;
 }
 

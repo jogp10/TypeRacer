@@ -3,6 +3,7 @@
 #define __GAME_H
 
 #include <lcom/lcf.h>
+#include "letters.h"
 
 typedef struct {
     int mouse_x;
@@ -10,10 +11,19 @@ typedef struct {
     bool lmb;
 } Mouse;
 
+typedef enum StartMenuEntry{
+    DEFAULT,
+    SINGLE,
+    MULTI,
+    RULES,
+    EXIT_GAME
+} StartMenuEntry;
+
 typedef enum Mode {
     MENU,
     SINGLEPLAYER,
     MULTIPLAYER,
+    RULES_CREDITS,
     PAUSE,
     SCOREBOARD,
     EXIT
@@ -39,20 +49,31 @@ int game_init(Game *self);
 
 int menu();
 
-int singlePlayer_mode();
+void changeMenuState();
+
+int singlePlayer_mode(letter **sentence, letter **inputSentence, unsigned int idx);
 
 int pause();
 
-int drawPauseMenu();
-
-int drawStartMenu();
+int drawMouse();
 
 int drawPauseMenu();
+
+void nextStartSelected();
+
+void prevStartSelected();
 
 void mouse_handler(struct packet * p);
 
-int kbd_handler();
+int kbd_handler(letter * sentence,letter ** inputSentence, unsigned int * idx);
 
-int singlePlayer_start();
+int singlePlayer_start(letter **sentence, letter **inputSentence);
 
+int draw_sentence(letter *sentence, uint16_t x, uint16_t y, int correct);
+
+int draw_input(letter *sentence, uint16_t x, uint16_t y, int correct, int size);
+
+void generateSentence(letter ** sentence);
+//int draw_letter(uint8_t *sprite, uint16_t x, uint16_t y, xpm_image_t img, void * buff, void * color);
+ 
 #endif /* __GAME_H */
