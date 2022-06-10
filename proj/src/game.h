@@ -73,7 +73,12 @@ int draw_sentence(letter *sentence, uint16_t x, uint16_t y, int correct);
 
 int draw_input(letter *sentence, uint16_t x, uint16_t y, int correct, int size);
 
+int draw_input_sentence(letter *input,letter *sentence, uint16_t x, uint16_t y, int size);
+
 void generateSentence(letter ** sentence);
+
+void allocateSentence(letter ** sentence);
+
 //int draw_letter(uint8_t *sprite, uint16_t x, uint16_t y, xpm_image_t img, void * buff, void * color);
  
 #endif /* __GAME_H */

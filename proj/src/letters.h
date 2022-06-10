@@ -17,9 +17,9 @@ letter ** sentences;
 letter * errorMessage;
 
 static char sentencesChar[3][163]={
-    {"o ricardo e o maior, Sabias."},
-    {"Euuuuuu."},
-    {"TUUUUUUUUU."}
+    {"If I had known you were going to come straight up to my office I would not have bothered hunting you in the first place."},
+    {"If I had known you were going to come straight up to my office I would not have bothered hunting you in the first place."},
+    {"If I had known you were going to come straight up to my office I would not have bothered hunting you in the first place."}
     };
 
 int (load)();

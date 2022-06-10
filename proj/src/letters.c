@@ -132,7 +132,7 @@ int (load)(){
 
     letters[30].letter = ' ';
     letters[30].xpm = xpm_load(space,XPM_8_8_8_8,&letters[30].img);
-    letters[30].makeCode = 0x44;
+    letters[30].makeCode = 0x39;
 
   	letters[31].letter = 'A';
     letters[31].xpm = xpm_load(A,XPM_8_8_8_8,&letters[31].img);

@@ -45,10 +45,11 @@ extern uint8_t *menu_pause_exit;
 extern uint8_t *game_background;
 extern uint8_t *red_car;
 
-Point singlePlayerOpt[] = {{408,452}, {530,430}, {524,334}, {406,360}};
-Point multiPlayerOpt[] = {{538,430}, {680,406}, {670,300}, {532,330}};
-Point rulesOpt[] = {{700,402}, {866,376}, {852,260}, {690,296}};
-Point leaveOpt[] = {{880,372}, {1080,338}, {1056,212}, {866,256}};
+//canto sup dir, canto inf esq
+Point singlePlayerOpt[] = {{516,340}, {420,440}};
+Point multiPlayerOpt[] = {{660, 310}, {546, 416}};
+Point rulesOpt[] = {{842, 270}, {708, 388}};
+Point leaveOpt[] = {{1048, 222}, {892, 356}};
 
 xpm_image_t current_menu_img;
 uint8_t *current_menu;
@@ -57,7 +58,7 @@ int game_init(Game *self) {
     unsigned int idx=0;
     letter *sentence= NULL;
     letter *inputSentence = NULL;
-    inputSentence = (letter*)malloc(136*sizeof(letter));
+
 
     current_menu_img = menu_start_img;
     current_menu = menu_start;
@@ -67,6 +68,10 @@ int game_init(Game *self) {
     load(); 
     loadSentences();
     generateSentence(&sentence);
+    //allocateSentence(&inputSentence);
+    
+ 
+    inputSentence = (letter*)malloc(163*sizeof(letter));
   
     game = self;
     game->state.mode = MENU;
@@ -155,37 +160,40 @@ int game_init(Game *self) {
 }
 
 void changeMenuState(){
-    if(counter_timer % 30 == 0){
-        //printf("Prev Entry: %d\n", prevStartMenuEntry);
-        //printf("Current Entry: %d\n", startMenuEntry);
-    }
-    if(startMenuEntry == prevStartMenuEntry){
+    /*if(startMenuEntry == prevStartMenuEntry){
         return;
-    }
-    switch (startMenuEntry){
+    }*/
+    if(!game->state.draw)return;
+    switch (selectorMenu){
         case DEFAULT:
             current_menu_img = menu_start_img;
             current_menu = menu_start;
+
             break;
         case SINGLE:
             current_menu_img = menu_single_img;
             current_menu = menu_single;
+
             break;
         case MULTI:
             current_menu_img = menu_multi_img;
             current_menu = menu_multi;
+
             break;  
         case RULES:
             current_menu_img = menu_rules_img;
             current_menu = menu_rules;
+
             break;
         case EXIT_GAME:
             current_menu_img = menu_leave_img;
             current_menu = menu_leave;
+
             break;
     }
     prevStartMenuEntry = startMenuEntry;
     vg_draw_xpm(0,0, current_menu_img, current_menu);
+    game->state.draw = false;
     double_buffering();
 
 }
@@ -236,26 +244,52 @@ void mouse_handler(struct packet * p){
     if(game->mouse.mouse_y - p->delta_y >= 0 && game->mouse.mouse_y - p->delta_y + 26 <= (int) get_vres()){
         game->mouse.mouse_y -= p->delta_y;
     }
-
+    printf("X: %d Y: %d\n", game->mouse.mouse_x,game->mouse.mouse_y);
     
     Point mouse_pt = {game->mouse.mouse_x,game->mouse.mouse_y};
-    if(isInside(singlePlayerOpt, 4, mouse_pt)){
-        prevStartMenuEntry = startMenuEntry;
-        startMenuEntry = SINGLE;
+    if(isInsideOpt(singlePlayerOpt, mouse_pt)){
+        //prevStartMenuEntry = startMenuEntry;
+        
+        if(selectorMenu!=1){
+            selectorMenu = 1;
+            startMenuEntry = SINGLE;
+            game->state.draw = true;
+        }
+        
     }
-    else if(isInside(multiPlayerOpt, 4, mouse_pt)){
-        prevStartMenuEntry = startMenuEntry;
-        startMenuEntry = MULTI;
+    else if(isInsideOpt(multiPlayerOpt, mouse_pt)){
+        //prevStartMenuEntry = startMenuEntry;
+        
+        if(selectorMenu!=2){
+            selectorMenu = 2;
+            startMenuEntry = MULTI;
+            game->state.draw = true;
+        }
+        
     }
-    else if(isInside(rulesOpt, 4, mouse_pt)){
-        prevStartMenuEntry = startMenuEntry;
-        startMenuEntry = RULES;
+    else if(isInsideOpt(rulesOpt, mouse_pt)){
+        //prevStartMenuEntry = startMenuEntry;
+        
+        if(selectorMenu!=3){
+            selectorMenu = 3;
+            startMenuEntry = RULES;
+            game->state.draw = true;
+        }
+        
     }
-    else if(isInside(leaveOpt, 4, mouse_pt)){
-        prevStartMenuEntry = startMenuEntry;
-        startMenuEntry = EXIT_GAME;
+    else if(isInsideOpt(leaveOpt, mouse_pt)){
+        //prevStartMenuEntry = startMenuEntry;
+
+        if(selectorMenu!=4){
+            selectorMenu = 4;
+            startMenuEntry = EXIT_GAME;
+            game->state.draw = true;
+        }
+        
     }
-    printf("Selected: %d\n", startMenuEntry);
+    //printf("Selected: %d\n", startMenuEntry);
+    //printf("prev selected: %d\n", prevStartMenuEntry);
+    //printf("X: %d Y: %d\n", game->mouse.mouse_x, game->mouse.mouse_y);
     
 }
 
@@ -456,16 +490,29 @@ int kbd_handler(letter * sentence,letter ** inputSentence, unsigned int * idx){
                     current_menu_img = menu_start_img;
                     //printf("ENTER\n");
                     return 0;
+                case(0x0E):
+                    printf("backspace");
+                    (*idx)--;
+                    return 0;
+                    
                 default:
                     for(unsigned int k =0; k < 57; k++){ 
                         if(letters[k].makeCode == code){ 
-                            //printf("%c\n",letters[k].letter);
+                            
+
                             (*inputSentence)[*idx] = letters[k];
                             (*idx)++;
-                            //printf("%u\n",*idx);
+
+                            //printf("%c\n",letters[k].letter);
+                            
                             return 0;
                         }
                     }
+                    for(unsigned int d = 0; d <= *idx; d++){
+                        printf("%c",(*inputSentence)[d].letter);
+                        
+                    }
+                    printf("\n");
                     return 0;
             }    
             //validateLetter(*sentence,SCANCODE,input,*index);
@@ -500,6 +547,8 @@ int kbd_handler(letter * sentence,letter ** inputSentence, unsigned int * idx){
                     if (selectorPause == 0){
                         game->state.mode = SINGLEPLAYER;
                         game->state.start = true;
+                        current_menu = game_background;
+                        current_menu_img = game_background_img;
                         return 0;
                         
                     }
@@ -553,12 +602,19 @@ int singlePlayer_mode(letter ** sentence, letter **inputSentence, unsigned int i
             //printf("%s: Error drawing rectangle\n", __func__);
             return 1;
         }
-    
-        if(draw_input(*inputSentence,get_hres()/2.0-350 ,get_vres()/2.0-50,-1,idx)){
+        double_buffering();
+        if(clear_xpm_with_cover(188,396,963-188,592-396,game_background_img,game_background)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+            
+        }
+        if(draw_input_sentence(*inputSentence,*sentence,get_hres()/2.0-350 ,get_vres()/2.0-20,idx)){
             vg_exit();
             //printf("%s: Error drawing rectangle\n", __func__);
             return 1;
         }
+        double_buffering();
 
     }
     return 0;
@@ -597,7 +653,7 @@ int pause(){
 }
 
 int drawPauseMenu(){
-    //printf("Selector: %d\n", selectorPause);
+    printf("Selector: %d\n", selectorPause);
 
     switch (selectorPause)
     {
@@ -681,50 +737,99 @@ int draw_sentence(letter *sentence, uint16_t x, uint16_t y, int correct) {
   return 0;
 }
 
-int  draw_input(letter *sentence, uint16_t x, uint16_t y, int correct, int size) {
+int draw_input(letter *sentence, uint16_t x, uint16_t y, int correct, int size) {
+    if(size <3) return 0;
+    uint16_t x1=x; /*x1 -> posição onde desenhar a letras*/
+    bool finish = false;
+    for(int i = 0; !finish; i++){
+
+        if(i == size-1){
+        finish = true;
+        }
+
+        uint16_t temp=x1;
+        if(sentence[i].letter == ' '){
+
+        for(int j = i+1; true; j++){
+            if(sentence[j].letter == ' ' || sentence[j].letter == '.'){
+            
+            for(int k = i+1; k <= j; k++){ 
+                temp += sentence[k].img.width + 1;
+            }
+            if(temp > x + 680){
+                y += sentence[i].img.height - 2;
+                x1=x;
+            }
+            break;
+
+            }
+        }
+        }
+    
+        if((x1-x)>700){
+        y += sentence[i].img.height + 1;
+        x1=x;
+        }
+        if(sentence[i].letter != ' '){
+
+        //draw_letter(sentence[i].xpm,x1,y,sentence[i].img,buff,0xFFFFFF);
+        vg_draw_xpm(x1,y,sentence[i].img,sentence[i].xpm);
+        
+        x1+=sentence[i].img.width + 1;
+        }
+        else{
+        if(x1 != x){
+            //draw_letter(sentence[i].xpm,x1,y,sentence[i].img,buff,0xFFFFFF);   
+            vg_draw_xpm(x1,y,sentence[i].img,sentence[i].xpm);
+            x1+=sentence[i].img.width + 1;
+        }
+        }
+    }
+    return 0;
+}
+
+int draw_input_sentence(letter *input,letter *sentence, uint16_t x, uint16_t y, int size) {
+
   uint16_t x1=x; /*x1 -> posição onde desenhar a letras*/
   bool finish = false;
-  if(size == 0) return 0;
-  for(int i = 0; !finish; i++){
-    if(i == size){
+    
+
+  for(int i = 0; i < size; i++){ 
+
+   
+    if(i == size-1){
       finish = true;
     }
-
+   
+    
     uint16_t temp=x1;
     if(sentence[i].letter == ' '){
       //procura o proximo espaço da frase delimitando a palavra
       for(int j = i+1; true; j++){
-        if(sentence[j].letter == ' ' || sentence[j].letter == '.'){// encontrando um espaço
-          //calcula se a proxima palavra cabe no ecra 
-          for(int k = i+1; k <= j; k++){ 
-            temp += sentence[k].img.width + 1;
-          }
-          if(temp > x + 680){
-            y += sentence[i].img.height - 2;
-            x1=x;
-          }
-          break;
-          //if(sentence[j].letter == '.') break;
+      if(sentence[j].letter == ' ' || sentence[j].letter == '.'){// encontrando um espaço
+        //calcula se a proxima palavra cabe no ecra 
+        for(int k = i+1; k <= j; k++){ 
+          temp += sentence[k].img.width + 1;
         }
+        if(temp > x + 700){
+          y +=sentence[i].img.height - 2;
+          x1=x;
+        }
+        break;
+       
+      }
     }
     }
   
-    if((x1-x)>700){
-      y += sentence[i].img.height + 1;
-      x1=x;
-    }
-    if(sentence[i].letter != ' '){
-
-      //draw_letter(sentence[i].xpm,x1,y,sentence[i].img,buff,0xFFFFFF);
-      vg_draw_xpm(x1,y,sentence[i].img,sentence[i].xpm);
-      
-      x1+=sentence[i].img.width + 1;
+    if(input[i].letter != ' '){
+        vg_draw_xpm(x1,y,input[i].img,input[i].xpm);
+        x1+=input[i].img.width + 1;
     }
     else{
       if(x1 != x){
-        //draw_letter(sentence[i].xpm,x1,y,sentence[i].img,buff,0xFFFFFF);   
-        vg_draw_xpm(x1,y,sentence[i].img,sentence[i].xpm);
-        x1+=sentence[i].img.width + 1;
+        vg_draw_xpm(x1,y,input[i].img,input[i].xpm);
+      
+        x1+=input[i].img.width + 1;
       }
     }
   }
@@ -744,5 +849,13 @@ void generateSentence(letter ** sentence){
     number++;
     *sentence = (letter*)malloc(number*sizeof(letter));
     memcpy(*sentence,sentences[x], number*sizeof(letter));
+}
+void allocateSentence(letter ** sentence){
+
+    int number = 163;
+    
+ 
+    *sentence = (letter*)malloc(number*sizeof(letter));
+
 }
 
