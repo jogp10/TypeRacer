@@ -17,9 +17,9 @@ letter ** sentences;
 letter * errorMessage;
 
 static char sentencesChar[3][163]={
-    {"If I had known you were going to come straight up to my office I would not have bothered hunting you in the first place."},
-    {"If I had known you were going to come straight up to my office I would not have bothered hunting you in the first place."},
-    {"If I had known you were going to come straight up to my office I would not have bothered hunting you in the first place."}
+    {"if i had known dsdsad."},
+    {"i am not a religious man, but every now and then, a child come."},
+    {"the general is weak and without authority when his orders are not."}
     };
 
 int (load)();

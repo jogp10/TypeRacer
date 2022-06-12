@@ -15,8 +15,10 @@
 
 uint8_t timer_bit_no, kb_bit_no, mouse_bit_no;
 int selectorMenu = 0, selectorPause = 0;
+unsigned int number_Letters1 = 0,number_Letters2= 0;
 static StartMenuEntry startMenuEntry;
 static StartMenuEntry prevStartMenuEntry;
+static int isUpper = 0;
 
 extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
@@ -33,6 +35,7 @@ extern xpm_image_t menu_pause_resume_img;
 extern xpm_image_t menu_pause_exit_img;
 extern xpm_image_t game_background_img;
 extern xpm_image_t red_car_img;
+extern xpm_image_t next_img;
 extern uint8_t *mouse_cursor;
 extern uint8_t *menu_start;
 extern uint8_t *menu_single;
@@ -44,6 +47,8 @@ extern uint8_t *menu_pause_resume;
 extern uint8_t *menu_pause_exit;
 extern uint8_t *game_background;
 extern uint8_t *red_car;
+extern uint8_t *next;
+
 
 //canto sup dir, canto inf esq
 Point singlePlayerOpt[] = {{516,340}, {420,440}};
@@ -57,6 +62,7 @@ uint8_t *current_menu;
 int game_init(Game *self) {
     unsigned int idx=0;
     letter *sentence= NULL;
+    letter *sentence2= NULL;
     letter *inputSentence = NULL;
 
 
@@ -67,7 +73,7 @@ int game_init(Game *self) {
 
     load(); 
     loadSentences();
-    generateSentence(&sentence);
+    generateSentence(&sentence,&sentence2);
     //allocateSentence(&inputSentence);
     
  
@@ -89,7 +95,7 @@ int game_init(Game *self) {
     game->mouse.mouse_x=get_hres()/2;
     game->mouse.mouse_y=get_hres()/2;
     game->mouse.lmb= false;
-
+    game->state.sentence = 1;
     menu();
     do {
         /* Get a request message. */
@@ -109,7 +115,7 @@ int game_init(Game *self) {
                                 changeMenuState();
                                 break;
                             case SINGLEPLAYER:
-                                if(singlePlayer_mode(&sentence, &inputSentence,idx)) return 1;
+                                if(singlePlayer_mode(&sentence,&sentence2, &inputSentence,idx)) return 1;
                                 break;
                             case MULTIPLAYER:
                                 //Under construction
@@ -142,8 +148,9 @@ int game_init(Game *self) {
                         kbd_ih();
                         //printf("keyboard\n");                        
                         if( kbd_code_complete(scan_code, &size_kbd) ) {
-                            //kbd_print_scancode(!(code & MAKE_CODE), size_kbd, scan_code);
-                            kbd_handler(sentence,&inputSentence,&idx);
+                            kbd_print_scancode(!(code & MAKE_CODE), size_kbd, scan_code);
+                            
+                            kbd_handler(sentence,sentence2,&inputSentence,&idx);
                             size_kbd = 1;
                         }
                     }
@@ -244,7 +251,7 @@ void mouse_handler(struct packet * p){
     if(game->mouse.mouse_y - p->delta_y >= 0 && game->mouse.mouse_y - p->delta_y + 26 <= (int) get_vres()){
         game->mouse.mouse_y -= p->delta_y;
     }
-    printf("X: %d Y: %d\n", game->mouse.mouse_x,game->mouse.mouse_y);
+    //printf("X: %d Y: %d\n", game->mouse.mouse_x,game->mouse.mouse_y);
     
     Point mouse_pt = {game->mouse.mouse_x,game->mouse.mouse_y};
     if(isInsideOpt(singlePlayerOpt, mouse_pt)){
@@ -435,7 +442,7 @@ void prevStartSelected(){
 
 }
 
-int kbd_handler(letter * sentence,letter ** inputSentence, unsigned int * idx){
+int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, unsigned int * idx){
   
     switch (game->state.mode){
         case MENU:
@@ -484,36 +491,93 @@ int kbd_handler(letter * sentence,letter ** inputSentence, unsigned int * idx){
                     return 0;
                 //ENTER
                 case 0x1C:
-                    game->state.mode = MENU;
-                    game->state.start = true;
-                    current_menu = menu_start;
-                    current_menu_img = menu_start_img;
+                    if(game->state.canAdvance){
+                        game->state.sentence = 2;
+                        game->state.start = true;
+                        game->state.canAdvance = true;
+                        (*idx) = 0;
+                    }
+                    else{
+                        game->state.mode = MENU;
+                        game->state.start = true;
+                        current_menu = menu_start;
+                        current_menu_img = menu_start_img;
+                    }
                     //printf("ENTER\n");
                     return 0;
                 case(0x0E):
                     printf("backspace");
-                    (*idx)--;
+                    if((*idx)<=0) (*idx) = 0;
+                    if((*idx)>0)(*idx)--;
+                    game->state.drawInput = true;
                     return 0;
-                    
+                
+                case(LSHIFT_MAKE):
+                case(RSHIFT_MAKE):
+                case(LSHIFT_BRAKE):
+                case(RSHIFT_BRAKE):
+                case(CAPS_MAKE):
+                    if(isUpper == 0){
+                        isUpper = 1;
+                    }
+                    else{
+                        isUpper = 0;
+                    }
+                    break;
+                
                 default:
-                    for(unsigned int k =0; k < 57; k++){ 
-                        if(letters[k].makeCode == code){ 
-                            
+                    if(isUpper == 0){
+                        for(unsigned int k =0; k < 31; k++){ 
+                            if(letters[k].makeCode == code){ 
+                                
 
-                            (*inputSentence)[*idx] = letters[k];
-                            (*idx)++;
-
-                            //printf("%c\n",letters[k].letter);
-                            
-                            return 0;
+                                (*inputSentence)[*idx] = letters[k];
+                                (*idx)++;
+                                game->state.drawInput = true;
+                                //printf("%c\n",letters[k].letter);
+                                
+                                return 0;
+                            }
                         }
-                    }
-                    for(unsigned int d = 0; d <= *idx; d++){
-                        printf("%c",(*inputSentence)[d].letter);
+                        for(unsigned int d = 0; d <= *idx; d++){
+                            printf("%c",(*inputSentence)[d].letter);
+                            
+                        }
+                        printf("\n");
+                        for(unsigned int d = 0; d <= *idx; d++){
+                            printf("%c",(sentence2)[d].letter);
+                            
+                        }
                         
+                        printf("\n");
+                        return 0;
                     }
-                    printf("\n");
-                    return 0;
+                    else{
+                        for(unsigned int k =31; k < 57; k++){ 
+                            if(letters[k].makeCode == code){ 
+                                
+
+                                (*inputSentence)[*idx] = letters[k];
+                                (*idx)++;
+                                game->state.drawInput = true;
+                                //printf("%c\n",letters[k].letter);
+                                
+                                return 0;
+                            }
+                        }
+                        for(unsigned int d = 0; d <= *idx; d++){
+                            printf("%c",(*inputSentence)[d].letter);
+                            
+                        }
+                        printf("\n");
+                        for(unsigned int d = 0; d <= *idx; d++){
+                            printf("%c",(sentence2)[d].letter);
+                            
+                        }
+                        
+                        printf("\n");
+                        return 0;
+                    }
             }    
             //validateLetter(*sentence,SCANCODE,input,*index);
         case MULTIPLAYER:
@@ -568,10 +632,10 @@ int kbd_handler(letter * sentence,letter ** inputSentence, unsigned int * idx){
 }
 
 
-int singlePlayer_mode(letter ** sentence, letter **inputSentence, unsigned int idx){
+int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSentence, unsigned int idx){
     if(game->state.start){
         game->state.draw = true;
-        
+        game->state.drawInput = true;
         singlePlayer_start(sentence, inputSentence);
         game->state.start = false;
         /*if(clear_xpm_with_cover(lastX,lastY,lastX+15,lastY+26,menu_single_img,menu_single)){
@@ -597,24 +661,82 @@ int singlePlayer_mode(letter ** sentence, letter **inputSentence, unsigned int i
                 printf("%s: Error drawing xpm", __func__);
                 return 1;
             }*/
-        if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
-            vg_exit();
-            //printf("%s: Error drawing rectangle\n", __func__);
-            return 1;
+            if(game->state.sentence == 1){
+                if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
+                vg_exit();
+                //printf("%s: Error drawing rectangle\n", __func__);
+                return 1;
+                }
+            }
+            else{
+                if(draw_sentence(*sentence2,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
+                vg_exit();
+                //printf("%s: Error drawing rectangle\n", __func__);
+                return 1;
+            }
         }
+        
         double_buffering();
-        if(clear_xpm_with_cover(188,396,963-188,592-396,game_background_img,game_background)){
-            vg_exit();
-            printf("%s: Error drawing xpm", __func__);
-            return 1;
+        if(game->state.drawInput){
+             if(clear_xpm_with_cover(188,396,963-188,592-396,game_background_img,game_background)){
+                vg_exit();
+                printf("%s: Error drawing xpm", __func__);
+                return 1;
+                }
+                printf("a limpar\n");
             
         }
-        if(draw_input_sentence(*inputSentence,*sentence,get_hres()/2.0-350 ,get_vres()/2.0-20,idx)){
-            vg_exit();
-            //printf("%s: Error drawing rectangle\n", __func__);
-            return 1;
+        if(game->state.sentence == 1){
+            if(draw_input_sentence(*inputSentence,*sentence,get_hres()/2.0-350 ,get_vres()/2.0-20,idx)){
+                vg_exit();
+                //printf("%s: Error drawing rectangle\n", __func__);
+                return 1;
+            }
+
+            }
+            else{
+                if(draw_input_sentence(*inputSentence,*sentence2,get_hres()/2.0-350 ,get_vres()/2.0-20,idx)){
+                vg_exit();
+
+                //printf("%s: Error drawing rectangle\n", __func__);
+                return 1;
+            }
+     
         }
         double_buffering();
+
+        printf("%u, %u\n", number_Letters2,idx);
+        if(game->state.drawInput){
+            if(clear_xpm_with_cover(963,592,30,39,game_background_img,game_background)){
+                vg_exit();
+                printf("%s: Error drawing xpm", __func__);
+                return 1;                    
+            }
+           
+        }
+        bool equal = true;
+        
+        if(game->state.sentence == 1){
+            equal = isEqual(idx,number_Letters1, sentence,inputSentence);
+        }
+        else if(game->state.sentence == 2){
+            equal = isEqual(idx,number_Letters2, sentence2,inputSentence);
+        }
+        
+        if(equal){
+            game->state.canAdvance = true;
+            if(vg_draw_xpm(963,592, next_img, next)){
+                vg_exit();
+                //printf("%s: Error drawing xpm\n", __func__);
+                return 1;
+            }
+        }
+        else{
+            game->state.canAdvance = false;
+        }
+        
+        game->state.drawInput = false;     
+       
 
     }
     return 0;
@@ -682,7 +804,7 @@ int drawPauseMenu(){
         break;
     }
     
-    //double_buffering();
+    double_buffering();
     return 0;
 }
 
@@ -837,18 +959,26 @@ int draw_input_sentence(letter *input,letter *sentence, uint16_t x, uint16_t y, 
 }
 
 
-void generateSentence(letter ** sentence){
+void generateSentence(letter ** sentence, letter ** sentence2){
 
     int number = 0;
     time_t t;
     srand(time(&t));
-    unsigned x = (rand() % (2 - 0 + 1)) + 0;
+    //unsigned x = (rand() % (2 - 0 + 1)) + 0;
 
     
-    while(sentences[x][number].letter !=  '.') number++;
+    while(sentences[0][number].letter !=  '.') number++;
     number++;
+    number_Letters1 = number;
     *sentence = (letter*)malloc(number*sizeof(letter));
-    memcpy(*sentence,sentences[x], number*sizeof(letter));
+    memcpy(*sentence,sentences[0], number*sizeof(letter));
+
+    number = 0;
+    while(sentences[1][number].letter !=  '.') number++;
+    number++;
+    *sentence2 = (letter*)malloc(number*sizeof(letter));
+    memcpy(*sentence2,sentences[1], number*sizeof(letter));
+    number_Letters2 = number;
 }
 void allocateSentence(letter ** sentence){
 
@@ -857,5 +987,20 @@ void allocateSentence(letter ** sentence){
  
     *sentence = (letter*)malloc(number*sizeof(letter));
 
+}
+
+bool isEqual(unsigned int idx,unsigned int number_Letters, letter ** sentence,letter **inputSentence){
+    if(number_Letters == idx){
+        
+        for(unsigned int i = 0; i < idx; i++){
+            if((*sentence)[i].letter != (*inputSentence)[i].letter){ 
+                printf("diferentes %u",i);
+                return false;
+                }
+
+        }
+    }
+    else return false;
+    return true;
 }
 

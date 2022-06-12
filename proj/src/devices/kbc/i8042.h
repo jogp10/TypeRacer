@@ -20,6 +20,12 @@
 
 #define ESC_MAKE      0x01
 #define ESC_BREAK     0x81
+#define RSHIFT_MAKE   0x36
+#define RSHIFT_BRAKE   0xb6
+#define LSHIFT_MAKE   0x2a
+#define LSHIFT_BRAKE   0xaa
+#define CAPS_MAKE 0x3a
+#define CAPS_BRAKE 0xba
 #define TWO_BYTE      0xe0
 #define MAKE_CODE     BIT(7)
 

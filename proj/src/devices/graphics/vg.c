@@ -25,6 +25,7 @@ xpm_image_t menu_pause_resume_img;
 xpm_image_t menu_pause_exit_img;
 xpm_image_t game_background_img;
 xpm_image_t red_car_img;
+xpm_image_t next_img;
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
 uint8_t *menu_single;
@@ -36,7 +37,7 @@ uint8_t *menu_pause_resume;
 uint8_t *menu_pause_exit;
 uint8_t *game_background;
 uint8_t *red_car;
-
+uint8_t *next;
 int(load_all_xpms)(){
   // get the pixmap from the XPM
   mouse_cursor = xpm_load(mouse_cursor_xpm, XPM_8_8_8_8, &mouse_img);
@@ -101,7 +102,12 @@ int(load_all_xpms)(){
 
   red_car = xpm_load(red_car_xpm, XPM_8_8_8_8, &red_car_img);
   if(red_car == NULL){
-    printf("pause menu no load");
+    printf("red car no load");
+    return 1;
+  }
+  next = xpm_load(next_xpm, XPM_8_8_8_8, &next_img);
+  if(next == NULL){
+    printf("next no load");
     return 1;
   }
 
@@ -197,7 +203,6 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t width, uint32_t color) {
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     if (x < 0 || x >= h_res || y >= v_res || y < 0 ) return 0;
-
     uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * bytes_per_pixel);
 
     /*for (int i = 0; i < BPP; i++) {
@@ -210,9 +215,10 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     return 0;
 }
 
-uint8_t (R)(uint32_t color) {return color >> info.RedFieldPosition % BIT(info.RedMaskSize);}
-uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.GreenMaskSize);}
-uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
+
+//uint8_t (R)(uint32_t color) {return color >> info.RedFieldPosition % BIT(info.RedMaskSize);}
+//uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.GreenMaskSize);}
+//uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
 
 
 int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map) {
@@ -239,6 +245,7 @@ int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map) {
 
   return 0;
 }
+
 
 int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 

@@ -1,0 +1,26 @@
+Resume
+X: 462 Y: 579
+X: 695 Y: 531
+
+Exit
+X: 507 Y: 679
+X: 653 Y: 634
+
+Retangulo de escrita
+X: 188 Y: 583
+X: 965 Y: 397
+
+
+
+TODO:
+-Jogo acabar ao fim de 3 frases
+-Menu de fim de jogo
+-Bug no inicio do jogo onde se pode escrever frases no menu priincipal
+-Mouse click funcionar so num menu qualquer
+-Relatório
+
+Extras:
+-Menu de fim de jogo
+-Menu de rules e créditos
+-Rato dar hover no menu de pausa
+-Exit no menu de pausa ir para menu principal

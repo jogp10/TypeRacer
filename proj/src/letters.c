@@ -119,7 +119,7 @@ int (load)(){
 
     letters[27].letter = ',';
     letters[27].xpm = xpm_load(virgula,XPM_8_8_8_8,&letters[27].img);
-    letters[57].makeCode = 0x33;
+    letters[27].makeCode = 0x33;
 
     letters[28].letter = ':';
     letters[28].xpm = xpm_load(doisPontos,XPM_8_8_8_8,&letters[28].img);
