@@ -13,11 +13,13 @@ X: 965 Y: 397
 
 
 TODO:
--Jogo acabar ao fim de 3 frases
 -Meter as frases direito (a primeira frase está toda fora do sitio)
--Menu de fim de jogo (talvez voltar para o inicio)
--Bug no inicio do jogo onde se pode escrever frases no menu principal
--Bug onde ao carregar no Enter durante o jogo o ecrã não atualiza até se carregar novamente
+-Menu de fim de jogo (talvez voltar para o inicio) - urgente
+-Acabar o jogo após a 2ª frase
+-Bug onde o indicador de CAPS fica a piscar se mantiver shift pressionado
+-Dar free a memoria
+-A frase escreve para lá do quadrado na 2ª linha mas ao apagar o texto fica lá
+-Mais frases e a escolher random
 -Doxygen
 -Relatório
 

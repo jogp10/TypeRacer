@@ -36,6 +36,7 @@ typedef struct {
     bool drawInput;
     bool canAdvance;
     int sentence;
+    bool clean;
 } State;
 
 typedef struct 

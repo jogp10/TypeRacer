@@ -26,6 +26,7 @@ xpm_image_t menu_pause_exit_img;
 xpm_image_t game_background_img;
 xpm_image_t red_car_img;
 xpm_image_t next_img;
+xpm_image_t upper_img;
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
 uint8_t *menu_single;
@@ -38,6 +39,7 @@ uint8_t *menu_pause_exit;
 uint8_t *game_background;
 uint8_t *red_car;
 uint8_t *next;
+uint8_t *upper;
 int(load_all_xpms)(){
   // get the pixmap from the XPM
   mouse_cursor = xpm_load(mouse_cursor_xpm, XPM_8_8_8_8, &mouse_img);
@@ -107,6 +109,11 @@ int(load_all_xpms)(){
   }
   next = xpm_load(next_xpm, XPM_8_8_8_8, &next_img);
   if(next == NULL){
+    printf("next no load");
+    return 1;
+  }
+  upper = xpm_load(upper_xpm, XPM_8_8_8_8, &upper_img);
+  if(upper == NULL){
     printf("next no load");
     return 1;
   }

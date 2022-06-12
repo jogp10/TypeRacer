@@ -18,7 +18,7 @@ int selectorMenu = 0, selectorPause = 0;
 unsigned int number_Letters1 = 0,number_Letters2= 0;
 static StartMenuEntry startMenuEntry;
 static StartMenuEntry prevStartMenuEntry;
-static int isUpper = 0;
+static int isUpper = 0, isShift = 0;
 
 extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
@@ -36,6 +36,7 @@ extern xpm_image_t menu_pause_exit_img;
 extern xpm_image_t game_background_img;
 extern xpm_image_t red_car_img;
 extern xpm_image_t next_img;
+extern xpm_image_t upper_img;
 extern uint8_t *mouse_cursor;
 extern uint8_t *menu_start;
 extern uint8_t *menu_single;
@@ -48,6 +49,7 @@ extern uint8_t *menu_pause_exit;
 extern uint8_t *game_background;
 extern uint8_t *red_car;
 extern uint8_t *next;
+extern uint8_t *upper;
 
 
 //canto sup dir, canto inf esq
@@ -261,6 +263,7 @@ void mouse_handler(struct packet * p){
             selectorMenu = 1;
             startMenuEntry = SINGLE;
             game->state.draw = true;
+
         }
         if(game->mouse.lmb){
             game->state.mode = SINGLEPLAYER;
@@ -411,43 +414,55 @@ void nextStartSelected(){
     {
     case DEFAULT:
         startMenuEntry = SINGLE;
+        selectorMenu = 1;
         return;
     case SINGLE:
         startMenuEntry = MULTI;
+        selectorMenu = 2;
         return;
     case MULTI:
         startMenuEntry = RULES;
+         selectorMenu = 3;
         return;
     case RULES:
         startMenuEntry = EXIT_GAME;
+         selectorMenu = 4;
         return;
     case EXIT_GAME:
         startMenuEntry = SINGLE;
+         selectorMenu = 1;
         return;
     }
 }
 
 void prevStartSelected(){
 
-    prevStartMenuEntry = startMenuEntry;
+    //prevStartMenuEntry = startMenuEntry;
     switch (startMenuEntry)
     {
     case DEFAULT:
         startMenuEntry = EXIT_GAME;
+        selectorMenu = 4;
+
         return;
     case SINGLE:
         startMenuEntry = EXIT_GAME;
+        selectorMenu = 4;
         return;
     case MULTI:
         startMenuEntry = SINGLE;
+        selectorMenu = 1;
         return;
     case RULES:
         startMenuEntry = MULTI;
+                selectorMenu = 2;
         return;
     case EXIT_GAME:
         startMenuEntry = RULES;
+        selectorMenu = 3;
         return;
     }
+    game->state.draw = true;
 
 }
 
@@ -459,14 +474,15 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                 //ARROW LEFT
                 case 0x4B:
                     prevStartSelected();
-                    game->state.start = true;
-                    //printf("left\n");
-                    return 0;
+                    game->state.draw = true;
+                    printf("left\n");
+                    break;
                 //ARROW RIGHT
                 case 0x4D:
                     nextStartSelected();
-                    game->state.start = true;
-                    //printf("right\n");
+                    game->state.draw = true;
+                    printf("right\n");
+                    printf("%d",selectorMenu);
                     return 0;
                 //ENTER
                 case 0x1C:
@@ -487,7 +503,9 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                             game->state.mode = EXIT;
                             return 0;
                     }
-            }    
+                    return 0;
+            }  
+        return 0;
         case SINGLEPLAYER:
             switch(code){
                 //W (???)
@@ -506,12 +524,12 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                         game->state.canAdvance = true;
                         (*idx) = 0;
                     }
-                    else{
+                    /*else{
                         game->state.mode = MENU;
                         game->state.start = true;
                         current_menu = menu_start;
                         current_menu_img = menu_start_img;
-                    }
+                    }*/
                     //printf("ENTER\n");
                     return 0;
                 case(0x0E):
@@ -531,6 +549,7 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                     }
                     else{
                         isUpper = 0;
+                        game->state.clean = true;
                     }
                     break;
                 
@@ -587,7 +606,8 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                         printf("\n");
                         return 0;
                     }
-            }    
+            }  
+            return 0; 
             //validateLetter(*sentence,SCANCODE,input,*index);
         case MULTIPLAYER:
             return 0;
@@ -670,6 +690,22 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
                 printf("%s: Error drawing xpm", __func__);
                 return 1;
             }*/
+            if(game->state.clean){
+                if(clear_xpm_with_cover(100, 686,70,66,game_background_img,game_background)){
+                vg_exit();
+                printf("%s: Error drawing xpm", __func__);
+                return 1;
+                }
+                game->state.clean = false;
+            }
+            if(isUpper){
+                if(vg_draw_xpm(100, 686, upper_img, upper)){
+                    vg_exit();
+                    //printf("%s: Error drawing xpm\n", __func__);
+                    return 1;
+                }
+            }
+            
             if(game->state.sentence == 1){
                 if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
                 vg_exit();
@@ -716,7 +752,7 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
 
         printf("%u, %u\n", number_Letters2,idx);
         if(game->state.drawInput){
-            if(clear_xpm_with_cover(963,592,30,39,game_background_img,game_background)){
+            if(clear_xpm_with_cover(1072, 786,30,39,game_background_img,game_background)){
                 vg_exit();
                 printf("%s: Error drawing xpm", __func__);
                 return 1;                    
