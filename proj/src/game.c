@@ -538,11 +538,31 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                     if((*idx)>0)(*idx)--;
                     game->state.drawInput = true;
                     return 0;
-                
+                //case(RSHIFT_MAKE):
                 case(LSHIFT_MAKE):
-                case(RSHIFT_MAKE):
+                    if(isShift == 1)
+                        break;
+                    if(isUpper == 0){
+                        isUpper = 1;
+                        isShift = 1;
+                    }
+                    else{
+                        isUpper = 0;
+                        isShift = 1;
+                        game->state.clean = true;
+                    }
+                    break;
+                //case(RSHIFT_BRAKE):
                 case(LSHIFT_BRAKE):
-                case(RSHIFT_BRAKE):
+                    if(isUpper == 0){
+                        isUpper = 1;
+                    }
+                    else{
+                        isUpper = 0;
+                        game->state.clean = true;
+                    }
+                    isShift = 0;
+                    break;
                 case(CAPS_MAKE):
                     if(isUpper == 0){
                         isUpper = 1;
