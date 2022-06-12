@@ -34,8 +34,6 @@ int (map_memory)(uint16_t mode);
  */
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
 
-int (vg_draw_green_pixel)(uint16_t x, uint16_t y, uint32_t color);
-
 int (vg_draw_input_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map);
 
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);

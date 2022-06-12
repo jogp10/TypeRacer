@@ -26,7 +26,8 @@ typedef enum Mode {
     RULES_CREDITS,
     PAUSE,
     SCOREBOARD,
-    EXIT
+    EXIT,
+    WIN
 } Mode;
 
 typedef struct {
@@ -58,6 +59,8 @@ void changeMenuState();
 int singlePlayer_mode(letter **sentence,letter ** sentence2, letter **inputSentence, unsigned int idx);
 
 int pause();
+
+int win_menu_f();
 
 int drawMouse();
 

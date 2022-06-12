@@ -10,6 +10,8 @@
 #include "pause_menu_exit.h"
 #include "motorway.h"
 #include "game_background.h"
+#include "win.h"
+#include "exit.h"
 
 /** Objects **/
 #include "red_car.h"
@@ -76,11 +78,15 @@
 
 /** Symbols **/
 
-#include "symbols/doispontos.xpm"
-#include "symbols/pontoeVirgula.xpm"
-#include "symbols/ponto.xpm"
-#include "symbols/virgula.xpm"
-#include "symbols/space.xpm"
+#include "symbols/apostrofe.h"
+#include "symbols/doispontos.h"
+#include "symbols/espaco.h"
+#include "symbols/ponto.h"
+#include "symbols/pontoexclamacao.h"
+#include "symbols/pontointerrogacao.h"
+#include "symbols/pontovirgula.h"
+#include "symbols/traco.h"
+#include "symbols/virgula.h"
 
 /** Leaderboard **/
 

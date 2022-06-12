@@ -5,7 +5,7 @@
 #include <math.h>
 
 static void *video_mem;         /* VBE information on input mode */
-static char *double_buf;
+char *double_buf;
 
 vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
@@ -27,6 +27,8 @@ xpm_image_t game_background_img;
 xpm_image_t red_car_img;
 xpm_image_t next_img;
 xpm_image_t upper_img;
+xpm_image_t win_menu_img;
+xpm_image_t win_exit_img;
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
 uint8_t *menu_single;
@@ -40,6 +42,9 @@ uint8_t *game_background;
 uint8_t *red_car;
 uint8_t *next;
 uint8_t *upper;
+uint8_t *win_menu;
+uint8_t *win_exit;
+
 int(load_all_xpms)(){
   // get the pixmap from the XPM
   mouse_cursor = xpm_load(mouse_cursor_xpm, XPM_8_8_8_8, &mouse_img);
@@ -87,6 +92,18 @@ int(load_all_xpms)(){
   menu_pause_resume = xpm_load(pause_menu_resume_xpm, XPM_8_8_8_8, &menu_pause_resume_img);
   if(menu_pause_resume == NULL){
     printf("pause resume menu no load");
+    return 1;
+  }
+
+  win_menu = xpm_load(win_menu_xpm, XPM_8_8_8_8, &win_menu_img);
+  if(win_menu == NULL){
+    printf("win menu no load");
+    return 1;
+  }
+
+  win_exit = xpm_load(win_exit_xpm, XPM_8_8_8_8, &win_exit_img);
+  if(win_exit == NULL){
+    printf("win_exit no load");
     return 1;
   }
 

@@ -14,7 +14,7 @@
 #include "devices/utils/mouse_collision.h"
 
 uint8_t timer_bit_no, kb_bit_no, mouse_bit_no;
-int selectorMenu = 0, selectorPause = 0;
+int selectorMenu = 0, selectorPause = 0, selectorWin = 0;
 unsigned int number_Letters1 = 0,number_Letters2= 0;
 static StartMenuEntry startMenuEntry;
 static StartMenuEntry prevStartMenuEntry;
@@ -37,6 +37,8 @@ extern xpm_image_t game_background_img;
 extern xpm_image_t red_car_img;
 extern xpm_image_t next_img;
 extern xpm_image_t upper_img;
+extern xpm_image_t win_menu_img;
+extern xpm_image_t win_exit_img;
 extern uint8_t *mouse_cursor;
 extern uint8_t *menu_start;
 extern uint8_t *menu_single;
@@ -50,6 +52,8 @@ extern uint8_t *game_background;
 extern uint8_t *red_car;
 extern uint8_t *next;
 extern uint8_t *upper;
+extern uint8_t *win_menu;
+extern uint8_t *win_exit;
 
 
 //canto sup dir, canto inf esq
@@ -77,10 +81,9 @@ int game_init(Game *self) {
     loadSentences();
     generateSentence(&sentence,&sentence2);
     //allocateSentence(&inputSentence);
+
     
- 
-    inputSentence = (letter*)malloc(163*sizeof(letter));
-  
+    inputSentence = (letter*)malloc(500*sizeof(letter));  
     game = self;
     game->state.mode = MENU;
     game->state.draw = false;
@@ -132,6 +135,9 @@ int game_init(Game *self) {
                                 break;
                             case EXIT:
                                 break;
+                            case WIN:
+                                if(win_menu_f()) return 1;
+                                break;
                         }
                         drawMouse();
                     }
@@ -164,7 +170,10 @@ int game_init(Game *self) {
             /* no standard messages expected: do nothing */
         }
     } while (game->state.mode != EXIT);
-
+    free(inputSentence);
+    free(sentence2);
+    free(sentence);
+    free(letters);
     return 0;
 }
 
@@ -519,10 +528,21 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                 //ENTER
                 case 0x1C:
                     if(game->state.canAdvance){
-                        game->state.sentence = 2;
-                        game->state.start = true;
-                        game->state.canAdvance = true;
-                        (*idx) = 0;
+                        if(game->state.sentence == 2){
+                            game->state.mode = WIN;
+                            game->state.start = true;
+                            game->state.canAdvance = false;
+                            game->state.sentence = 1;
+                            (*idx) = 0;
+                        }
+                        else{
+                            game->state.sentence = 2;
+                            game->state.start = true;
+                            game->state.canAdvance = false;
+                            (*idx) = 0;
+                        }
+                        
+                        
                     }
                     /*else{
                         game->state.mode = MENU;
@@ -575,8 +595,8 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                 
                 default:
                     if(isUpper == 0){
-                        for(unsigned int k =0; k < 31; k++){ 
-                            if(letters[k].makeCode == code){ 
+                        for(unsigned int k =0; k < 35; k++){ 
+                            if(letters[k].makeCode == code && letters[k].shift == isShift){ 
                                 
 
                                 (*inputSentence)[*idx] = letters[k];
@@ -601,8 +621,8 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                         return 0;
                     }
                     else{
-                        for(unsigned int k =26; k < 57; k++){ 
-                            if(letters[k].makeCode == code){ 
+                        for(unsigned int k =26; k < 61; k++){ 
+                            if(letters[k].makeCode == code && letters[k].shift == isShift){ 
                                 
 
                                 (*inputSentence)[*idx] = letters[k];
@@ -677,6 +697,40 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
             return 0;
         case EXIT:
             return 0;
+        case WIN:
+        switch(code){
+                //ARROW DOWN
+                case 0x48:
+                    selectorWin = selectorWin-1;
+                    if(selectorWin < 0) selectorWin = 1;
+                    game->state.draw = true;
+                    return 0;
+                //ARROW UP
+                case 0x50:
+                    selectorWin = (selectorWin+1)%2; 
+                    game->state.draw = true;
+                    //printf("UP in pause\n");
+                    return 0;
+                //ENTER
+                case 0x1C:
+                    if (selectorWin == 0){
+                        game->state.mode = MENU;
+                        game->state.start = true;
+                        game->state.draw = true;
+                        current_menu = menu_start;
+                        current_menu_img = menu_start_img;
+                        return 0;
+                        
+                    }
+                    if(selectorWin == 1){
+                       game->state.mode = EXIT;
+                        return 0;
+                    }
+                    default:
+                        return 0;
+            }
+        game->state.draw = true;
+            return 0;
     }
 }
 
@@ -696,48 +750,34 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
     }
     else{
         
-        /*printf("anterior:%d,",lastX);
-        printf("%d\n",lastY);
-        printf("atual:%d,",game->mouse.mouse_x);
-        printf("%d\n",game->mouse.mouse_y);
-        if(clear_xpm_with_cover(lastX,lastY, 16,25,game_background_img, game_background)){
+        
+        if(game->state.clean){
+            if(clear_xpm_with_cover(100, 686,70,66,game_background_img,game_background)){
+            vg_exit();
+            printf("%s: Error drawing xpm", __func__);
+            return 1;
+            }
+            game->state.clean = false;
+        }
+        if(isUpper){
+            if(vg_draw_xpm(100, 686, upper_img, upper)){
                 vg_exit();
-                printf("%s: Error drawing rectangle", __func__);
+                //printf("%s: Error drawing xpm\n", __func__);
                 return 1;
             }
-       if(vg_draw_xpm(game->mouse.mouse_x, game->mouse.mouse_y, mouse_img, mouse_cursor)){
-                vg_exit();
-                printf("%s: Error drawing xpm", __func__);
-                return 1;
-            }*/
-            if(game->state.clean){
-                if(clear_xpm_with_cover(100, 686,70,66,game_background_img,game_background)){
-                vg_exit();
-                printf("%s: Error drawing xpm", __func__);
-                return 1;
-                }
-                game->state.clean = false;
-            }
-            if(isUpper){
-                if(vg_draw_xpm(100, 686, upper_img, upper)){
-                    vg_exit();
-                    //printf("%s: Error drawing xpm\n", __func__);
-                    return 1;
-                }
-            }
-            
-            if(game->state.sentence == 1){
-                if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
+        }
+        if(game->state.sentence == 1){
+            if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
                 vg_exit();
                 //printf("%s: Error drawing rectangle\n", __func__);
-                return 1;
-                }
+            return 1;
             }
-            else{
-                if(draw_sentence(*sentence2,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
+        }
+        else{
+            if(draw_sentence(*sentence2,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
                 vg_exit();
                 //printf("%s: Error drawing rectangle\n", __func__);
-                return 1;
+            return 1;
             }
         }
         
@@ -807,6 +847,38 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
     return 0;
 }
 
+int win_menu_f(){
+    if(game->state.start){
+        if(vg_draw_xpm(0, 0, win_menu_img, win_menu)){
+                vg_exit();
+                //printf("%s: Error drawing xpm\n", __func__);
+                return 1;
+            }
+        game->state.start = false;
+    }
+    else{
+        if(game->state.draw){
+            if(selectorWin == 0){
+                if(vg_draw_xpm(0, 0, win_menu_img, win_menu)){
+                vg_exit();
+                //printf("%s: Error drawing xpm\n", __func__);
+         
+                return 1;
+                }
+                printf("alterar para menu 0\n");
+            }
+            else if(selectorWin == 1){
+                if(vg_draw_xpm(0, 0, win_exit_img, win_exit)){
+                vg_exit();
+                //printf("%s: Error drawing xpm\n", __func__);
+                return 1;
+                }
+                printf("alterar para menu 1\n");
+            }
+        }
+    }
+    return 0;
+}
 int singlePlayer_start(letter **sentence, letter **inputSentence){
     if(game->state.draw){
 
@@ -899,7 +971,7 @@ int draw_sentence(letter *sentence, uint16_t x, uint16_t y, int correct) {
           break;
           //if(sentence[j].letter == '.') break;
         }
-    }
+        }
     }
   
     if((x1-x)>700){
@@ -924,56 +996,7 @@ int draw_sentence(letter *sentence, uint16_t x, uint16_t y, int correct) {
   return 0;
 }
 
-int draw_input(letter *sentence, uint16_t x, uint16_t y, int correct, int size) {
-    if(size <3) return 0;
-    uint16_t x1=x; /*x1 -> posição onde desenhar a letras*/
-    bool finish = false;
-    for(int i = 0; !finish; i++){
 
-        if(i == size-1){
-        finish = true;
-        }
-
-        uint16_t temp=x1;
-        if(sentence[i].letter == ' '){
-
-        for(int j = i+1; true; j++){
-            if(sentence[j].letter == ' ' || sentence[j].letter == '.'){
-            
-            for(int k = i+1; k <= j; k++){ 
-                temp += sentence[k].img.width + 1;
-            }
-            if(temp > x + 680){
-                y += sentence[i].img.height - 2;
-                x1=x;
-            }
-            break;
-
-            }
-        }
-        }
-    
-        if((x1-x)>700){
-        y += sentence[i].img.height + 1;
-        x1=x;
-        }
-        if(sentence[i].letter != ' '){
-
-        //draw_letter(sentence[i].xpm,x1,y,sentence[i].img,buff,0xFFFFFF);
-        vg_draw_xpm(x1,y,sentence[i].img,sentence[i].xpm);
-        
-        x1+=sentence[i].img.width + 1;
-        }
-        else{
-        if(x1 != x){
-            //draw_letter(sentence[i].xpm,x1,y,sentence[i].img,buff,0xFFFFFF);   
-            vg_draw_xpm(x1,y,sentence[i].img,sentence[i].xpm);
-            x1+=sentence[i].img.width + 1;
-        }
-        }
-    }
-    return 0;
-}
 
 int draw_input_sentence(letter *input,letter *sentence, uint16_t x, uint16_t y, int size) {
 
@@ -982,13 +1005,11 @@ int draw_input_sentence(letter *input,letter *sentence, uint16_t x, uint16_t y, 
     
 
   for(int i = 0; i < size; i++){ 
-
    
     if(i == size-1){
       finish = true;
     }
    
-    
     uint16_t temp=x1;
     if(sentence[i].letter == ' '){
       //procura o proximo espaço da frase delimitando a palavra
@@ -1029,25 +1050,31 @@ void generateSentence(letter ** sentence, letter ** sentence2){
     int number = 0;
     time_t t;
     srand(time(&t));
-    //unsigned x = (rand() % (2 - 0 + 1)) + 0;
-
+    unsigned x = (rand() % (7 - 0 + 1)) + 0;
     
-    while(sentences[0][number].letter !=  '.') number++;
+    while(sentences[x][number].letter !=  '.') number++;
     number++;
     number_Letters1 = number;
     *sentence = (letter*)malloc(number*sizeof(letter));
-    memcpy(*sentence,sentences[0], number*sizeof(letter));
-
+    memcpy(*sentence,sentences[x], number*sizeof(letter));
+    printf("%u\n", x);
+    unsigned i = x;
+    while(i == x){
+        i = (rand() % (7 - 0 + 1)) + 0;
+    }
+    printf("%u", i);
     number = 0;
-    while(sentences[1][number].letter !=  '.') number++;
+    while(sentences[i][number].letter !=  '.') number++;
     number++;
-    *sentence2 = (letter*)malloc(number*sizeof(letter));
-    memcpy(*sentence2,sentences[1], number*sizeof(letter));
     number_Letters2 = number;
+    *sentence2 = (letter*)malloc(number*sizeof(letter));
+    memcpy(*sentence2,sentences[i], number*sizeof(letter));
+
 }
+
 void allocateSentence(letter ** sentence){
 
-    int number = 163;
+    int number = 500;
     
  
     *sentence = (letter*)malloc(number*sizeof(letter));
@@ -1068,4 +1095,6 @@ bool isEqual(unsigned int idx,unsigned int number_Letters, letter ** sentence,le
     else return false;
     return true;
 }
+
+
 
