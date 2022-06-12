@@ -7,5 +7,12 @@ typedef struct Point
     int y;
 }Point;
 
+/**
+ * @brief 
+ * 
+ * @param opt  area to search
+ * @param mouse location of mouse
+ * @return true on mouse inside opt
+ */
 int isInsideOpt(Point opt[], Point mouse);
 

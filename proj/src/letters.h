@@ -31,14 +31,41 @@ static char sentencesChar[8][500]={
     {"There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy units."}
 };
 
+/**
+ * @brief load alphabet xpms
+ * 
+ * @return 0 upon success, 1 otherwise
+ */
 int (load)();
 
+/**
+ * @brief load sentences xpms
+ * 
+ */
 void loadSentences();
 
+/**
+ * @brief 
+ * 
+ * @param row number of sentences
+ * @param col max size or bigger of a sentence
+ * @return array 2d with sentences
+ */
 letter ** allocate2dArray(int row, int col);
 
+/**
+ * @brief free memory
+ * 
+ * @param ptr pointer to array
+ * @param row number of sentences
+ * @param col size of a sentence
+ */
 void free2dArray(letter ** ptr, int row, int col);
 
+/**
+ * @brief frees sentences memory usage
+ * 
+ */
 void destroySentencesAndLetters();
 
 #endif /* __LETTERS_H */

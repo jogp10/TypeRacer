@@ -41,8 +41,23 @@ bool(kbd_code_complete)(uint8_t scan_code[], uint8_t *size);
  */
 int(kbd_reenable_int)();
 
+/**
+ * @brief 
+ * 
+ * @param cmd command to be issued
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (kbc_issue_command)(uint8_t cmd);
+
+
 int (kbc_issue_command_with_arg)(uint8_t arg);
+
+/**
+ * @brief Reads acknowledgemnt byte
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte);
 
 #endif /* __KBD_H */

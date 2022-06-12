@@ -64,6 +64,7 @@ int (mouse_issue_command)(uint8_t cmd) {
 }
 
 int (mouse_set_stream_mode)()  { return mouse_issue_command(MC_SET_STREAM_MODE); }
+
 int (mouse_enable_data_rep)()  { 
     if (mouse_issue_command(MC_EN_DATA_REP)!=0) {
         printf("Error issuing command.");

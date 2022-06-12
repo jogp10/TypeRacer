@@ -767,14 +767,14 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
             }
         }
         if(game->state.sentence == 1){
-            if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
+            if(draw_sentence(*sentence,get_hres()/2.0-350 ,get_vres()/2.0-250)){
                 vg_exit();
                 //printf("%s: Error drawing rectangle\n", __func__);
             return 1;
             }
         }
         else{
-            if(draw_sentence(*sentence2,get_hres()/2.0-350 ,get_vres()/2.0-250,-1)){
+            if(draw_sentence(*sentence2,get_hres()/2.0-350 ,get_vres()/2.0-250)){
                 vg_exit();
                 //printf("%s: Error drawing rectangle\n", __func__);
             return 1;
@@ -946,7 +946,7 @@ int drawPauseMenu(){
 }
 
 
-int draw_sentence(letter *sentence, uint16_t x, uint16_t y, int correct) {
+int draw_sentence(letter *sentence, uint16_t x, uint16_t y) {
   uint16_t x1=x; /*x1 -> posição onde desenhar a letras*/
   bool finish = false;
   for(int i = 0; !finish; i++){
@@ -1012,10 +1012,8 @@ int draw_input_sentence(letter *input,letter *sentence, uint16_t x, uint16_t y, 
    
     uint16_t temp=x1;
     if(sentence[i].letter == ' '){
-      //procura o proximo espaço da frase delimitando a palavra
       for(int j = i+1; true; j++){
-      if(sentence[j].letter == ' ' || sentence[j].letter == '.'){// encontrando um espaço
-        //calcula se a proxima palavra cabe no ecra 
+      if(sentence[j].letter == ' ' || sentence[j].letter == '.'){
         for(int k = i+1; k <= j; k++){ 
           temp += sentence[k].img.width + 1;
         }
@@ -1092,8 +1090,7 @@ bool isEqual(unsigned int idx,unsigned int number_Letters, letter ** sentence,le
 
         }
     }
-    else return false;
-    return true;
+    return false;
 }
 
 
