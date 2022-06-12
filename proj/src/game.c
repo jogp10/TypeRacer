@@ -262,6 +262,9 @@ void mouse_handler(struct packet * p){
             startMenuEntry = SINGLE;
             game->state.draw = true;
         }
+        if(game->mouse.lmb){
+            game->state.mode=SINGLEPLAYER;
+        }
         
     }
     else if(isInsideOpt(multiPlayerOpt, mouse_pt)){
@@ -291,6 +294,9 @@ void mouse_handler(struct packet * p){
             selectorMenu = 4;
             startMenuEntry = EXIT_GAME;
             game->state.draw = true;
+        }
+        if(game->mouse.lmb){
+            game->state.mode=EXIT;
         }
         
     }
