@@ -17,10 +17,10 @@ letter ** sentences;
 letter * errorMessage;
 
 static char sentencesChar[3][163]={
-    {"if i had known dsdsad."},
-    {"i am not a religious man, but every now and then, a child come."},
-    {"the general is weak and without authority when his orders are not."}
-    };
+    {"The company is listed on the Tokyo Stock Exchange. It must be very valuable."},
+    {"The stained glass window had slivers of yellow, orange, and red. They were pretty"},
+    {"We still have a couple of big decisions to make. Let it sink in."}
+};
 
 int (load)();
 

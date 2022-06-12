@@ -14,14 +14,15 @@ X: 965 Y: 397
 
 TODO:
 -Jogo acabar ao fim de 3 frases
+-Meter as frases direito (a primeira frase está toda fora do sitio)
 -Menu de fim de jogo (talvez voltar para o inicio)
 -Bug no inicio do jogo onde se pode escrever frases no menu principal
--Bug onde ao clicar no singleplayer ele n desenha o background, só a frase
+-Bug onde ao carregar no Enter durante o jogo o ecrã não atualiza até se carregar novamente
 -Doxygen
 -Relatório
 
 Extras:
--Menu de fim de jogo
 -Menu de rules e créditos
 -Rato dar hover no menu de pausa
 -Exit no menu de pausa ir para menu principal
+-RTC para contar wpm

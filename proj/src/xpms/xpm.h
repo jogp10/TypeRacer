@@ -14,7 +14,6 @@
 /** Objects **/
 #include "red_car.h"
 #include "yellow_car.h"
-#include "pikachu.h"
 #include "mouse_cursor.h"
 #include "next.h"
 

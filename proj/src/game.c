@@ -263,7 +263,10 @@ void mouse_handler(struct packet * p){
             game->state.draw = true;
         }
         if(game->mouse.lmb){
-            game->state.mode=SINGLEPLAYER;
+            game->state.mode = SINGLEPLAYER;
+            game->state.start = true;
+            current_menu = game_background;
+            current_menu_img = game_background_img;
         }
         
     }
@@ -559,7 +562,7 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
                         return 0;
                     }
                     else{
-                        for(unsigned int k =31; k < 57; k++){ 
+                        for(unsigned int k =26; k < 57; k++){ 
                             if(letters[k].makeCode == code){ 
                                 
 
@@ -731,7 +734,7 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
         
         if(equal){
             game->state.canAdvance = true;
-            if(vg_draw_xpm(963,592, next_img, next)){
+            if(vg_draw_xpm(1072, 786, next_img, next)){
                 vg_exit();
                 //printf("%s: Error drawing xpm\n", __func__);
                 return 1;
