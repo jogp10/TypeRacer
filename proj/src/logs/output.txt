@@ -1,3583 +1,3241 @@
-7
-1a limpar
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
+2
+5a limpar
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
 Makecode: 0x2a
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-Makecode: 0x14
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+Makecode: 0x1e
 a limpar
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-Breakcode: 0x94
-T
-We
-61, 1
-Breakcode: 0xaa
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-Makecode: 0x23
-a limpar
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-Breakcode: 0xa3
+76, 1
+76, 1
+76, 1
+76, 1
+76, 1
+76, 1
+76, 1
+Breakcode: 0x9e
+A
 Th
-We 
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-Makecode: 0x12
-a limpar
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-Breakcode: 0x92
-The
-We s
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-Makecode: 0x13
-a limpar
-61, 4
-61, 4
-61, 4
-61, 4
-Breakcode: 0x93
-Ther
-We st
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-Makecode: 0x12
-a limpar
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-Breakcode: 0x92
-There
-We sti
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-Makecode: 0x0c
-a limpar
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-Breakcode: 0x8c
-There'
-We stil
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-Makecode: 0x1f
-a limpar
-61, 7
-61, 7
-61, 7
-61, 7
-61, 7
-Breakcode: 0x9f
-There's
-We still
-61, 7
-61, 7
-61, 7
+76, 1
+76, 1
+Breakcode: 0xaa
+76, 1
+76, 1
 Makecode: 0x39
 a limpar
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-Breakcode: 0xb9
-There's 
-We still 
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
+76, 2
+76, 2
+76, 2
+76, 2
+76, 2
+76, 2
+76, 2
 Makecode: 0x31
 a limpar
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
+76, 3
+Breakcode: 0xb9
+A n
+The 
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
 Breakcode: 0xb1
-There's n
-We still h
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
+A n
+The 
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
 Makecode: 0x18
 a limpar
-61, 10
-61, 10
-61, 10
-61, 10
-61, 10
-61, 10
-61, 10
-61, 10
-Makecode: 0x39
-a limpar
-61, 11
-61, 11
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
 Breakcode: 0x98
-There's no 
-We still hav
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-Breakcode: 0xb9
-There's no 
-We still hav
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-Makecode: 0x1f
+A no
+The c
+76, 4
+Makecode: 0x14
 a limpar
-61, 12
-61, 12
-61, 12
-61, 12
-61, 12
-61, 12
-Breakcode: 0x9f
-There's no s
-We still have
-61, 12
-Makecode: 0x17
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+Breakcode: 0x94
+A not
+The co
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+Makecode: 0x35
 a limpar
-61, 13
-61, 13
-61, 13
-61, 13
-61, 13
-61, 13
-Breakcode: 0x97
-There's no si
-We still have 
-61, 13
-Makecode: 0x31
+76, 6
+76, 6
+76, 6
+76, 6
+76, 6
+76, 6
+76, 6
+76, 6
+Breakcode: 0xb5
+A not-
+The com
+Makecode: 0x14
 a limpar
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-Breakcode: 0xb1
-There's no sin
-We still have a
-61, 14
-Makecode: 0x22
-a limpar
-61, 15
-61, 15
-61, 15
-61, 15
-61, 15
-61, 15
-Breakcode: 0xa2
-There's no sing
-We still have a 
-61, 15
-Makecode: 0x26
-a limpar
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-Breakcode: 0xa6
-There's no singl
-We still have a c
-61, 16
-Makecode: 0x12
-a limpar
-61, 17
-61, 17
-61, 17
-61, 17
-61, 17
-61, 17
-Breakcode: 0x92
-There's no single
-We still have a co
-61, 17
-61, 17
-61, 17
-61, 17
-61, 17
-61, 17
-Makecode: 0x39
-a limpar
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-Breakcode: 0xb9
-There's no single 
-We still have a cou
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-Makecode: 0x2e
-a limpar
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
-Breakcode: 0xae
-There's no single c
-We still have a coup
-61, 19
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+Breakcode: 0x94
+A not-t
+The comp
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
 Makecode: 0x23
 a limpar
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
 Breakcode: 0xa3
-There's no single ch
-We still have a coupl
-61, 20
+A not-th
+The compa
+76, 8
+76, 8
+Makecode: 0x1e
+a limpar
+76, 9
+76, 9
+76, 9
+76, 9
+76, 9
+Breakcode: 0x9e
+A not-tha
+The compan
+76, 9
+Makecode: 0x14
+a limpar
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+Breakcode: 0x94
+A not-that
+The company
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+Makecode: 0x35
+a limpar
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+Breakcode: 0xb5
+A not-that-
+The company 
+76, 11
+76, 11
+Makecode: 0x13
+a limpar
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+Breakcode: 0x93
+A not-that-r
+The company i
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+Makecode: 0x1e
+a limpar
+76, 13
+76, 13
+76, 13
+76, 13
+76, 13
+Breakcode: 0x9e
+A not-that-ra
+The company is
+76, 13
+76, 13
+76, 13
+76, 13
+76, 13
+Makecode: 0x13
+a limpar
+76, 14
+76, 14
+76, 14
+76, 14
+76, 14
+76, 14
+Breakcode: 0x93
+A not-that-rar
+The company is 
+76, 14
+76, 14
+76, 14
+76, 14
+76, 14
 Makecode: 0x12
 a limpar
-61, 21
-61, 21
-61, 21
-61, 21
+76, 15
+76, 15
+76, 15
+76, 15
+76, 15
+76, 15
 Breakcode: 0x92
-There's no single che
-We still have a couple
-61, 21
-61, 21
-61, 21
-61, 21
+A not-that-rare
+The company is l
+76, 15
+76, 15
+Makecode: 0x39
+a limpar
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+Breakcode: 0xb9
+A not-that-rare 
+The company is li
+76, 16
+Makecode: 0x18
+a limpar
+76, 17
+76, 17
+76, 17
+76, 17
+76, 17
+76, 17
+76, 17
+76, 17
+Breakcode: 0x98
+A not-that-rare o
+The company is lis
+76, 17
 Makecode: 0x2e
 a limpar
-61, 22
-61, 22
-61, 22
-61, 22
-61, 22
+76, 18
+76, 18
+76, 18
 Breakcode: 0xae
-There's no single chec
-We still have a couple 
-61, 22
-61, 22
-Makecode: 0x25
-a limpar
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-Breakcode: 0xa5
-There's no single check
-We still have a couple o
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-Makecode: 0x26
-a limpar
-61, 24
-61, 24
-61, 24
-61, 24
-61, 24
-61, 24
-61, 24
-Breakcode: 0xa6
-There's no single checkl
-We still have a couple of
-61, 24
-61, 24
-61, 24
-Makecode: 0x17
-a limpar
-61, 25
-61, 25
-61, 25
-61, 25
-61, 25
-61, 25
-Breakcode: 0x97
-There's no single checkli
-We still have a couple of 
-61, 25
-Makecode: 0x1f
-a limpar
-61, 26
-61, 26
-61, 26
-61, 26
-Breakcode: 0x9f
-There's no single checklis
-We still have a couple of b
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-Makecode: 0x14
-a limpar
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Breakcode: 0x94
-There's no single checklist
-We still have a couple of bi
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Makecode: 0x39
-a limpar
-61, 28
-61, 28
-61, 28
-Breakcode: 0xb9
-There's no single checklist 
-We still have a couple of big
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-Makecode: 0x0e
-backspacea limpar
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Breakcode: 0x8e
-There's no single checklist 
-We still have a couple of bi
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Makecode: 0x33
-a limpar
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-Makecode: 0x39
-a limpar
-61, 29
-61, 29
-Breakcode: 0xb3
-There's no single checklist, 
-We still have a couple of big 
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-Breakcode: 0xb9
-There's no single checklist, 
-We still have a couple of big 
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-Makecode: 0x30
-a limpar
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-Breakcode: 0xb0
-There's no single checklist, b
-We still have a couple of big d
-61, 30
-61, 30
-61, 30
-61, 30
-Makecode: 0x16
-a limpar
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-Breakcode: 0x96
-There's no single checklist, bu
-We still have a couple of big de
-61, 31
-61, 31
-Makecode: 0x14
-a limpar
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-Breakcode: 0x94
-There's no single checklist, but
-We still have a couple of big dec
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-Makecode: 0x39
-a limpar
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-Breakcode: 0xb9
-There's no single checklist, but 
-We still have a couple of big deci
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-Makecode: 0x2a
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-Makecode: 0x14
-a limpar
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-Breakcode: 0x94
-There's no single checklist, but T
-We still have a couple of big decis
-61, 34
-Breakcode: 0xaa
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-Makecode: 0x15
-a limpar
-61, 35
-61, 35
-61, 35
-61, 35
-Breakcode: 0x95
-There's no single checklist, but Ty
-We still have a couple of big decisi
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-Makecode: 0x1f
-a limpar
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-Breakcode: 0x9f
-There's no single checklist, but Tys
-We still have a couple of big decisio
-61, 36
-61, 36
-61, 36
-Makecode: 0x18
-a limpar
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-Breakcode: 0x98
-There's no single checklist, but Tyso
-We still have a couple of big decision
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-Makecode: 0x31
-a limpar
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-Makecode: 0x39
-a limpar
-61, 39
-61, 39
-Breakcode: 0xb1
-There's no single checklist, but Tyson 
-We still have a couple of big decisions 
-61, 39
-61, 39
-61, 39
-61, 39
-61, 39
-Breakcode: 0xb9
-There's no single checklist, but Tyson 
-We still have a couple of big decisions 
-61, 39
-Makecode: 0x18
-a limpar
-61, 40
-61, 40
-61, 40
-61, 40
-61, 40
-61, 40
-Makecode: 0x21
-a limpar
-61, 41
-61, 41
-Breakcode: 0x98
-There's no single checklist, but Tyson of
-We still have a couple of big decisions to
-61, 41
-61, 41
-Breakcode: 0xa1
-There's no single checklist, but Tyson of
-We still have a couple of big decisions to
-61, 41
-61, 41
-61, 41
-Makecode: 0x21
-a limpar
-61, 42
-61, 42
-61, 42
-61, 42
-61, 42
-61, 42
-Breakcode: 0xa1
-There's no single checklist, but Tyson off
-We still have a couple of big decisions to 
-61, 42
-61, 42
-61, 42
-61, 42
-Makecode: 0x12
-a limpar
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
-Breakcode: 0x92
-There's no single checklist, but Tyson offe
-We still have a couple of big decisions to m
-61, 43
-61, 43
-61, 43
-61, 43
-Makecode: 0x13
-a limpar
-61, 44
-61, 44
-61, 44
-61, 44
-Breakcode: 0x93
-There's no single checklist, but Tyson offer
-We still have a couple of big decisions to ma
-61, 44
-61, 44
-61, 44
-61, 44
-Makecode: 0x12
-a limpar
-61, 45
-61, 45
-61, 45
-61, 45
-61, 45
-Breakcode: 0x92
-There's no single checklist, but Tyson offere
-We still have a couple of big decisions to mak
-61, 45
-61, 45
-61, 45
-61, 45
-Makecode: 0x20
-a limpar
-61, 46
-61, 46
-61, 46
-61, 46
-Breakcode: 0xa0
-There's no single checklist, but Tyson offered
-We still have a couple of big decisions to make
-61, 46
-Makecode: 0x39
-a limpar
-61, 47
-61, 47
-61, 47
-61, 47
-61, 47
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered 
-We still have a couple of big decisions to make,
-61, 47
-61, 47
-61, 47
-Makecode: 0x14
-a limpar
-61, 48
-61, 48
-61, 48
-Breakcode: 0x94
-There's no single checklist, but Tyson offered t
-We still have a couple of big decisions to make, 
-61, 48
-Makecode: 0x23
-a limpar
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-Breakcode: 0xa3
-There's no single checklist, but Tyson offered th
-We still have a couple of big decisions to make, l
-61, 49
-Makecode: 0x12
-a limpar
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-Breakcode: 0x92
-There's no single checklist, but Tyson offered the
-We still have a couple of big decisions to make, le
-61, 50
-Makecode: 0x39
-a limpar
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the 
-We still have a couple of big decisions to make, let
-61, 51
-Makecode: 0x21
-a limpar
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-Breakcode: 0xa1
-There's no single checklist, but Tyson offered the f
-We still have a couple of big decisions to make, let'
-61, 52
-61, 52
-61, 52
-61, 52
-Makecode: 0x26
-a limpar
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-Breakcode: 0xa6
-There's no single checklist, but Tyson offered the fl
-We still have a couple of big decisions to make, let's
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-Makecode: 0x0e
-backspacea limpar
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-Breakcode: 0x8e
-There's no single checklist, but Tyson offered the fl
-We still have a couple of big decisions to make, let'
-61, 52
-61, 52
-61, 52
-61, 52
-Makecode: 0x18
-a limpar
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-Breakcode: 0x98
-There's no single checklist, but Tyson offered the fo
-We still have a couple of big decisions to make, let's
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-Makecode: 0x26
-a limpar
-61, 54
-61, 54
-61, 54
-61, 54
-61, 54
-Breakcode: 0xa6
-There's no single checklist, but Tyson offered the fol
-We still have a couple of big decisions to make, let's 
-61, 54
-61, 54
-61, 54
-Makecode: 0x26
-a limpar
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-Breakcode: 0xa6
-There's no single checklist, but Tyson offered the foll
-We still have a couple of big decisions to make, let's f
-61, 55
-61, 55
-61, 55
-Makecode: 0x18
-a limpar
-61, 56
-61, 56
-61, 56
-61, 56
-61, 56
-61, 56
-61, 56
-Breakcode: 0x98
-There's no single checklist, but Tyson offered the follo
-We still have a couple of big decisions to make, let's fo
-61, 56
-Makecode: 0x11
-a limpar
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-Breakcode: 0x91
-There's no single checklist, but Tyson offered the follow
-We still have a couple of big decisions to make, let's foc
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-Makecode: 0x17
-a limpar
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-Breakcode: 0x97
-There's no single checklist, but Tyson offered the followi
-We still have a couple of big decisions to make, let's focu
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-Makecode: 0x31
-a limpar
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the followin
-We still have a couple of big decisions to make, let's focus
-61, 59
-Makecode: 0x22
-a limpar
-61, 60
-61, 60
-Breakcode: 0xa2
-There's no single checklist, but Tyson offered the following
-We still have a couple of big decisions to make, let's focus.
-61, 60
-Makecode: 0x39
-a limpar
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following 
-We still have a couple of big decisions to make, let's focus.
-61, 61
-61, 61
-Makecode: 0x1f
-a limpar
-61, 62
-61, 62
-61, 62
-61, 62
-61, 62
-61, 62
-61, 62
-Breakcode: 0x9f
-There's no single checklist, but Tyson offered the following s
-We still have a couple of big decisions to make, let's focus.
-61, 62
-Makecode: 0x16
-a limpar
-61, 63
-61, 63
-61, 63
-61, 63
-61, 63
-61, 63
-Breakcode: 0x96
-There's no single checklist, but Tyson offered the following su
-We still have a couple of big decisions to make, let's focus.
-61, 63
-61, 63
-61, 63
-61, 63
-Makecode: 0x22
-a limpar
-61, 64
-61, 64
-61, 64
-61, 64
-61, 64
-61, 64
-61, 64
-Breakcode: 0xa2
-There's no single checklist, but Tyson offered the following sug
-We still have a couple of big decisions to make, let's focus.
-61, 64
-61, 64
-Makecode: 0x22
-a limpar
-61, 65
-61, 65
-61, 65
-61, 65
-61, 65
-61, 65
-61, 65
-Breakcode: 0xa2
-There's no single checklist, but Tyson offered the following sugg
-We still have a couple of big decisions to make, let's focus.
-61, 65
-61, 65
-Makecode: 0x12
-a limpar
-61, 66
-61, 66
-61, 66
-61, 66
-61, 66
-61, 66
-Breakcode: 0x92
-There's no single checklist, but Tyson offered the following sugge
-We still have a couple of big decisions to make, let's focus.
-61, 66
-61, 66
-61, 66
-61, 66
-61, 66
-Makecode: 0x1f
-a limpar
-61, 67
-61, 67
-61, 67
-61, 67
-Breakcode: 0x9f
-There's no single checklist, but Tyson offered the following sugges
-We still have a couple of big decisions to make, let's focus.
-61, 67
-61, 67
-61, 67
-61, 67
-61, 67
-61, 67
-61, 67
-61, 67
-61, 67
-Makecode: 0x14
-a limpar
-61, 68
-61, 68
-61, 68
-61, 68
-61, 68
-Breakcode: 0x94
-There's no single checklist, but Tyson offered the following suggest
-We still have a couple of big decisions to make, let's focus.
-61, 68
-Makecode: 0x17
-a limpar
-61, 69
-61, 69
-Breakcode: 0x97
-There's no single checklist, but Tyson offered the following suggesti
-We still have a couple of big decisions to make, let's focus.
-61, 69
-61, 69
-61, 69
-Makecode: 0x18
-a limpar
-61, 70
-61, 70
-61, 70
-61, 70
-61, 70
-Breakcode: 0x98
-There's no single checklist, but Tyson offered the following suggestio
-We still have a couple of big decisions to make, let's focus.
-61, 70
-61, 70
-61, 70
-61, 70
-Makecode: 0x31
-a limpar
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestion
-We still have a couple of big decisions to make, let's focus.
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-61, 71
-Makecode: 0x1f
-a limpar
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-Breakcode: 0x9f
-There's no single checklist, but Tyson offered the following suggestions
-We still have a couple of big decisions to make, let's focus.
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-61, 72
-Makecode: 0x2a
-61, 72
-61, 72
-61, 72
-Makecode: 0x34
-a limpar
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-61, 73
-Breakcode: 0xaa
-61, 73
-Breakcode: 0xb4
-There's no single checklist, but Tyson offered the following suggestions:
-We still have a couple of big decisions to make, let's focus.
-61, 73
-Makecode: 0x39
-a limpar
-61, 74
-61, 74
-61, 74
-61, 74
-61, 74
-61, 74
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following suggestions: 
-We still have a couple of big decisions to make, let's focus.
-61, 74
-Makecode: 0x1e
-a limpar
-61, 75
-61, 75
-61, 75
-61, 75
-61, 75
-Breakcode: 0x9e
-There's no single checklist, but Tyson offered the following suggestions: a
-We still have a couple of big decisions to make, let's focus.
-61, 75
-Makecode: 0x39
-a limpar
-61, 76
-61, 76
-61, 76
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following suggestions: a 
-We still have a couple of big decisions to make, let's focus.
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-61, 76
-Makecode: 0x1f
-a limpar
-61, 77
-61, 77
-61, 77
-61, 77
-61, 77
-Breakcode: 0x9f
-There's no single checklist, but Tyson offered the following suggestions: a s
-We still have a couple of big decisions to make, let's focus.
-61, 77
-61, 77
-61, 77
-61, 77
-61, 77
-61, 77
-61, 77
-Makecode: 0x14
-a limpar
-61, 78
-61, 78
-61, 78
-61, 78
-Breakcode: 0x94
-There's no single checklist, but Tyson offered the following suggestions: a st
-We still have a couple of big decisions to make, let's focus.
-61, 78
-61, 78
-61, 78
-61, 78
-61, 78
-Makecode: 0x13
-a limpar
-61, 79
-61, 79
-61, 79
-61, 79
-Breakcode: 0x93
-There's no single checklist, but Tyson offered the following suggestions: a str
-We still have a couple of big decisions to make, let's focus.
-61, 79
-61, 79
-Makecode: 0x18
-a limpar
-61, 80
-61, 80
-61, 80
-61, 80
-61, 80
-61, 80
-Breakcode: 0x98
-There's no single checklist, but Tyson offered the following suggestions: a stro
-We still have a couple of big decisions to make, let's focus.
-61, 80
-61, 80
-61, 80
-61, 80
-61, 80
-Makecode: 0x31
-a limpar
-61, 81
-61, 81
-61, 81
-61, 81
-61, 81
-61, 81
-61, 81
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestions: a stron
-We still have a couple of big decisions to make, let's focus.
-61, 81
-Makecode: 0x22
-a limpar
-61, 82
-61, 82
-Breakcode: 0xa2
-There's no single checklist, but Tyson offered the following suggestions: a strong
-We still have a couple of big decisions to make, let's focus.
-61, 82
-61, 82
-Makecode: 0x39
-a limpar
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following suggestions: a strong 
-We still have a couple of big decisions to make, let's focus.
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-61, 83
-Makecode: 0x16
-a limpar
-61, 84
-61, 84
-61, 84
-61, 84
-61, 84
-61, 84
-61, 84
-Breakcode: 0x96
-There's no single checklist, but Tyson offered the following suggestions: a strong u
-We still have a couple of big decisions to make, let's focus.
-61, 84
-61, 84
-61, 84
-Makecode: 0x31
-a limpar
-61, 85
-61, 85
-61, 85
-61, 85
-61, 85
-61, 85
-61, 85
-61, 85
-61, 85
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestions: a strong un
-We still have a couple of big decisions to make, let's focus.
-61, 85
-Makecode: 0x20
-a limpar
-61, 86
-61, 86
-Breakcode: 0xa0
-There's no single checklist, but Tyson offered the following suggestions: a strong und
-We still have a couple of big decisions to make, let's focus.
-61, 86
-61, 86
-61, 86
-61, 86
-Makecode: 0x12
-a limpar
-61, 87
-61, 87
-61, 87
-61, 87
-Breakcode: 0x92
-There's no single checklist, but Tyson offered the following suggestions: a strong unde
-We still have a couple of big decisions to make, let's focus.
-61, 87
-61, 87
-61, 87
-Makecode: 0x13
-a limpar
-61, 88
-61, 88
-61, 88
-61, 88
-Breakcode: 0x93
-There's no single checklist, but Tyson offered the following suggestions: a strong under
-We still have a couple of big decisions to make, let's focus.
-61, 88
-61, 88
-61, 88
-61, 88
-61, 88
-Makecode: 0x1f
-a limpar
-61, 89
-61, 89
-61, 89
-61, 89
-61, 89
-61, 89
-Breakcode: 0x9f
-There's no single checklist, but Tyson offered the following suggestions: a strong unders
-We still have a couple of big decisions to make, let's focus.
-61, 89
-Makecode: 0x14
-a limpar
-61, 90
-61, 90
-61, 90
-61, 90
-61, 90
-61, 90
-Breakcode: 0x94
-There's no single checklist, but Tyson offered the following suggestions: a strong underst
-We still have a couple of big decisions to make, let's focus.
-61, 90
-Makecode: 0x1e
-a limpar
-61, 91
-Breakcode: 0x9e
-There's no single checklist, but Tyson offered the following suggestions: a strong understa
-We still have a couple of big decisions to make, let's focus.
-61, 91
-Makecode: 0x31
-a limpar
-61, 92
-61, 92
-61, 92
-61, 92
-61, 92
-61, 92
-61, 92
-61, 92
-61, 92
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestions: a strong understan
-We still have a couple of big decisions to make, let's focus.
-61, 92
-Makecode: 0x20
-a limpar
-61, 93
-Breakcode: 0xa0
-There's no single checklist, but Tyson offered the following suggestions: a strong understand
-We still have a couple of big decisions to make, let's focus.
-61, 93
-Makecode: 0x17
-a limpar
-61, 94
-61, 94
-61, 94
-Breakcode: 0x97
-There's no single checklist, but Tyson offered the following suggestions: a strong understandi
-We still have a couple of big decisions to make, let's focus.
-61, 94
-61, 94
-Makecode: 0x31
-a limpar
-61, 95
-61, 95
-61, 95
-61, 95
-61, 95
-61, 95
-61, 95
-Makecode: 0x22
-a limpar
-61, 96
-61, 96
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding
-We still have a couple of big decisions to make, let's focus.
-61, 96
-Breakcode: 0xa2
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding
-We still have a couple of big decisions to make, let's focus.
-61, 96
-61, 96
-61, 96
-Makecode: 0x39
-a limpar
-61, 97
-61, 97
-61, 97
-61, 97
-61, 97
-61, 97
-61, 97
-61, 97
-61, 97
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding 
-We still have a couple of big decisions to make, let's focus.
-61, 97
-Makecode: 0x18
-a limpar
-61, 98
-61, 98
-61, 98
-61, 98
-Breakcode: 0x98
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding o
-We still have a couple of big decisions to make, let's focus.
-61, 98
-Makecode: 0x21
-a limpar
-61, 99
-61, 99
-61, 99
-Breakcode: 0xa1
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of
-We still have a couple of big decisions to make, let's focus.
-61, 99
-Makecode: 0x39
-a limpar
-61, 100
-61, 100
-61, 100
-61, 100
-61, 100
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of 
-We still have a couple of big decisions to make, let's focus.
-61, 100
-Makecode: 0x12
-Breakcode: 0x92
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of e
-We still have a couple of big decisions to make, let's focus.
-a limpar
-61, 101
-61, 101
-Makecode: 0x31
-a limpar
-61, 102
-61, 102
-61, 102
-61, 102
-61, 102
-61, 102
-Makecode: 0x12
-a limpar
-61, 103
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of ene
-We still have a couple of big decisions to make, let's focus.
-61, 103
-Breakcode: 0x92
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of ene
-We still have a couple of big decisions to make, let's focus.
-61, 103
-Makecode: 0x13
-a limpar
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-Breakcode: 0x93
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of ener
-We still have a couple of big decisions to make, let's focus.
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-61, 104
-Makecode: 0x22
-a limpar
-61, 105
-61, 105
-61, 105
-61, 105
-61, 105
-61, 105
-61, 105
-Makecode: 0x15
-a limpar
-61, 106
-61, 106
-61, 106
-61, 106
-Breakcode: 0xa2
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy
-We still have a couple of big decisions to make, let's focus.
-61, 106
-Breakcode: 0x95
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy
-We still have a couple of big decisions to make, let's focus.
-61, 106
-61, 106
-61, 106
-61, 106
-61, 106
-61, 106
-Makecode: 0x39
-a limpar
-61, 107
-61, 107
-61, 107
-61, 107
-61, 107
-61, 107
-61, 107
-Breakcode: 0xb9
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy 
-We still have a couple of big decisions to make, let's focus.
-61, 107
-Makecode: 0x16
-a limpar
-61, 108
-61, 108
-61, 108
-61, 108
-61, 108
-61, 108
-61, 108
-61, 108
-Breakcode: 0x96
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy u
-We still have a couple of big decisions to make, let's focus.
-61, 108
-61, 108
-Makecode: 0x31
-a limpar
-61, 109
-61, 109
-61, 109
-61, 109
-61, 109
-61, 109
-Makecode: 0x17
-a limpar
-61, 110
-61, 110
-Breakcode: 0xb1
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy uni
-We still have a couple of big decisions to make, let's focus.
-61, 110
-Makecode: 0x14
-a limpar
-61, 111
-Breakcode: 0x97
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy unit
-We still have a couple of big decisions to make, let's focus.
-61, 111
-Breakcode: 0x94
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy unit
-We still have a couple of big decisions to make, let's focus.
-61, 111
-61, 111
-61, 111
-61, 111
-61, 111
-61, 111
-61, 111
-61, 111
-61, 111
-Makecode: 0x1f
-a limpar
-61, 112
-61, 112
-61, 112
-61, 112
-61, 112
-61, 112
-61, 112
-61, 112
-Breakcode: 0x9f
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy units
-We still have a couple of big decisions to make, let's focus.
-61, 112
-Makecode: 0x34
-a limpar
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-Breakcode: 0xb4
-There's no single checklist, but Tyson offered the following suggestions: a strong understanding of energy units.
-We still have a couple of big decisions to make, let's focus.
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-61, 113
-Makecode: 0x1c
-a limpar
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-Breakcode: 0x9c
-T
-W
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-Makecode: 0x2a
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-Makecode: 0x11
-a limpar
-61, 1
-61, 1
-61, 1
-61, 1
-Breakcode: 0x91
-Wh
-We
-61, 1
-61, 1
-Breakcode: 0xaa
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-61, 1
-Makecode: 0x12
-a limpar
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-Breakcode: 0x92
-Wee
-We 
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-61, 2
-Makecode: 0x39
-a limpar
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-Breakcode: 0xb9
-We r
-We s
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-61, 3
-Makecode: 0x1f
-a limpar
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-Breakcode: 0x9f
-We se
-We st
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-61, 4
-Makecode: 0x14
-a limpar
-61, 5
-61, 5
-61, 5
-61, 5
-61, 5
-Breakcode: 0x94
-We st'
-We sti
-61, 5
-Makecode: 0x17
-a limpar
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-Breakcode: 0x97
-We stis
-We stil
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-61, 6
-Makecode: 0x26
-a limpar
-61, 7
-61, 7
-61, 7
-61, 7
-61, 7
-61, 7
-Breakcode: 0xa6
-We stil 
-We still
-61, 7
-61, 7
-61, 7
-61, 7
-61, 7
-Makecode: 0x26
-a limpar
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-61, 8
-Breakcode: 0xa6
-We stilln
-We still 
-Makecode: 0x39
-a limpar
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-61, 9
-Makecode: 0x23
-a limpar
-61, 10
-Breakcode: 0xb9
-We still h 
-We still ha
-61, 10
-61, 10
-61, 10
-Makecode: 0x1e
-a limpar
-61, 11
-61, 11
-Breakcode: 0xa3
-We still has
-We still hav
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-61, 11
-Breakcode: 0x9e
-We still has
-We still hav
-61, 11
-61, 11
-61, 11
-Makecode: 0x2f
-a limpar
-61, 12
-61, 12
-61, 12
-61, 12
-Makecode: 0x12
-a limpar
-61, 13
-61, 13
-Breakcode: 0xaf
-We still haven
-We still have 
-61, 13
-61, 13
-61, 13
-61, 13
-Breakcode: 0x92
-We still haven
-We still have 
-61, 13
-61, 13
-61, 13
-61, 13
-Makecode: 0x39
-a limpar
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-61, 14
-Makecode: 0x1e
-a limpar
-61, 15
-61, 15
-Breakcode: 0xb9
-We still have al
-We still have a 
-61, 15
-61, 15
-61, 15
-61, 15
-61, 15
-Breakcode: 0x9e
-We still have al
-We still have a 
-61, 15
-Makecode: 0x39
-a limpar
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-61, 16
-Breakcode: 0xb9
-We still have a e
-We still have a c
-61, 16
-61, 16
-61, 16
-61, 16
+A not-that-rare oc
+The company is list
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
 Makecode: 0x2e
 a limpar
-61, 17
-61, 17
-61, 17
-61, 17
-61, 17
-61, 17
+76, 19
+76, 19
+76, 19
+76, 19
 Breakcode: 0xae
-We still have a c 
-We still have a co
-61, 17
-Makecode: 0x18
-a limpar
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-61, 18
-Breakcode: 0x98
-We still have a coc
-We still have a cou
-61, 18
-61, 18
+A not-that-rare occ
+The company is liste
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
 Makecode: 0x16
 a limpar
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
+76, 20
+76, 20
+76, 20
+76, 20
+76, 20
+76, 20
+76, 20
 Breakcode: 0x96
-We still have a couh
-We still have a coup
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
-61, 19
-Makecode: 0x19
+A not-that-rare occu
+The company is listed
+76, 20
+76, 20
+76, 20
+76, 20
+Makecode: 0x13
 a limpar
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-61, 20
-Breakcode: 0x99
-We still have a coupe
-We still have a coupl
-61, 20
-61, 20
-61, 20
-Makecode: 0x26
-a limpar
-61, 21
-61, 21
-61, 21
-61, 21
-61, 21
-61, 21
-61, 21
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+Breakcode: 0x93
+A not-that-rare occur
+The company is listed 
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
 Makecode: 0x12
 a limpar
-61, 22
-61, 22
-61, 22
-Breakcode: 0xa6
-We still have a couplek
-We still have a couple 
-61, 22
-61, 22
-61, 22
-61, 22
+76, 22
+76, 22
+76, 22
+76, 22
+76, 22
 Breakcode: 0x92
-We still have a couplek
-We still have a couple 
-61, 22
-Makecode: 0x39
-a limpar
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-61, 23
-Breakcode: 0xb9
-We still have a couple l
-We still have a couple o
-61, 23
-Makecode: 0x18
-a limpar
-61, 24
-61, 24
-61, 24
-61, 24
-61, 24
-Makecode: 0x21
-a limpar
-61, 25
-61, 25
-Breakcode: 0x98
-We still have a couple ofs
-We still have a couple of 
-61, 25
-61, 25
-61, 25
-61, 25
-61, 25
-Breakcode: 0xa1
-We still have a couple ofs
-We still have a couple of 
-61, 25
-Makecode: 0x39
-a limpar
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-Breakcode: 0xb9
-We still have a couple of t
-We still have a couple of b
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-61, 26
-Makecode: 0x30
-a limpar
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Makecode: 0x16
-Breakcode: 0xb0
-We still have a couple of bu 
-We still have a couple of big
-a limpar
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-Breakcode: 0x96
-We still have a couple of bu 
-We still have a couple of big
-61, 28
-Makecode: 0x22
-a limpar
-61, 29
-61, 29
-61, 29
-61, 29
-Breakcode: 0xa2
-We still have a couple of bugb
-We still have a couple of big 
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-61, 29
-Makecode: 0x0e
-backspacea limpar
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-Breakcode: 0x8e
-We still have a couple of bug
-We still have a couple of big
-61, 28
-61, 28
-61, 28
-61, 28
-Makecode: 0x0e
-backspacea limpar
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Breakcode: 0x8e
-We still have a couple of bu
-We still have a couple of bi
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-61, 27
-Makecode: 0x17
-a limpar
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-61, 28
-Makecode: 0x22
-a limpar
-61, 29
-Breakcode: 0x97
-We still have a couple of bigb
-We still have a couple of big 
-61, 29
-61, 29
-61, 29
-61, 29
-Breakcode: 0xa2
-We still have a couple of bigb
-We still have a couple of big 
-61, 29
-Makecode: 0x39
-a limpar
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-61, 30
-Breakcode: 0xb9
-We still have a couple of big u
-We still have a couple of big d
-61, 30
-61, 30
-Makecode: 0x20
-a limpar
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-61, 31
-Breakcode: 0xa0
-We still have a couple of big dt
-We still have a couple of big de
-61, 31
-61, 31
-61, 31
-Makecode: 0x12
-a limpar
-61, 32
-61, 32
-61, 32
-61, 32
-61, 32
-Breakcode: 0x92
-We still have a couple of big de 
-We still have a couple of big dec
-61, 32
-61, 32
-61, 32
-61, 32
-Makecode: 0x2e
-a limpar
-61, 33
-61, 33
-61, 33
-61, 33
-61, 33
-Breakcode: 0xae
-We still have a couple of big decT
-We still have a couple of big deci
-61, 33
-Makecode: 0x17
-a limpar
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-61, 34
-Breakcode: 0x97
-We still have a couple of big deciy
-We still have a couple of big decis
-61, 34
-Makecode: 0x1f
-a limpar
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-61, 35
-Breakcode: 0x9f
-We still have a couple of big deciss
-We still have a couple of big decisi
-61, 35
-Makecode: 0x17
-a limpar
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-Breakcode: 0x97
-We still have a couple of big decisio
-We still have a couple of big decisio
-61, 36
-61, 36
-61, 36
-61, 36
-61, 36
-Makecode: 0x18
-a limpar
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-Breakcode: 0x98
-We still have a couple of big decision
-We still have a couple of big decision
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
-61, 37
+A not-that-rare occure
+The company is listed o
+76, 22
+76, 22
+76, 22
+76, 22
+76, 22
 Makecode: 0x31
 a limpar
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
+76, 23
+76, 23
+76, 23
+76, 23
+76, 23
+Makecode: 0x2e
+a limpar
+76, 24
+76, 24
 Breakcode: 0xb1
-We still have a couple of big decision 
-We still have a couple of big decisions
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-61, 38
-Makecode: 0x1f
+A not-that-rare occurenc
+The company is listed on 
+76, 24
+Breakcode: 0xae
+A not-that-rare occurenc
+The company is listed on 
+76, 24
+76, 24
+76, 24
+76, 24
+76, 24
+76, 24
+Makecode: 0x12
 a limpar
-61, 39
-61, 39
-61, 39
-61, 39
-61, 39
-61, 39
-Breakcode: 0x9f
-We still have a couple of big decisionso
-We still have a couple of big decisions 
-61, 39
-61, 39
-61, 39
-61, 39
-61, 39
-61, 39
-61, 39
+76, 25
+76, 25
+76, 25
+76, 25
 Makecode: 0x39
 a limpar
-61, 40
-61, 40
-61, 40
-61, 40
-61, 40
-61, 40
-61, 40
-61, 40
+76, 26
+76, 26
+76, 26
+Breakcode: 0x92
+A not-that-rare occurence 
+The company is listed on th
+76, 26
+76, 26
+76, 26
+76, 26
+Makecode: 0x17
+a limpar
+76, 27
+76, 27
+76, 27
 Breakcode: 0xb9
-We still have a couple of big decisions f
-We still have a couple of big decisions t
-61, 40
-Makecode: 0x14
+A not-that-rare occurence i
+The company is listed on the
+76, 27
+76, 27
+76, 27
+76, 27
+76, 27
+Breakcode: 0x97
+A not-that-rare occurence i
+The company is listed on the
+76, 27
+Makecode: 0x31
 a limpar
-61, 41
-61, 41
-61, 41
-61, 41
-61, 41
-61, 41
-61, 41
-Makecode: 0x18
-a limpar
-61, 42
-61, 42
-Breakcode: 0x94
-We still have a couple of big decisions toe
-We still have a couple of big decisions to 
-61, 42
-61, 42
-61, 42
-Breakcode: 0x98
-We still have a couple of big decisions toe
-We still have a couple of big decisions to 
-61, 42
-61, 42
-61, 42
-61, 42
+76, 28
+76, 28
+76, 28
+76, 28
+76, 28
+76, 28
 Makecode: 0x39
 a limpar
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
+76, 29
+Breakcode: 0xb1
+A not-that-rare occurence in 
+The company is listed on the T
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
 Breakcode: 0xb9
-We still have a couple of big decisions to r
-We still have a couple of big decisions to m
-61, 43
-61, 43
-61, 43
-61, 43
-61, 43
+A not-that-rare occurence in 
+The company is listed on the T
+76, 29
+Makecode: 0x2a
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
 Makecode: 0x32
 a limpar
-61, 44
-61, 44
-61, 44
-61, 44
-61, 44
-61, 44
+76, 30
+76, 30
+Breakcode: 0xaa
+76, 30
+76, 30
+76, 30
+76, 30
+76, 30
+Breakcode: 0xb2
+A not-that-rare occurence in M
+The company is listed on the To
+76, 30
+76, 30
 Makecode: 0x1e
 a limpar
-61, 45
-61, 45
-Breakcode: 0xb2
-We still have a couple of big decisions to mad
-We still have a couple of big decisions to mak
-61, 45
-61, 45
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
 Breakcode: 0x9e
-We still have a couple of big decisions to mad
-We still have a couple of big decisions to mak
-61, 45
-Makecode: 0x25
+A not-that-rare occurence in Ma
+The company is listed on the Tok
+76, 31
+Makecode: 0x31
 a limpar
-61, 46
-61, 46
-61, 46
-61, 46
-61, 46
-Makecode: 0x12
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+Breakcode: 0xb1
+A not-that-rare occurence in Man
+The company is listed on the Toky
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+Makecode: 0x23
 a limpar
-61, 47
-Breakcode: 0xa5
-We still have a couple of big decisions to maket
-We still have a couple of big decisions to make,
-61, 47
-61, 47
-61, 47
-Breakcode: 0x92
-We still have a couple of big decisions to maket
-We still have a couple of big decisions to make,
-61, 47
-61, 47
-61, 47
-Makecode: 0x33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+Breakcode: 0xa3
+A not-that-rare occurence in Manh
+The company is listed on the Tokyo
+76, 33
+Makecode: 0x1e
 a limpar
-61, 48
-61, 48
-61, 48
-61, 48
-61, 48
-61, 48
-61, 48
-61, 48
-Makecode: 0x39
-a limpar
-61, 49
-61, 49
-Breakcode: 0xb3
-We still have a couple of big decisions to make, e
-We still have a couple of big decisions to make, l
-61, 49
-61, 49
-61, 49
-61, 49
-Breakcode: 0xb9
-We still have a couple of big decisions to make, e
-We still have a couple of big decisions to make, l
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-61, 49
-Makecode: 0x26
-a limpar
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-Breakcode: 0xa6
-We still have a couple of big decisions to make, l 
-We still have a couple of big decisions to make, le
-61, 50
-61, 50
-61, 50
-61, 50
-Makecode: 0x17
-a limpar
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-Breakcode: 0x97
-We still have a couple of big decisions to make, lif
-We still have a couple of big decisions to make, let
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-Makecode: 0x0e
-backspacea limpar
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-61, 50
-Breakcode: 0x8e
-We still have a couple of big decisions to make, li
-We still have a couple of big decisions to make, le
-61, 50
-Makecode: 0x12
-a limpar
-61, 51
-61, 51
-61, 51
-Breakcode: 0x92
-We still have a couple of big decisions to make, lef
-We still have a couple of big decisions to make, let
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
-61, 51
+76, 34
+76, 34
+76, 34
+76, 34
+Breakcode: 0x9e
+A not-that-rare occurence in Manha
+The company is listed on the Tokyo 
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
 Makecode: 0x14
 a limpar
-61, 52
-61, 52
-61, 52
-61, 52
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
 Breakcode: 0x94
-We still have a couple of big decisions to make, leto
-We still have a couple of big decisions to make, let'
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-61, 52
-Makecode: 0x0c
+A not-that-rare occurence in Manhat
+The company is listed on the Tokyo S
+76, 35
+76, 35
+76, 35
+Makecode: 0x14
 a limpar
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-61, 53
-Breakcode: 0x8c
-We still have a couple of big decisions to make, let'l
-We still have a couple of big decisions to make, let's
-61, 53
-Makecode: 0x1f
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+Breakcode: 0x94
+A not-that-rare occurence in Manhatt
+The company is listed on the Tokyo St
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+Makecode: 0x1e
 a limpar
-61, 54
-61, 54
-61, 54
-61, 54
-61, 54
-Breakcode: 0x9f
-We still have a couple of big decisions to make, let'sl
-We still have a couple of big decisions to make, let's 
-61, 54
+76, 37
+76, 37
+76, 37
+76, 37
+Makecode: 0x31
+a limpar
+76, 38
+76, 38
+76, 38
+Breakcode: 0x9e
+A not-that-rare occurence in Manhattan
+The company is listed on the Tokyo Stoc
+76, 38
+76, 38
+76, 38
+76, 38
+76, 38
+Breakcode: 0xb1
+A not-that-rare occurence in Manhattan
+The company is listed on the Tokyo Stoc
+76, 38
 Makecode: 0x39
 a limpar
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
+76, 39
+76, 39
+76, 39
+76, 39
 Breakcode: 0xb9
-We still have a couple of big decisions to make, let's o
-We still have a couple of big decisions to make, let's f
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-61, 55
-Makecode: 0x21
+A not-that-rare occurence in Manhattan 
+The company is listed on the Tokyo Stock
+76, 39
+Makecode: 0x19
 a limpar
-61, 56
-61, 56
-61, 56
-61, 56
-61, 56
-61, 56
-Breakcode: 0xa1
-We still have a couple of big decisions to make, let's fw
-We still have a couple of big decisions to make, let's fo
-61, 56
-61, 56
-Makecode: 0x18
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+Makecode: 0x1e
 a limpar
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-61, 57
-Breakcode: 0x98
-We still have a couple of big decisions to make, let's foi
-We still have a couple of big decisions to make, let's foc
-61, 57
-Makecode: 0x2e
+76, 41
+76, 41
+Breakcode: 0x99
+A not-that-rare occurence in Manhattan pa
+The company is listed on the Tokyo Stock E
+76, 41
+76, 41
+Breakcode: 0x9e
+A not-that-rare occurence in Manhattan pa
+The company is listed on the Tokyo Stock E
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+Makecode: 0x13
 a limpar
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-Breakcode: 0xae
-We still have a couple of big decisions to make, let's focn
-We still have a couple of big decisions to make, let's focu
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-Makecode: 0x12
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+Breakcode: 0x93
+A not-that-rare occurence in Manhattan par
+The company is listed on the Tokyo Stock Ex
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+Makecode: 0x25
 a limpar
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-Breakcode: 0x92
-We still have a couple of big decisions to make, let's foceg
-We still have a couple of big decisions to make, let's focus
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-Makecode: 0x0e
-backspacea limpar
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-Breakcode: 0x8e
-We still have a couple of big decisions to make, let's foce
-We still have a couple of big decisions to make, let's focu
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-61, 58
-Makecode: 0x16
-a limpar
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-61, 59
-Breakcode: 0x96
-We still have a couple of big decisions to make, let's focug
-We still have a couple of big decisions to make, let's focus
-61, 59
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+Breakcode: 0xa5
+A not-that-rare occurence in Manhattan park
+The company is listed on the Tokyo Stock Exc
+76, 43
+76, 43
 Makecode: 0x1f
 a limpar
-61, 60
-61, 60
-61, 60
-61, 60
-61, 60
-61, 60
-61, 60
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
 Breakcode: 0x9f
-We still have a couple of big decisions to make, let's focus 
-We still have a couple of big decisions to make, let's focus.
-61, 60
-61, 60
-61, 60
-61, 60
+A not-that-rare occurence in Manhattan parks
+The company is listed on the Tokyo Stock Exch
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
+Makecode: 0x33
+a limpar
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+Makecode: 0x39
+a limpar
+76, 46
+Breakcode: 0xb3
+A not-that-rare occurence in Manhattan parks, 
+The company is listed on the Tokyo Stock Exchan
+76, 46
+76, 46
+76, 46
+76, 46
+76, 46
+76, 46
+76, 46
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, 
+The company is listed on the Tokyo Stock Exchan
+76, 46
+Makecode: 0x16
+a limpar
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+Breakcode: 0x96
+A not-that-rare occurence in Manhattan parks, u
+The company is listed on the Tokyo Stock Exchang
+76, 47
+76, 47
+76, 47
+76, 47
+Makecode: 0x31
+a limpar
+76, 48
+76, 48
+76, 48
+76, 48
+76, 48
+76, 48
+76, 48
+Breakcode: 0xb1
+A not-that-rare occurence in Manhattan parks, un
+The company is listed on the Tokyo Stock Exchange
+76, 48
+76, 48
+Makecode: 0x21
+a limpar
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+Breakcode: 0xa1
+A not-that-rare occurence in Manhattan parks, unf
+The company is listed on the Tokyo Stock Exchange,
+76, 49
+Makecode: 0x18
+a limpar
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+Makecode: 0x13
+a limpar
+76, 51
+Breakcode: 0x98
+A not-that-rare occurence in Manhattan parks, unfor
+The company is listed on the Tokyo Stock Exchange, i
+76, 51
+76, 51
+76, 51
+Breakcode: 0x93
+A not-that-rare occurence in Manhattan parks, unfor
+The company is listed on the Tokyo Stock Exchange, i
+76, 51
+76, 51
+76, 51
+Makecode: 0x14
+a limpar
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfort
+The company is listed on the Tokyo Stock Exchange, it
+76, 52
+Makecode: 0x16
+a limpar
+76, 53
+76, 53
+76, 53
+76, 53
+76, 53
+Breakcode: 0x96
+A not-that-rare occurence in Manhattan parks, unfortu
+The company is listed on the Tokyo Stock Exchange, it 
+76, 53
+76, 53
+76, 53
+76, 53
+Makecode: 0x31
+a limpar
+76, 54
+76, 54
+76, 54
+76, 54
+76, 54
+76, 54
+Breakcode: 0xb1
+A not-that-rare occurence in Manhattan parks, unfortun
+The company is listed on the Tokyo Stock Exchange, it m
+76, 54
+Makecode: 0x1e
+a limpar
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+Breakcode: 0x9e
+A not-that-rare occurence in Manhattan parks, unfortuna
+The company is listed on the Tokyo Stock Exchange, it mu
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+Makecode: 0x14
+a limpar
+76, 56
+76, 56
+76, 56
+76, 56
+76, 56
+76, 56
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunat
+The company is listed on the Tokyo Stock Exchange, it mus
+76, 56
+76, 56
+76, 56
+76, 56
+Makecode: 0x12
+a limpar
+76, 57
+76, 57
+76, 57
+76, 57
+76, 57
+76, 57
+Breakcode: 0x92
+A not-that-rare occurence in Manhattan parks, unfortunate
+The company is listed on the Tokyo Stock Exchange, it must
+76, 57
+Makecode: 0x26
+a limpar
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+Breakcode: 0xa6
+A not-that-rare occurence in Manhattan parks, unfortunatel
+The company is listed on the Tokyo Stock Exchange, it must 
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+76, 58
+Makecode: 0x15
+a limpar
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+Breakcode: 0x95
+A not-that-rare occurence in Manhattan parks, unfortunately
+The company is listed on the Tokyo Stock Exchange, it must b
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+Makecode: 0x33
+a limpar
+76, 60
+76, 60
+76, 60
+76, 60
+76, 60
+76, 60
+76, 60
+76, 60
+Makecode: 0x39
+a limpar
+76, 61
+76, 61
+76, 61
+Breakcode: 0xb3
+A not-that-rare occurence in Manhattan parks, unfortunately, 
+The company is listed on the Tokyo Stock Exchange, it must be 
+76, 61
+76, 61
+76, 61
+76, 61
+76, 61
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, 
+The company is listed on the Tokyo Stock Exchange, it must be 
+76, 61
+76, 61
+76, 61
+76, 61
+76, 61
+76, 61
+76, 61
+Makecode: 0x30
+a limpar
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+Breakcode: 0xb0
+A not-that-rare occurence in Manhattan parks, unfortunately, b
+The company is listed on the Tokyo Stock Exchange, it must be v
+76, 62
+Makecode: 0x16
+a limpar
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+Makecode: 0x14
+a limpar
+76, 64
+Breakcode: 0x96
+A not-that-rare occurence in Manhattan parks, unfortunately, but
+The company is listed on the Tokyo Stock Exchange, it must be ver
+76, 64
+76, 64
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunately, but
+The company is listed on the Tokyo Stock Exchange, it must be ver
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+Makecode: 0x33
+a limpar
+76, 65
+76, 65
+76, 65
+76, 65
+76, 65
+76, 65
+76, 65
+Makecode: 0x39
+a limpar
+76, 66
+76, 66
+Breakcode: 0xb3
+A not-that-rare occurence in Manhattan parks, unfortunately, but, 
+The company is listed on the Tokyo Stock Exchange, it must be very 
+76, 66
+76, 66
+76, 66
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, 
+The company is listed on the Tokyo Stock Exchange, it must be very 
+76, 66
+Makecode: 0x1e
+a limpar
+76, 67
+76, 67
+Breakcode: 0x9e
+A not-that-rare occurence in Manhattan parks, unfortunately, but, a
+The company is listed on the Tokyo Stock Exchange, it must be very v
+76, 67
+76, 67
+76, 67
+Makecode: 0x21
+a limpar
+76, 68
+76, 68
+76, 68
+76, 68
+76, 68
+76, 68
+76, 68
+Breakcode: 0xa1
+A not-that-rare occurence in Manhattan parks, unfortunately, but, af
+The company is listed on the Tokyo Stock Exchange, it must be very va
+76, 68
+76, 68
+76, 68
+Makecode: 0x14
+a limpar
+76, 69
+76, 69
+76, 69
+76, 69
+76, 69
+76, 69
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunately, but, aft
+The company is listed on the Tokyo Stock Exchange, it must be very val
+76, 69
+76, 69
+76, 69
+76, 69
+76, 69
+Makecode: 0x12
+a limpar
+76, 70
+76, 70
+76, 70
+76, 70
+Breakcode: 0x92
+A not-that-rare occurence in Manhattan parks, unfortunately, but, afte
+The company is listed on the Tokyo Stock Exchange, it must be very valu
+76, 70
+76, 70
+Makecode: 0x13
+a limpar
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+Breakcode: 0x93
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after
+The company is listed on the Tokyo Stock Exchange, it must be very valua
+76, 71
+Makecode: 0x39
+a limpar
+76, 72
+76, 72
+76, 72
+76, 72
+76, 72
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after 
+The company is listed on the Tokyo Stock Exchange, it must be very valuab
+76, 72
+Makecode: 0x14
+a limpar
+76, 73
+76, 73
+Makecode: 0x23
+a limpar
+76, 74
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after th
+The company is listed on the Tokyo Stock Exchange, it must be very valuable
+76, 74
+76, 74
+76, 74
+76, 74
+Breakcode: 0xa3
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after th
+The company is listed on the Tokyo Stock Exchange, it must be very valuable
+76, 74
+Makecode: 0x12
+a limpar
+76, 75
+Makecode: 0x39
+a limpar
+76, 76
+76, 76
+Breakcode: 0x92
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 76
+76, 76
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 76
+Makecode: 0x21
+a limpar
+76, 77
+76, 77
+76, 77
+76, 77
+76, 77
+76, 77
+76, 77
+Makecode: 0x17
+Breakcode: 0xa1
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fi
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+a limpar
+76, 78
+76, 78
+76, 78
+76, 78
+Breakcode: 0x97
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fi
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 78
+76, 78
+76, 78
+76, 78
+76, 78
+Makecode: 0x22
+a limpar
+76, 79
+76, 79
+76, 79
+76, 79
+76, 79
+76, 79
+Breakcode: 0xa2
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fig
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 79
+Makecode: 0x23
+a limpar
+76, 80
+76, 80
+76, 80
+76, 80
+76, 80
+Breakcode: 0xa3
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the figh
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 80
+Makecode: 0x14
+a limpar
+76, 81
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+76, 81
+Makecode: 0x33
+a limpar
+76, 82
+76, 82
+76, 82
+76, 82
+76, 82
+76, 82
+76, 82
+76, 82
+76, 82
+Makecode: 0x39
+a limpar
+76, 83
+76, 83
+Breakcode: 0xb3
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 83
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 83
+Makecode: 0x17
+a limpar
+76, 84
+76, 84
+76, 84
+76, 84
+76, 84
+Makecode: 0x14
+a limpar
+76, 85
+Breakcode: 0x97
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 85
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 85
+Makecode: 0x39
+a limpar
+76, 86
+76, 86
+76, 86
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 86
+Makecode: 0x11
+a limpar
+76, 87
+76, 87
+76, 87
+76, 87
+76, 87
+76, 87
+Breakcode: 0x91
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it w
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 87
+76, 87
+76, 87
+Makecode: 0x1e
+a limpar
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+Breakcode: 0x9e
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wa
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 88
+76, 88
+Makecode: 0x31
+a limpar
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+Breakcode: 0xb1
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wan
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+76, 89
+Makecode: 0x0e
+backspacea limpar
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+76, 88
+Breakcode: 0x8e
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wan
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 88
+Makecode: 0x1f
+Breakcode: 0x9f
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it was
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+a limpar
+76, 89
+76, 89
+Makecode: 0x31
+a limpar
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+Breakcode: 0xb1
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+76, 90
+Makecode: 0x0c
+a limpar
+76, 91
+76, 91
+76, 91
+76, 91
+76, 91
+76, 91
+Breakcode: 0x8c
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn'
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 91
+Makecode: 0x14
+a limpar
+76, 92
+76, 92
+Breakcode: 0x94
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 92
+76, 92
+76, 92
+76, 92
+Makecode: 0x39
+a limpar
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+76, 93
+Makecode: 0x2e
+a limpar
+76, 94
+76, 94
+76, 94
+76, 94
+76, 94
+76, 94
+Breakcode: 0xae
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't c
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 94
+Makecode: 0x26
+a limpar
+76, 95
+76, 95
+Makecode: 0x12
+a limpar
+76, 96
+Breakcode: 0xa6
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't cle
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 96
+76, 96
+Breakcode: 0x92
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't cle
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 96
+Makecode: 0x1e
+a limpar
+76, 97
+76, 97
+76, 97
+76, 97
+76, 97
+76, 97
+76, 97
+Breakcode: 0x9e
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clea
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 97
+Makecode: 0x13
+a limpar
+76, 98
+76, 98
+76, 98
+76, 98
+76, 98
+Breakcode: 0x93
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 98
+Makecode: 0x39
+a limpar
+76, 99
+76, 99
+76, 99
+76, 99
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 99
+Makecode: 0x11
+a limpar
+76, 100
+76, 100
+Breakcode: 0x91
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear w
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 100
+Makecode: 0x23
+a limpar
+76, 101
+76, 101
+76, 101
+76, 101
+76, 101
+Breakcode: 0xa3
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear wh
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 101
+Makecode: 0x18
+a limpar
+76, 102
+76, 102
+76, 102
+76, 102
+76, 102
+76, 102
+Makecode: 0x39
+a limpar
+76, 103
+76, 103
+76, 103
+Breakcode: 0x98
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 103
+Makecode: 0x11
+Breakcode: 0xb9
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who w
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+a limpar
+76, 104
+Makecode: 0x18
+Breakcode: 0x91
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who wo
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+a limpar
+76, 105
+Breakcode: 0x98
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who wo
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 105
+76, 105
+Makecode: 0x31
+a limpar
+76, 106
+76, 106
+76, 106
+76, 106
+76, 106
+76, 106
+Breakcode: 0xb1
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who won
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 106
+76, 106
+76, 106
+76, 106
+76, 106
+76, 106
+76, 106
 Makecode: 0x34
 a limpar
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
 Breakcode: 0xb4
-We still have a couple of big decisions to make, let's focus.s
-We still have a couple of big decisions to make, let's focus.
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-61, 61
-Makecode: 0x1c
-Breakcode: 0x9c
-Makecode: 0x1c
-Breakcode: 0x9c
+A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who won.
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
+76, 107
 Makecode: 0x1c
 a limpar
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
+76, 0
+76, 0
+76, 0
 Breakcode: 0x9c
-W
-W
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-Makecode: 0x01
-W
-W
-61, 0
-61, 0
-61, 0
-61, 0
-61, 0
-Breakcode: 0x81
-Selector: 0
+A
+T
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+Makecode: 0x2a
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+76, 0
+Makecode: 0x14
+a limpar
+76, 1
+76, 1
+76, 1
+76, 1
+76, 1
+76, 1
+Breakcode: 0x94
+T 
+Th
+76, 1
+76, 1
+Breakcode: 0xaa
+76, 1
+76, 1
+76, 1
+76, 1
+76, 1
+Makecode: 0x23
+a limpar
+76, 2
+76, 2
+76, 2
+76, 2
+76, 2
+Breakcode: 0xa3
+Thn
+The
+76, 2
+Makecode: 0x12
+a limpar
+76, 3
+76, 3
+76, 3
+76, 3
+76, 3
+Makecode: 0x39
+Breakcode: 0x92
+The t
+The c
+a limpar
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+Breakcode: 0xb9
+The t
+The c
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+76, 4
+Makecode: 0x2e
+a limpar
+76, 5
+76, 5
+76, 5
+76, 5
+76, 5
+Makecode: 0x18
+a limpar
+76, 6
+Breakcode: 0xae
+The cot
+The com
+76, 6
+76, 6
+76, 6
+76, 6
+76, 6
+Breakcode: 0x98
+The cot
+The com
+76, 6
+76, 6
+76, 6
+76, 6
+76, 6
+Makecode: 0x32
+a limpar
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+Breakcode: 0xb2
+The comh
+The comp
+76, 7
+76, 7
+76, 7
+76, 7
+76, 7
+Makecode: 0x19
+a limpar
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
+76, 8
+Breakcode: 0x99
+The compa
+The compa
+76, 8
+Makecode: 0x1e
+a limpar
+76, 9
+76, 9
+76, 9
+76, 9
+76, 9
+Breakcode: 0x9e
+The compat
+The compan
+76, 9
+76, 9
+76, 9
+Makecode: 0x31
+a limpar
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+Breakcode: 0xb1
+The compan-
+The company
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+76, 10
+Makecode: 0x15
+a limpar
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+76, 11
+Breakcode: 0x95
+The companyr
+The company 
+76, 11
+76, 11
+76, 11
+Makecode: 0x39
+a limpar
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+76, 12
+Breakcode: 0xb9
+The company a
+The company i
+76, 12
+Makecode: 0x17
+a limpar
+76, 13
+76, 13
+76, 13
+76, 13
+76, 13
+76, 13
+76, 13
+Makecode: 0x1f
+a limpar
+76, 14
+76, 14
+Breakcode: 0x97
+The company ise
+The company is 
+76, 14
+Makecode: 0x39
+a limpar
+76, 15
+76, 15
+76, 15
+Breakcode: 0x9f
+The company is  
+The company is l
+76, 15
+76, 15
+76, 15
+Breakcode: 0xb9
+The company is  
+The company is l
+76, 15
+76, 15
+Makecode: 0x26
+a limpar
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+Breakcode: 0xa6
+The company is lo
+The company is li
+76, 16
+76, 16
+76, 16
+76, 16
+76, 16
+Makecode: 0x17
+a limpar
+76, 17
+76, 17
+76, 17
+76, 17
+76, 17
+76, 17
+Breakcode: 0x97
+The company is lic
+The company is lis
+76, 17
+Makecode: 0x1f
+a limpar
+76, 18
+76, 18
+76, 18
+Breakcode: 0x9f
+The company is lisc
+The company is list
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
+76, 18
+Makecode: 0x14
+a limpar
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+Breakcode: 0x94
+The company is listu
+The company is liste
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+76, 19
+Makecode: 0x12
+a limpar
+76, 20
+76, 20
+76, 20
+76, 20
+76, 20
+Breakcode: 0x92
+The company is lister
+The company is listed
+76, 20
+76, 20
+76, 20
+76, 20
+76, 20
+Makecode: 0x20
+a limpar
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+76, 21
+Breakcode: 0xa0
+The company is listede
+The company is listed 
+76, 21
+Makecode: 0x39
+a limpar
+76, 22
+76, 22
+76, 22
+76, 22
+Makecode: 0x18
+a limpar
+76, 23
+76, 23
+76, 23
+Breakcode: 0xb9
+The company is listed oc
+The company is listed on
+76, 23
+76, 23
+76, 23
+Breakcode: 0x98
+The company is listed oc
+The company is listed on
+76, 23
+76, 23
+76, 23
+76, 23
+76, 23
+76, 23
+76, 23
+76, 23
+Makecode: 0x31
+a limpar
+76, 24
+76, 24
+76, 24
+76, 24
+76, 24
+76, 24
+Makecode: 0x39
+a limpar
+76, 25
+Breakcode: 0xb1
+The company is listed on  
+The company is listed on t
+76, 25
+76, 25
+76, 25
+76, 25
+Makecode: 0x14
+a limpar
+76, 26
+76, 26
+76, 26
+Breakcode: 0xb9
+The company is listed on ti
+The company is listed on th
+76, 26
+76, 26
+Breakcode: 0x94
+The company is listed on ti
+The company is listed on th
+76, 26
+76, 26
+Makecode: 0x23
+a limpar
+76, 27
+76, 27
+76, 27
+76, 27
+76, 27
+76, 27
+Breakcode: 0xa3
+The company is listed on thn
+The company is listed on the
+76, 27
+Makecode: 0x12
+a limpar
+76, 28
+76, 28
+76, 28
+76, 28
+76, 28
+Breakcode: 0x92
+The company is listed on the 
+The company is listed on the 
+76, 28
+Makecode: 0x39
+a limpar
+76, 29
+76, 29
+76, 29
+Breakcode: 0xb9
+The company is listed on the M
+The company is listed on the T
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
+Makecode: 0x2a
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
+76, 29
+Makecode: 0x14
+a limpar
+76, 30
+76, 30
+76, 30
+76, 30
+76, 30
+Breakcode: 0x94
+The company is listed on the Ta
+The company is listed on the To
+76, 30
+Breakcode: 0xaa
+76, 30
+76, 30
+76, 30
+76, 30
+76, 30
+76, 30
+76, 30
+76, 30
+Makecode: 0x18
+a limpar
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+Breakcode: 0x98
+The company is listed on the Ton
+The company is listed on the Tok
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+76, 31
+Makecode: 0x25
+a limpar
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+Breakcode: 0xa5
+The company is listed on the Tokh
+The company is listed on the Toky
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+76, 32
+Makecode: 0x15
+a limpar
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+Breakcode: 0x95
+The company is listed on the Tokya
+The company is listed on the Tokyo
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+76, 33
+Makecode: 0x18
+a limpar
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+76, 34
+Breakcode: 0x98
+The company is listed on the Tokyot
+The company is listed on the Tokyo 
+76, 34
+76, 34
+76, 34
+Makecode: 0x39
+a limpar
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+Breakcode: 0xb9
+The company is listed on the Tokyo t
+The company is listed on the Tokyo S
+76, 35
+Makecode: 0x2a
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+76, 35
+Makecode: 0x1f
+a limpar
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+Breakcode: 0xaa
+76, 36
+Breakcode: 0x9f
+The company is listed on the Tokyo Sa
+The company is listed on the Tokyo St
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+76, 36
+Makecode: 0x14
+a limpar
+76, 37
+76, 37
+76, 37
+76, 37
+76, 37
+76, 37
+76, 37
+76, 37
+Breakcode: 0x94
+The company is listed on the Tokyo Stn
+The company is listed on the Tokyo Sto
+76, 37
+Makecode: 0x18
+a limpar
+76, 38
+76, 38
+76, 38
+76, 38
+76, 38
+76, 38
+Breakcode: 0x98
+The company is listed on the Tokyo Sto 
+The company is listed on the Tokyo Stoc
+76, 38
+Makecode: 0x2e
+a limpar
+76, 39
+76, 39
+76, 39
+76, 39
+76, 39
+Breakcode: 0xae
+The company is listed on the Tokyo Stocp
+The company is listed on the Tokyo Stock
+76, 39
+Makecode: 0x25
+a limpar
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+76, 40
+Breakcode: 0xa5
+The company is listed on the Tokyo Stocka
+The company is listed on the Tokyo Stock 
+76, 40
+Makecode: 0x39
+a limpar
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+Breakcode: 0xb9
+The company is listed on the Tokyo Stock r
+The company is listed on the Tokyo Stock E
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+Makecode: 0x2a
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+76, 41
+Makecode: 0x12
+a limpar
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+Breakcode: 0x92
+The company is listed on the Tokyo Stock Ek
+The company is listed on the Tokyo Stock Ex
+76, 42
+Breakcode: 0xaa
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+76, 42
+Makecode: 0x2d
+a limpar
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+Breakcode: 0xad
+The company is listed on the Tokyo Stock Exs
+The company is listed on the Tokyo Stock Exc
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+76, 43
+Makecode: 0x2e
+a limpar
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
+76, 44
+Breakcode: 0xae
+The company is listed on the Tokyo Stock Exc,
+The company is listed on the Tokyo Stock Exch
+76, 44
+Makecode: 0x23
+a limpar
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+76, 45
+Breakcode: 0xa3
+The company is listed on the Tokyo Stock Exch 
+The company is listed on the Tokyo Stock Excha
+76, 45
+76, 45
+76, 45
+Makecode: 0x1e
+a limpar
+76, 46
+76, 46
+76, 46
+76, 46
+76, 46
+Breakcode: 0x9e
+The company is listed on the Tokyo Stock Exchau
+The company is listed on the Tokyo Stock Exchan
+76, 46
+Makecode: 0x31
+a limpar
+76, 47
+76, 47
+76, 47
+76, 47
+Breakcode: 0xb1
+The company is listed on the Tokyo Stock Exchann
+The company is listed on the Tokyo Stock Exchang
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+76, 47
+Makecode: 0x22
+a limpar
+76, 48
+76, 48
+Makecode: 0x12
+a limpar
+76, 49
+76, 49
+Breakcode: 0xa2
+The company is listed on the Tokyo Stock Exchangeo
+The company is listed on the Tokyo Stock Exchange,
+76, 49
+76, 49
+76, 49
+Breakcode: 0x92
+The company is listed on the Tokyo Stock Exchangeo
+The company is listed on the Tokyo Stock Exchange,
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+76, 49
+Makecode: 0x33
+a limpar
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+Breakcode: 0xb3
+The company is listed on the Tokyo Stock Exchange,r
+The company is listed on the Tokyo Stock Exchange, 
+76, 50
+76, 50
+76, 50
+76, 50
+76, 50
+Makecode: 0x39
+a limpar
+76, 51
+76, 51
+76, 51
+76, 51
+76, 51
+76, 51
+76, 51
+Breakcode: 0xb9
+The company is listed on the Tokyo Stock Exchange, t
+The company is listed on the Tokyo Stock Exchange, i
+76, 51
+76, 51
+76, 51
+76, 51
+76, 51
+Makecode: 0x17
+a limpar
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+76, 52
+Breakcode: 0x97
+The company is listed on the Tokyo Stock Exchange, iu
+The company is listed on the Tokyo Stock Exchange, it
+76, 52
+Makecode: 0x14
+a limpar
+76, 53
+Makecode: 0x39
+a limpar
+76, 54
+Breakcode: 0x94
+The company is listed on the Tokyo Stock Exchange, it a
+The company is listed on the Tokyo Stock Exchange, it m
+76, 54
+76, 54
+76, 54
+Breakcode: 0xb9
+The company is listed on the Tokyo Stock Exchange, it a
+The company is listed on the Tokyo Stock Exchange, it m
+76, 54
+76, 54
+Makecode: 0x32
+a limpar
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+Breakcode: 0xb2
+The company is listed on the Tokyo Stock Exchange, it mt
+The company is listed on the Tokyo Stock Exchange, it mu
+76, 55
+76, 55
+76, 55
+76, 55
+76, 55
+Makecode: 0x16
+a limpar
+76, 56
+76, 56
+76, 56
+76, 56
+76, 56
+Makecode: 0x1f
+a limpar
+76, 57
+76, 57
+76, 57
+Breakcode: 0x96
+The company is listed on the Tokyo Stock Exchange, it musl
+The company is listed on the Tokyo Stock Exchange, it must
+76, 57
+Breakcode: 0x9f
+The company is listed on the Tokyo Stock Exchange, it musl
+The company is listed on the Tokyo Stock Exchange, it must
+76, 57
+76, 57
+76, 57
+Makecode: 0x14
+a limpar
+76, 58
+76, 58
+76, 58
+76, 58
+Makecode: 0x39
+a limpar
+76, 59
+76, 59
+Breakcode: 0x94
+The company is listed on the Tokyo Stock Exchange, it must ,
+The company is listed on the Tokyo Stock Exchange, it must b
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+76, 59
+Breakcode: 0xb9
+The company is listed on the Tokyo Stock Exchange, it must ,
+The company is listed on the Tokyo Stock Exchange, it must b
+76, 59
+Makecode: 0x30
+a limpar
+76, 60
+76, 60
+76, 60
+76, 60
+76, 60
+76, 60
+Makecode: 0x12
+a limpar
+76, 61
+Breakcode: 0xb0
+The company is listed on the Tokyo Stock Exchange, it must beb
+The company is listed on the Tokyo Stock Exchange, it must be 
+76, 61
+76, 61
+Breakcode: 0x92
+The company is listed on the Tokyo Stock Exchange, it must beb
+The company is listed on the Tokyo Stock Exchange, it must be 
+76, 61
+Makecode: 0x39
+a limpar
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+76, 62
+Breakcode: 0xb9
+The company is listed on the Tokyo Stock Exchange, it must be u
+The company is listed on the Tokyo Stock Exchange, it must be v
+76, 62
+76, 62
+76, 62
+Makecode: 0x2f
+a limpar
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+Breakcode: 0xaf
+The company is listed on the Tokyo Stock Exchange, it must be vt
+The company is listed on the Tokyo Stock Exchange, it must be ve
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+76, 63
+Makecode: 0x12
+a limpar
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+Breakcode: 0x92
+The company is listed on the Tokyo Stock Exchange, it must be ve,
+The company is listed on the Tokyo Stock Exchange, it must be ver
+76, 64
+76, 64
+76, 64
+76, 64
+76, 64
+Makecode: 0x13
+a limpar
+76, 65
+76, 65
+76, 65
+76, 65
+76, 65
+76, 65
+Makecode: 0x15
+a limpar
+76, 66
+Breakcode: 0x93
+The company is listed on the Tokyo Stock Exchange, it must be verya
+The company is listed on the Tokyo Stock Exchange, it must be very 
+76, 66
+76, 66
+76, 66
+76, 66
+76, 66
+Breakcode: 0x95
+The company is listed on the Tokyo Stock Exchange, it must be verya
+The company is listed on the Tokyo Stock Exchange, it must be very 
+76, 66
+Makecode: 0x39
+a limpar
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+Breakcode: 0xb9
+The company is listed on the Tokyo Stock Exchange, it must be very f
+The company is listed on the Tokyo Stock Exchange, it must be very v
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+76, 67
+Makecode: 0x2f
+a limpar
+76, 68
+76, 68
+76, 68
+76, 68
+76, 68
+76, 68
+76, 68
+Breakcode: 0xaf
+The company is listed on the Tokyo Stock Exchange, it must be very vt
+The company is listed on the Tokyo Stock Exchange, it must be very va
+76, 68
+Makecode: 0x1e
+a limpar
+76, 69
+76, 69
+76, 69
+76, 69
+76, 69
+Breakcode: 0x9e
+The company is listed on the Tokyo Stock Exchange, it must be very vae
+The company is listed on the Tokyo Stock Exchange, it must be very val
+76, 69
+76, 69
+Makecode: 0x26
+a limpar
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+Breakcode: 0xa6
+The company is listed on the Tokyo Stock Exchange, it must be very valr
+The company is listed on the Tokyo Stock Exchange, it must be very valu
+76, 70
+76, 70
+76, 70
+76, 70
+76, 70
+Makecode: 0x16
+a limpar
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+76, 71
+Breakcode: 0x96
+The company is listed on the Tokyo Stock Exchange, it must be very valu 
+The company is listed on the Tokyo Stock Exchange, it must be very valua
+76, 71
+Makecode: 0x1e
+a limpar
+76, 72
+76, 72
+76, 72
+Breakcode: 0x9e
+The company is listed on the Tokyo Stock Exchange, it must be very valuat
+The company is listed on the Tokyo Stock Exchange, it must be very valuab
+76, 72
+Makecode: 0x30
+a limpar
+76, 73
+76, 73
+76, 73
+76, 73
+76, 73
+76, 73
+Breakcode: 0xb0
+The company is listed on the Tokyo Stock Exchange, it must be very valuabh
+The company is listed on the Tokyo Stock Exchange, it must be very valuabl
+76, 73
+76, 73
+76, 73
+76, 73
+76, 73
+Makecode: 0x26
+a limpar
+76, 74
+76, 74
+76, 74
+76, 74
+76, 74
+76, 74
+76, 74
+Breakcode: 0xa6
+The company is listed on the Tokyo Stock Exchange, it must be very valuable
+The company is listed on the Tokyo Stock Exchange, it must be very valuable
+76, 74
+Makecode: 0x12
+a limpar
+76, 75
+76, 75
+Breakcode: 0x92
+The company is listed on the Tokyo Stock Exchange, it must be very valuable 
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 75
+76, 75
+76, 75
+76, 75
+76, 75
+Makecode: 0x34
+a limpar
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+Breakcode: 0xb4
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.f
+The company is listed on the Tokyo Stock Exchange, it must be very valuable.
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+76, 76
+Makecode: 0x1c
+Breakcode: 0x9c
 Makecode: 0xe0 0x50
-Selector: 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
 Breakcode: 0xe0 0xd0
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+alterar para menu 1
+Makecode: 0xe0 0x48
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+Breakcode: 0xe0 0xc8
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+alterar para menu 0
+Makecode: 0x1c
+Breakcode: 0x9c
+Makecode: 0xe0 0x4d
+right
+2Breakcode: 0xe0 0xcd
+Makecode: 0xe0 0x4d
+right
+3Breakcode: 0xe0 0xcd
+Makecode: 0xe0 0x4d
+right
+4Breakcode: 0xe0 0xcd
 Makecode: 0x1c

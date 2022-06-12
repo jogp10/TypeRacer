@@ -1089,6 +1089,7 @@ bool isEqual(unsigned int idx,unsigned int number_Letters, letter ** sentence,le
                 }
 
         }
+        return true;
     }
     return false;
 }
