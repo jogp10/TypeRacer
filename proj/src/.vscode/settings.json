@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "pause_menu_exit.h": "c",
+        "motorway.h": "c",
+        "red_car.h": "c"
+    }
+}

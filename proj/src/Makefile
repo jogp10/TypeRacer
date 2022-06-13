@@ -12,7 +12,7 @@ SRCS = proj.c vg.c kbd.c mouse.c timer.c utils.c game.c letters.c mouse_collisio
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic -Wunreachable-code #-D __LCOM_OPTIMIZED__
+CFLAGS += -pedantic -Wunreachable-code -D __LCOM_OPTIMIZED__
 
 # list of library dependencies
 DPADD += ${LIBLCF}

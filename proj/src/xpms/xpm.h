@@ -8,7 +8,6 @@
 #include "pause_menu.h"
 #include "pause_menu_resume.h"
 #include "pause_menu_exit.h"
-#include "motorway.h"
 #include "game_background.h"
 #include "win.h"
 #include "exit.h"
@@ -16,7 +15,6 @@
 
 /** Objects **/
 #include "red_car.h"
-#include "yellow_car.h"
 #include "mouse_cursor.h"
 #include "next.h"
 #include "upp.h"
