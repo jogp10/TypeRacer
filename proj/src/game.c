@@ -23,6 +23,8 @@ static int isUpper = 0, isShift = 0;
 extern unsigned int counter_kbd, counter_timer;
 extern uint8_t code;
 
+int game_time;
+
 extern letter *letters;
 extern xpm_image_t mouse_img;
 extern xpm_image_t menu_start_img;
@@ -596,6 +598,10 @@ int kbd_handler(letter * sentence,letter * sentence2 , letter ** inputSentence, 
 
 int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSentence, unsigned int idx){
     if(game->state.start){
+        if(game->state.sentence) {
+            printf("%u", counter_timer);
+            game_time = counter_timer;
+        }
         game->state.draw = true;
         game->state.drawInput = true;
         singlePlayer_start(sentence, inputSentence);
@@ -696,6 +702,8 @@ int singlePlayer_mode(letter ** sentence,letter ** sentence2, letter **inputSent
 
 int win_menu_f(){
     if(game->state.start){
+        game_time = (counter_timer - game_time) / 60;
+        printf("%u", game_time);
         if(vg_draw_xpm(0, 0, win_menu_img, win_menu)){
                 vg_exit();
                 printf("%s: Error drawing xpm\n", __func__);
