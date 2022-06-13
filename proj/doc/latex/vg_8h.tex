@@ -1,0 +1,44 @@
+\hypertarget{vg_8h}{}\doxysection{src/devices/graphics/vg.h File Reference}
+\label{vg_8h}\index{src/devices/graphics/vg.h@{src/devices/graphics/vg.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for vg.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5}{vg\+\_\+change\+\_\+mode}} (uint16\+\_\+t mode)
+\item 
+int() \mbox{\hyperlink{group__video__graphics_gaf1bf9e7f07f92f3f1561df4630ce33d1}{map\+\_\+memory}} (uint16\+\_\+t mode)
+\item 
+int() \mbox{\hyperlink{group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741}{vg\+\_\+draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\item 
+int() \mbox{\hyperlink{group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6}{vg\+\_\+draw\+\_\+hline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em draw horizontal line \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec}{vg\+\_\+draw\+\_\+rectangle}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em draw rectangle \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__video__graphics_ga25083348788e77f52c326375125ca6d8}{vg\+\_\+draw\+\_\+xpm}} (uint16\+\_\+t x, uint16\+\_\+t y, xpm\+\_\+image\+\_\+t img, uint8\+\_\+t $\ast$map)
+\begin{DoxyCompactList}\small\item\em draw horizontal line \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__video__graphics_gafecc19faa706051803b1e975686a2ea7}{vg\+\_\+move\+\_\+xpm}} (xpm\+\_\+map\+\_\+t xpm, uint16\+\_\+t $\ast$xi, uint16\+\_\+t $\ast$yi, uint16\+\_\+t xf, uint16\+\_\+t yf, uint16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em draw horizontal line \end{DoxyCompactList}\item 
+uint8\+\_\+t() \mbox{\hyperlink{group__video__graphics_gaa01f9bbad6332518ec591451ecff15d2}{R}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em masks red color into red position \end{DoxyCompactList}\item 
+uint8\+\_\+t() \mbox{\hyperlink{group__video__graphics_ga951a38a1459357ffe379b5dea65522b2}{G}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em masks green color into green position \end{DoxyCompactList}\item 
+uint8\+\_\+t() \mbox{\hyperlink{group__video__graphics_ga24e0201c0056d4d68aa7a34ae360ed87}{B}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em masks blue color into blue position \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__video__graphics_ga6402ca094cd1aace6adedd01b2b5496e}{get\+\_\+hres}} ()
+\begin{DoxyCompactList}\small\item\em Get horizontal resolution in pixels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__video__graphics_ga484929b3e33f236cd9087e18e1521ee3}{get\+\_\+vres}} ()
+\begin{DoxyCompactList}\small\item\em Get vertical resolution in pixels. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{group__video__graphics_ga53f6c1a60eaac0030d48bc8932255693}{double\+\_\+buffering}} ()
+\begin{DoxyCompactList}\small\item\em double buffer setup \end{DoxyCompactList}\item 
+char $\ast$() \mbox{\hyperlink{group__video__graphics_ga074ef4ad6b93f178c51610bfce7d94b8}{get\+\_\+double\+\_\+buffer}} ()
+\item 
+int() \mbox{\hyperlink{group__video__graphics_ga79bda8abbcc6e61e59d039de828f83df}{load\+\_\+all\+\_\+xpms}} ()
+\begin{DoxyCompactList}\small\item\em Loads all game xpms. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed}{clear\+\_\+xpm\+\_\+with\+\_\+cover}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t maxX, uint16\+\_\+t maxY, xpm\+\_\+image\+\_\+t background\+\_\+img, uint8\+\_\+t $\ast$background\+\_\+map)
+\begin{DoxyCompactList}\small\item\em clears xpm by drawing background \end{DoxyCompactList}\end{DoxyCompactItemize}

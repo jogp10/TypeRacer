@@ -1,6 +1,12 @@
 #ifndef __LETTERS_H
 #define __LETTERS_H
 
+/** @defgroup letters letters
+ * @{
+ *
+ * letters module
+ */
+
 #include <lcom/lcf.h>
 
 typedef struct letter{
@@ -67,5 +73,7 @@ void free2dArray(letter ** ptr, int row, int col);
  * 
  */
 void destroySentencesAndLetters();
+
+/**@}*/
 
 #endif /* __LETTERS_H */

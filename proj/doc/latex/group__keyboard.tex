@@ -1,0 +1,134 @@
+\hypertarget{group__keyboard}{}\doxysection{keyboard}
+\label{group__keyboard}\index{keyboard@{keyboard}}
+
+
+keyboard module  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707}{kbd\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes and enables K\+BC interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__keyboard_gaee0a7b54ee426fade9c780418d110fe0}{kbd\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes K\+BC interrupts. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{group__keyboard_gaca842ab89e3fc03d8cca103dd6808895}{kbd\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em K\+BC interrupt handler. \end{DoxyCompactList}\item 
+bool() \mbox{\hyperlink{group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8}{kbd\+\_\+code\+\_\+complete}} (uint8\+\_\+t scan\+\_\+code\mbox{[}$\,$\mbox{]}, uint8\+\_\+t $\ast$size)
+\begin{DoxyCompactList}\small\item\em Checks code if completed. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__keyboard_ga4aa0264996b3da11559782ac8768d242}{kbd\+\_\+reenable\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Reenable kbc interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__keyboard_ga18f5b27fb222774ef1e96b88317d907f}{kbc\+\_\+issue\+\_\+command}} (uint8\+\_\+t cmd)
+\item 
+int() \mbox{\hyperlink{group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f}{kbc\+\_\+issue\+\_\+command\+\_\+with\+\_\+arg}} (uint8\+\_\+t arg)
+\item 
+int() \mbox{\hyperlink{group__keyboard_gad7d379ee6637be74dbee83e5305bec58}{kbc\+\_\+read\+\_\+acknowledgment}} (uint8\+\_\+t $\ast$acknowledgment\+\_\+byte)
+\begin{DoxyCompactList}\small\item\em Reads acknowledgemnt byte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+keyboard module 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__keyboard_ga18f5b27fb222774ef1e96b88317d907f}\label{group__keyboard_ga18f5b27fb222774ef1e96b88317d907f}} 
+\index{keyboard@{keyboard}!kbc\_issue\_command@{kbc\_issue\_command}}
+\index{kbc\_issue\_command@{kbc\_issue\_command}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbc\_issue\_command()}{kbc\_issue\_command()}}
+{\footnotesize\ttfamily int() kbc\+\_\+issue\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & command to be issued\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f}\label{group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f}} 
+\index{keyboard@{keyboard}!kbc\_issue\_command\_with\_arg@{kbc\_issue\_command\_with\_arg}}
+\index{kbc\_issue\_command\_with\_arg@{kbc\_issue\_command\_with\_arg}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbc\_issue\_command\_with\_arg()}{kbc\_issue\_command\_with\_arg()}}
+{\footnotesize\ttfamily int() kbc\+\_\+issue\+\_\+command\+\_\+with\+\_\+arg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{group__keyboard_gad7d379ee6637be74dbee83e5305bec58}\label{group__keyboard_gad7d379ee6637be74dbee83e5305bec58}} 
+\index{keyboard@{keyboard}!kbc\_read\_acknowledgment@{kbc\_read\_acknowledgment}}
+\index{kbc\_read\_acknowledgment@{kbc\_read\_acknowledgment}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbc\_read\_acknowledgment()}{kbc\_read\_acknowledgment()}}
+{\footnotesize\ttfamily int() kbc\+\_\+read\+\_\+acknowledgment (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{acknowledgment\+\_\+byte }\end{DoxyParamCaption})}
+
+
+
+Reads acknowledgemnt byte. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8}\label{group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8}} 
+\index{keyboard@{keyboard}!kbd\_code\_complete@{kbd\_code\_complete}}
+\index{kbd\_code\_complete@{kbd\_code\_complete}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbd\_code\_complete()}{kbd\_code\_complete()}}
+{\footnotesize\ttfamily bool() kbd\+\_\+code\+\_\+complete (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scan\+\_\+code\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t $\ast$}]{size }\end{DoxyParamCaption})}
+
+
+
+Checks code if completed. 
+
+\begin{DoxyReturn}{Returns}
+Return true upon completion and false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__keyboard_gaca842ab89e3fc03d8cca103dd6808895}\label{group__keyboard_gaca842ab89e3fc03d8cca103dd6808895}} 
+\index{keyboard@{keyboard}!kbd\_ih@{kbd\_ih}}
+\index{kbd\_ih@{kbd\_ih}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbd\_ih()}{kbd\_ih()}}
+{\footnotesize\ttfamily void() kbd\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+K\+BC interrupt handler. 
+
+Read scan code \mbox{\Hypertarget{group__keyboard_ga4aa0264996b3da11559782ac8768d242}\label{group__keyboard_ga4aa0264996b3da11559782ac8768d242}} 
+\index{keyboard@{keyboard}!kbd\_reenable\_int@{kbd\_reenable\_int}}
+\index{kbd\_reenable\_int@{kbd\_reenable\_int}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbd\_reenable\_int()}{kbd\_reenable\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+reenable\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reenable kbc interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707}\label{group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707}} 
+\index{keyboard@{keyboard}!kbd\_subscribe\_int@{kbd\_subscribe\_int}}
+\index{kbd\_subscribe\_int@{kbd\_subscribe\_int}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbd\_subscribe\_int()}{kbd\_subscribe\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes and enables K\+BC interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & address of memory to be initialized with the bit number to be set in the mask returned upon an interrupt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__keyboard_gaee0a7b54ee426fade9c780418d110fe0}\label{group__keyboard_gaee0a7b54ee426fade9c780418d110fe0}} 
+\index{keyboard@{keyboard}!kbd\_unsubscribe\_int@{kbd\_unsubscribe\_int}}
+\index{kbd\_unsubscribe\_int@{kbd\_unsubscribe\_int}!keyboard@{keyboard}}
+\doxysubsubsection{\texorpdfstring{kbd\_unsubscribe\_int()}{kbd\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes K\+BC interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}

@@ -1,6 +1,12 @@
 #ifndef __GAME_H
 #define __GAME_H
 
+/** @defgroup game game
+ * @{
+ *
+ * game module
+ */
+
 #include <lcom/lcf.h>
 #include "letters.h"
 
@@ -216,5 +222,7 @@ void allocateSentence(letter ** sentence);
 bool isEqual(unsigned int idx,unsigned int number_Letters, letter ** sentence,letter **inputSentence);
 
 //int draw_letter(uint8_t *sprite, uint16_t x, uint16_t y, xpm_image_t img, void * buff, void * color);
+
+/**@}*/
  
 #endif /* __GAME_H */

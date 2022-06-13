@@ -1,3 +1,9 @@
+/** @defgroup mouse_collision mouse_collision
+ * @{
+ *
+ * mouse collisions detection
+ */
+
 #define true 1
 #define false 0
 
@@ -16,3 +22,4 @@ typedef struct Point
  */
 int isInsideOpt(Point opt[], Point mouse);
 
+/**@}*/

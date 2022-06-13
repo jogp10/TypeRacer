@@ -5,6 +5,11 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/** @defgroup video_graphics video_graphics
+ * @{
+ *
+ * video graphics module
+ */
 
 /**
  * @brief 
@@ -153,5 +158,7 @@ int(load_all_xpms)();
  * @return Return 0 upon success and non-zero otherwise
  */
 int clear_xpm_with_cover(uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *background_map);
+
+/**@}*/
 
 #endif /* __VC_H */

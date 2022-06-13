@@ -1,6 +1,12 @@
 #ifndef __MOUSE_H
 #define __MOUSE_H
 
+/** @defgroup mouse mouse
+ * @{
+ *
+ * mouse module
+ */
+
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -71,6 +77,6 @@ bool (mouse_packet_complete)(uint8_t packets[], uint8_t *size);
  */
 int (build_packet_struct)(uint8_t packets[], struct packet *pp);
 
-
+/**@}*/
 
 #endif /* __MOUSE_H */

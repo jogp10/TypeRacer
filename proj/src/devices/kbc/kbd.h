@@ -4,6 +4,12 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/** @defgroup keyboard keyboard
+ * @{
+ *
+ * keyboard module
+ */
+
 /**
  * @brief Subscribes and enables KBC interrupts
  *
@@ -59,5 +65,7 @@ int (kbc_issue_command_with_arg)(uint8_t arg);
  * @return Return 0 upon success and non-zero otherwise
  */
 int (kbc_read_acknowledgment)(uint8_t *acknowledgment_byte);
+
+/**@}*/
 
 #endif /* __KBD_H */

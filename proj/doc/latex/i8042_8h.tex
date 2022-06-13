@@ -1,0 +1,119 @@
+\hypertarget{i8042_8h}{}\doxysection{src/devices/kbc/i8042.h File Reference}
+\label{i8042_8h}\index{src/devices/kbc/i8042.h@{src/devices/kbc/i8042.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$minix/sysutil.\+h$>$}\newline
+Include dependency graph for i8042.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga5c1072213ce8d8cd43628c4319ae0391}{K\+B\+D\+\_\+\+I\+RQ}}~1
+\begin{DoxyCompactList}\small\item\em Keyboard I\+RQ line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga85964cb90343bb1a029b1d1b4229f910}{M\+O\+U\+S\+E\+\_\+\+I\+RQ}}~12
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structMouse}{Mouse}} I\+RQ line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga1a522aa19bcb695a9df30032a893bee3}{D\+E\+L\+A\+Y\+\_\+\+US}}~2000
+\item 
+\#define \mbox{\hyperlink{group__i8042_gab23cc69a672bde23d68055ded9e4f112}{T\+I\+M\+E\+\_\+\+D\+E\+L\+AY}}(n)~tickdelay(micros\+\_\+to\+\_\+ticks(n))
+\item 
+\#define \mbox{\hyperlink{group__i8042_gafd63d23830ad86d01b6fff2e6c615f7e}{M\+A\+X\+\_\+\+T\+R\+I\+ES}}~5
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga168fd0a54619731c76c386a7f1bde2b1}{E\+S\+C\+\_\+\+M\+A\+KE}}~0x01
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga343f44cb034d2d2ff3438b3d45dcde1f}{E\+S\+C\+\_\+\+B\+R\+E\+AK}}~0x81
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga84303f482517a5be0e5a7407b40c1087}{R\+S\+H\+I\+F\+T\+\_\+\+M\+A\+KE}}~0x36
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaf18bdf06735de950af393da6ac16023e}{R\+S\+H\+I\+F\+T\+\_\+\+B\+R\+A\+KE}}~0xb6
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga405463f3278b4a3eeb909a152c5331f4}{L\+S\+H\+I\+F\+T\+\_\+\+M\+A\+KE}}~0x2a
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga5ca104d0489e06ae920e5d23b7523ec8}{L\+S\+H\+I\+F\+T\+\_\+\+B\+R\+A\+KE}}~0xaa
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga70d3e288e47218ac1a514b50a5b2e37f}{C\+A\+P\+S\+\_\+\+M\+A\+KE}}~0x3a
+\item 
+\#define \mbox{\hyperlink{group__i8042_gad932113e5d257d7d82c175ee1163f60e}{C\+A\+P\+S\+\_\+\+B\+R\+A\+KE}}~0xba
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga7f9aacad98586d9a60c8d16b6f5435f4}{T\+W\+O\+\_\+\+B\+Y\+TE}}~0xe0
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga5573533027e427e3a11b4daa75621598}{M\+A\+K\+E\+\_\+\+C\+O\+DE}}~B\+IT(7)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaac9289c99cf0a693a211da6d6cb1bb65}{K\+B\+C\+\_\+\+I\+N\+\_\+\+B\+UF}}~0x60
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga1ccde68b2b6d4e45b50eef1403e10bb7}{K\+B\+C\+\_\+\+O\+U\+T\+\_\+\+B\+UF}}~0x60
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga6f977b36b770dca3092d0bdf8c949cfe}{K\+B\+C\+\_\+\+S\+T\+\_\+\+R\+EG}}~0x64
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga05a224e9b9eaf37840e54859313b68a9}{C\+M\+M\+D\+\_\+\+B\+\_\+\+R\+EG}}~0x60
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga9582dde637ddf8d7779346cb090f3cdc}{C\+M\+M\+D\+\_\+\+B\+\_\+\+R\+E\+AD}}~0x20
+\item 
+\#define \mbox{\hyperlink{group__i8042_gad74cbf1d291ea9c4852f81c9f4b8ea52}{C\+M\+M\+D\+\_\+\+B\+\_\+\+W\+R\+I\+TE}}~0x60
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga34326f1c6bfccd8b9084c5ae2b4918a1}{E\+N\+A\+B\+L\+E\+\_\+\+I\+NT}}~0x01
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaea2ef6dda1aabebf291eeee29b66c04a}{K\+B\+C\+\_\+\+P\+A\+R\+\_\+\+E\+RR}}~B\+IT(7)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gae31c3653f5881b02cbfdd4ccbb7ccf50}{K\+B\+C\+\_\+\+T\+O\+\_\+\+E\+RR}}~B\+IT(6)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaaa796d09d1e94025da456738295342f2}{K\+B\+C\+\_\+\+A\+UX}}~B\+IT(5)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gac1649d41f8ba9a02fa70ec4e600d5e4a}{K\+B\+C\+\_\+\+I\+BF}}~B\+IT(1)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga36930de8a703505c95fe133095dcfe06}{K\+B\+C\+\_\+\+O\+BF}}~B\+IT(0)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaf0ab4c700f7e2c4ccd85a2b24426e7bf}{K\+B\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+M\+O\+U\+S\+E\+\_\+\+I\+NT}}~B\+IT(1)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga456ffed1641caa7e80493cd136cea47f}{K\+B\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+K\+B\+D\+\_\+\+I\+NT}}~B\+IT(0)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga7a811889049a299c335d7378a4d42b40}{F\+I\+R\+S\+T\+\_\+\+P\+A\+C\+K\+ET}}~B\+IT(3)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gacc55daa58d88a3612f2ef74a6abbe97f}{LB}}~B\+IT(0)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga171160a766f85c8816b898ed24d28408}{RB}}~B\+IT(1)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaa6b38d492364d98453284934ed7caee9}{MB}}~B\+IT(2)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga181f1c2860e4d7fd7788990378061137}{X\+\_\+\+S\+I\+GN}}~B\+IT(4)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga2a0064e2f0979eea21b81e4fe6b2ac32}{Y\+\_\+\+S\+I\+GN}}~B\+IT(5)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga858379c2252a71bc12dd9ff796477d90}{X\+\_\+\+O\+VF}}~B\+IT(6)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga8238446128710bc20d7c73b2fa785c72}{Y\+\_\+\+O\+VF}}~B\+IT(7)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga75f68ef49b62d6fb341229c02ea15653}{M\+C\+\_\+\+R\+E\+S\+ET}}~0x\+FF
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structMouse}{Mouse}} Reset. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga4c43ff9d96503fc4274926172e3904a3}{M\+C\+\_\+\+R\+E\+S\+E\+ND}}~0x\+FE
+\begin{DoxyCompactList}\small\item\em For serial communications errors. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gae0b827641fdc615947ff78cdded15187}{M\+C\+\_\+\+D\+E\+F\+A\+U\+L\+TS}}~0x\+F6
+\begin{DoxyCompactList}\small\item\em Set default values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga8dc62f83e20ff1d8b6f8bafd7cd866d8}{M\+C\+\_\+\+D\+I\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+EP}}~0x\+F5
+\begin{DoxyCompactList}\small\item\em In stream mode, Disable (Data Reporting) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga52539de90181cdfb2617e74839c2ff18}{M\+C\+\_\+\+E\+N\+\_\+\+D\+A\+T\+A\+\_\+\+R\+EP}}~0x\+F4
+\begin{DoxyCompactList}\small\item\em In stream mode Enable (Data Reporting) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga0dea79897bf8495b3fc0a1ea3acaa1b8}{M\+C\+\_\+\+S\+E\+T\+\_\+\+SR}}~0x\+F3
+\begin{DoxyCompactList}\small\item\em Set Sample Rate. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gac1e10d05b487fc02731ee81caf4a04d1}{M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+M\+O\+DE}}~0x\+F0
+\begin{DoxyCompactList}\small\item\em Set Remote mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga331113333865185f8d7babb424936661}{M\+C\+\_\+\+R\+E\+A\+D\+\_\+\+D\+A\+TA}}~0x\+EB
+\begin{DoxyCompactList}\small\item\em Read Data. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gadbcc35097a1622fa36810e89ace7aee0}{M\+C\+\_\+\+S\+E\+T\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+M\+O\+DE}}~0x\+EA
+\begin{DoxyCompactList}\small\item\em Set Stream Mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga8821b3175140b943856293064db743cc}{M\+C\+\_\+\+S\+T\+\_\+\+R\+EQ}}~0x\+E9
+\begin{DoxyCompactList}\small\item\em Status Request Get mouse configuration (3 bytes) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gabfb897313332d560f09339de4f7b1076}{M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+ES}}~0x\+E8
+\begin{DoxyCompactList}\small\item\em Set Resolution. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gad8db5b410706b941b95b653892688a00}{M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+S21}}~0x\+E7
+\begin{DoxyCompactList}\small\item\em Acceleration mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gae193030ac8c26ba45b927e8c1430ed73}{M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+S11}}~0x\+E6
+\begin{DoxyCompactList}\small\item\em Linear mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga1a48f3668231c08851a9b880ec541a39}{M\+C\+\_\+\+W\+R\+I\+TE}}~0x\+D4
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga57fa6c5ff5f6e9b7154626d6fddc275e}{M\+C\+\_\+\+A\+CK}}~0x\+FA
+\begin{DoxyCompactList}\small\item\em Everything OK. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga309ba8ec1d897f46b3b40a3132b4827c}{M\+C\+\_\+\+N\+A\+CK}}~0x\+FE
+\begin{DoxyCompactList}\small\item\em Invalid Byte (may be because of a serial communication error) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga8b0e0e80707db43a311cdf0ebd5f419f}{M\+C\+\_\+\+E\+R\+R\+OR}}~0x\+FC
+\begin{DoxyCompactList}\small\item\em Second consecutive invalid byte. \end{DoxyCompactList}\end{DoxyCompactItemize}

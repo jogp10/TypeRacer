@@ -1,0 +1,145 @@
+\hypertarget{group__letters}{}\doxysection{letters}
+\label{group__letters}\index{letters@{letters}}
+
+
+letters module  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structletter}{letter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structletter}{letter}} \mbox{\hyperlink{group__letters_ga9bac7a3ce4627f36eb20eb0829fa1025}{letter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{group__letters_ga3b6237caf1ef8186e7884ba0c5811032}{load}} ()
+\begin{DoxyCompactList}\small\item\em load alphabet xpms \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__letters_ga9c190c5de3d7b253b05eff01cc84a109}{load\+Sentences}} ()
+\begin{DoxyCompactList}\small\item\em load sentences xpms \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$ \mbox{\hyperlink{group__letters_ga1d31552311b792bf12610bdf96c2ae42}{allocate2d\+Array}} (int row, int col)
+\item 
+void \mbox{\hyperlink{group__letters_ga333241a09272e2178bb6bce651b92167}{free2d\+Array}} (\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$ptr, int row, int col)
+\begin{DoxyCompactList}\small\item\em free memory \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__letters_ga7745112d26b762ba2d12b7f324710869}{destroy\+Sentences\+And\+Letters}} ()
+\begin{DoxyCompactList}\small\item\em frees sentences memory usage \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structletter}{letter}} $\ast$ \mbox{\hyperlink{group__letters_ga3473a75605cd752401ec13ef8074557d}{letters}}
+\item 
+\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$ \mbox{\hyperlink{group__letters_gad9383479c1fc9cf22dfe67c1c7226f7a}{sentences}}
+\item 
+\mbox{\hyperlink{structletter}{letter}} $\ast$ \mbox{\hyperlink{group__letters_ga2c4d78df5d5c8187390832dc5475e8b9}{error\+Message}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+letters module 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__letters_ga9bac7a3ce4627f36eb20eb0829fa1025}\label{group__letters_ga9bac7a3ce4627f36eb20eb0829fa1025}} 
+\index{letters@{letters}!letter@{letter}}
+\index{letter@{letter}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{letter}{letter}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structletter}{letter}} \mbox{\hyperlink{structletter}{letter}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__letters_ga1d31552311b792bf12610bdf96c2ae42}\label{group__letters_ga1d31552311b792bf12610bdf96c2ae42}} 
+\index{letters@{letters}!allocate2dArray@{allocate2dArray}}
+\index{allocate2dArray@{allocate2dArray}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{allocate2dArray()}{allocate2dArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structletter}{letter}}$\ast$$\ast$ allocate2d\+Array (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & number of sentences \\
+\hline
+{\em col} & max size or bigger of a sentence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 2d with sentences 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__letters_ga7745112d26b762ba2d12b7f324710869}\label{group__letters_ga7745112d26b762ba2d12b7f324710869}} 
+\index{letters@{letters}!destroySentencesAndLetters@{destroySentencesAndLetters}}
+\index{destroySentencesAndLetters@{destroySentencesAndLetters}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{destroySentencesAndLetters()}{destroySentencesAndLetters()}}
+{\footnotesize\ttfamily void destroy\+Sentences\+And\+Letters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+frees sentences memory usage 
+
+\mbox{\Hypertarget{group__letters_ga333241a09272e2178bb6bce651b92167}\label{group__letters_ga333241a09272e2178bb6bce651b92167}} 
+\index{letters@{letters}!free2dArray@{free2dArray}}
+\index{free2dArray@{free2dArray}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{free2dArray()}{free2dArray()}}
+{\footnotesize\ttfamily void free2d\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$}]{ptr,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+free memory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & pointer to array \\
+\hline
+{\em row} & number of sentences \\
+\hline
+{\em col} & size of a sentence \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__letters_ga3b6237caf1ef8186e7884ba0c5811032}\label{group__letters_ga3b6237caf1ef8186e7884ba0c5811032}} 
+\index{letters@{letters}!load@{load}}
+\index{load@{load}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily int() load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+load alphabet xpms 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__letters_ga9c190c5de3d7b253b05eff01cc84a109}\label{group__letters_ga9c190c5de3d7b253b05eff01cc84a109}} 
+\index{letters@{letters}!loadSentences@{loadSentences}}
+\index{loadSentences@{loadSentences}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{loadSentences()}{loadSentences()}}
+{\footnotesize\ttfamily void load\+Sentences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+load sentences xpms 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__letters_ga2c4d78df5d5c8187390832dc5475e8b9}\label{group__letters_ga2c4d78df5d5c8187390832dc5475e8b9}} 
+\index{letters@{letters}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structletter}{letter}}$\ast$ error\+Message}
+
+\mbox{\Hypertarget{group__letters_ga3473a75605cd752401ec13ef8074557d}\label{group__letters_ga3473a75605cd752401ec13ef8074557d}} 
+\index{letters@{letters}!letters@{letters}}
+\index{letters@{letters}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{letters}{letters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structletter}{letter}}$\ast$ letters}
+
+\mbox{\Hypertarget{group__letters_gad9383479c1fc9cf22dfe67c1c7226f7a}\label{group__letters_gad9383479c1fc9cf22dfe67c1c7226f7a}} 
+\index{letters@{letters}!sentences@{sentences}}
+\index{sentences@{sentences}!letters@{letters}}
+\doxysubsubsection{\texorpdfstring{sentences}{sentences}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structletter}{letter}}$\ast$$\ast$ sentences}
+

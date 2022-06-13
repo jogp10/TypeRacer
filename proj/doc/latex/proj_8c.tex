@@ -1,0 +1,101 @@
+\hypertarget{proj_8c}{}\doxysection{src/proj.c File Reference}
+\label{proj_8c}\index{src/proj.c@{src/proj.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/proj.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}devices/graphics/vg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/kbc/kbd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/kbc/mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$lcom/timer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}devices/graphics/vg\+\_\+macros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/kbc/i8042.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/timer/i8254.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/utils/utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/xpm.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for proj.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{proj_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int() \mbox{\hyperlink{proj_8c_a2a16f651eccbd248e1ad3b3b924b143b}{proj\+\_\+main\+\_\+loop}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{proj_8c_aa3b05db7dca7a1fd396ecb42c0432467}{double\+\_\+buf}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{proj_8c_a6bdcfe1b8246db3682ddf162252d2107}{timer\+\_\+bit\+\_\+no}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{proj_8c_aa7968c3382ed27f364c0c029db9cfc96}{kb\+\_\+bit\+\_\+no}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{proj_8c_a33926598f4dd9062811599f0bf843da8}{mouse\+\_\+bit\+\_\+no}}
+\item 
+unsigned int \mbox{\hyperlink{proj_8c_aa075d15986bd3e562cdd5c3fc3702b1d}{counter\+\_\+kbd}}
+\item 
+unsigned int \mbox{\hyperlink{proj_8c_ae459ed5f5a565d171b67af71b9a41a94}{counter\+\_\+timer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{proj_8c_a966576744a473fafb7687f8e5649941f}{code}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{proj_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{proj_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{proj.c@{proj.c}!main@{main}}
+\index{main@{main}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{proj_8c_a2a16f651eccbd248e1ad3b3b924b143b}\label{proj_8c_a2a16f651eccbd248e1ad3b3b924b143b}} 
+\index{proj.c@{proj.c}!proj\_main\_loop@{proj\_main\_loop}}
+\index{proj\_main\_loop@{proj\_main\_loop}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{proj\_main\_loop()}{proj\_main\_loop()}}
+{\footnotesize\ttfamily int() proj\+\_\+main\+\_\+loop (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{proj_8c_a966576744a473fafb7687f8e5649941f}\label{proj_8c_a966576744a473fafb7687f8e5649941f}} 
+\index{proj.c@{proj.c}!code@{code}}
+\index{code@{code}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily uint8\+\_\+t code}
+
+\mbox{\Hypertarget{proj_8c_aa075d15986bd3e562cdd5c3fc3702b1d}\label{proj_8c_aa075d15986bd3e562cdd5c3fc3702b1d}} 
+\index{proj.c@{proj.c}!counter\_kbd@{counter\_kbd}}
+\index{counter\_kbd@{counter\_kbd}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{counter\_kbd}{counter\_kbd}}
+{\footnotesize\ttfamily unsigned int counter\+\_\+kbd}
+
+\mbox{\Hypertarget{proj_8c_ae459ed5f5a565d171b67af71b9a41a94}\label{proj_8c_ae459ed5f5a565d171b67af71b9a41a94}} 
+\index{proj.c@{proj.c}!counter\_timer@{counter\_timer}}
+\index{counter\_timer@{counter\_timer}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{counter\_timer}{counter\_timer}}
+{\footnotesize\ttfamily unsigned int counter\+\_\+timer}
+
+\mbox{\Hypertarget{proj_8c_aa3b05db7dca7a1fd396ecb42c0432467}\label{proj_8c_aa3b05db7dca7a1fd396ecb42c0432467}} 
+\index{proj.c@{proj.c}!double\_buf@{double\_buf}}
+\index{double\_buf@{double\_buf}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{double\_buf}{double\_buf}}
+{\footnotesize\ttfamily char$\ast$ double\+\_\+buf}
+
+\mbox{\Hypertarget{proj_8c_aa7968c3382ed27f364c0c029db9cfc96}\label{proj_8c_aa7968c3382ed27f364c0c029db9cfc96}} 
+\index{proj.c@{proj.c}!kb\_bit\_no@{kb\_bit\_no}}
+\index{kb\_bit\_no@{kb\_bit\_no}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{kb\_bit\_no}{kb\_bit\_no}}
+{\footnotesize\ttfamily uint8\+\_\+t kb\+\_\+bit\+\_\+no}
+
+\mbox{\Hypertarget{proj_8c_a33926598f4dd9062811599f0bf843da8}\label{proj_8c_a33926598f4dd9062811599f0bf843da8}} 
+\index{proj.c@{proj.c}!mouse\_bit\_no@{mouse\_bit\_no}}
+\index{mouse\_bit\_no@{mouse\_bit\_no}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_bit\_no}{mouse\_bit\_no}}
+{\footnotesize\ttfamily uint8\+\_\+t mouse\+\_\+bit\+\_\+no}
+
+\mbox{\Hypertarget{proj_8c_a6bdcfe1b8246db3682ddf162252d2107}\label{proj_8c_a6bdcfe1b8246db3682ddf162252d2107}} 
+\index{proj.c@{proj.c}!timer\_bit\_no@{timer\_bit\_no}}
+\index{timer\_bit\_no@{timer\_bit\_no}!proj.c@{proj.c}}
+\doxysubsubsection{\texorpdfstring{timer\_bit\_no}{timer\_bit\_no}}
+{\footnotesize\ttfamily uint8\+\_\+t timer\+\_\+bit\+\_\+no}
+
