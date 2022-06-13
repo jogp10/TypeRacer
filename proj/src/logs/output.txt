@@ -1,3241 +1,487 @@
-2
-5a limpar
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-Makecode: 0x2a
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-Makecode: 0x1e
-a limpar
-76, 1
-76, 1
-76, 1
-76, 1
-76, 1
-76, 1
-76, 1
-Breakcode: 0x9e
-A
-Th
-76, 1
-76, 1
+106Makecode: 0x2a
+Makecode: 0x14
 Breakcode: 0xaa
-76, 1
-76, 1
-Makecode: 0x39
-a limpar
-76, 2
-76, 2
-76, 2
-76, 2
-76, 2
-76, 2
-76, 2
-Makecode: 0x31
-a limpar
-76, 3
-Breakcode: 0xb9
-A n
-The 
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-Breakcode: 0xb1
-A n
-The 
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-Makecode: 0x18
-a limpar
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-Breakcode: 0x98
-A no
-The c
-76, 4
-Makecode: 0x14
-a limpar
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
 Breakcode: 0x94
-A not
-The co
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
-Makecode: 0x35
-a limpar
-76, 6
-76, 6
-76, 6
-76, 6
-76, 6
-76, 6
-76, 6
-76, 6
-Breakcode: 0xb5
-A not-
-The com
-Makecode: 0x14
-a limpar
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-Breakcode: 0x94
-A not-t
-The comp
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
 Makecode: 0x23
-a limpar
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
 Breakcode: 0xa3
-A not-th
-The compa
-76, 8
-76, 8
-Makecode: 0x1e
-a limpar
-76, 9
-76, 9
-76, 9
-76, 9
-76, 9
-Breakcode: 0x9e
-A not-tha
-The compan
-76, 9
-Makecode: 0x14
-a limpar
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-Breakcode: 0x94
-A not-that
-The company
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-Makecode: 0x35
-a limpar
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-Breakcode: 0xb5
-A not-that-
-The company 
-76, 11
-76, 11
-Makecode: 0x13
-a limpar
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-Breakcode: 0x93
-A not-that-r
-The company i
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-Makecode: 0x1e
-a limpar
-76, 13
-76, 13
-76, 13
-76, 13
-76, 13
-Breakcode: 0x9e
-A not-that-ra
-The company is
-76, 13
-76, 13
-76, 13
-76, 13
-76, 13
-Makecode: 0x13
-a limpar
-76, 14
-76, 14
-76, 14
-76, 14
-76, 14
-76, 14
-Breakcode: 0x93
-A not-that-rar
-The company is 
-76, 14
-76, 14
-76, 14
-76, 14
-76, 14
 Makecode: 0x12
-a limpar
-76, 15
-76, 15
-76, 15
-76, 15
-76, 15
-76, 15
 Breakcode: 0x92
-A not-that-rare
-The company is l
-76, 15
-76, 15
-Makecode: 0x39
-a limpar
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-Breakcode: 0xb9
-A not-that-rare 
-The company is li
-76, 16
-Makecode: 0x18
-a limpar
-76, 17
-76, 17
-76, 17
-76, 17
-76, 17
-76, 17
-76, 17
-76, 17
-Breakcode: 0x98
-A not-that-rare o
-The company is lis
-76, 17
-Makecode: 0x2e
-a limpar
-76, 18
-76, 18
-76, 18
-Breakcode: 0xae
-A not-that-rare oc
-The company is list
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-Makecode: 0x2e
-a limpar
-76, 19
-76, 19
-76, 19
-76, 19
-Breakcode: 0xae
-A not-that-rare occ
-The company is liste
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-Makecode: 0x16
-a limpar
-76, 20
-76, 20
-76, 20
-76, 20
-76, 20
-76, 20
-76, 20
-Breakcode: 0x96
-A not-that-rare occu
-The company is listed
-76, 20
-76, 20
-76, 20
-76, 20
 Makecode: 0x13
-a limpar
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
 Breakcode: 0x93
-A not-that-rare occur
-The company is listed 
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
 Makecode: 0x12
-a limpar
-76, 22
-76, 22
-76, 22
-76, 22
-76, 22
 Breakcode: 0x92
-A not-that-rare occure
-The company is listed o
-76, 22
-76, 22
-76, 22
-76, 22
-76, 22
-Makecode: 0x31
-a limpar
-76, 23
-76, 23
-76, 23
-76, 23
-76, 23
-Makecode: 0x2e
-a limpar
-76, 24
-76, 24
-Breakcode: 0xb1
-A not-that-rare occurenc
-The company is listed on 
-76, 24
-Breakcode: 0xae
-A not-that-rare occurenc
-The company is listed on 
-76, 24
-76, 24
-76, 24
-76, 24
-76, 24
-76, 24
-Makecode: 0x12
-a limpar
-76, 25
-76, 25
-76, 25
-76, 25
-Makecode: 0x39
-a limpar
-76, 26
-76, 26
-76, 26
-Breakcode: 0x92
-A not-that-rare occurence 
-The company is listed on th
-76, 26
-76, 26
-76, 26
-76, 26
-Makecode: 0x17
-a limpar
-76, 27
-76, 27
-76, 27
-Breakcode: 0xb9
-A not-that-rare occurence i
-The company is listed on the
-76, 27
-76, 27
-76, 27
-76, 27
-76, 27
-Breakcode: 0x97
-A not-that-rare occurence i
-The company is listed on the
-76, 27
-Makecode: 0x31
-a limpar
-76, 28
-76, 28
-76, 28
-76, 28
-76, 28
-76, 28
-Makecode: 0x39
-a limpar
-76, 29
-Breakcode: 0xb1
-A not-that-rare occurence in 
-The company is listed on the T
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-Breakcode: 0xb9
-A not-that-rare occurence in 
-The company is listed on the T
-76, 29
-Makecode: 0x2a
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-Makecode: 0x32
-a limpar
-76, 30
-76, 30
-Breakcode: 0xaa
-76, 30
-76, 30
-76, 30
-76, 30
-76, 30
-Breakcode: 0xb2
-A not-that-rare occurence in M
-The company is listed on the To
-76, 30
-76, 30
-Makecode: 0x1e
-a limpar
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-Breakcode: 0x9e
-A not-that-rare occurence in Ma
-The company is listed on the Tok
-76, 31
-Makecode: 0x31
-a limpar
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-Breakcode: 0xb1
-A not-that-rare occurence in Man
-The company is listed on the Toky
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-Makecode: 0x23
-a limpar
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-Breakcode: 0xa3
-A not-that-rare occurence in Manh
-The company is listed on the Tokyo
-76, 33
-Makecode: 0x1e
-a limpar
-76, 34
-76, 34
-76, 34
-76, 34
-Breakcode: 0x9e
-A not-that-rare occurence in Manha
-The company is listed on the Tokyo 
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-Makecode: 0x14
-a limpar
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-Breakcode: 0x94
-A not-that-rare occurence in Manhat
-The company is listed on the Tokyo S
-76, 35
-76, 35
-76, 35
-Makecode: 0x14
-a limpar
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-Breakcode: 0x94
-A not-that-rare occurence in Manhatt
-The company is listed on the Tokyo St
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-Makecode: 0x1e
-a limpar
-76, 37
-76, 37
-76, 37
-76, 37
-Makecode: 0x31
-a limpar
-76, 38
-76, 38
-76, 38
-Breakcode: 0x9e
-A not-that-rare occurence in Manhattan
-The company is listed on the Tokyo Stoc
-76, 38
-76, 38
-76, 38
-76, 38
-76, 38
-Breakcode: 0xb1
-A not-that-rare occurence in Manhattan
-The company is listed on the Tokyo Stoc
-76, 38
-Makecode: 0x39
-a limpar
-76, 39
-76, 39
-76, 39
-76, 39
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan 
-The company is listed on the Tokyo Stock
-76, 39
-Makecode: 0x19
-a limpar
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-Makecode: 0x1e
-a limpar
-76, 41
-76, 41
-Breakcode: 0x99
-A not-that-rare occurence in Manhattan pa
-The company is listed on the Tokyo Stock E
-76, 41
-76, 41
-Breakcode: 0x9e
-A not-that-rare occurence in Manhattan pa
-The company is listed on the Tokyo Stock E
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-Makecode: 0x13
-a limpar
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-Breakcode: 0x93
-A not-that-rare occurence in Manhattan par
-The company is listed on the Tokyo Stock Ex
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-Makecode: 0x25
-a limpar
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-Breakcode: 0xa5
-A not-that-rare occurence in Manhattan park
-The company is listed on the Tokyo Stock Exc
-76, 43
-76, 43
-Makecode: 0x1f
-a limpar
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-Breakcode: 0x9f
-A not-that-rare occurence in Manhattan parks
-The company is listed on the Tokyo Stock Exch
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-Makecode: 0x33
-a limpar
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-Makecode: 0x39
-a limpar
-76, 46
-Breakcode: 0xb3
-A not-that-rare occurence in Manhattan parks, 
-The company is listed on the Tokyo Stock Exchan
-76, 46
-76, 46
-76, 46
-76, 46
-76, 46
-76, 46
-76, 46
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, 
-The company is listed on the Tokyo Stock Exchan
-76, 46
-Makecode: 0x16
-a limpar
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-Breakcode: 0x96
-A not-that-rare occurence in Manhattan parks, u
-The company is listed on the Tokyo Stock Exchang
-76, 47
-76, 47
-76, 47
-76, 47
-Makecode: 0x31
-a limpar
-76, 48
-76, 48
-76, 48
-76, 48
-76, 48
-76, 48
-76, 48
-Breakcode: 0xb1
-A not-that-rare occurence in Manhattan parks, un
-The company is listed on the Tokyo Stock Exchange
-76, 48
-76, 48
-Makecode: 0x21
-a limpar
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-Breakcode: 0xa1
-A not-that-rare occurence in Manhattan parks, unf
-The company is listed on the Tokyo Stock Exchange,
-76, 49
-Makecode: 0x18
-a limpar
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-Makecode: 0x13
-a limpar
-76, 51
-Breakcode: 0x98
-A not-that-rare occurence in Manhattan parks, unfor
-The company is listed on the Tokyo Stock Exchange, i
-76, 51
-76, 51
-76, 51
-Breakcode: 0x93
-A not-that-rare occurence in Manhattan parks, unfor
-The company is listed on the Tokyo Stock Exchange, i
-76, 51
-76, 51
-76, 51
-Makecode: 0x14
-a limpar
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfort
-The company is listed on the Tokyo Stock Exchange, it
-76, 52
-Makecode: 0x16
-a limpar
-76, 53
-76, 53
-76, 53
-76, 53
-76, 53
-Breakcode: 0x96
-A not-that-rare occurence in Manhattan parks, unfortu
-The company is listed on the Tokyo Stock Exchange, it 
-76, 53
-76, 53
-76, 53
-76, 53
-Makecode: 0x31
-a limpar
-76, 54
-76, 54
-76, 54
-76, 54
-76, 54
-76, 54
-Breakcode: 0xb1
-A not-that-rare occurence in Manhattan parks, unfortun
-The company is listed on the Tokyo Stock Exchange, it m
-76, 54
-Makecode: 0x1e
-a limpar
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-Breakcode: 0x9e
-A not-that-rare occurence in Manhattan parks, unfortuna
-The company is listed on the Tokyo Stock Exchange, it mu
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-Makecode: 0x14
-a limpar
-76, 56
-76, 56
-76, 56
-76, 56
-76, 56
-76, 56
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunat
-The company is listed on the Tokyo Stock Exchange, it mus
-76, 56
-76, 56
-76, 56
-76, 56
-Makecode: 0x12
-a limpar
-76, 57
-76, 57
-76, 57
-76, 57
-76, 57
-76, 57
-Breakcode: 0x92
-A not-that-rare occurence in Manhattan parks, unfortunate
-The company is listed on the Tokyo Stock Exchange, it must
-76, 57
-Makecode: 0x26
-a limpar
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-Breakcode: 0xa6
-A not-that-rare occurence in Manhattan parks, unfortunatel
-The company is listed on the Tokyo Stock Exchange, it must 
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-76, 58
-Makecode: 0x15
-a limpar
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-Breakcode: 0x95
-A not-that-rare occurence in Manhattan parks, unfortunately
-The company is listed on the Tokyo Stock Exchange, it must b
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-Makecode: 0x33
-a limpar
-76, 60
-76, 60
-76, 60
-76, 60
-76, 60
-76, 60
-76, 60
-76, 60
-Makecode: 0x39
-a limpar
-76, 61
-76, 61
-76, 61
-Breakcode: 0xb3
-A not-that-rare occurence in Manhattan parks, unfortunately, 
-The company is listed on the Tokyo Stock Exchange, it must be 
-76, 61
-76, 61
-76, 61
-76, 61
-76, 61
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, 
-The company is listed on the Tokyo Stock Exchange, it must be 
-76, 61
-76, 61
-76, 61
-76, 61
-76, 61
-76, 61
-76, 61
-Makecode: 0x30
-a limpar
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-Breakcode: 0xb0
-A not-that-rare occurence in Manhattan parks, unfortunately, b
-The company is listed on the Tokyo Stock Exchange, it must be v
-76, 62
-Makecode: 0x16
-a limpar
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-Makecode: 0x14
-a limpar
-76, 64
-Breakcode: 0x96
-A not-that-rare occurence in Manhattan parks, unfortunately, but
-The company is listed on the Tokyo Stock Exchange, it must be ver
-76, 64
-76, 64
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunately, but
-The company is listed on the Tokyo Stock Exchange, it must be ver
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-Makecode: 0x33
-a limpar
-76, 65
-76, 65
-76, 65
-76, 65
-76, 65
-76, 65
-76, 65
-Makecode: 0x39
-a limpar
-76, 66
-76, 66
-Breakcode: 0xb3
-A not-that-rare occurence in Manhattan parks, unfortunately, but, 
-The company is listed on the Tokyo Stock Exchange, it must be very 
-76, 66
-76, 66
-76, 66
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, 
-The company is listed on the Tokyo Stock Exchange, it must be very 
-76, 66
-Makecode: 0x1e
-a limpar
-76, 67
-76, 67
-Breakcode: 0x9e
-A not-that-rare occurence in Manhattan parks, unfortunately, but, a
-The company is listed on the Tokyo Stock Exchange, it must be very v
-76, 67
-76, 67
-76, 67
-Makecode: 0x21
-a limpar
-76, 68
-76, 68
-76, 68
-76, 68
-76, 68
-76, 68
-76, 68
-Breakcode: 0xa1
-A not-that-rare occurence in Manhattan parks, unfortunately, but, af
-The company is listed on the Tokyo Stock Exchange, it must be very va
-76, 68
-76, 68
-76, 68
-Makecode: 0x14
-a limpar
-76, 69
-76, 69
-76, 69
-76, 69
-76, 69
-76, 69
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunately, but, aft
-The company is listed on the Tokyo Stock Exchange, it must be very val
-76, 69
-76, 69
-76, 69
-76, 69
-76, 69
-Makecode: 0x12
-a limpar
-76, 70
-76, 70
-76, 70
-76, 70
-Breakcode: 0x92
-A not-that-rare occurence in Manhattan parks, unfortunately, but, afte
-The company is listed on the Tokyo Stock Exchange, it must be very valu
-76, 70
-76, 70
-Makecode: 0x13
-a limpar
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-Breakcode: 0x93
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after
-The company is listed on the Tokyo Stock Exchange, it must be very valua
-76, 71
-Makecode: 0x39
-a limpar
-76, 72
-76, 72
-76, 72
-76, 72
-76, 72
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after 
-The company is listed on the Tokyo Stock Exchange, it must be very valuab
-76, 72
-Makecode: 0x14
-a limpar
-76, 73
-76, 73
-Makecode: 0x23
-a limpar
-76, 74
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after th
-The company is listed on the Tokyo Stock Exchange, it must be very valuable
-76, 74
-76, 74
-76, 74
-76, 74
-Breakcode: 0xa3
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after th
-The company is listed on the Tokyo Stock Exchange, it must be very valuable
-76, 74
-Makecode: 0x12
-a limpar
-76, 75
-Makecode: 0x39
-a limpar
-76, 76
-76, 76
-Breakcode: 0x92
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 76
-76, 76
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 76
-Makecode: 0x21
-a limpar
-76, 77
-76, 77
-76, 77
-76, 77
-76, 77
-76, 77
-76, 77
-Makecode: 0x17
-Breakcode: 0xa1
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fi
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-a limpar
-76, 78
-76, 78
-76, 78
-76, 78
-Breakcode: 0x97
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fi
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 78
-76, 78
-76, 78
-76, 78
-76, 78
-Makecode: 0x22
-a limpar
-76, 79
-76, 79
-76, 79
-76, 79
-76, 79
-76, 79
-Breakcode: 0xa2
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fig
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 79
-Makecode: 0x23
-a limpar
-76, 80
-76, 80
-76, 80
-76, 80
-76, 80
-Breakcode: 0xa3
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the figh
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 80
-Makecode: 0x14
-a limpar
-76, 81
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-76, 81
-Makecode: 0x33
-a limpar
-76, 82
-76, 82
-76, 82
-76, 82
-76, 82
-76, 82
-76, 82
-76, 82
-76, 82
-Makecode: 0x39
-a limpar
-76, 83
-76, 83
-Breakcode: 0xb3
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 83
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 83
-Makecode: 0x17
-a limpar
-76, 84
-76, 84
-76, 84
-76, 84
-76, 84
-Makecode: 0x14
-a limpar
-76, 85
-Breakcode: 0x97
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 85
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 85
-Makecode: 0x39
-a limpar
-76, 86
-76, 86
-76, 86
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 86
-Makecode: 0x11
-a limpar
-76, 87
-76, 87
-76, 87
-76, 87
-76, 87
-76, 87
-Breakcode: 0x91
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it w
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 87
-76, 87
-76, 87
-Makecode: 0x1e
-a limpar
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-Breakcode: 0x9e
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wa
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 88
-76, 88
-Makecode: 0x31
-a limpar
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-Breakcode: 0xb1
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wan
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-76, 89
-Makecode: 0x0e
-backspacea limpar
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-76, 88
-Breakcode: 0x8e
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wan
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 88
-Makecode: 0x1f
-Breakcode: 0x9f
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it was
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-a limpar
-76, 89
-76, 89
-Makecode: 0x31
-a limpar
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-Breakcode: 0xb1
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
-76, 90
 Makecode: 0x0c
-a limpar
-76, 91
-76, 91
-76, 91
-76, 91
-76, 91
-76, 91
 Breakcode: 0x8c
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn'
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 91
-Makecode: 0x14
-a limpar
-76, 92
-76, 92
-Breakcode: 0x94
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 92
-76, 92
-76, 92
-76, 92
+Makecode: 0x1f
+Breakcode: 0x9f
 Makecode: 0x39
-a limpar
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
 Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-76, 93
-Makecode: 0x2e
-a limpar
-76, 94
-76, 94
-76, 94
-76, 94
-76, 94
-76, 94
-Breakcode: 0xae
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't c
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 94
-Makecode: 0x26
-a limpar
-76, 95
-76, 95
-Makecode: 0x12
-a limpar
-76, 96
-Breakcode: 0xa6
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't cle
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 96
-76, 96
-Breakcode: 0x92
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't cle
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 96
-Makecode: 0x1e
-a limpar
-76, 97
-76, 97
-76, 97
-76, 97
-76, 97
-76, 97
-76, 97
-Breakcode: 0x9e
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clea
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 97
-Makecode: 0x13
-a limpar
-76, 98
-76, 98
-76, 98
-76, 98
-76, 98
-Breakcode: 0x93
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 98
-Makecode: 0x39
-a limpar
-76, 99
-76, 99
-76, 99
-76, 99
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 99
-Makecode: 0x11
-a limpar
-76, 100
-76, 100
-Breakcode: 0x91
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear w
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 100
-Makecode: 0x23
-a limpar
-76, 101
-76, 101
-76, 101
-76, 101
-76, 101
-Breakcode: 0xa3
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear wh
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 101
-Makecode: 0x18
-a limpar
-76, 102
-76, 102
-76, 102
-76, 102
-76, 102
-76, 102
-Makecode: 0x39
-a limpar
-76, 103
-76, 103
-76, 103
-Breakcode: 0x98
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 103
-Makecode: 0x11
-Breakcode: 0xb9
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who w
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-a limpar
-76, 104
-Makecode: 0x18
-Breakcode: 0x91
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who wo
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-a limpar
-76, 105
-Breakcode: 0x98
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who wo
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 105
-76, 105
 Makecode: 0x31
-a limpar
-76, 106
-76, 106
-76, 106
-76, 106
-76, 106
-76, 106
 Breakcode: 0xb1
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who won
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 106
-76, 106
-76, 106
-76, 106
-76, 106
-76, 106
-76, 106
-Makecode: 0x34
-a limpar
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-Breakcode: 0xb4
-A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn't clear who won.
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-76, 107
-Makecode: 0x1c
-a limpar
-76, 0
-76, 0
-76, 0
-Breakcode: 0x9c
-A
-T
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-Makecode: 0x2a
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-76, 0
-Makecode: 0x14
-a limpar
-76, 1
-76, 1
-76, 1
-76, 1
-76, 1
-76, 1
-Breakcode: 0x94
-T 
-Th
-76, 1
-76, 1
-Breakcode: 0xaa
-76, 1
-76, 1
-76, 1
-76, 1
-76, 1
-Makecode: 0x23
-a limpar
-76, 2
-76, 2
-76, 2
-76, 2
-76, 2
-Breakcode: 0xa3
-Thn
-The
-76, 2
-Makecode: 0x12
-a limpar
-76, 3
-76, 3
-76, 3
-76, 3
-76, 3
-Makecode: 0x39
-Breakcode: 0x92
-The t
-The c
-a limpar
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-Breakcode: 0xb9
-The t
-The c
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-76, 4
-Makecode: 0x2e
-a limpar
-76, 5
-76, 5
-76, 5
-76, 5
-76, 5
 Makecode: 0x18
-a limpar
-76, 6
-Breakcode: 0xae
-The cot
-The com
-76, 6
-76, 6
-76, 6
-76, 6
-76, 6
-Breakcode: 0x98
-The cot
-The com
-76, 6
-76, 6
-76, 6
-76, 6
-76, 6
-Makecode: 0x32
-a limpar
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-Breakcode: 0xb2
-The comh
-The comp
-76, 7
-76, 7
-76, 7
-76, 7
-76, 7
-Makecode: 0x19
-a limpar
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
-76, 8
-Breakcode: 0x99
-The compa
-The compa
-76, 8
-Makecode: 0x1e
-a limpar
-76, 9
-76, 9
-76, 9
-76, 9
-76, 9
-Breakcode: 0x9e
-The compat
-The compan
-76, 9
-76, 9
-76, 9
-Makecode: 0x31
-a limpar
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-Breakcode: 0xb1
-The compan-
-The company
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-76, 10
-Makecode: 0x15
-a limpar
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-76, 11
-Breakcode: 0x95
-The companyr
-The company 
-76, 11
-76, 11
-76, 11
 Makecode: 0x39
-a limpar
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
-76, 12
+Breakcode: 0x98
+Makecode: 0x1f
 Breakcode: 0xb9
-The company a
-The company i
-76, 12
 Makecode: 0x17
-a limpar
-76, 13
-76, 13
-76, 13
-76, 13
-76, 13
-76, 13
-76, 13
-Makecode: 0x1f
-a limpar
-76, 14
-76, 14
+Breakcode: 0x9f
 Breakcode: 0x97
-The company ise
-The company is 
-76, 14
-Makecode: 0x39
-a limpar
-76, 15
-76, 15
-76, 15
-Breakcode: 0x9f
-The company is  
-The company is l
-76, 15
-76, 15
-76, 15
-Breakcode: 0xb9
-The company is  
-The company is l
-76, 15
-76, 15
-Makecode: 0x26
-a limpar
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-Breakcode: 0xa6
-The company is lo
-The company is li
-76, 16
-76, 16
-76, 16
-76, 16
-76, 16
-Makecode: 0x17
-a limpar
-76, 17
-76, 17
-76, 17
-76, 17
-76, 17
-76, 17
-Breakcode: 0x97
-The company is lic
-The company is lis
-76, 17
-Makecode: 0x1f
-a limpar
-76, 18
-76, 18
-76, 18
-Breakcode: 0x9f
-The company is lisc
-The company is list
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-76, 18
-Makecode: 0x14
-a limpar
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-Breakcode: 0x94
-The company is listu
-The company is liste
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-76, 19
-Makecode: 0x12
-a limpar
-76, 20
-76, 20
-76, 20
-76, 20
-76, 20
-Breakcode: 0x92
-The company is lister
-The company is listed
-76, 20
-76, 20
-76, 20
-76, 20
-76, 20
-Makecode: 0x20
-a limpar
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
-76, 21
-Breakcode: 0xa0
-The company is listede
-The company is listed 
-76, 21
-Makecode: 0x39
-a limpar
-76, 22
-76, 22
-76, 22
-76, 22
-Makecode: 0x18
-a limpar
-76, 23
-76, 23
-76, 23
-Breakcode: 0xb9
-The company is listed oc
-The company is listed on
-76, 23
-76, 23
-76, 23
-Breakcode: 0x98
-The company is listed oc
-The company is listed on
-76, 23
-76, 23
-76, 23
-76, 23
-76, 23
-76, 23
-76, 23
-76, 23
 Makecode: 0x31
-a limpar
-76, 24
-76, 24
-76, 24
-76, 24
-76, 24
-76, 24
-Makecode: 0x39
-a limpar
-76, 25
-Breakcode: 0xb1
-The company is listed on  
-The company is listed on t
-76, 25
-76, 25
-76, 25
-76, 25
-Makecode: 0x14
-a limpar
-76, 26
-76, 26
-76, 26
-Breakcode: 0xb9
-The company is listed on ti
-The company is listed on th
-76, 26
-76, 26
-Breakcode: 0x94
-The company is listed on ti
-The company is listed on th
-76, 26
-76, 26
-Makecode: 0x23
-a limpar
-76, 27
-76, 27
-76, 27
-76, 27
-76, 27
-76, 27
-Breakcode: 0xa3
-The company is listed on thn
-The company is listed on the
-76, 27
-Makecode: 0x12
-a limpar
-76, 28
-76, 28
-76, 28
-76, 28
-76, 28
-Breakcode: 0x92
-The company is listed on the 
-The company is listed on the 
-76, 28
-Makecode: 0x39
-a limpar
-76, 29
-76, 29
-76, 29
-Breakcode: 0xb9
-The company is listed on the M
-The company is listed on the T
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-Makecode: 0x2a
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-76, 29
-Makecode: 0x14
-a limpar
-76, 30
-76, 30
-76, 30
-76, 30
-76, 30
-Breakcode: 0x94
-The company is listed on the Ta
-The company is listed on the To
-76, 30
-Breakcode: 0xaa
-76, 30
-76, 30
-76, 30
-76, 30
-76, 30
-76, 30
-76, 30
-76, 30
-Makecode: 0x18
-a limpar
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-Breakcode: 0x98
-The company is listed on the Ton
-The company is listed on the Tok
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-76, 31
-Makecode: 0x25
-a limpar
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-Breakcode: 0xa5
-The company is listed on the Tokh
-The company is listed on the Toky
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-76, 32
-Makecode: 0x15
-a limpar
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-Breakcode: 0x95
-The company is listed on the Tokya
-The company is listed on the Tokyo
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-76, 33
-Makecode: 0x18
-a limpar
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-76, 34
-Breakcode: 0x98
-The company is listed on the Tokyot
-The company is listed on the Tokyo 
-76, 34
-76, 34
-76, 34
-Makecode: 0x39
-a limpar
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-Breakcode: 0xb9
-The company is listed on the Tokyo t
-The company is listed on the Tokyo S
-76, 35
-Makecode: 0x2a
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-76, 35
-Makecode: 0x1f
-a limpar
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-Breakcode: 0xaa
-76, 36
-Breakcode: 0x9f
-The company is listed on the Tokyo Sa
-The company is listed on the Tokyo St
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-76, 36
-Makecode: 0x14
-a limpar
-76, 37
-76, 37
-76, 37
-76, 37
-76, 37
-76, 37
-76, 37
-76, 37
-Breakcode: 0x94
-The company is listed on the Tokyo Stn
-The company is listed on the Tokyo Sto
-76, 37
-Makecode: 0x18
-a limpar
-76, 38
-76, 38
-76, 38
-76, 38
-76, 38
-76, 38
-Breakcode: 0x98
-The company is listed on the Tokyo Sto 
-The company is listed on the Tokyo Stoc
-76, 38
-Makecode: 0x2e
-a limpar
-76, 39
-76, 39
-76, 39
-76, 39
-76, 39
-Breakcode: 0xae
-The company is listed on the Tokyo Stocp
-The company is listed on the Tokyo Stock
-76, 39
-Makecode: 0x25
-a limpar
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-76, 40
-Breakcode: 0xa5
-The company is listed on the Tokyo Stocka
-The company is listed on the Tokyo Stock 
-76, 40
-Makecode: 0x39
-a limpar
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-Breakcode: 0xb9
-The company is listed on the Tokyo Stock r
-The company is listed on the Tokyo Stock E
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-Makecode: 0x2a
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-76, 41
-Makecode: 0x12
-a limpar
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-Breakcode: 0x92
-The company is listed on the Tokyo Stock Ek
-The company is listed on the Tokyo Stock Ex
-76, 42
-Breakcode: 0xaa
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-76, 42
-Makecode: 0x2d
-a limpar
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-Breakcode: 0xad
-The company is listed on the Tokyo Stock Exs
-The company is listed on the Tokyo Stock Exc
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-76, 43
-Makecode: 0x2e
-a limpar
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-76, 44
-Breakcode: 0xae
-The company is listed on the Tokyo Stock Exc,
-The company is listed on the Tokyo Stock Exch
-76, 44
-Makecode: 0x23
-a limpar
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-76, 45
-Breakcode: 0xa3
-The company is listed on the Tokyo Stock Exch 
-The company is listed on the Tokyo Stock Excha
-76, 45
-76, 45
-76, 45
-Makecode: 0x1e
-a limpar
-76, 46
-76, 46
-76, 46
-76, 46
-76, 46
-Breakcode: 0x9e
-The company is listed on the Tokyo Stock Exchau
-The company is listed on the Tokyo Stock Exchan
-76, 46
-Makecode: 0x31
-a limpar
-76, 47
-76, 47
-76, 47
-76, 47
-Breakcode: 0xb1
-The company is listed on the Tokyo Stock Exchann
-The company is listed on the Tokyo Stock Exchang
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
-76, 47
 Makecode: 0x22
-a limpar
-76, 48
-76, 48
-Makecode: 0x12
-a limpar
-76, 49
-76, 49
+Breakcode: 0xb1
 Breakcode: 0xa2
-The company is listed on the Tokyo Stock Exchangeo
-The company is listed on the Tokyo Stock Exchange,
-76, 49
-76, 49
-76, 49
+Makecode: 0x26
+Makecode: 0x12
+Breakcode: 0xa6
 Breakcode: 0x92
-The company is listed on the Tokyo Stock Exchangeo
-The company is listed on the Tokyo Stock Exchange,
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-76, 49
-Makecode: 0x33
-a limpar
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
-Breakcode: 0xb3
-The company is listed on the Tokyo Stock Exchange,r
-The company is listed on the Tokyo Stock Exchange, 
-76, 50
-76, 50
-76, 50
-76, 50
-76, 50
 Makecode: 0x39
-a limpar
-76, 51
-76, 51
-76, 51
-76, 51
-76, 51
-76, 51
-76, 51
+Makecode: 0x2e
 Breakcode: 0xb9
-The company is listed on the Tokyo Stock Exchange, t
-The company is listed on the Tokyo Stock Exchange, i
-76, 51
-76, 51
-76, 51
-76, 51
-76, 51
+Breakcode: 0xae
+Makecode: 0x23
+Breakcode: 0xa3
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x2e
+Breakcode: 0xae
+Makecode: 0x25
+Breakcode: 0xa5
+Makecode: 0x26
+Breakcode: 0xa6
 Makecode: 0x17
-a limpar
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-76, 52
-Breakcode: 0x97
-The company is listed on the Tokyo Stock Exchange, iu
-The company is listed on the Tokyo Stock Exchange, it
-76, 52
-Makecode: 0x14
-a limpar
-76, 53
-Makecode: 0x39
-a limpar
-76, 54
-Breakcode: 0x94
-The company is listed on the Tokyo Stock Exchange, it a
-The company is listed on the Tokyo Stock Exchange, it m
-76, 54
-76, 54
-76, 54
-Breakcode: 0xb9
-The company is listed on the Tokyo Stock Exchange, it a
-The company is listed on the Tokyo Stock Exchange, it m
-76, 54
-76, 54
-Makecode: 0x32
-a limpar
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-Breakcode: 0xb2
-The company is listed on the Tokyo Stock Exchange, it mt
-The company is listed on the Tokyo Stock Exchange, it mu
-76, 55
-76, 55
-76, 55
-76, 55
-76, 55
-Makecode: 0x16
-a limpar
-76, 56
-76, 56
-76, 56
-76, 56
-76, 56
 Makecode: 0x1f
-a limpar
-76, 57
-76, 57
-76, 57
-Breakcode: 0x96
-The company is listed on the Tokyo Stock Exchange, it musl
-The company is listed on the Tokyo Stock Exchange, it must
-76, 57
+Breakcode: 0x97
 Breakcode: 0x9f
-The company is listed on the Tokyo Stock Exchange, it musl
-The company is listed on the Tokyo Stock Exchange, it must
-76, 57
-76, 57
-76, 57
 Makecode: 0x14
-a limpar
-76, 58
-76, 58
-76, 58
-76, 58
-Makecode: 0x39
-a limpar
-76, 59
-76, 59
 Breakcode: 0x94
-The company is listed on the Tokyo Stock Exchange, it must ,
-The company is listed on the Tokyo Stock Exchange, it must b
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
-76, 59
+Makecode: 0x33
+Makecode: 0x39
+Breakcode: 0xb3
 Breakcode: 0xb9
-The company is listed on the Tokyo Stock Exchange, it must ,
-The company is listed on the Tokyo Stock Exchange, it must b
-76, 59
 Makecode: 0x30
-a limpar
-76, 60
-76, 60
-76, 60
-76, 60
-76, 60
-76, 60
-Makecode: 0x12
-a limpar
-76, 61
-Breakcode: 0xb0
-The company is listed on the Tokyo Stock Exchange, it must beb
-The company is listed on the Tokyo Stock Exchange, it must be 
-76, 61
-76, 61
-Breakcode: 0x92
-The company is listed on the Tokyo Stock Exchange, it must beb
-The company is listed on the Tokyo Stock Exchange, it must be 
-76, 61
-Makecode: 0x39
-a limpar
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-76, 62
-Breakcode: 0xb9
-The company is listed on the Tokyo Stock Exchange, it must be u
-The company is listed on the Tokyo Stock Exchange, it must be v
-76, 62
-76, 62
-76, 62
-Makecode: 0x2f
-a limpar
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-Breakcode: 0xaf
-The company is listed on the Tokyo Stock Exchange, it must be vt
-The company is listed on the Tokyo Stock Exchange, it must be ve
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-76, 63
-Makecode: 0x12
-a limpar
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-Breakcode: 0x92
-The company is listed on the Tokyo Stock Exchange, it must be ve,
-The company is listed on the Tokyo Stock Exchange, it must be ver
-76, 64
-76, 64
-76, 64
-76, 64
-76, 64
-Makecode: 0x13
-a limpar
-76, 65
-76, 65
-76, 65
-76, 65
-76, 65
-76, 65
-Makecode: 0x15
-a limpar
-76, 66
-Breakcode: 0x93
-The company is listed on the Tokyo Stock Exchange, it must be verya
-The company is listed on the Tokyo Stock Exchange, it must be very 
-76, 66
-76, 66
-76, 66
-76, 66
-76, 66
-Breakcode: 0x95
-The company is listed on the Tokyo Stock Exchange, it must be verya
-The company is listed on the Tokyo Stock Exchange, it must be very 
-76, 66
-Makecode: 0x39
-a limpar
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-Breakcode: 0xb9
-The company is listed on the Tokyo Stock Exchange, it must be very f
-The company is listed on the Tokyo Stock Exchange, it must be very v
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-76, 67
-Makecode: 0x2f
-a limpar
-76, 68
-76, 68
-76, 68
-76, 68
-76, 68
-76, 68
-76, 68
-Breakcode: 0xaf
-The company is listed on the Tokyo Stock Exchange, it must be very vt
-The company is listed on the Tokyo Stock Exchange, it must be very va
-76, 68
-Makecode: 0x1e
-a limpar
-76, 69
-76, 69
-76, 69
-76, 69
-76, 69
-Breakcode: 0x9e
-The company is listed on the Tokyo Stock Exchange, it must be very vae
-The company is listed on the Tokyo Stock Exchange, it must be very val
-76, 69
-76, 69
-Makecode: 0x26
-a limpar
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
-Breakcode: 0xa6
-The company is listed on the Tokyo Stock Exchange, it must be very valr
-The company is listed on the Tokyo Stock Exchange, it must be very valu
-76, 70
-76, 70
-76, 70
-76, 70
-76, 70
 Makecode: 0x16
-a limpar
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-76, 71
-Breakcode: 0x96
-The company is listed on the Tokyo Stock Exchange, it must be very valu 
-The company is listed on the Tokyo Stock Exchange, it must be very valua
-76, 71
-Makecode: 0x1e
-a limpar
-76, 72
-76, 72
-76, 72
-Breakcode: 0x9e
-The company is listed on the Tokyo Stock Exchange, it must be very valuat
-The company is listed on the Tokyo Stock Exchange, it must be very valuab
-76, 72
-Makecode: 0x30
-a limpar
-76, 73
-76, 73
-76, 73
-76, 73
-76, 73
-76, 73
 Breakcode: 0xb0
-The company is listed on the Tokyo Stock Exchange, it must be very valuabh
-The company is listed on the Tokyo Stock Exchange, it must be very valuabl
-76, 73
-76, 73
-76, 73
-76, 73
-76, 73
-Makecode: 0x26
-a limpar
-76, 74
-76, 74
-76, 74
-76, 74
-76, 74
-76, 74
-76, 74
-Breakcode: 0xa6
-The company is listed on the Tokyo Stock Exchange, it must be very valuable
-The company is listed on the Tokyo Stock Exchange, it must be very valuable
-76, 74
+Makecode: 0x14
+Breakcode: 0x96
+Makecode: 0x39
+Breakcode: 0x94
+Breakcode: 0xb9
+Makecode: 0x2a
+Makecode: 0x14
+Breakcode: 0x94
+Breakcode: 0xaa
+Makecode: 0x15
+Breakcode: 0x95
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x31
+Makecode: 0x39
+Breakcode: 0xb1
+Breakcode: 0xb9
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x21
+Breakcode: 0xa1
 Makecode: 0x12
-a limpar
-76, 75
-76, 75
 Breakcode: 0x92
-The company is listed on the Tokyo Stock Exchange, it must be very valuable 
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 75
-76, 75
-76, 75
-76, 75
-76, 75
+Makecode: 0x13
+Breakcode: 0x93
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x20
+Makecode: 0x39
+Breakcode: 0xa0
+Breakcode: 0xb9
+Makecode: 0x14
+Makecode: 0x23
+Breakcode: 0x94
+Breakcode: 0xa3
+Makecode: 0x12
+Makecode: 0x39
+Breakcode: 0x92
+Breakcode: 0xb9
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x26
+Breakcode: 0xa6
+Makecode: 0x26
+Breakcode: 0xa6
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x11
+Breakcode: 0x91
+Makecode: 0x17
+Breakcode: 0x97
+Makecode: 0x31
+Breakcode: 0xb1
+Makecode: 0x22
+Breakcode: 0xa2
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x16
+Breakcode: 0x96
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x16
+Breakcode: 0x96
+Makecode: 0x22
+Breakcode: 0xa2
+Makecode: 0x22
+Makecode: 0x12
+Breakcode: 0xa2
+Breakcode: 0x92
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x14
+Makecode: 0x17
+Breakcode: 0x94
+Makecode: 0x18
+Breakcode: 0x97
+Breakcode: 0x98
+Makecode: 0x31
+Makecode: 0x1f
+Breakcode: 0xb1
+Breakcode: 0x9f
+Makecode: 0x2a
 Makecode: 0x34
-a limpar
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
 Breakcode: 0xb4
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.f
-The company is listed on the Tokyo Stock Exchange, it must be very valuable.
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
-76, 76
+Breakcode: 0xaa
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x1e
+Breakcode: 0x9e
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x14
+Breakcode: 0x94
+Makecode: 0x13
+Makecode: 0x18
+Breakcode: 0x93
+Breakcode: 0x98
+Makecode: 0x31
+Makecode: 0x22
+Breakcode: 0xb1
+Makecode: 0x39
+Breakcode: 0xa2
+Makecode: 0x16
+Breakcode: 0xb9
+Breakcode: 0x96
+Makecode: 0x31
+Breakcode: 0xb1
+Makecode: 0x20
+Breakcode: 0xa0
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x13
+Breakcode: 0x93
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x14
+Breakcode: 0x94
+Makecode: 0x1e
+Makecode: 0x31
+Breakcode: 0x9e
+Makecode: 0x20
+Breakcode: 0xb1
+Makecode: 0x17
+Breakcode: 0xa0
+Breakcode: 0x97
+Makecode: 0x31
+Makecode: 0x22
+Breakcode: 0xb1
+Makecode: 0x39
+Breakcode: 0xa2
+Makecode: 0x18
+Breakcode: 0xb9
+Breakcode: 0x98
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x39
+Makecode: 0x12
+Breakcode: 0xb9
+Breakcode: 0x92
+Makecode: 0x31
+Makecode: 0x12
+Breakcode: 0xb1
+Breakcode: 0x92
+Makecode: 0x13
+Breakcode: 0x93
+Makecode: 0x22
+Makecode: 0x15
+Breakcode: 0xa2
+Breakcode: 0x95
+Makecode: 0x39
+Makecode: 0x16
+Breakcode: 0xb9
+Breakcode: 0x96
+Makecode: 0x30
+Breakcode: 0xb0
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x31
+Makecode: 0x17
+Breakcode: 0xb1
+Makecode: 0x14
+Breakcode: 0x97
+Breakcode: 0x94
+Makecode: 0x1f
+Makecode: 0x34
+Breakcode: 0x9f
+Breakcode: 0xb4
 Makecode: 0x1c
-Breakcode: 0x9c
+1434Breakcode: 0x9c
+Makecode: 0x2a
+Makecode: 0x18
+Breakcode: 0x98
+Breakcode: 0xaa
+Makecode: 0x31
+Makecode: 0x39
+Breakcode: 0xb1
+Breakcode: 0xb9
+Makecode: 0x2a
+Makecode: 0x14
+Breakcode: 0xaa
+Breakcode: 0x94
+Makecode: 0x23
+Breakcode: 0xa3
+Makecode: 0x16
+Breakcode: 0x96
+Makecode: 0x13
+Breakcode: 0x93
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x20
+Breakcode: 0xa0
+Makecode: 0x1e
+Makecode: 0x15
+Breakcode: 0x9e
+Breakcode: 0x95
+Makecode: 0x33
+Makecode: 0x39
+Breakcode: 0xb3
+Breakcode: 0xb9
+Makecode: 0x2a
+Makecode: 0x13
+Breakcode: 0x93
+Breakcode: 0xaa
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x22
+Makecode: 0x12
+Breakcode: 0xa2
+Breakcode: 0x92
+Makecode: 0x13
+Breakcode: 0x93
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x2a
+Makecode: 0x22
+Breakcode: 0xa2
+Breakcode: 0xaa
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x20
+Breakcode: 0xa0
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x26
+Breakcode: 0xa6
+Makecode: 0x26
+Breakcode: 0xa6
+Makecode: 0x39
+Makecode: 0x1f
+Breakcode: 0xb9
+Breakcode: 0x9f
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x31
+Makecode: 0x14
+Breakcode: 0xb1
+Breakcode: 0x94
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x1e
+Makecode: 0x39
+Breakcode: 0x9e
+Makecode: 0x32
+Breakcode: 0xb9
+Makecode: 0x12
+Breakcode: 0xb2
+Breakcode: 0x92
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x1e
+Makecode: 0x22
+Breakcode: 0x9e
+Breakcode: 0xa2
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x14
+Makecode: 0x18
+Breakcode: 0x94
+Makecode: 0x39
+Breakcode: 0x98
+Breakcode: 0xb9
+Makecode: 0x1e
+Breakcode: 0x9e
+Makecode: 0x26
+Breakcode: 0xa6
+Makecode: 0x26
+Makecode: 0x39
+Breakcode: 0xa6
+Breakcode: 0xb9
+Makecode: 0x3a
+Breakcode: 0xba
+Makecode: 0x31
+Breakcode: 0xb1
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x26
+Breakcode: 0xa6
+Makecode: 0x3a
+Breakcode: 0xba
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x2a
+Makecode: 0x31
+Breakcode: 0xb1
+Makecode: 0x21
+Breakcode: 0xa1
+Breakcode: 0xaa
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x0e
+Breakcode: 0x8e
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x2a
+Makecode: 0x31
+Breakcode: 0xb1
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x26
+Breakcode: 0xa6
+Breakcode: 0xaa
+Makecode: 0x39
+Makecode: 0x1f
+Breakcode: 0xb9
+Breakcode: 0x9f
+Makecode: 0x14
+Breakcode: 0x94
+Makecode: 0x1e
+Breakcode: 0x9e
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x21
+Breakcode: 0xa1
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x32
+Breakcode: 0xb2
+Makecode: 0x12
+Makecode: 0x32
+Breakcode: 0x92
+Breakcode: 0xb2
+Makecode: 0x30
+Makecode: 0x12
+Breakcode: 0xb0
+Breakcode: 0x92
+Makecode: 0x13
+Breakcode: 0x93
+Makecode: 0x1f
+Makecode: 0x39
+Breakcode: 0x9f
+Makecode: 0x1e
+Breakcode: 0xb9
+Breakcode: 0x9e
+Makecode: 0x30
+Breakcode: 0xb0
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x16
+Breakcode: 0x96
+Makecode: 0x14
+Breakcode: 0x94
+Makecode: 0x39
+Breakcode: 0xb9
+Makecode: 0x14
+Breakcode: 0x94
+Makecode: 0x23
+Breakcode: 0xa3
+Makecode: 0x12
+Makecode: 0x39
+Breakcode: 0x92
+Makecode: 0x20
+Breakcode: 0xb9
+Breakcode: 0xa0
+Makecode: 0x18
+Breakcode: 0x98
+Makecode: 0x32
+Makecode: 0x12
+Breakcode: 0xb2
+Breakcode: 0x92
+Makecode: 0x1f
+Breakcode: 0x9f
+Makecode: 0x14
+Makecode: 0x17
+Breakcode: 0x94
+Breakcode: 0x97
+Makecode: 0x2e
+Makecode: 0x39
+Breakcode: 0xae
+Breakcode: 0xb9
+Makecode: 0x1e
+Breakcode: 0x9e
+Makecode: 0x30
+Breakcode: 0xb0
+Makecode: 0x16
+Makecode: 0x1f
+Breakcode: 0x96
+Breakcode: 0x9f
+Makecode: 0x12
+Makecode: 0x39
+Breakcode: 0x92
+Makecode: 0x17
+Breakcode: 0xb9
+Makecode: 0x1f
+Breakcode: 0x97
+Breakcode: 0x9f
+Makecode: 0x1f
+Makecode: 0x16
+Breakcode: 0x9f
+Breakcode: 0x96
+Makecode: 0x12
+Breakcode: 0x92
+Makecode: 0x34
+Breakcode: 0xb4
+Makecode: 0x1c
+20Breakcode: 0x9c
 Makecode: 0xe0 0x50
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
 Breakcode: 0xe0 0xd0
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-alterar para menu 1
-Makecode: 0xe0 0x48
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-Breakcode: 0xe0 0xc8
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-alterar para menu 0
-Makecode: 0x1c
-Breakcode: 0x9c
-Makecode: 0xe0 0x4d
-right
-2Breakcode: 0xe0 0xcd
-Makecode: 0xe0 0x4d
-right
-3Breakcode: 0xe0 0xcd
-Makecode: 0xe0 0x4d
-right
-4Breakcode: 0xe0 0xcd
 Makecode: 0x1c
