@@ -1,4 +1,4 @@
-digraph "src/devices" {
+digraph "/home/john/Desktop/g06/proj/src/devices" {
   compound=true
   node [ fontsize="10", fontname="Helvetica"];
   edge [ labelfontsize="10", labelfontname="Helvetica"];
