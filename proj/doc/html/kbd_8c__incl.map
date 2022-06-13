@@ -1,9 +1,9 @@
-<map id="/home/john/Desktop/g06/proj/src/devices/kbc/kbd.c" name="/home/john/Desktop/g06/proj/src/devices/kbc/kbd.c">
-<area shape="rect" id="node1" title=" " alt="" coords="154,5,310,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="208,184,293,211"/>
-<area shape="rect" id="node3" href="$kbd_8h.html" title=" " alt="" coords="119,109,177,136"/>
-<area shape="rect" id="node6" href="$i8042_8h.html" title=" " alt="" coords="270,109,341,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,184,88,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="113,184,183,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="318,184,437,211"/>
+<map id="devices/kbc/kbd.c" name="devices/kbc/kbd.c">
+<area shape="rect" id="node1" title=" " alt="" coords="163,5,301,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="208,155,293,181"/>
+<area shape="rect" id="node3" href="$kbd_8h.html" title=" " alt="" coords="119,80,177,107"/>
+<area shape="rect" id="node6" href="$i8042_8h.html" title=" " alt="" coords="270,80,341,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="113,155,183,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="318,155,437,181"/>
 </map>

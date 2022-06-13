@@ -1,8 +1,8 @@
-<map id="/home/john/Desktop/g06/proj/src/xpms/symbols/doispontos.h" name="/home/john/Desktop/g06/proj/src/xpms/symbols/doispontos.h">
-<area shape="rect" id="node1" title=" " alt="" coords="253,5,455,61"/>
-<area shape="rect" id="node2" href="$xpm_8h.html" title=" " alt="" coords="261,109,447,151"/>
-<area shape="rect" id="node3" href="$vg_8c.html" title=" " alt="" coords="5,199,161,255"/>
-<area shape="rect" id="node4" href="$game_8c.html" title=" " alt="" coords="186,206,341,247"/>
-<area shape="rect" id="node5" href="$letters_8c.html" title=" " alt="" coords="365,206,524,247"/>
-<area shape="rect" id="node6" href="$proj_8c.html" title=" " alt="" coords="548,206,701,247"/>
+<map id="xpms/symbols/doispontos.h" name="xpms/symbols/doispontos.h">
+<area shape="rect" id="node1" title=" " alt="" coords="174,5,378,32"/>
+<area shape="rect" id="node2" href="$xpm_8h.html" title=" " alt="" coords="225,80,327,107"/>
+<area shape="rect" id="node3" href="$vg_8c.html" title=" " alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="$game_8c.html" title=" " alt="" coords="193,155,263,181"/>
+<area shape="rect" id="node5" href="$letters_8c.html" title=" " alt="" coords="288,155,363,181"/>
+<area shape="rect" id="node6" href="$proj_8c.html" title=" " alt="" coords="387,155,445,181"/>
 </map>

@@ -1,5 +1,5 @@
-<map id="/home/john/Desktop/g06/proj/src/devices/utils/mouse_collision.h" name="/home/john/Desktop/g06/proj/src/devices/utils/mouse_collision.h">
-<area shape="rect" id="node1" title=" " alt="" coords="100,5,275,61"/>
-<area shape="rect" id="node2" href="$mouse__collision_8c.html" title=" " alt="" coords="5,109,180,165"/>
-<area shape="rect" id="node3" href="$game_8c.html" title=" " alt="" coords="205,117,359,158"/>
+<map id="devices/utils/mouse_collision.h" name="devices/utils/mouse_collision.h">
+<area shape="rect" id="node1" title=" " alt="" coords="73,5,225,47"/>
+<area shape="rect" id="node2" href="$mouse__collision_8c.html" title=" " alt="" coords="5,95,157,136"/>
+<area shape="rect" id="node3" href="$game_8c.html" title=" " alt="" coords="182,102,253,129"/>
 </map>

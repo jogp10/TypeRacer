@@ -1,7 +1,7 @@
-<map id="/home/john/Desktop/g06/proj/src/devices/timer/timer.c" name="/home/john/Desktop/g06/proj/src/devices/timer/timer.c">
-<area shape="rect" id="node1" title=" " alt="" coords="145,5,301,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,109,91,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="115,109,219,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="243,109,314,136"/>
-<area shape="rect" id="node5" href="$i8254_8h.html" title=" " alt="" coords="338,109,409,136"/>
+<map id="devices/timer/timer.c" name="devices/timer/timer.c">
+<area shape="rect" id="node1" title=" " alt="" coords="143,5,303,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="115,80,219,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="243,80,314,107"/>
+<area shape="rect" id="node5" href="$i8254_8h.html" title=" " alt="" coords="338,80,409,107"/>
 </map>

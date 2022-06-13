@@ -52,7 +52,7 @@ var NAVTREEINDEX =
 "A_8h.html",
 "group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb",
 "group__keyboard.html#ga18f5b27fb222774ef1e96b88317d907f",
-"proj_8c.html#ae459ed5f5a565d171b67af71b9a41a94"
+"q_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

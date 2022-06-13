@@ -1,8 +1,8 @@
-<map id="/home/john/Desktop/g06/proj/src/xpms/red_car.h" name="/home/john/Desktop/g06/proj/src/xpms/red_car.h">
-<area shape="rect" id="node1" title=" " alt="" coords="251,5,457,47"/>
-<area shape="rect" id="node2" href="$xpm_8h.html" title=" " alt="" coords="261,95,447,136"/>
-<area shape="rect" id="node3" href="$vg_8c.html" title=" " alt="" coords="5,184,161,240"/>
-<area shape="rect" id="node4" href="$game_8c.html" title=" " alt="" coords="186,191,341,233"/>
-<area shape="rect" id="node5" href="$letters_8c.html" title=" " alt="" coords="365,191,524,233"/>
-<area shape="rect" id="node6" href="$proj_8c.html" title=" " alt="" coords="548,191,701,233"/>
+<map id="xpms/red_car.h" name="xpms/red_car.h">
+<area shape="rect" id="node1" title=" " alt="" coords="215,5,337,32"/>
+<area shape="rect" id="node2" href="$xpm_8h.html" title=" " alt="" coords="225,80,327,107"/>
+<area shape="rect" id="node3" href="$vg_8c.html" title=" " alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="$game_8c.html" title=" " alt="" coords="193,155,263,181"/>
+<area shape="rect" id="node5" href="$letters_8c.html" title=" " alt="" coords="288,155,363,181"/>
+<area shape="rect" id="node6" href="$proj_8c.html" title=" " alt="" coords="387,155,445,181"/>
 </map>

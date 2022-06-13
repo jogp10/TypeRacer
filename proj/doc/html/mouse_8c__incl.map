@@ -1,10 +1,10 @@
-<map id="/home/john/Desktop/g06/proj/src/devices/kbc/mouse.c" name="/home/john/Desktop/g06/proj/src/devices/kbc/mouse.c">
-<area shape="rect" id="node1" title=" " alt="" coords="153,5,309,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,184,91,211"/>
-<area shape="rect" id="node3" title=" " alt="" coords="258,184,329,211"/>
-<area shape="rect" id="node4" href="$mouse_8h.html" title=" " alt="" coords="351,109,430,136"/>
-<area shape="rect" id="node6" href="$kbd_8h.html" title=" " alt="" coords="268,109,327,136"/>
-<area shape="rect" id="node7" href="$i8042_8h.html" title=" " alt="" coords="122,109,193,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="353,184,436,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="115,184,234,211"/>
+<map id="devices/kbc/mouse.c" name="devices/kbc/mouse.c">
+<area shape="rect" id="node1" title=" " alt="" coords="151,5,310,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,91,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="258,155,329,181"/>
+<area shape="rect" id="node4" href="$mouse_8h.html" title=" " alt="" coords="351,80,430,107"/>
+<area shape="rect" id="node6" href="$kbd_8h.html" title=" " alt="" coords="268,80,327,107"/>
+<area shape="rect" id="node7" href="$i8042_8h.html" title=" " alt="" coords="122,80,193,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="353,155,436,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="115,155,234,181"/>
 </map>
