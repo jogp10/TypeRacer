@@ -1,0 +1,39 @@
+<map id="game_init" name="game_init">
+<area shape="rect" id="node1" title="Game initiaon." alt="" coords="5,461,92,488"/>
+<area shape="rect" id="node2" href="$group__mouse.html#ga8008a758b154ac22ec2346f748467522" title="Builds mouse packets." alt="" coords="158,5,306,32"/>
+<area shape="rect" id="node3" href="$group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5" title="change menu state" alt="" coords="387,867,525,893"/>
+<area shape="rect" id="node7" href="$group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe" title="draw mouse" alt="" coords="407,917,505,944"/>
+<area shape="rect" id="node8" href="$group__game.html#gadd65dc8f95bf138a25e8242a855a82c2" title="draw generated sentence" alt="" coords="162,157,302,184"/>
+<area shape="rect" id="node9" href="$group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e" title="Get horizontal resolution in pixels." alt="" coords="417,360,495,387"/>
+<area shape="rect" id="node10" href="$group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8" title="Checks code if completed." alt="" coords="156,259,308,285"/>
+<area shape="rect" id="node11" href="$group__game.html#ga95bf30e4112a6ad0e3fb849d50453b02" title="keyboard interrupt handle" alt="" coords="181,56,283,83"/>
+<area shape="rect" id="node14" href="$group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895" title="KBC interrupt handler." alt="" coords="199,107,265,133"/>
+<area shape="rect" id="node16" href="$group__letters.html#ga3b6237caf1ef8186e7884ba0c5811032" title="load alphabet xpms" alt="" coords="207,309,257,336"/>
+<area shape="rect" id="node18" href="$group__letters.html#ga9c190c5de3d7b253b05eff01cc84a109" title="load sentences xpms" alt="" coords="173,360,291,387"/>
+<area shape="rect" id="node20" href="$group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1" title="Game menu." alt="" coords="427,1019,485,1045"/>
+<area shape="rect" id="node21" href="$group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd" title="mouse interrupt handler" alt="" coords="171,512,293,539"/>
+<area shape="rect" id="node25" href="$group__mouse.html#ga210374b50462acdedab00df64d5cea3c" title="Mouse interrupt handler." alt="" coords="189,208,275,235"/>
+<area shape="rect" id="node26" href="$group__mouse.html#gac1eb5eead4af6f9237b348ae482b897d" title="Checks packet if completed." alt="" coords="140,664,324,691"/>
+<area shape="rect" id="node27" href="$group__game.html#gad74637df8ab081f644cb8f2175df273f" title="Pause Menu." alt="" coords="201,993,263,1020"/>
+<area shape="rect" id="node29" href="$group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6" title="change to rules menu" alt="" coords="205,613,259,640"/>
+<area shape="rect" id="node31" href="$group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="159,563,305,589"/>
+<area shape="rect" id="node36" href="$timer_8c.html#a91a2072306c68353712a6b771287dc2c" title=" " alt="" coords="163,867,301,893"/>
+<area shape="rect" id="node37" href="$group__game.html#ga363cc9b19cd21711fe8b6427762e28cb" title="Winners menu." alt="" coords="181,411,283,437"/>
+<area shape="rect" id="node4" href="$group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693" title="double buffer setup" alt="" coords="588,917,719,944"/>
+<area shape="rect" id="node5" href="$group__video__graphics.html#ga25083348788e77f52c326375125ca6d8" title="draw horizontal line" alt="" coords="597,715,710,741"/>
+<area shape="rect" id="node6" href="$group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="767,639,881,665"/>
+<area shape="rect" id="node12" href="$group__game.html#gad398da34eea9326b6108ec60b12c565e" title="highlight menu option" alt="" coords="387,68,525,95"/>
+<area shape="rect" id="node13" href="$group__game.html#ga8156cca54dc27e9449bd43b0be7220ee" title="highlight menu option" alt="" coords="387,17,525,44"/>
+<area shape="rect" id="node15" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="407,144,505,171"/>
+<area shape="rect" id="node17" href="$structletter.html#a4bb58367ecea995c64a5d92d5ec60502" title=" " alt="" coords="406,208,506,235"/>
+<area shape="rect" id="node19" href="$group__letters.html#ga1d31552311b792bf12610bdf96c2ae42" title=" " alt="" coords="393,259,519,285"/>
+<area shape="rect" id="node22" href="$group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed" title="clears xpm by drawing background" alt="" coords="372,461,540,488"/>
+<area shape="rect" id="node23" href="$group__video__graphics.html#ga484929b3e33f236cd9087e18e1521ee3" title="Get vertical resolution in pixels." alt="" coords="417,512,495,539"/>
+<area shape="rect" id="node24" href="$group__mouse__collision.html#ga651f5988f0ac19869078b989c1dd0289" title=" " alt="" coords="409,411,503,437"/>
+<area shape="rect" id="node28" href="$group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc" title="draw Pause Menu" alt="" coords="392,1069,520,1096"/>
+<area shape="rect" id="node30" href="$group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2" title="Draws rules menu." alt="" coords="393,816,519,843"/>
+<area shape="rect" id="node32" href="$group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f" title="draw input sentence" alt="" coords="376,664,536,691"/>
+<area shape="rect" id="node33" href="$group__game.html#ga8543fc9b527fa4fd3687297747807f71" title=" " alt="" coords="396,563,516,589"/>
+<area shape="rect" id="node34" href="$group__game.html#ga67117bf13203711ddd35da556c650f54" title="check for sentences match" alt="" coords="421,765,491,792"/>
+<area shape="rect" id="node35" href="$group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="387,715,525,741"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="drawMouse" name="drawMouse">
+<area shape="rect" id="node1" title="draw mouse" alt="" coords="5,31,103,57"/>
+<area shape="rect" id="node2" href="$group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693" title="double buffer setup" alt="" coords="151,5,281,32"/>
+<area shape="rect" id="node3" href="$group__video__graphics.html#ga25083348788e77f52c326375125ca6d8" title="draw horizontal line" alt="" coords="159,56,273,83"/>
+<area shape="rect" id="node4" href="$group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="329,56,444,83"/>
+</map>

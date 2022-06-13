@@ -1,0 +1,17 @@
+<map id="util_sys_inb" name="util_sys_inb">
+<area shape="rect" id="node1" title="calls sys_in()" alt="" coords="740,157,839,184"/>
+<area shape="rect" id="node2" href="$group__keyboard.html#ga18f5b27fb222774ef1e96b88317d907f" title=" " alt="" coords="502,5,661,32"/>
+<area shape="rect" id="node7" href="$group__keyboard.html#gabfc4477fca72f29e82a65b31d693ed8f" title=" " alt="" coords="471,56,692,83"/>
+<area shape="rect" id="node8" href="$group__keyboard.html#gad7d379ee6637be74dbee83e5305bec58" title="Reads acknowledgemnt byte." alt="" coords="481,107,681,133"/>
+<area shape="rect" id="node9" href="$group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895" title="KBC interrupt handler." alt="" coords="549,157,614,184"/>
+<area shape="rect" id="node12" href="$group__keyboard.html#ga4aa0264996b3da11559782ac8768d242" title="Reenable kbc interrupts." alt="" coords="514,208,649,235"/>
+<area shape="rect" id="node13" href="$group__mouse.html#ga210374b50462acdedab00df64d5cea3c" title="Mouse interrupt handler." alt="" coords="539,259,624,285"/>
+<area shape="rect" id="node14" href="$timer_8c.html#a703c60b40c8c49607d6ecb6fef82d27a" title=" " alt="" coords="521,309,641,336"/>
+<area shape="rect" id="node3" href="$group__mouse.html#ga61ab3828bd2f69b7edaeb37731e34ddc" title=" " alt="" coords="244,56,423,83"/>
+<area shape="rect" id="node4" href="$group__mouse.html#gacbd36cda77fb29a336617f076e2b2608" title="disables mouse data reporting" alt="" coords="9,5,193,32"/>
+<area shape="rect" id="node5" href="$group__mouse.html#gac1a63e8f183c3fd9afc9cb12af5c2cad" title="enables mouse data reporting" alt="" coords="10,56,191,83"/>
+<area shape="rect" id="node6" href="$group__mouse.html#ga93acf4a9d966fc892f0aa4156b0b15e7" title="sets mouse to stream mode" alt="" coords="5,107,196,133"/>
+<area shape="rect" id="node10" href="$group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="290,208,377,235"/>
+<area shape="rect" id="node11" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="39,208,162,235"/>
+<area shape="rect" id="node15" href="$timer_8c.html#af2c04fa8e97ffa748fd3f612886a92a7" title=" " alt="" coords="255,309,411,336"/>
+</map>

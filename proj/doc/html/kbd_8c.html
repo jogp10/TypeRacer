@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('kbd_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
@@ -79,7 +105,15 @@ $(function() {
 Include dependency graph for kbd.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="kbd_8c__incl.png" border="0" usemap="#_2home_2john_2Desktop_2g06_2proj_2src_2devices_2kbc_2kbd_8c" alt=""/></div>
-<!-- MAP 0 -->
+<map name="_2home_2john_2Desktop_2g06_2proj_2src_2devices_2kbc_2kbd_8c" id="_2home_2john_2Desktop_2g06_2proj_2src_2devices_2kbc_2kbd_8c">
+<area shape="rect" title=" " alt="" coords="154,5,310,61"/>
+<area shape="rect" title=" " alt="" coords="208,184,293,211"/>
+<area shape="rect" href="kbd_8h.html" title=" " alt="" coords="119,109,177,136"/>
+<area shape="rect" href="i8042_8h.html" title=" " alt="" coords="270,109,341,136"/>
+<area shape="rect" title=" " alt="" coords="5,184,88,211"/>
+<area shape="rect" title=" " alt="" coords="113,184,183,211"/>
+<area shape="rect" title=" " alt="" coords="318,184,437,211"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -93,7 +127,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gaca842ab89e3fc03d8cca103dd6808895"><td class="memItemLeft" align="right" valign="top">void()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895">kbd_ih</a> ()</td></tr>
 <tr class="memdesc:gaca842ab89e3fc03d8cca103dd6808895"><td class="mdescLeft">&#160;</td><td class="mdescRight">KBC interrupt handler.  <a href="group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895">More...</a><br /></td></tr>
 <tr class="separator:gaca842ab89e3fc03d8cca103dd6808895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="memItemLeft" align="right" valign="top">bool()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">kbd_code_complete</a> (uint8_t scan_code[], uint8_t *size)</td></tr>
+<tr class="memitem:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="memItemLeft" align="right" valign="top">bool()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">kbd_code_complete</a> (uint8_t scan_code[], uint8_t *<a class="el" href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a>)</td></tr>
 <tr class="memdesc:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks code if completed.  <a href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">More...</a><br /></td></tr>
 <tr class="separator:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4aa0264996b3da11559782ac8768d242"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga4aa0264996b3da11559782ac8768d242">kbd_reenable_int</a> ()</td></tr>
@@ -176,11 +210,15 @@ Variables</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a></li><li class="navelem"><a class="el" href="kbd_8c.html">kbd.c</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

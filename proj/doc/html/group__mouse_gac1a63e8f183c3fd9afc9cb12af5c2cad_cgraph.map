@@ -1,0 +1,8 @@
+<map id="mouse_enable_data_rep" name="mouse_enable_data_rep">
+<area shape="rect" id="node1" title="enables mouse data reporting" alt="" coords="5,56,187,83"/>
+<area shape="rect" id="node2" href="$group__mouse.html#ga61ab3828bd2f69b7edaeb37731e34ddc" title=" " alt="" coords="235,56,413,83"/>
+<area shape="rect" id="node3" href="$group__keyboard.html#ga18f5b27fb222774ef1e96b88317d907f" title=" " alt="" coords="493,5,651,32"/>
+<area shape="rect" id="node5" href="$group__keyboard.html#gabfc4477fca72f29e82a65b31d693ed8f" title=" " alt="" coords="461,56,683,83"/>
+<area shape="rect" id="node6" href="$group__keyboard.html#gad7d379ee6637be74dbee83e5305bec58" title="Reads acknowledgemnt byte." alt="" coords="472,107,672,133"/>
+<area shape="rect" id="node4" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="731,56,829,83"/>
+</map>

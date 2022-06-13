@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,17 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('globals_p.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -64,6 +94,12 @@ $(function() {
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>p
+: <a class="el" href="p_8h.html#ab8084aeb873155a361307d4c90485c3e">p.h</a>
+</li>
+<li>P
+: <a class="el" href="P_8h.html#a4d6bfab17f51811e54aa6e49d06e62fb">P.h</a>
+</li>
 <li>packet
 : <a class="el" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">mouse.c</a>
 </li>
@@ -71,27 +107,54 @@ $(function() {
 : <a class="el" href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a56b36d0d0bb01b339cf1041adc08e262">game.h</a>
 </li>
 <li>pause()
-: <a class="el" href="group__game.html#gad74637df8ab081f644cb8f2175df273f">game.h</a>
-, <a class="el" href="group__game.html#gad74637df8ab081f644cb8f2175df273f">game.c</a>
+: <a class="el" href="group__game.html#gad74637df8ab081f644cb8f2175df273f">game.c</a>
+, <a class="el" href="group__game.html#gad74637df8ab081f644cb8f2175df273f">game.h</a>
+</li>
+<li>pause_menu_exit_xpm
+: <a class="el" href="pause__menu__exit_8h.html#a03fc1ab94fedd936d2b3210c48f9a4dc">pause_menu_exit.h</a>
+</li>
+<li>pause_menu_resume_xpm
+: <a class="el" href="pause__menu__resume_8h.html#a4b25ac45b916b0687988e872f402c9ae">pause_menu_resume.h</a>
+</li>
+<li>pause_menu_xpm
+: <a class="el" href="pause__menu_8h.html#a7af96ed3198ba3264905682846eb07ad">pause_menu.h</a>
 </li>
 <li>Point
 : <a class="el" href="group__mouse__collision.html#ga332e649c40b7d806629d2cfa046f3ee0">mouse_collision.h</a>
 </li>
+<li>ponto
+: <a class="el" href="ponto_8h.html#a5d5ec997883bb6b59db3e764d851183d">ponto.h</a>
+</li>
+<li>pontoExclamacao
+: <a class="el" href="pontoexclamacao_8h.html#acd75d85374ce951e0155d2d6168b58a9">pontoexclamacao.h</a>
+</li>
+<li>pontoInterrogacao
+: <a class="el" href="pontointerrogacao_8h.html#a1aa44a4d8901d33bda2e98af7fbd1b87">pontointerrogacao.h</a>
+</li>
+<li>pontoVirgula
+: <a class="el" href="pontovirgula_8h.html#ae02cfa9a7c61fb313528766d20cf4fbb">pontovirgula.h</a>
+</li>
+<li>prevStartMenuEntry
+: <a class="el" href="game_8c.html#a542a728626de559689a80b4223eeb80b">game.c</a>
+</li>
 <li>prevStartSelected()
-: <a class="el" href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">game.c</a>
-, <a class="el" href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">game.h</a>
+: <a class="el" href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">game.h</a>
+, <a class="el" href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">game.c</a>
 </li>
 <li>proj_main_loop()
-: <a class="el" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b">proj.c</a>
-, <a class="el" href="trace_8txt.html#acadd3d7e3e879ed3b53a26cc906a0aae">trace.txt</a>
+: <a class="el" href="trace_8txt.html#acadd3d7e3e879ed3b53a26cc906a0aae">trace.txt</a>
+, <a class="el" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b">proj.c</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

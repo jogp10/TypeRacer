@@ -1,0 +1,6 @@
+<map id="drawRulesMenu" name="drawRulesMenu">
+<area shape="rect" id="node1" title="Draws rules menu." alt="" coords="5,31,132,57"/>
+<area shape="rect" id="node2" href="$group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693" title="double buffer setup" alt="" coords="180,5,311,32"/>
+<area shape="rect" id="node3" href="$group__video__graphics.html#ga25083348788e77f52c326375125ca6d8" title="draw horizontal line" alt="" coords="189,56,302,83"/>
+<area shape="rect" id="node4" href="$group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="359,56,473,83"/>
+</map>

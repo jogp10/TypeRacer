@@ -1,0 +1,7 @@
+<map id="mouse_issue_command" name="mouse_issue_command">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,184,83"/>
+<area shape="rect" id="node2" href="$group__keyboard.html#ga18f5b27fb222774ef1e96b88317d907f" title=" " alt="" coords="263,5,422,32"/>
+<area shape="rect" id="node4" href="$group__keyboard.html#gabfc4477fca72f29e82a65b31d693ed8f" title=" " alt="" coords="232,56,453,83"/>
+<area shape="rect" id="node5" href="$group__keyboard.html#gad7d379ee6637be74dbee83e5305bec58" title="Reads acknowledgemnt byte." alt="" coords="243,107,443,133"/>
+<area shape="rect" id="node3" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="501,56,600,83"/>
+</map>

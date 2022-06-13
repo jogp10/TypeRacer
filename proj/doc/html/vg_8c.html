@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('vg_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
@@ -81,6 +107,58 @@ $(function() {
 Include dependency graph for vg.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="vg_8c__incl.png" border="0" usemap="#_2home_2john_2Desktop_2g06_2proj_2src_2devices_2graphics_2vg_8c" alt=""/></div>
+<map name="_2home_2john_2Desktop_2g06_2proj_2src_2devices_2graphics_2vg_8c" id="_2home_2john_2Desktop_2g06_2proj_2src_2devices_2graphics_2vg_8c">
+<area shape="rect" title=" " alt="" coords="290,5,446,61"/>
+<area shape="rect" href="vg_8h.html" title=" " alt="" coords="152,109,203,136"/>
+<area shape="rect" title=" " alt="" coords="208,184,293,211"/>
+<area shape="rect" href="vg__macros_8h.html" title=" " alt="" coords="315,109,421,136"/>
+<area shape="rect" href="xpm_8h.html" title=" " alt="" coords="3053,109,3155,136"/>
+<area shape="rect" title=" " alt="" coords="3179,109,3247,136"/>
+<area shape="rect" title=" " alt="" coords="5,184,88,211"/>
+<area shape="rect" title=" " alt="" coords="113,184,183,211"/>
+<area shape="rect" title=" " alt="" coords="318,184,437,211"/>
+<area shape="rect" href="menu_8h.html" title=" " alt="" coords="5767,184,5838,211"/>
+<area shape="rect" href="menu__single_8h.html" title=" " alt="" coords="5863,184,5980,211"/>
+<area shape="rect" href="menu__multi_8h.html" title=" " alt="" coords="6004,184,6116,211"/>
+<area shape="rect" href="menu__rules_8h.html" title=" " alt="" coords="6141,184,6251,211"/>
+<area shape="rect" href="menu__leave_8h.html" title=" " alt="" coords="461,184,576,211"/>
+<area shape="rect" href="pause__menu_8h.html" title=" " alt="" coords="600,184,717,211"/>
+<area shape="rect" href="pause__menu__resume_8h.html" title=" " alt="" coords="741,184,915,211"/>
+<area shape="rect" href="pause__menu__exit_8h.html" title=" " alt="" coords="939,184,1088,211"/>
+<area shape="rect" href="game__background_8h.html" title=" " alt="" coords="1112,184,1267,211"/>
+<area shape="rect" href="win_8h.html" title=" " alt="" coords="1291,184,1349,211"/>
+<area shape="rect" href="exit_8h.html" title=" " alt="" coords="1373,184,1432,211"/>
+<area shape="rect" href="regras_8h.html" title=" " alt="" coords="1456,184,1531,211"/>
+<area shape="rect" href="red__car_8h.html" title=" " alt="" coords="1555,184,1637,211"/>
+<area shape="rect" href="mouse__cursor_8h.html" title=" " alt="" coords="1661,184,1785,211"/>
+<area shape="rect" href="next_8h.html" title=" " alt="" coords="1809,184,1871,211"/>
+<area shape="rect" href="upp_8h.html" title=" " alt="" coords="1896,184,1955,211"/>
+<area shape="rect" href="a_8h.html" title=" " alt="" coords="1979,184,2107,211"/>
+<area shape="rect" href="b_8h.html" title=" " alt="" coords="2131,184,2259,211"/>
+<area shape="rect" href="c_8h.html" title=" " alt="" coords="2283,184,2410,211"/>
+<area shape="rect" href="d_8h.html" title=" " alt="" coords="2435,184,2563,211"/>
+<area shape="rect" href="e_8h.html" title=" " alt="" coords="2587,184,2715,211"/>
+<area shape="rect" href="f_8h.html" title=" " alt="" coords="2739,184,2863,211"/>
+<area shape="rect" href="g_8h.html" title=" " alt="" coords="2888,184,3016,211"/>
+<area shape="rect" href="h_8h.html" title=" " alt="" coords="3040,184,3168,211"/>
+<area shape="rect" href="i_8h.html" title=" " alt="" coords="3193,184,3317,211"/>
+<area shape="rect" href="j_8h.html" title=" " alt="" coords="3341,184,3465,211"/>
+<area shape="rect" href="k_8h.html" title=" " alt="" coords="3489,184,3617,211"/>
+<area shape="rect" href="l_8h.html" title=" " alt="" coords="3642,184,3766,211"/>
+<area shape="rect" href="m_8h.html" title=" " alt="" coords="3791,184,3924,211"/>
+<area shape="rect" href="n_8h.html" title=" " alt="" coords="3948,184,4076,211"/>
+<area shape="rect" href="o_8h.html" title=" " alt="" coords="4100,184,4228,211"/>
+<area shape="rect" href="p_8h.html" title=" " alt="" coords="4252,184,4380,211"/>
+<area shape="rect" href="q_8h.html" title=" " alt="" coords="4404,184,4532,211"/>
+<area shape="rect" href="r_8h.html" title=" " alt="" coords="4557,184,4681,211"/>
+<area shape="rect" href="s_8h.html" title=" " alt="" coords="4705,184,4831,211"/>
+<area shape="rect" href="t_8h.html" title=" " alt="" coords="4856,184,4981,211"/>
+<area shape="rect" href="u_8h.html" title=" " alt="" coords="5005,184,5133,211"/>
+<area shape="rect" href="v_8h.html" title=" " alt="" coords="5158,184,5285,211"/>
+<area shape="rect" href="w_8h.html" title=" " alt="" coords="5309,184,5440,211"/>
+<area shape="rect" href="x_8h.html" title=" " alt="" coords="5464,184,5592,211"/>
+<area shape="rect" href="y_8h.html" title=" " alt="" coords="5617,184,5743,211"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -92,13 +170,13 @@ Functions</h2></td></tr>
 <tr class="separator:gaa89a5f2a11a43a41f21cd218f0c5c0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf1bf9e7f07f92f3f1561df4630ce33d1"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gaf1bf9e7f07f92f3f1561df4630ce33d1">map_memory</a> (uint16_t mode)</td></tr>
 <tr class="separator:gaf1bf9e7f07f92f3f1561df4630ce33d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99d2da2559e11200c6b40c469e9977ec"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a> (uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color)</td></tr>
+<tr class="memitem:ga99d2da2559e11200c6b40c469e9977ec"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t width, uint16_t height, uint32_t color)</td></tr>
 <tr class="memdesc:ga99d2da2559e11200c6b40c469e9977ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw rectangle  <a href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">More...</a><br /></td></tr>
 <tr class="separator:ga99d2da2559e11200c6b40c469e9977ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a> (uint16_t x, uint16_t y, uint16_t width, uint32_t color)</td></tr>
+<tr class="memitem:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t width, uint32_t color)</td></tr>
 <tr class="memdesc:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw horizontal line  <a href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">More...</a><br /></td></tr>
 <tr class="separator:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga08c498ffeb0a3962e3b7711b57397741"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a> (uint16_t x, uint16_t y, uint32_t color)</td></tr>
+<tr class="memitem:ga08c498ffeb0a3962e3b7711b57397741"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint32_t color)</td></tr>
 <tr class="separator:ga08c498ffeb0a3962e3b7711b57397741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa01f9bbad6332518ec591451ecff15d2"><td class="memItemLeft" align="right" valign="top">uint8_t()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gaa01f9bbad6332518ec591451ecff15d2">R</a> (uint32_t color)</td></tr>
 <tr class="memdesc:gaa01f9bbad6332518ec591451ecff15d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">masks red color into red position  <a href="group__video__graphics.html#gaa01f9bbad6332518ec591451ecff15d2">More...</a><br /></td></tr>
@@ -109,10 +187,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga24e0201c0056d4d68aa7a34ae360ed87"><td class="memItemLeft" align="right" valign="top">uint8_t()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga24e0201c0056d4d68aa7a34ae360ed87">B</a> (uint32_t color)</td></tr>
 <tr class="memdesc:ga24e0201c0056d4d68aa7a34ae360ed87"><td class="mdescLeft">&#160;</td><td class="mdescRight">masks blue color into blue position  <a href="group__video__graphics.html#ga24e0201c0056d4d68aa7a34ae360ed87">More...</a><br /></td></tr>
 <tr class="separator:ga24e0201c0056d4d68aa7a34ae360ed87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga25083348788e77f52c326375125ca6d8"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a> (uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map)</td></tr>
+<tr class="memitem:ga25083348788e77f52c326375125ca6d8"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, xpm_image_t img, uint8_t *map)</td></tr>
 <tr class="memdesc:ga25083348788e77f52c326375125ca6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw horizontal line  <a href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">More...</a><br /></td></tr>
 <tr class="separator:ga25083348788e77f52c326375125ca6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a497b778c58ae5a36e14ef54a53e356"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a5a497b778c58ae5a36e14ef54a53e356">vg_clean_xpm</a> (xpm_map_t xpm, uint16_t x, uint16_t y)</td></tr>
+<tr class="memitem:a5a497b778c58ae5a36e14ef54a53e356"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a5a497b778c58ae5a36e14ef54a53e356">vg_clean_xpm</a> (xpm_map_t xpm, uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>)</td></tr>
 <tr class="separator:a5a497b778c58ae5a36e14ef54a53e356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6402ca094cd1aace6adedd01b2b5496e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e">get_hres</a> ()</td></tr>
 <tr class="memdesc:ga6402ca094cd1aace6adedd01b2b5496e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get horizontal resolution in pixels.  <a href="group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e">More...</a><br /></td></tr>
@@ -125,16 +203,28 @@ Functions</h2></td></tr>
 <tr class="separator:ga53f6c1a60eaac0030d48bc8932255693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga074ef4ad6b93f178c51610bfce7d94b8"><td class="memItemLeft" align="right" valign="top">char *()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga074ef4ad6b93f178c51610bfce7d94b8">get_double_buffer</a> ()</td></tr>
 <tr class="separator:ga074ef4ad6b93f178c51610bfce7d94b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a> (uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *map)</td></tr>
+<tr class="memitem:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *map)</td></tr>
 <tr class="memdesc:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears xpm by drawing background  <a href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">More...</a><br /></td></tr>
 <tr class="separator:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a5077a1a703b40b073dc6b5c1129ab0a1"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a5077a1a703b40b073dc6b5c1129ab0a1">video_mem</a></td></tr>
+<tr class="separator:a5077a1a703b40b073dc6b5c1129ab0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b05db7dca7a1fd396ecb42c0432467"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#aa3b05db7dca7a1fd396ecb42c0432467">double_buf</a></td></tr>
 <tr class="separator:aa3b05db7dca7a1fd396ecb42c0432467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb3d0ba34458283fd5bfe568bc6b2ac"><td class="memItemLeft" align="right" valign="top">vbe_mode_info_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a0cb3d0ba34458283fd5bfe568bc6b2ac">info</a></td></tr>
 <tr class="separator:a0cb3d0ba34458283fd5bfe568bc6b2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e7e5a0a8f9069e6413b2066ca52f3e"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a43e7e5a0a8f9069e6413b2066ca52f3e">h_res</a></td></tr>
+<tr class="separator:a43e7e5a0a8f9069e6413b2066ca52f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bda1b499253a8fbf3cab646f8760391"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a5bda1b499253a8fbf3cab646f8760391">v_res</a></td></tr>
+<tr class="separator:a5bda1b499253a8fbf3cab646f8760391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89fa3fb58e975d148fcb2413e24b78a1"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a89fa3fb58e975d148fcb2413e24b78a1">bits_per_pixel</a></td></tr>
+<tr class="separator:a89fa3fb58e975d148fcb2413e24b78a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144d9a9cabab9de0142a6baee835ca6b"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a144d9a9cabab9de0142a6baee835ca6b">bytes_per_pixel</a></td></tr>
+<tr class="separator:a144d9a9cabab9de0142a6baee835ca6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a245260f6f74972558f61b85227df5aae"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a></td></tr>
+<tr class="separator:a245260f6f74972558f61b85227df5aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3106dc5b51827d911b34e5333092dad"><td class="memItemLeft" align="right" valign="top">xpm_image_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#ac3106dc5b51827d911b34e5333092dad">mouse_img</a></td></tr>
 <tr class="separator:ac3106dc5b51827d911b34e5333092dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71ff82b6dc8e834762aee5b3c302f68f"><td class="memItemLeft" align="right" valign="top">xpm_image_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vg_8c.html#a71ff82b6dc8e834762aee5b3c302f68f">menu_start_img</a></td></tr>
@@ -232,10 +322,63 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="vg_8c_a5a497b778c58ae5a36e14ef54a53e356_cgraph.png" border="0" usemap="#vg_8c_a5a497b778c58ae5a36e14ef54a53e356_cgraph" alt=""/></div>
+<map name="vg_8c_a5a497b778c58ae5a36e14ef54a53e356_cgraph" id="vg_8c_a5a497b778c58ae5a36e14ef54a53e356_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,121,32"/>
+<area shape="rect" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="169,5,284,32"/>
+</map>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a89fa3fb58e975d148fcb2413e24b78a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89fa3fb58e975d148fcb2413e24b78a1">&#9670;&nbsp;</a></span>bits_per_pixel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned bits_per_pixel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a144d9a9cabab9de0142a6baee835ca6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144d9a9cabab9de0142a6baee835ca6b">&#9670;&nbsp;</a></span>bytes_per_pixel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned bytes_per_pixel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa3b05db7dca7a1fd396ecb42c0432467"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3b05db7dca7a1fd396ecb42c0432467">&#9670;&nbsp;</a></span>double_buf</h2>
 
@@ -274,6 +417,28 @@ Variables</h2></td></tr>
           <td class="memname">xpm_image_t game_background_img</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43e7e5a0a8f9069e6413b2066ca52f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43e7e5a0a8f9069e6413b2066ca52f3e">&#9670;&nbsp;</a></span>h_res</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned h_res</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -628,6 +793,28 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a245260f6f74972558f61b85227df5aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a245260f6f74972558f61b85227df5aae">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acdfff5e981a53afe307e9f68cb94aeeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acdfff5e981a53afe307e9f68cb94aeeb">&#9670;&nbsp;</a></span>upper</h2>
 
@@ -652,6 +839,50 @@ Variables</h2></td></tr>
           <td class="memname">xpm_image_t upper_img</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bda1b499253a8fbf3cab646f8760391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bda1b499253a8fbf3cab646f8760391">&#9670;&nbsp;</a></span>v_res</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned v_res</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5077a1a703b40b073dc6b5c1129ab0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5077a1a703b40b073dc6b5c1129ab0a1">&#9670;&nbsp;</a></span>video_mem</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* video_mem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -713,11 +944,15 @@ Variables</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a></li><li class="navelem"><a class="el" href="vg_8c.html">vg.c</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

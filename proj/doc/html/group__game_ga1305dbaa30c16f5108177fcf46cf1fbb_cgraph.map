@@ -1,0 +1,13 @@
+<map id="singlePlayer_mode" name="singlePlayer_mode">
+<area shape="rect" id="node1" title="change game state to single player" alt="" coords="5,208,152,235"/>
+<area shape="rect" id="node2" href="$group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed" title="clears xpm by drawing background" alt="" coords="408,309,576,336"/>
+<area shape="rect" id="node4" href="$group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693" title="double buffer setup" alt="" coords="427,183,557,209"/>
+<area shape="rect" id="node5" href="$group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f" title="draw input sentence" alt="" coords="200,5,360,32"/>
+<area shape="rect" id="node6" href="$group__video__graphics.html#ga25083348788e77f52c326375125ca6d8" title="draw horizontal line" alt="" coords="435,107,549,133"/>
+<area shape="rect" id="node7" href="$group__game.html#ga8543fc9b527fa4fd3687297747807f71" title=" " alt="" coords="220,107,340,133"/>
+<area shape="rect" id="node8" href="$group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e" title="Get horizontal resolution in pixels." alt="" coords="241,259,319,285"/>
+<area shape="rect" id="node9" href="$group__video__graphics.html#ga484929b3e33f236cd9087e18e1521ee3" title="Get vertical resolution in pixels." alt="" coords="241,309,319,336"/>
+<area shape="rect" id="node10" href="$group__game.html#ga67117bf13203711ddd35da556c650f54" title="check for sentences match" alt="" coords="245,360,315,387"/>
+<area shape="rect" id="node11" href="$group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="211,157,349,184"/>
+<area shape="rect" id="node3" href="$group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="624,208,739,235"/>
+</map>

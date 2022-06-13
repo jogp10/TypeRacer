@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('game_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
@@ -81,13 +107,21 @@ $(function() {
 Include dependency graph for game.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8h__incl.png" border="0" usemap="#_2home_2john_2Desktop_2g06_2proj_2src_2game_8h" alt=""/></div>
-<!-- MAP 0 -->
+<map name="_2home_2john_2Desktop_2g06_2proj_2src_2game_8h" id="_2home_2john_2Desktop_2g06_2proj_2src_2game_8h">
+<area shape="rect" title=" " alt="" coords="5,5,160,47"/>
+<area shape="rect" title=" " alt="" coords="40,169,125,196"/>
+<area shape="rect" href="letters_8h.html" title=" " alt="" coords="83,95,159,121"/>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8h__dep__incl.png" border="0" usemap="#_2home_2john_2Desktop_2g06_2proj_2src_2game_8hdep" alt=""/></div>
-<!-- MAP 1 -->
+<map name="_2home_2john_2Desktop_2g06_2proj_2src_2game_8hdep" id="_2home_2john_2Desktop_2g06_2proj_2src_2game_8hdep">
+<area shape="rect" title=" " alt="" coords="95,5,249,47"/>
+<area shape="rect" href="game_8c.html" title=" " alt="" coords="5,95,160,136"/>
+<area shape="rect" href="proj_8c.html" title=" " alt="" coords="185,95,338,136"/>
+</map>
 </div>
 </div>
 <p><a href="game_8h_source.html">Go to the source code of this file.</a></p>
@@ -172,7 +206,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga8156cca54dc27e9449bd43b0be7220ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">prevStartSelected</a> ()</td></tr>
 <tr class="memdesc:ga8156cca54dc27e9449bd43b0be7220ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">highlight menu option  <a href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">More...</a><br /></td></tr>
 <tr class="separator:ga8156cca54dc27e9449bd43b0be7220ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca85c5fc48080fe3e5fc63cbfd15e3dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd">mouse_handler</a> (struct <a class="el" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a> *p)</td></tr>
+<tr class="memitem:gaca85c5fc48080fe3e5fc63cbfd15e3dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd">mouse_handler</a> (struct <a class="el" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a> *<a class="el" href="p_8h.html#ab8084aeb873155a361307d4c90485c3e">p</a>)</td></tr>
 <tr class="memdesc:gaca85c5fc48080fe3e5fc63cbfd15e3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">mouse interrupt handler  <a href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd">More...</a><br /></td></tr>
 <tr class="separator:gaca85c5fc48080fe3e5fc63cbfd15e3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga95bf30e4112a6ad0e3fb849d50453b02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#ga95bf30e4112a6ad0e3fb849d50453b02">kbd_handler</a> (<a class="el" href="structletter.html">letter</a> *sentence, <a class="el" href="structletter.html">letter</a> *sentence2, <a class="el" href="structletter.html">letter</a> **inputSentence, unsigned int *idx)</td></tr>
@@ -181,9 +215,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaecce96dde93ddb9804a5291586d5a367"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#gaecce96dde93ddb9804a5291586d5a367">singlePlayer_start</a> (<a class="el" href="structletter.html">letter</a> **sentence, <a class="el" href="structletter.html">letter</a> **inputSentence)</td></tr>
 <tr class="memdesc:gaecce96dde93ddb9804a5291586d5a367"><td class="mdescLeft">&#160;</td><td class="mdescRight">starts single player mode  <a href="group__game.html#gaecce96dde93ddb9804a5291586d5a367">More...</a><br /></td></tr>
 <tr class="separator:gaecce96dde93ddb9804a5291586d5a367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8543fc9b527fa4fd3687297747807f71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#ga8543fc9b527fa4fd3687297747807f71">draw_sentence</a> (<a class="el" href="structletter.html">letter</a> *sentence, uint16_t x, uint16_t y)</td></tr>
+<tr class="memitem:ga8543fc9b527fa4fd3687297747807f71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#ga8543fc9b527fa4fd3687297747807f71">draw_sentence</a> (<a class="el" href="structletter.html">letter</a> *sentence, uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>)</td></tr>
 <tr class="separator:ga8543fc9b527fa4fd3687297747807f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7920be8cc13fda145a4dcabdd9bf3b7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f">draw_input_sentence</a> (<a class="el" href="structletter.html">letter</a> *input, <a class="el" href="structletter.html">letter</a> *sentence, uint16_t x, uint16_t y, int size)</td></tr>
+<tr class="memitem:ga7920be8cc13fda145a4dcabdd9bf3b7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f">draw_input_sentence</a> (<a class="el" href="structletter.html">letter</a> *input, <a class="el" href="structletter.html">letter</a> *sentence, uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, int <a class="el" href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a>)</td></tr>
 <tr class="memdesc:ga7920be8cc13fda145a4dcabdd9bf3b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw input sentence  <a href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f">More...</a><br /></td></tr>
 <tr class="separator:ga7920be8cc13fda145a4dcabdd9bf3b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadd65dc8f95bf138a25e8242a855a82c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__game.html#gadd65dc8f95bf138a25e8242a855a82c2">generateSentence</a> (<a class="el" href="structletter.html">letter</a> **sentence, <a class="el" href="structletter.html">letter</a> **sentence2)</td></tr>
@@ -202,11 +236,15 @@ Variables</h2></td></tr>
 <tr class="separator:ga58bdb5643d0814ac4e697a1564b79b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

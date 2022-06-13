@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('mouse_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">mouse.h</div>  </div>
@@ -89,27 +115,65 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;void (<a class="code" href="group__mouse.html#ga210374b50462acdedab00df64d5cea3c">mouse_ih</a>)();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;bool (<a class="code" href="group__mouse.html#gac1eb5eead4af6f9237b348ae482b897d">mouse_packet_complete</a>)(uint8_t packets[], uint8_t *size);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;bool (<a class="code" href="group__mouse.html#gac1eb5eead4af6f9237b348ae482b897d">mouse_packet_complete</a>)(uint8_t packets[], uint8_t *<a class="code" href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;int (<a class="code" href="group__mouse.html#ga8008a758b154ac22ec2346f748467522">build_packet_struct</a>)(uint8_t packets[], <span class="keyword">struct </span><a class="code" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a> *pp);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __MOUSE_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="agroup__i8042_html_ga85964cb90343bb1a029b1d1b4229f910"><div class="ttname"><a href="group__i8042.html#ga85964cb90343bb1a029b1d1b4229f910">MOUSE_IRQ</a></div><div class="ttdeci">#define MOUSE_IRQ</div><div class="ttdoc">Mouse IRQ line.</div><div class="ttdef"><b>Definition:</b> i8042.h:13</div></div>
+<div class="ttc" id="agroup__utils_html_ga79a031a8611f5b2d6afa4158e92b0fb4"><div class="ttname"><a href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</a></div><div class="ttdeci">int() util_sys_inb(int port, uint8_t *value)</div><div class="ttdoc">calls sys_in()</div><div class="ttdef"><b>Definition:</b> utils.c:16</div></div>
+<div class="ttc" id="agroup__i8042_html_gadbcc35097a1622fa36810e89ace7aee0"><div class="ttname"><a href="group__i8042.html#gadbcc35097a1622fa36810e89ace7aee0">MC_SET_STREAM_MODE</a></div><div class="ttdeci">#define MC_SET_STREAM_MODE</div><div class="ttdoc">Set Stream Mode.</div><div class="ttdef"><b>Definition:</b> i8042.h:82</div></div>
+<div class="ttc" id="amouse_8c_html_a7a3172cc98e93d8eadfb9ab30373799e"><div class="ttname"><a href="mouse_8c.html#a7a3172cc98e93d8eadfb9ab30373799e">error</a></div><div class="ttdeci">bool error</div><div class="ttdef"><b>Definition:</b> mouse.c:10</div></div>
+<div class="ttc" id="avg_8c_html_a245260f6f74972558f61b85227df5aae"><div class="ttname"><a href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a></div><div class="ttdeci">static unsigned size</div><div class="ttdef"><b>Definition:</b> vg.c:15</div></div>
+<div class="ttc" id="akbd_8h_html"><div class="ttname"><a href="kbd_8h.html">kbd.h</a></div></div>
 <div class="ttc" id="agroup__mouse_html_ga93acf4a9d966fc892f0aa4156b0b15e7"><div class="ttname"><a href="group__mouse.html#ga93acf4a9d966fc892f0aa4156b0b15e7">mouse_set_stream_mode</a></div><div class="ttdeci">int() mouse_set_stream_mode()</div><div class="ttdoc">sets mouse to stream mode</div><div class="ttdef"><b>Definition:</b> mouse.c:66</div></div>
+<div class="ttc" id="agroup__i8042_html_ga7a811889049a299c335d7378a4d42b40"><div class="ttname"><a href="group__i8042.html#ga7a811889049a299c335d7378a4d42b40">FIRST_PACKET</a></div><div class="ttdeci">#define FIRST_PACKET</div><div class="ttdef"><b>Definition:</b> i8042.h:61</div></div>
+<div class="ttc" id="agroup__i8042_html_ga1a48f3668231c08851a9b880ec541a39"><div class="ttname"><a href="group__i8042.html#ga1a48f3668231c08851a9b880ec541a39">MC_WRITE</a></div><div class="ttdeci">#define MC_WRITE</div><div class="ttdef"><b>Definition:</b> i8042.h:87</div></div>
+<div class="ttc" id="agroup__i8042_html_ga181f1c2860e4d7fd7788990378061137"><div class="ttname"><a href="group__i8042.html#ga181f1c2860e4d7fd7788990378061137">X_SIGN</a></div><div class="ttdeci">#define X_SIGN</div><div class="ttdef"><b>Definition:</b> i8042.h:67</div></div>
+<div class="ttc" id="amouse_8c_html_a0b0da21bbdff62b7b28e9af7ec3d0d76"><div class="ttname"><a href="mouse_8c.html#a0b0da21bbdff62b7b28e9af7ec3d0d76">hook_id_mouse</a></div><div class="ttdeci">int hook_id_mouse</div><div class="ttdef"><b>Definition:</b> mouse.c:9</div></div>
+<div class="ttc" id="agroup__i8042_html_ga1ccde68b2b6d4e45b50eef1403e10bb7"><div class="ttname"><a href="group__i8042.html#ga1ccde68b2b6d4e45b50eef1403e10bb7">KBC_OUT_BUF</a></div><div class="ttdeci">#define KBC_OUT_BUF</div><div class="ttdef"><b>Definition:</b> i8042.h:35</div></div>
 <div class="ttc" id="agroup__mouse_html_ga8008a758b154ac22ec2346f748467522"><div class="ttname"><a href="group__mouse.html#ga8008a758b154ac22ec2346f748467522">build_packet_struct</a></div><div class="ttdeci">int() build_packet_struct(uint8_t packets[], struct packet *pp)</div><div class="ttdoc">Builds mouse packets.</div><div class="ttdef"><b>Definition:</b> mouse.c:129</div></div>
+<div class="ttc" id="agroup__i8042_html_ga57fa6c5ff5f6e9b7154626d6fddc275e"><div class="ttname"><a href="group__i8042.html#ga57fa6c5ff5f6e9b7154626d6fddc275e">MC_ACK</a></div><div class="ttdeci">#define MC_ACK</div><div class="ttdoc">Everything OK.</div><div class="ttdef"><b>Definition:</b> i8042.h:90</div></div>
+<div class="ttc" id="agroup__i8042_html_ga6f977b36b770dca3092d0bdf8c949cfe"><div class="ttname"><a href="group__i8042.html#ga6f977b36b770dca3092d0bdf8c949cfe">KBC_ST_REG</a></div><div class="ttdeci">#define KBC_ST_REG</div><div class="ttdef"><b>Definition:</b> i8042.h:36</div></div>
+<div class="ttc" id="ai8042_8h_html"><div class="ttname"><a href="i8042_8h.html">i8042.h</a></div></div>
+<div class="ttc" id="agroup__i8042_html_gaaa796d09d1e94025da456738295342f2"><div class="ttname"><a href="group__i8042.html#gaaa796d09d1e94025da456738295342f2">KBC_AUX</a></div><div class="ttdeci">#define KBC_AUX</div><div class="ttdef"><b>Definition:</b> i8042.h:49</div></div>
+<div class="ttc" id="agroup__i8042_html_ga8dc62f83e20ff1d8b6f8bafd7cd866d8"><div class="ttname"><a href="group__i8042.html#ga8dc62f83e20ff1d8b6f8bafd7cd866d8">MC_DIS_DATA_REP</a></div><div class="ttdeci">#define MC_DIS_DATA_REP</div><div class="ttdoc">In stream mode, Disable (Data Reporting)</div><div class="ttdef"><b>Definition:</b> i8042.h:77</div></div>
+<div class="ttc" id="amouse_8h_html"><div class="ttname"><a href="mouse_8h.html">mouse.h</a></div></div>
 <div class="ttc" id="amouse_8c_html_a15f30eb0027f44ecb399b8f6e738a16d"><div class="ttname"><a href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a></div><div class="ttdeci">uint8_t packet</div><div class="ttdef"><b>Definition:</b> mouse.c:11</div></div>
+<div class="ttc" id="agroup__i8042_html_ga52539de90181cdfb2617e74839c2ff18"><div class="ttname"><a href="group__i8042.html#ga52539de90181cdfb2617e74839c2ff18">MC_EN_DATA_REP</a></div><div class="ttdeci">#define MC_EN_DATA_REP</div><div class="ttdoc">In stream mode Enable (Data Reporting)</div><div class="ttdef"><b>Definition:</b> i8042.h:78</div></div>
+<div class="ttc" id="agroup__i8042_html_gacc55daa58d88a3612f2ef74a6abbe97f"><div class="ttname"><a href="group__i8042.html#gacc55daa58d88a3612f2ef74a6abbe97f">LB</a></div><div class="ttdeci">#define LB</div><div class="ttdef"><b>Definition:</b> i8042.h:64</div></div>
 <div class="ttc" id="agroup__mouse_html_ga210374b50462acdedab00df64d5cea3c"><div class="ttname"><a href="group__mouse.html#ga210374b50462acdedab00df64d5cea3c">mouse_ih</a></div><div class="ttdeci">void() mouse_ih()</div><div class="ttdoc">Mouse interrupt handler.</div><div class="ttdef"><b>Definition:</b> mouse.c:84</div></div>
+<div class="ttc" id="agroup__i8042_html_ga8b0e0e80707db43a311cdf0ebd5f419f"><div class="ttname"><a href="group__i8042.html#ga8b0e0e80707db43a311cdf0ebd5f419f">MC_ERROR</a></div><div class="ttdeci">#define MC_ERROR</div><div class="ttdoc">Second consecutive invalid byte.</div><div class="ttdef"><b>Definition:</b> i8042.h:92</div></div>
+<div class="ttc" id="agroup__i8042_html_gaea2ef6dda1aabebf291eeee29b66c04a"><div class="ttname"><a href="group__i8042.html#gaea2ef6dda1aabebf291eeee29b66c04a">KBC_PAR_ERR</a></div><div class="ttdeci">#define KBC_PAR_ERR</div><div class="ttdef"><b>Definition:</b> i8042.h:47</div></div>
 <div class="ttc" id="agroup__mouse_html_gac1a63e8f183c3fd9afc9cb12af5c2cad"><div class="ttname"><a href="group__mouse.html#gac1a63e8f183c3fd9afc9cb12af5c2cad">mouse_enable_data_rep</a></div><div class="ttdeci">int() mouse_enable_data_rep()</div><div class="ttdoc">enables mouse data reporting</div><div class="ttdef"><b>Definition:</b> mouse.c:68</div></div>
 <div class="ttc" id="agroup__mouse_html_gacbd36cda77fb29a336617f076e2b2608"><div class="ttname"><a href="group__mouse.html#gacbd36cda77fb29a336617f076e2b2608">mouse_disable_data_rep</a></div><div class="ttdeci">int() mouse_disable_data_rep()</div><div class="ttdoc">disables mouse data reporting</div><div class="ttdef"><b>Definition:</b> mouse.c:76</div></div>
 <div class="ttc" id="agroup__mouse_html_gac1eb5eead4af6f9237b348ae482b897d"><div class="ttname"><a href="group__mouse.html#gac1eb5eead4af6f9237b348ae482b897d">mouse_packet_complete</a></div><div class="ttdeci">bool() mouse_packet_complete(uint8_t packets[], uint8_t *size)</div><div class="ttdoc">Checks packet if completed.</div><div class="ttdef"><b>Definition:</b> mouse.c:112</div></div>
+<div class="ttc" id="agroup__i8042_html_ga171160a766f85c8816b898ed24d28408"><div class="ttname"><a href="group__i8042.html#ga171160a766f85c8816b898ed24d28408">RB</a></div><div class="ttdeci">#define RB</div><div class="ttdef"><b>Definition:</b> i8042.h:65</div></div>
+<div class="ttc" id="agroup__i8042_html_ga2a0064e2f0979eea21b81e4fe6b2ac32"><div class="ttname"><a href="group__i8042.html#ga2a0064e2f0979eea21b81e4fe6b2ac32">Y_SIGN</a></div><div class="ttdeci">#define Y_SIGN</div><div class="ttdef"><b>Definition:</b> i8042.h:68</div></div>
+<div class="ttc" id="agroup__i8042_html_ga309ba8ec1d897f46b3b40a3132b4827c"><div class="ttname"><a href="group__i8042.html#ga309ba8ec1d897f46b3b40a3132b4827c">MC_NACK</a></div><div class="ttdeci">#define MC_NACK</div><div class="ttdoc">Invalid Byte (may be because of a serial communication error)</div><div class="ttdef"><b>Definition:</b> i8042.h:91</div></div>
+<div class="ttc" id="agroup__keyboard_html_gabfc4477fca72f29e82a65b31d693ed8f"><div class="ttname"><a href="group__keyboard.html#gabfc4477fca72f29e82a65b31d693ed8f">kbc_issue_command_with_arg</a></div><div class="ttdeci">int() kbc_issue_command_with_arg(uint8_t arg)</div><div class="ttdef"><b>Definition:</b> kbd.c:113</div></div>
+<div class="ttc" id="agroup__i8042_html_gae31c3653f5881b02cbfdd4ccbb7ccf50"><div class="ttname"><a href="group__i8042.html#gae31c3653f5881b02cbfdd4ccbb7ccf50">KBC_TO_ERR</a></div><div class="ttdeci">#define KBC_TO_ERR</div><div class="ttdef"><b>Definition:</b> i8042.h:48</div></div>
+<div class="ttc" id="atrace_8txt_html_ac00797d821acc8cd978de07f8259feeb"><div class="ttname"><a href="trace_8txt.html#ac00797d821acc8cd978de07f8259feeb">sys_irqsetpolicy</a></div><div class="ttdeci">lcflib lcf_start home lcom labs proj src devices kbc kbd kbd_subscribe_int sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE|IRQ_EXCLUSIVE, &amp;hook_id_kbd) &gt; sys_irqsetpolicy(1</div></div>
+<div class="ttc" id="agroup__i8042_html_ga858379c2252a71bc12dd9ff796477d90"><div class="ttname"><a href="group__i8042.html#ga858379c2252a71bc12dd9ff796477d90">X_OVF</a></div><div class="ttdeci">#define X_OVF</div><div class="ttdef"><b>Definition:</b> i8042.h:69</div></div>
+<div class="ttc" id="agroup__i8042_html_gaa6b38d492364d98453284934ed7caee9"><div class="ttname"><a href="group__i8042.html#gaa6b38d492364d98453284934ed7caee9">MB</a></div><div class="ttdeci">#define MB</div><div class="ttdef"><b>Definition:</b> i8042.h:66</div></div>
+<div class="ttc" id="agroup__i8042_html_ga8238446128710bc20d7c73b2fa785c72"><div class="ttname"><a href="group__i8042.html#ga8238446128710bc20d7c73b2fa785c72">Y_OVF</a></div><div class="ttdeci">#define Y_OVF</div><div class="ttdef"><b>Definition:</b> i8042.h:70</div></div>
+<div class="ttc" id="aoutput_8txt_html_a974ff07538c0fb2ace1fd662f6d3416a"><div class="ttname"><a href="output_8txt.html#a974ff07538c0fb2ace1fd662f6d3416a">i</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock i</div><div class="ttdef"><b>Definition:</b> output.txt:909</div></div>
 <div class="ttc" id="agroup__mouse_html_ga61ab3828bd2f69b7edaeb37731e34ddc"><div class="ttname"><a href="group__mouse.html#ga61ab3828bd2f69b7edaeb37731e34ddc">mouse_issue_command</a></div><div class="ttdeci">int() mouse_issue_command(uint8_t cmd)</div><div class="ttdef"><b>Definition:</b> mouse.c:30</div></div>
+<div class="ttc" id="agroup__keyboard_html_ga18f5b27fb222774ef1e96b88317d907f"><div class="ttname"><a href="group__keyboard.html#ga18f5b27fb222774ef1e96b88317d907f">kbc_issue_command</a></div><div class="ttdeci">int() kbc_issue_command(uint8_t cmd)</div><div class="ttdef"><b>Definition:</b> kbd.c:90</div></div>
+<div class="ttc" id="agroup__keyboard_html_gad7d379ee6637be74dbee83e5305bec58"><div class="ttname"><a href="group__keyboard.html#gad7d379ee6637be74dbee83e5305bec58">kbc_read_acknowledgment</a></div><div class="ttdeci">int() kbc_read_acknowledgment(uint8_t *acknowledgment_byte)</div><div class="ttdoc">Reads acknowledgemnt byte.</div><div class="ttdef"><b>Definition:</b> kbd.c:137</div></div>
 <div class="ttc" id="agroup__mouse_html_ga20285aed4b3ef45812cd967532dd09db"><div class="ttname"><a href="group__mouse.html#ga20285aed4b3ef45812cd967532dd09db">mouse_subscribe_int</a></div><div class="ttdeci">int() mouse_subscribe_int(uint8_t *bit_no)</div><div class="ttdoc">Subscribes and enables Mouse interrupts.</div><div class="ttdef"><b>Definition:</b> mouse.c:13</div></div>
+<div class="ttc" id="agroup__i8042_html_gafd63d23830ad86d01b6fff2e6c615f7e"><div class="ttname"><a href="group__i8042.html#gafd63d23830ad86d01b6fff2e6c615f7e">MAX_TRIES</a></div><div class="ttdeci">#define MAX_TRIES</div><div class="ttdef"><b>Definition:</b> i8042.h:17</div></div>
 <div class="ttc" id="agroup__mouse_html_ga3ecf823d80520009ae5e0d76ae40a3c3"><div class="ttname"><a href="group__mouse.html#ga3ecf823d80520009ae5e0d76ae40a3c3">mouse_unsubscribe_int</a></div><div class="ttdeci">int() mouse_unsubscribe_int()</div><div class="ttdoc">Unsubscribes Mouse interrupts.</div><div class="ttdef"><b>Definition:</b> mouse.c:22</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a></li><li class="navelem"><a class="el" href="mouse_8h.html">mouse.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

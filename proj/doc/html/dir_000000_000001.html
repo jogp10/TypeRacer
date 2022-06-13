@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('dir_68267d1309a1af8e8297ef4c3efbcdba.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,18 +90,17 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="contents">
 <h3>src &rarr; devices Relation</h3><table class="dirtab"><tr class="dirtab"><th class="dirtab">File in src</th><th class="dirtab">Includes file in src/devices</th></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a>&#160;/&#160;<a class="el" href="i8042_8h.html">i8042.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_e454627fde579358d9c24a638890be46.html">timer</a>&#160;/&#160;<a class="el" href="i8254_8h.html">i8254.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a>&#160;/&#160;<a class="el" href="kbd_8h.html">kbd.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a>&#160;/&#160;<a class="el" href="mouse_8h.html">mouse.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_d3490a261b8f5324b0d265fedb266924.html">utils</a>&#160;/&#160;<a class="el" href="mouse__collision_8h.html">mouse_collision.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_d3490a261b8f5324b0d265fedb266924.html">utils</a>&#160;/&#160;<a class="el" href="utils_8h.html">utils.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a>&#160;/&#160;<a class="el" href="vg_8h.html">vg.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="game_8c.html">game.c</a></td><td class="dirtab"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a>&#160;/&#160;<a class="el" href="vg__macros_8h.html">vg_macros.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a>&#160;/&#160;<a class="el" href="i8042_8h.html">i8042.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_e454627fde579358d9c24a638890be46.html">timer</a>&#160;/&#160;<a class="el" href="i8254_8h.html">i8254.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a>&#160;/&#160;<a class="el" href="kbd_8h.html">kbd.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_dbaa78581cb8e5610b29f570475bf2eb.html">kbc</a>&#160;/&#160;<a class="el" href="mouse_8h.html">mouse.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_d3490a261b8f5324b0d265fedb266924.html">utils</a>&#160;/&#160;<a class="el" href="utils_8h.html">utils.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a>&#160;/&#160;<a class="el" href="vg_8h.html">vg.h</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="proj_8c.html">proj.c</a></td><td class="dirtab"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a>&#160;/&#160;<a class="el" href="vg__macros_8h.html">vg_macros.h</a></td></tr></table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

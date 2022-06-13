@@ -1,0 +1,6 @@
+<map id="singlePlayer_start" name="singlePlayer_start">
+<area shape="rect" id="node1" title="starts single player mode" alt="" coords="5,31,144,57"/>
+<area shape="rect" id="node2" href="$group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693" title="double buffer setup" alt="" coords="192,5,323,32"/>
+<area shape="rect" id="node3" href="$group__video__graphics.html#ga25083348788e77f52c326375125ca6d8" title="draw horizontal line" alt="" coords="201,56,314,83"/>
+<area shape="rect" id="node4" href="$group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="371,56,485,83"/>
+</map>

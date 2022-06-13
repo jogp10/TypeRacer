@@ -3,9 +3,21 @@
 {\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}letters.\+h\char`\"{}}\newline
 Include dependency graph for game.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{game_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{game_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -73,15 +85,15 @@ void \mbox{\hyperlink{group__game_gad398da34eea9326b6108ec60b12c565e}{next\+Star
 \begin{DoxyCompactList}\small\item\em highlight menu option \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__game_ga8156cca54dc27e9449bd43b0be7220ee}{prev\+Start\+Selected}} ()
 \begin{DoxyCompactList}\small\item\em highlight menu option \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__game_gaca85c5fc48080fe3e5fc63cbfd15e3dd}{mouse\+\_\+handler}} (struct \mbox{\hyperlink{mouse_8c_a15f30eb0027f44ecb399b8f6e738a16d}{packet}} $\ast$p)
+void \mbox{\hyperlink{group__game_gaca85c5fc48080fe3e5fc63cbfd15e3dd}{mouse\+\_\+handler}} (struct \mbox{\hyperlink{mouse_8c_a15f30eb0027f44ecb399b8f6e738a16d}{packet}} $\ast$\mbox{\hyperlink{p_8h_ab8084aeb873155a361307d4c90485c3e}{p}})
 \begin{DoxyCompactList}\small\item\em mouse interrupt handler \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{group__game_ga95bf30e4112a6ad0e3fb849d50453b02}{kbd\+\_\+handler}} (\mbox{\hyperlink{structletter}{letter}} $\ast$sentence, \mbox{\hyperlink{structletter}{letter}} $\ast$sentence2, \mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$input\+Sentence, unsigned int $\ast$idx)
 \begin{DoxyCompactList}\small\item\em keyboard interrupt handle \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{group__game_gaecce96dde93ddb9804a5291586d5a367}{single\+Player\+\_\+start}} (\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$sentence, \mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$input\+Sentence)
 \begin{DoxyCompactList}\small\item\em starts single player mode \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__game_ga8543fc9b527fa4fd3687297747807f71}{draw\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t x, uint16\+\_\+t y)
+int \mbox{\hyperlink{group__game_ga8543fc9b527fa4fd3687297747807f71}{draw\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}})
 \item 
-int \mbox{\hyperlink{group__game_ga7920be8cc13fda145a4dcabdd9bf3b7f}{draw\+\_\+input\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$input, \mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t x, uint16\+\_\+t y, int size)
+int \mbox{\hyperlink{group__game_ga7920be8cc13fda145a4dcabdd9bf3b7f}{draw\+\_\+input\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$input, \mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, int \mbox{\hyperlink{vg_8c_a245260f6f74972558f61b85227df5aae}{size}})
 \begin{DoxyCompactList}\small\item\em draw input sentence \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__game_gadd65dc8f95bf138a25e8242a855a82c2}{generate\+Sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$sentence, \mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$sentence2)
 \begin{DoxyCompactList}\small\item\em draw generated sentence \end{DoxyCompactList}\item 

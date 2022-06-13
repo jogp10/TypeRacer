@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('game_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">game.h</div>  </div>
@@ -144,15 +170,15 @@ $(function() {
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">prevStartSelected</a>();</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd">mouse_handler</a>(<span class="keyword">struct</span> <a class="code" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a> * p);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd">mouse_handler</a>(<span class="keyword">struct</span> <a class="code" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a> * <a class="code" href="p_8h.html#ab8084aeb873155a361307d4c90485c3e">p</a>);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__game.html#ga95bf30e4112a6ad0e3fb849d50453b02">kbd_handler</a>(<a class="code" href="structletter.html">letter</a> * sentence,<a class="code" href="structletter.html">letter</a> * sentence2, <a class="code" href="structletter.html">letter</a> ** inputSentence, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> * idx);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__game.html#gaecce96dde93ddb9804a5291586d5a367">singlePlayer_start</a>(<a class="code" href="structletter.html">letter</a> **sentence, <a class="code" href="structletter.html">letter</a> **inputSentence);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__game.html#ga8543fc9b527fa4fd3687297747807f71">draw_sentence</a>(<a class="code" href="structletter.html">letter</a> *sentence, uint16_t x, uint16_t y);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__game.html#ga8543fc9b527fa4fd3687297747807f71">draw_sentence</a>(<a class="code" href="structletter.html">letter</a> *sentence, uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>);</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f">draw_input_sentence</a>(<a class="code" href="structletter.html">letter</a> *input,<a class="code" href="structletter.html">letter</a> *sentence, uint16_t x, uint16_t y, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f">draw_input_sentence</a>(<a class="code" href="structletter.html">letter</a> *input,<a class="code" href="structletter.html">letter</a> *sentence, uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, <span class="keywordtype">int</span> <a class="code" href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a>);</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__game.html#gadd65dc8f95bf138a25e8242a855a82c2">generateSentence</a>(<a class="code" href="structletter.html">letter</a> ** sentence, <a class="code" href="structletter.html">letter</a> ** sentence2);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
@@ -164,65 +190,163 @@ $(function() {
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __GAME_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911a403778345700cbd36b5b26352b144f78"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a403778345700cbd36b5b26352b144f78">MULTIPLAYER</a></div><div class="ttdeci">@ MULTIPLAYER</div><div class="ttdef"><b>Definition:</b> game.h:30</div></div>
 <div class="ttc" id="agroup__game_html_ga363cc9b19cd21711fe8b6427762e28cb"><div class="ttname"><a href="group__game.html#ga363cc9b19cd21711fe8b6427762e28cb">win_menu_f</a></div><div class="ttdeci">int win_menu_f()</div><div class="ttdoc">Winners menu.</div><div class="ttdef"><b>Definition:</b> game.c:697</div></div>
+<div class="ttc" id="agame_8c_html_aee0193519a1b588fc8002d07eb49d425"><div class="ttname"><a href="game_8c.html#aee0193519a1b588fc8002d07eb49d425">number_Letters1</a></div><div class="ttdeci">unsigned int number_Letters1</div><div class="ttdef"><b>Definition:</b> game.c:18</div></div>
+<div class="ttc" id="agame_8c_html_a2ca214fb48ab5f9384a0813a9c39652e"><div class="ttname"><a href="game_8c.html#a2ca214fb48ab5f9384a0813a9c39652e">win_menu_img</a></div><div class="ttdeci">xpm_image_t win_menu_img</div><div class="ttdef"><b>Definition:</b> vg.c:30</div></div>
 <div class="ttc" id="agroup__game_html_ga46c8a310cf4c094f8c80e1cb8dc1f911"><div class="ttname"><a href="group__game.html#ga46c8a310cf4c094f8c80e1cb8dc1f911">Mode</a></div><div class="ttdeci">Mode</div><div class="ttdef"><b>Definition:</b> game.h:27</div></div>
 <div class="ttc" id="astructMouse_html"><div class="ttname"><a href="structMouse.html">Mouse</a></div><div class="ttdef"><b>Definition:</b> game.h:13</div></div>
 <div class="ttc" id="astructState_html_ac538f951232e2bfccbf3d77e7a78079f"><div class="ttname"><a href="structState.html#ac538f951232e2bfccbf3d77e7a78079f">State::mode</a></div><div class="ttdeci">Mode mode</div><div class="ttdef"><b>Definition:</b> game.h:39</div></div>
 <div class="ttc" id="aletters_8h_html"><div class="ttname"><a href="letters_8h.html">letters.h</a></div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911adf9c53b97637b5e5ac722fb2f6d26512"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911adf9c53b97637b5e5ac722fb2f6d26512">SINGLEPLAYER</a></div><div class="ttdeci">@ SINGLEPLAYER</div><div class="ttdef"><b>Definition:</b> game.h:29</div></div>
+<div class="ttc" id="aj_8h_html_a47c0e056bfc4b0cc5c76d4026bfe4830"><div class="ttname"><a href="j_8h.html#a47c0e056bfc4b0cc5c76d4026bfe4830">j</a></div><div class="ttdeci">static const xpm_row_t j[]</div><div class="ttdef"><b>Definition:</b> j.h:2</div></div>
+<div class="ttc" id="ax_8h_html_a8cf7d295b43621780dc437744034d5e4"><div class="ttname"><a href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a></div><div class="ttdeci">static const xpm_row_t x[]</div><div class="ttdef"><b>Definition:</b> x.h:2</div></div>
+<div class="ttc" id="ar_8h_html_a64ef4d3865ba9bb1ac9b71651fb73406"><div class="ttname"><a href="r_8h.html#a64ef4d3865ba9bb1ac9b71651fb73406">r</a></div><div class="ttdeci">static const xpm_row_t r[]</div><div class="ttdef"><b>Definition:</b> r.h:2</div></div>
+<div class="ttc" id="agame_8c_html_a47f16eebbc07c33b26f4963b23ff4a46"><div class="ttname"><a href="game_8c.html#a47f16eebbc07c33b26f4963b23ff4a46">red_car</a></div><div class="ttdeci">uint8_t * red_car</div><div class="ttdef"><b>Definition:</b> vg.c:43</div></div>
+<div class="ttc" id="agame_8c_html_a797edd7a0be82277eb839f048eaf1353"><div class="ttname"><a href="game_8c.html#a797edd7a0be82277eb839f048eaf1353">isShift</a></div><div class="ttdeci">static int isShift</div><div class="ttdef"><b>Definition:</b> game.c:21</div></div>
+<div class="ttc" id="agame_8c_html_ac34fd707342a46a4706ae5d1bf5bb2d1"><div class="ttname"><a href="game_8c.html#ac34fd707342a46a4706ae5d1bf5bb2d1">rulesOpt</a></div><div class="ttdeci">Point rulesOpt[]</div><div class="ttdef"><b>Definition:</b> game.c:64</div></div>
+<div class="ttc" id="axpm_8h_html"><div class="ttname"><a href="xpm_8h.html">xpm.h</a></div></div>
 <div class="ttc" id="astructGame_html_add7700707552a634b935cd7aa8f8699d"><div class="ttname"><a href="structGame.html#add7700707552a634b935cd7aa8f8699d">Game::mouse</a></div><div class="ttdeci">Mouse mouse</div><div class="ttdef"><b>Definition:</b> game.h:53</div></div>
 <div class="ttc" id="agroup__game_html_gac2bf81c8d178fb8a48f3115c0d630fe6"><div class="ttname"><a href="group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6">rules</a></div><div class="ttdeci">void rules()</div><div class="ttdoc">change to rules menu</div><div class="ttdef"><b>Definition:</b> game.c:211</div></div>
 <div class="ttc" id="agroup__game_html_ga7920be8cc13fda145a4dcabdd9bf3b7f"><div class="ttname"><a href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f">draw_input_sentence</a></div><div class="ttdeci">int draw_input_sentence(letter *input, letter *sentence, uint16_t x, uint16_t y, int size)</div><div class="ttdoc">draw input sentence</div><div class="ttdef"><b>Definition:</b> game.c:830</div></div>
+<div class="ttc" id="avg_8c_html_a245260f6f74972558f61b85227df5aae"><div class="ttname"><a href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a></div><div class="ttdeci">static unsigned size</div><div class="ttdef"><b>Definition:</b> vg.c:15</div></div>
+<div class="ttc" id="agame_8c_html_a71ff82b6dc8e834762aee5b3c302f68f"><div class="ttname"><a href="game_8c.html#a71ff82b6dc8e834762aee5b3c302f68f">menu_start_img</a></div><div class="ttdeci">xpm_image_t menu_start_img</div><div class="ttdef"><b>Definition:</b> vg.c:18</div></div>
+<div class="ttc" id="agame_8c_html_a75dbfb966a8eb5c4019aecbc432ab522"><div class="ttname"><a href="game_8c.html#a75dbfb966a8eb5c4019aecbc432ab522">menu_pause_exit_img</a></div><div class="ttdeci">xpm_image_t menu_pause_exit_img</div><div class="ttdef"><b>Definition:</b> vg.c:25</div></div>
+<div class="ttc" id="akbd_8h_html"><div class="ttname"><a href="kbd_8h.html">kbd.h</a></div></div>
+<div class="ttc" id="agroup__i8042_html_ga5573533027e427e3a11b4daa75621598"><div class="ttname"><a href="group__i8042.html#ga5573533027e427e3a11b4daa75621598">MAKE_CODE</a></div><div class="ttdeci">#define MAKE_CODE</div><div class="ttdef"><b>Definition:</b> i8042.h:30</div></div>
 <div class="ttc" id="astructMouse_html_ab0c2784986449475b3697628b1d7f332"><div class="ttname"><a href="structMouse.html#ab0c2784986449475b3697628b1d7f332">Mouse::mouse_x</a></div><div class="ttdeci">int mouse_x</div><div class="ttdef"><b>Definition:</b> game.h:14</div></div>
+<div class="ttc" id="agroup__i8042_html_ga405463f3278b4a3eeb909a152c5331f4"><div class="ttname"><a href="group__i8042.html#ga405463f3278b4a3eeb909a152c5331f4">LSHIFT_MAKE</a></div><div class="ttdeci">#define LSHIFT_MAKE</div><div class="ttdef"><b>Definition:</b> i8042.h:25</div></div>
+<div class="ttc" id="agame_8c_html_a7690c1f5a12b2725762a5f6a685a3d06"><div class="ttname"><a href="game_8c.html#a7690c1f5a12b2725762a5f6a685a3d06">red_car_img</a></div><div class="ttdeci">xpm_image_t red_car_img</div><div class="ttdef"><b>Definition:</b> vg.c:27</div></div>
+<div class="ttc" id="agame_8c_html_a4a9509fdd9e7f267e3b55bbb088c05cd"><div class="ttname"><a href="game_8c.html#a4a9509fdd9e7f267e3b55bbb088c05cd">menu_multi_img</a></div><div class="ttdeci">xpm_image_t menu_multi_img</div><div class="ttdef"><b>Definition:</b> vg.c:20</div></div>
 <div class="ttc" id="agroup__game_html_ga3125bdaabf4cc3d8a603663ffe0e12f2"><div class="ttname"><a href="group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2">drawRulesMenu</a></div><div class="ttdeci">int drawRulesMenu()</div><div class="ttdoc">Draws rules menu.</div><div class="ttdef"><b>Definition:</b> game.c:219</div></div>
 <div class="ttc" id="agroup__game_html_gaecce96dde93ddb9804a5291586d5a367"><div class="ttname"><a href="group__game.html#gaecce96dde93ddb9804a5291586d5a367">singlePlayer_start</a></div><div class="ttdeci">int singlePlayer_start(letter **sentence, letter **inputSentence)</div><div class="ttdoc">starts single player mode</div><div class="ttdef"><b>Definition:</b> game.c:727</div></div>
+<div class="ttc" id="agame_8c_html_a40be353997ba7583c2321795c9576978"><div class="ttname"><a href="game_8c.html#a40be353997ba7583c2321795c9576978">game_background</a></div><div class="ttdeci">uint8_t * game_background</div><div class="ttdef"><b>Definition:</b> vg.c:42</div></div>
+<div class="ttc" id="agame_8c_html_ab6403ad97e1809a744d444bb34c51ef0"><div class="ttname"><a href="game_8c.html#ab6403ad97e1809a744d444bb34c51ef0">isUpper</a></div><div class="ttdeci">static int isUpper</div><div class="ttdef"><b>Definition:</b> game.c:21</div></div>
+<div class="ttc" id="agame_8c_html_ac3106dc5b51827d911b34e5333092dad"><div class="ttname"><a href="game_8c.html#ac3106dc5b51827d911b34e5333092dad">mouse_img</a></div><div class="ttdeci">xpm_image_t mouse_img</div><div class="ttdef"><b>Definition:</b> vg.c:17</div></div>
 <div class="ttc" id="agroup__game_html_ga52f58182a38f638ecb23904dbcbf0cbe"><div class="ttname"><a href="group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe">drawMouse</a></div><div class="ttdeci">int drawMouse()</div><div class="ttdoc">draw mouse</div><div class="ttdef"><b>Definition:</b> game.c:298</div></div>
+<div class="ttc" id="agroup__video__graphics_html_ga6402ca094cd1aace6adedd01b2b5496e"><div class="ttname"><a href="group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e">get_hres</a></div><div class="ttdeci">int get_hres()</div><div class="ttdoc">Get horizontal resolution in pixels.</div><div class="ttdef"><b>Definition:</b> vg.c:301</div></div>
+<div class="ttc" id="agroup__i8042_html_ga343f44cb034d2d2ff3438b3d45dcde1f"><div class="ttname"><a href="group__i8042.html#ga343f44cb034d2d2ff3438b3d45dcde1f">ESC_BREAK</a></div><div class="ttdeci">#define ESC_BREAK</div><div class="ttdef"><b>Definition:</b> i8042.h:22</div></div>
 <div class="ttc" id="astructState_html_a155bba47f13044dc3bcc48dff191cb52"><div class="ttname"><a href="structState.html#a155bba47f13044dc3bcc48dff191cb52">State::sentence</a></div><div class="ttdeci">int sentence</div><div class="ttdef"><b>Definition:</b> game.h:44</div></div>
+<div class="ttc" id="agroup__video__graphics_html_ga53f6c1a60eaac0030d48bc8932255693"><div class="ttname"><a href="group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693">double_buffering</a></div><div class="ttdeci">void() double_buffering()</div><div class="ttdoc">double buffer setup</div><div class="ttdef"><b>Definition:</b> vg.c:309</div></div>
+<div class="ttc" id="agame_8c_html_ad1dfeaaaa70c88289dc47ad950c483ec"><div class="ttname"><a href="game_8c.html#ad1dfeaaaa70c88289dc47ad950c483ec">menu_pause_exit</a></div><div class="ttdeci">uint8_t * menu_pause_exit</div><div class="ttdef"><b>Definition:</b> vg.c:41</div></div>
 <div class="ttc" id="astructMouse_html_a9c1b52ad249ea35f68c871b82b655024"><div class="ttname"><a href="structMouse.html#a9c1b52ad249ea35f68c871b82b655024">Mouse::mouse_y</a></div><div class="ttdeci">int mouse_y</div><div class="ttdef"><b>Definition:</b> game.h:15</div></div>
+<div class="ttc" id="agame_8c_html_a4a5135241de82f6d9fed529e9183e040"><div class="ttname"><a href="game_8c.html#a4a5135241de82f6d9fed529e9183e040">selectorWin</a></div><div class="ttdeci">int selectorWin</div><div class="ttdef"><b>Definition:</b> game.c:17</div></div>
+<div class="ttc" id="at_8h_html_a800d1670273e42e4b3a0daef632ab583"><div class="ttname"><a href="t_8h.html#a800d1670273e42e4b3a0daef632ab583">t</a></div><div class="ttdeci">static const xpm_row_t t[]</div><div class="ttdef"><b>Definition:</b> t.h:2</div></div>
 <div class="ttc" id="astructState_html_a65324c9e457b6b665a611f08697fa43f"><div class="ttname"><a href="structState.html#a65324c9e457b6b665a611f08697fa43f">State::clean</a></div><div class="ttdeci">bool clean</div><div class="ttdef"><b>Definition:</b> game.h:45</div></div>
 <div class="ttc" id="agroup__game_html_gaa92fdc45eb0233c6c5e95f8982c85869"><div class="ttname"><a href="group__game.html#gaa92fdc45eb0233c6c5e95f8982c85869">allocateSentence</a></div><div class="ttdeci">void allocateSentence(letter **sentence)</div><div class="ttdoc">allocate memory to sentence</div><div class="ttdef"><b>Definition:</b> game.c:909</div></div>
 <div class="ttc" id="agroup__game_html_ga95bf30e4112a6ad0e3fb849d50453b02"><div class="ttname"><a href="group__game.html#ga95bf30e4112a6ad0e3fb849d50453b02">kbd_handler</a></div><div class="ttdeci">int kbd_handler(letter *sentence, letter *sentence2, letter **inputSentence, unsigned int *idx)</div><div class="ttdoc">keyboard interrupt handle</div><div class="ttdef"><b>Definition:</b> game.c:378</div></div>
-<div class="ttc" id="agroup__game_html_ga9067ee636a0cf113862b1112cdaf8c8a"><div class="ttname"><a href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a">game_init</a></div><div class="ttdeci">int game_init(Game *self)</div><div class="ttdoc">Game initiaon.</div><div class="ttdef"><b>Definition:</b> game.c:70</div></div>
+<div class="ttc" id="agroup__mouse_html_ga8008a758b154ac22ec2346f748467522"><div class="ttname"><a href="group__mouse.html#ga8008a758b154ac22ec2346f748467522">build_packet_struct</a></div><div class="ttdeci">int() build_packet_struct(uint8_t packets[], struct packet *pp)</div><div class="ttdoc">Builds mouse packets.</div><div class="ttdef"><b>Definition:</b> mouse.c:129</div></div>
+<div class="ttc" id="agame_8c_html_acedbef62c47b27c4109d02b2d985572b"><div class="ttname"><a href="game_8c.html#acedbef62c47b27c4109d02b2d985572b">menu_leave</a></div><div class="ttdeci">uint8_t * menu_leave</div><div class="ttdef"><b>Definition:</b> vg.c:38</div></div>
+<div class="ttc" id="ai8254_8h_html"><div class="ttname"><a href="i8254_8h.html">i8254.h</a></div></div>
 <div class="ttc" id="agroup__game_html_gga1b42fa71e74637bf79d803a8b43b6320a998a6349f2dfa5b25dc096766864932f"><div class="ttname"><a href="group__game.html#gga1b42fa71e74637bf79d803a8b43b6320a998a6349f2dfa5b25dc096766864932f">RULES</a></div><div class="ttdeci">@ RULES</div><div class="ttdef"><b>Definition:</b> game.h:23</div></div>
+<div class="ttc" id="agroup__game_html_ga9067ee636a0cf113862b1112cdaf8c8a"><div class="ttname"><a href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a">game_init</a></div><div class="ttdeci">int game_init(Game *self)</div><div class="ttdoc">Game initiaon.</div><div class="ttdef"><b>Definition:</b> game.c:70</div></div>
+<div class="ttc" id="agame_8c_html_a6efd04bb68ee7e536da100a157835c14"><div class="ttname"><a href="game_8c.html#a6efd04bb68ee7e536da100a157835c14">number_Letters2</a></div><div class="ttdeci">unsigned int number_Letters2</div><div class="ttdef"><b>Definition:</b> game.c:18</div></div>
+<div class="ttc" id="agame_8c_html_aed8a517711263842c55b5b0d70ac8028"><div class="ttname"><a href="game_8c.html#aed8a517711263842c55b5b0d70ac8028">menu_pause_resume</a></div><div class="ttdeci">uint8_t * menu_pause_resume</div><div class="ttdef"><b>Definition:</b> vg.c:40</div></div>
+<div class="ttc" id="agame_8c_html_a2eddc583119d75b9adaace90ae19559d"><div class="ttname"><a href="game_8c.html#a2eddc583119d75b9adaace90ae19559d">menu_single_img</a></div><div class="ttdeci">xpm_image_t menu_single_img</div><div class="ttdef"><b>Definition:</b> vg.c:19</div></div>
+<div class="ttc" id="atimer_8c_html_a91a2072306c68353712a6b771287dc2c"><div class="ttname"><a href="timer_8c.html#a91a2072306c68353712a6b771287dc2c">timer_int_handler</a></div><div class="ttdeci">void() timer_int_handler()</div><div class="ttdef"><b>Definition:</b> timer.c:75</div></div>
+<div class="ttc" id="agame_8c_html_a81eedff4e4b58f58b785ad8922d113e4"><div class="ttname"><a href="game_8c.html#a81eedff4e4b58f58b785ad8922d113e4">current_menu_img</a></div><div class="ttdeci">xpm_image_t current_menu_img</div><div class="ttdef"><b>Definition:</b> game.c:67</div></div>
+<div class="ttc" id="agroup__letters_html_ga9c190c5de3d7b253b05eff01cc84a109"><div class="ttname"><a href="group__letters.html#ga9c190c5de3d7b253b05eff01cc84a109">loadSentences</a></div><div class="ttdeci">void loadSentences()</div><div class="ttdoc">load sentences xpms</div><div class="ttdef"><b>Definition:</b> letters.c:315</div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911a56b36d0d0bb01b339cf1041adc08e262"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a56b36d0d0bb01b339cf1041adc08e262">PAUSE</a></div><div class="ttdeci">@ PAUSE</div><div class="ttdef"><b>Definition:</b> game.h:32</div></div>
+<div class="ttc" id="agame_8c_html_addf445d818e1aaccd1c2bb542c2e68eb"><div class="ttname"><a href="game_8c.html#addf445d818e1aaccd1c2bb542c2e68eb">regras_img</a></div><div class="ttdeci">xpm_image_t regras_img</div><div class="ttdef"><b>Definition:</b> vg.c:32</div></div>
+<div class="ttc" id="agroup__letters_html_ga3b6237caf1ef8186e7884ba0c5811032"><div class="ttname"><a href="group__letters.html#ga3b6237caf1ef8186e7884ba0c5811032">load</a></div><div class="ttdeci">int() load()</div><div class="ttdoc">load alphabet xpms</div><div class="ttdef"><b>Definition:</b> letters.c:5</div></div>
+<div class="ttc" id="ai8042_8h_html"><div class="ttname"><a href="i8042_8h.html">i8042.h</a></div></div>
+<div class="ttc" id="agame_8c_html_a7338a4f4a970a000ea011d762e7866db"><div class="ttname"><a href="game_8c.html#a7338a4f4a970a000ea011d762e7866db">mouse_cursor</a></div><div class="ttdeci">uint8_t * mouse_cursor</div><div class="ttdef"><b>Definition:</b> vg.c:33</div></div>
+<div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
+<div class="ttc" id="agame_8c_html_adb94a163ce647fae5850e371138bddb8"><div class="ttname"><a href="game_8c.html#adb94a163ce647fae5850e371138bddb8">selectorMenu</a></div><div class="ttdeci">int selectorMenu</div><div class="ttdef"><b>Definition:</b> game.c:17</div></div>
 <div class="ttc" id="astructGame_html_a5791ba44fba153d53e2ded354e927c34"><div class="ttname"><a href="structGame.html#a5791ba44fba153d53e2ded354e927c34">Game::state</a></div><div class="ttdeci">State state</div><div class="ttdef"><b>Definition:</b> game.h:51</div></div>
 <div class="ttc" id="agroup__game_html_gae83fcdbeb2b6757fc741ae953b633ee1"><div class="ttname"><a href="group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1">menu</a></div><div class="ttdeci">int menu()</div><div class="ttdoc">Game menu.</div><div class="ttdef"><b>Definition:</b> game.c:307</div></div>
+<div class="ttc" id="agroup__keyboard_html_ga83a7a5a5b8f8d0582ad9012666b381c8"><div class="ttname"><a href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">kbd_code_complete</a></div><div class="ttdeci">bool() kbd_code_complete(uint8_t scan_code[], uint8_t *size)</div><div class="ttdoc">Checks code if completed.</div><div class="ttdef"><b>Definition:</b> kbd.c:65</div></div>
+<div class="ttc" id="agame_8c_html_aa1bd1a4751a6ac92c3bde83bcf8e4f4b"><div class="ttname"><a href="game_8c.html#aa1bd1a4751a6ac92c3bde83bcf8e4f4b">menu_start</a></div><div class="ttdeci">uint8_t * menu_start</div><div class="ttdef"><b>Definition:</b> vg.c:34</div></div>
+<div class="ttc" id="agame_8c_html_a174cae25c733d45db94019d45ded3f44"><div class="ttname"><a href="game_8c.html#a174cae25c733d45db94019d45ded3f44">game_background_img</a></div><div class="ttdeci">xpm_image_t game_background_img</div><div class="ttdef"><b>Definition:</b> vg.c:26</div></div>
+<div class="ttc" id="agame_8c_html_a966576744a473fafb7687f8e5649941f"><div class="ttname"><a href="game_8c.html#a966576744a473fafb7687f8e5649941f">code</a></div><div class="ttdeci">uint8_t code</div><div class="ttdef"><b>Definition:</b> kbd.c:9</div></div>
+<div class="ttc" id="agame_8c_html_ad9a295cc385b528c964724a23ec2c59c"><div class="ttname"><a href="game_8c.html#ad9a295cc385b528c964724a23ec2c59c">upper_img</a></div><div class="ttdeci">xpm_image_t upper_img</div><div class="ttdef"><b>Definition:</b> vg.c:29</div></div>
+<div class="ttc" id="agame_8c_html_acdfff5e981a53afe307e9f68cb94aeeb"><div class="ttname"><a href="game_8c.html#acdfff5e981a53afe307e9f68cb94aeeb">upper</a></div><div class="ttdeci">uint8_t * upper</div><div class="ttdef"><b>Definition:</b> vg.c:45</div></div>
 <div class="ttc" id="agroup__game_html_gadd65dc8f95bf138a25e8242a855a82c2"><div class="ttname"><a href="group__game.html#gadd65dc8f95bf138a25e8242a855a82c2">generateSentence</a></div><div class="ttdeci">void generateSentence(letter **sentence, letter **sentence2)</div><div class="ttdoc">draw generated sentence</div><div class="ttdef"><b>Definition:</b> game.c:875</div></div>
+<div class="ttc" id="agroup__keyboard_html_gaca842ab89e3fc03d8cca103dd6808895"><div class="ttname"><a href="group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895">kbd_ih</a></div><div class="ttdeci">void() kbd_ih()</div><div class="ttdoc">KBC interrupt handler.</div><div class="ttdef"><b>Definition:</b> kbd.c:29</div></div>
 <div class="ttc" id="astructState_html_a3a213eb1c7bff6dae5e048e8469d8f73"><div class="ttname"><a href="structState.html#a3a213eb1c7bff6dae5e048e8469d8f73">State::canAdvance</a></div><div class="ttdeci">bool canAdvance</div><div class="ttdef"><b>Definition:</b> game.h:43</div></div>
+<div class="ttc" id="amouse_8h_html"><div class="ttname"><a href="mouse_8h.html">mouse.h</a></div></div>
 <div class="ttc" id="amouse_8c_html_a15f30eb0027f44ecb399b8f6e738a16d"><div class="ttname"><a href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">packet</a></div><div class="ttdeci">uint8_t packet</div><div class="ttdef"><b>Definition:</b> mouse.c:11</div></div>
 <div class="ttc" id="astructGame_html"><div class="ttname"><a href="structGame.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:48</div></div>
 <div class="ttc" id="agroup__game_html_ga58bdb5643d0814ac4e697a1564b79b70"><div class="ttname"><a href="group__game.html#ga58bdb5643d0814ac4e697a1564b79b70">game</a></div><div class="ttdeci">Game * game</div><div class="ttdef"><b>Definition:</b> game.h:56</div></div>
 <div class="ttc" id="agroup__game_html_ga1b42fa71e74637bf79d803a8b43b6320"><div class="ttname"><a href="group__game.html#ga1b42fa71e74637bf79d803a8b43b6320">StartMenuEntry</a></div><div class="ttdeci">StartMenuEntry</div><div class="ttdef"><b>Definition:</b> game.h:19</div></div>
+<div class="ttc" id="astructPoint_html"><div class="ttname"><a href="structPoint.html">Point</a></div><div class="ttdef"><b>Definition:</b> mouse_collision.h:10</div></div>
+<div class="ttc" id="agroup__letters_html_ga3473a75605cd752401ec13ef8074557d"><div class="ttname"><a href="group__letters.html#ga3473a75605cd752401ec13ef8074557d">letters</a></div><div class="ttdeci">letter * letters</div><div class="ttdef"><b>Definition:</b> letters.h:20</div></div>
+<div class="ttc" id="agroup__letters_html_gad9383479c1fc9cf22dfe67c1c7226f7a"><div class="ttname"><a href="group__letters.html#gad9383479c1fc9cf22dfe67c1c7226f7a">sentences</a></div><div class="ttdeci">letter ** sentences</div><div class="ttdef"><b>Definition:</b> letters.h:22</div></div>
+<div class="ttc" id="agame_8c_html_ac7a43cd11e135e74adf5e09e5b17a95d"><div class="ttname"><a href="game_8c.html#ac7a43cd11e135e74adf5e09e5b17a95d">current_menu</a></div><div class="ttdeci">uint8_t * current_menu</div><div class="ttdef"><b>Definition:</b> game.c:68</div></div>
+<div class="ttc" id="ap_8h_html_ab8084aeb873155a361307d4c90485c3e"><div class="ttname"><a href="p_8h.html#ab8084aeb873155a361307d4c90485c3e">p</a></div><div class="ttdeci">static const xpm_row_t p[]</div><div class="ttdef"><b>Definition:</b> p.h:2</div></div>
 <div class="ttc" id="astructletter_html"><div class="ttname"><a href="structletter.html">letter</a></div><div class="ttdef"><b>Definition:</b> letters.h:12</div></div>
+<div class="ttc" id="agame_8c_html_aa075d15986bd3e562cdd5c3fc3702b1d"><div class="ttname"><a href="game_8c.html#aa075d15986bd3e562cdd5c3fc3702b1d">counter_kbd</a></div><div class="ttdeci">unsigned int counter_kbd</div><div class="ttdef"><b>Definition:</b> kbd.c:6</div></div>
+<div class="ttc" id="astructletter_html_aa278494fc1ea3f799e27a896fa735b42"><div class="ttname"><a href="structletter.html#aa278494fc1ea3f799e27a896fa735b42">letter::img</a></div><div class="ttdeci">xpm_image_t img</div><div class="ttdef"><b>Definition:</b> letters.h:15</div></div>
+<div class="ttc" id="agame_8c_html_a02dc74e0759c257cd1203fafbf1ce872"><div class="ttname"><a href="game_8c.html#a02dc74e0759c257cd1203fafbf1ce872">win_menu</a></div><div class="ttdeci">uint8_t * win_menu</div><div class="ttdef"><b>Definition:</b> vg.c:46</div></div>
+<div class="ttc" id="agroup__mouse_html_ga210374b50462acdedab00df64d5cea3c"><div class="ttname"><a href="group__mouse.html#ga210374b50462acdedab00df64d5cea3c">mouse_ih</a></div><div class="ttdeci">void() mouse_ih()</div><div class="ttdoc">Mouse interrupt handler.</div><div class="ttdef"><b>Definition:</b> mouse.c:84</div></div>
+<div class="ttc" id="agame_8c_html_a2f12caa00d4804e466cc380ee0773e55"><div class="ttname"><a href="game_8c.html#a2f12caa00d4804e466cc380ee0773e55">next</a></div><div class="ttdeci">uint8_t * next</div><div class="ttdef"><b>Definition:</b> vg.c:44</div></div>
 <div class="ttc" id="agroup__game_html_ga67117bf13203711ddd35da556c650f54"><div class="ttname"><a href="group__game.html#ga67117bf13203711ddd35da556c650f54">isEqual</a></div><div class="ttdeci">bool isEqual(unsigned int idx, unsigned int number_Letters, letter **sentence, letter **inputSentence)</div><div class="ttdoc">check for sentences match</div><div class="ttdef"><b>Definition:</b> game.c:914</div></div>
 <div class="ttc" id="agroup__game_html_ga1305dbaa30c16f5108177fcf46cf1fbb"><div class="ttname"><a href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb">singlePlayer_mode</a></div><div class="ttdeci">int singlePlayer_mode(letter **sentence, letter **sentence2, letter **inputSentence, unsigned int idx)</div><div class="ttdoc">change game state to single player</div><div class="ttdef"><b>Definition:</b> game.c:597</div></div>
 <div class="ttc" id="agroup__game_html_gaca85c5fc48080fe3e5fc63cbfd15e3dd"><div class="ttname"><a href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd">mouse_handler</a></div><div class="ttdeci">void mouse_handler(struct packet *p)</div><div class="ttdoc">mouse interrupt handler</div><div class="ttdef"><b>Definition:</b> game.c:233</div></div>
+<div class="ttc" id="agame_8c_html_a0bf0ffc325ded66095069d1aab65d96e"><div class="ttname"><a href="game_8c.html#a0bf0ffc325ded66095069d1aab65d96e">menu_pause_img</a></div><div class="ttdeci">xpm_image_t menu_pause_img</div><div class="ttdef"><b>Definition:</b> vg.c:23</div></div>
 <div class="ttc" id="agroup__game_html_gad398da34eea9326b6108ec60b12c565e"><div class="ttname"><a href="group__game.html#gad398da34eea9326b6108ec60b12c565e">nextStartSelected</a></div><div class="ttdeci">void nextStartSelected()</div><div class="ttdoc">highlight menu option</div><div class="ttdef"><b>Definition:</b> game.c:320</div></div>
+<div class="ttc" id="agame_8c_html_aa7968c3382ed27f364c0c029db9cfc96"><div class="ttname"><a href="game_8c.html#aa7968c3382ed27f364c0c029db9cfc96">kb_bit_no</a></div><div class="ttdeci">uint8_t kb_bit_no</div><div class="ttdef"><b>Definition:</b> game.c:16</div></div>
+<div class="ttc" id="agame_8c_html_a86ddea3938f3279ba809b7df3a445ec2"><div class="ttname"><a href="game_8c.html#a86ddea3938f3279ba809b7df3a445ec2">regras</a></div><div class="ttdeci">uint8_t * regras</div><div class="ttdef"><b>Definition:</b> vg.c:48</div></div>
+<div class="ttc" id="agroup__mouse_html_gac1eb5eead4af6f9237b348ae482b897d"><div class="ttname"><a href="group__mouse.html#gac1eb5eead4af6f9237b348ae482b897d">mouse_packet_complete</a></div><div class="ttdeci">bool() mouse_packet_complete(uint8_t packets[], uint8_t *size)</div><div class="ttdoc">Checks packet if completed.</div><div class="ttdef"><b>Definition:</b> mouse.c:112</div></div>
+<div class="ttc" id="agroup__video__graphics_html_ga25083348788e77f52c326375125ca6d8"><div class="ttname"><a href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a></div><div class="ttdeci">int() vg_draw_xpm(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map)</div><div class="ttdoc">draw horizontal line</div><div class="ttdef"><b>Definition:</b> vg.c:252</div></div>
+<div class="ttc" id="agame_8c_html_a33926598f4dd9062811599f0bf843da8"><div class="ttname"><a href="game_8c.html#a33926598f4dd9062811599f0bf843da8">mouse_bit_no</a></div><div class="ttdeci">uint8_t mouse_bit_no</div><div class="ttdef"><b>Definition:</b> game.c:16</div></div>
+<div class="ttc" id="agame_8c_html_ad7028aff940c6aaa9a4b5685e2ef887b"><div class="ttname"><a href="game_8c.html#ad7028aff940c6aaa9a4b5685e2ef887b">menu_rules_img</a></div><div class="ttdeci">xpm_image_t menu_rules_img</div><div class="ttdef"><b>Definition:</b> vg.c:21</div></div>
+<div class="ttc" id="avg_8h_html"><div class="ttname"><a href="vg_8h.html">vg.h</a></div></div>
 <div class="ttc" id="agroup__game_html_gad74637df8ab081f644cb8f2175df273f"><div class="ttname"><a href="group__game.html#gad74637df8ab081f644cb8f2175df273f">pause</a></div><div class="ttdeci">int pause()</div><div class="ttdoc">Pause Menu.</div><div class="ttdef"><b>Definition:</b> game.c:742</div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911a843dff91ff0b0e5b98a110a512b2f531"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a843dff91ff0b0e5b98a110a512b2f531">WIN</a></div><div class="ttdeci">@ WIN</div><div class="ttdef"><b>Definition:</b> game.h:35</div></div>
 <div class="ttc" id="agroup__game_html_gga1b42fa71e74637bf79d803a8b43b6320a4bf4cbde18067e0600c7c8a7a30ba316"><div class="ttname"><a href="group__game.html#gga1b42fa71e74637bf79d803a8b43b6320a4bf4cbde18067e0600c7c8a7a30ba316">EXIT_GAME</a></div><div class="ttdeci">@ EXIT_GAME</div><div class="ttdef"><b>Definition:</b> game.h:24</div></div>
+<div class="ttc" id="avg__macros_8h_html"><div class="ttname"><a href="vg__macros_8h.html">vg_macros.h</a></div></div>
 <div class="ttc" id="astructState_html"><div class="ttname"><a href="structState.html">State</a></div><div class="ttdef"><b>Definition:</b> game.h:38</div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911a7a10b5d68d31711288e1fe0fa17dbf4f"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a7a10b5d68d31711288e1fe0fa17dbf4f">EXIT</a></div><div class="ttdeci">@ EXIT</div><div class="ttdef"><b>Definition:</b> game.h:34</div></div>
+<div class="ttc" id="agroup__i8042_html_ga5ca104d0489e06ae920e5d23b7523ec8"><div class="ttname"><a href="group__i8042.html#ga5ca104d0489e06ae920e5d23b7523ec8">LSHIFT_BRAKE</a></div><div class="ttdeci">#define LSHIFT_BRAKE</div><div class="ttdef"><b>Definition:</b> i8042.h:26</div></div>
+<div class="ttc" id="amouse__collision_8h_html"><div class="ttname"><a href="mouse__collision_8h.html">mouse_collision.h</a></div></div>
+<div class="ttc" id="agame_8c_html_a718a611e0003275b9edc07ce40624818"><div class="ttname"><a href="game_8c.html#a718a611e0003275b9edc07ce40624818">singlePlayerOpt</a></div><div class="ttdeci">Point singlePlayerOpt[]</div><div class="ttdef"><b>Definition:</b> game.c:62</div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911aedb8021c05603471ad7d382d8288223b"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911aedb8021c05603471ad7d382d8288223b">SCOREBOARD</a></div><div class="ttdeci">@ SCOREBOARD</div><div class="ttdef"><b>Definition:</b> game.h:33</div></div>
+<div class="ttc" id="agame_8c_html_a69ffdd86a45f352b3369c8f1da453f2a"><div class="ttname"><a href="game_8c.html#a69ffdd86a45f352b3369c8f1da453f2a">menu_multi</a></div><div class="ttdeci">uint8_t * menu_multi</div><div class="ttdef"><b>Definition:</b> vg.c:36</div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911a4c40e60bc71a32b924ce1f08d57f9721"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a4c40e60bc71a32b924ce1f08d57f9721">MENU</a></div><div class="ttdeci">@ MENU</div><div class="ttdef"><b>Definition:</b> game.h:28</div></div>
+<div class="ttc" id="agroup__video__graphics_html_gad8ecf93bc2bbc0c728143b0ff7a741ed"><div class="ttname"><a href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a></div><div class="ttdeci">int clear_xpm_with_cover(uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *map)</div><div class="ttdoc">clears xpm by drawing background</div><div class="ttdef"><b>Definition:</b> vg.c:317</div></div>
 <div class="ttc" id="astructState_html_a9345dc8cf75f1a1fc174120f23f31754"><div class="ttname"><a href="structState.html#a9345dc8cf75f1a1fc174120f23f31754">State::draw</a></div><div class="ttdeci">bool draw</div><div class="ttdef"><b>Definition:</b> game.h:41</div></div>
 <div class="ttc" id="agroup__game_html_gga46c8a310cf4c094f8c80e1cb8dc1f911a4f8f3c5d6d8cb89a97c156a1fe9f5257"><div class="ttname"><a href="group__game.html#gga46c8a310cf4c094f8c80e1cb8dc1f911a4f8f3c5d6d8cb89a97c156a1fe9f5257">RULES_CREDITS</a></div><div class="ttdeci">@ RULES_CREDITS</div><div class="ttdef"><b>Definition:</b> game.h:31</div></div>
+<div class="ttc" id="agroup__mouse__collision_html_ga651f5988f0ac19869078b989c1dd0289"><div class="ttname"><a href="group__mouse__collision.html#ga651f5988f0ac19869078b989c1dd0289">isInsideOpt</a></div><div class="ttdeci">int isInsideOpt(Point opt[], Point mouse)</div><div class="ttdef"><b>Definition:</b> mouse_collision.c:3</div></div>
+<div class="ttc" id="agame_8c_html_a0219ac12a59e7955360cfe34bb272c45"><div class="ttname"><a href="game_8c.html#a0219ac12a59e7955360cfe34bb272c45">win_exit</a></div><div class="ttdeci">uint8_t * win_exit</div><div class="ttdef"><b>Definition:</b> vg.c:47</div></div>
+<div class="ttc" id="agame_8c_html_aa703f6599751d6d0c2c3582b35d8f03e"><div class="ttname"><a href="game_8c.html#aa703f6599751d6d0c2c3582b35d8f03e">leaveOpt</a></div><div class="ttdeci">Point leaveOpt[]</div><div class="ttdef"><b>Definition:</b> game.c:65</div></div>
 <div class="ttc" id="agroup__game_html_gga1b42fa71e74637bf79d803a8b43b6320a88ec7d5086d2469ba843c7fcceade8a6"><div class="ttname"><a href="group__game.html#gga1b42fa71e74637bf79d803a8b43b6320a88ec7d5086d2469ba843c7fcceade8a6">DEFAULT</a></div><div class="ttdeci">@ DEFAULT</div><div class="ttdef"><b>Definition:</b> game.h:20</div></div>
+<div class="ttc" id="agame_8c_html_ae459ed5f5a565d171b67af71b9a41a94"><div class="ttname"><a href="game_8c.html#ae459ed5f5a565d171b67af71b9a41a94">counter_timer</a></div><div class="ttdeci">unsigned int counter_timer</div><div class="ttdef"><b>Definition:</b> game.c:23</div></div>
+<div class="ttc" id="agame_8c_html_a5c2a70d3b91f825ad0a8460062f53082"><div class="ttname"><a href="game_8c.html#a5c2a70d3b91f825ad0a8460062f53082">menu_pause_resume_img</a></div><div class="ttdeci">xpm_image_t menu_pause_resume_img</div><div class="ttdef"><b>Definition:</b> vg.c:24</div></div>
 <div class="ttc" id="agroup__game_html_ga2b79fbfc716ff3d02c0660f2db2087bc"><div class="ttname"><a href="group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc">drawPauseMenu</a></div><div class="ttdeci">int drawPauseMenu()</div><div class="ttdoc">draw Pause Menu</div><div class="ttdef"><b>Definition:</b> game.c:751</div></div>
+<div class="ttc" id="agame_8h_html"><div class="ttname"><a href="game_8h.html">game.h</a></div></div>
+<div class="ttc" id="agame_8c_html_aafe415d63350750268abd20d544487c9"><div class="ttname"><a href="game_8c.html#aafe415d63350750268abd20d544487c9">menu_pause</a></div><div class="ttdeci">uint8_t * menu_pause</div><div class="ttdef"><b>Definition:</b> vg.c:39</div></div>
 <div class="ttc" id="astructState_html_a4af346841fc664a0d8fee48148e77c20"><div class="ttname"><a href="structState.html#a4af346841fc664a0d8fee48148e77c20">State::start</a></div><div class="ttdeci">bool start</div><div class="ttdef"><b>Definition:</b> game.h:40</div></div>
+<div class="ttc" id="agame_8c_html_a6bdcfe1b8246db3682ddf162252d2107"><div class="ttname"><a href="game_8c.html#a6bdcfe1b8246db3682ddf162252d2107">timer_bit_no</a></div><div class="ttdeci">uint8_t timer_bit_no</div><div class="ttdef"><b>Definition:</b> game.c:16</div></div>
+<div class="ttc" id="agame_8c_html_a0048327837a030ec9604b900fde6ba3c"><div class="ttname"><a href="game_8c.html#a0048327837a030ec9604b900fde6ba3c">win_exit_img</a></div><div class="ttdeci">xpm_image_t win_exit_img</div><div class="ttdef"><b>Definition:</b> vg.c:31</div></div>
+<div class="ttc" id="agame_8c_html_adbbbc85ec1935d924ebf51083c22edfb"><div class="ttname"><a href="game_8c.html#adbbbc85ec1935d924ebf51083c22edfb">multiPlayerOpt</a></div><div class="ttdeci">Point multiPlayerOpt[]</div><div class="ttdef"><b>Definition:</b> game.c:63</div></div>
+<div class="ttc" id="aoutput_8txt_html_a974ff07538c0fb2ace1fd662f6d3416a"><div class="ttname"><a href="output_8txt.html#a974ff07538c0fb2ace1fd662f6d3416a">i</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock i</div><div class="ttdef"><b>Definition:</b> output.txt:909</div></div>
 <div class="ttc" id="agroup__game_html_ga9e96894bf80aa84d53d41008b32b4ca5"><div class="ttname"><a href="group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5">changeMenuState</a></div><div class="ttdeci">void changeMenuState()</div><div class="ttdoc">change menu state</div><div class="ttdef"><b>Definition:</b> game.c:174</div></div>
+<div class="ttc" id="agame_8c_html_a58dc63ab7cc79c74c0e9f9a536010269"><div class="ttname"><a href="game_8c.html#a58dc63ab7cc79c74c0e9f9a536010269">next_img</a></div><div class="ttdeci">xpm_image_t next_img</div><div class="ttdef"><b>Definition:</b> vg.c:28</div></div>
 <div class="ttc" id="agroup__game_html_gga1b42fa71e74637bf79d803a8b43b6320a3b6e3be2dfacfb1d14722ea50147ac05"><div class="ttname"><a href="group__game.html#gga1b42fa71e74637bf79d803a8b43b6320a3b6e3be2dfacfb1d14722ea50147ac05">MULTI</a></div><div class="ttdeci">@ MULTI</div><div class="ttdef"><b>Definition:</b> game.h:22</div></div>
 <div class="ttc" id="agroup__game_html_ga8156cca54dc27e9449bd43b0be7220ee"><div class="ttname"><a href="group__game.html#ga8156cca54dc27e9449bd43b0be7220ee">prevStartSelected</a></div><div class="ttdeci">void prevStartSelected()</div><div class="ttdoc">highlight menu option</div><div class="ttdef"><b>Definition:</b> game.c:348</div></div>
+<div class="ttc" id="agame_8c_html_a5ca07cec5599a7d2cdb76f24507a9a05"><div class="ttname"><a href="game_8c.html#a5ca07cec5599a7d2cdb76f24507a9a05">selectorPause</a></div><div class="ttdeci">int selectorPause</div><div class="ttdef"><b>Definition:</b> game.c:17</div></div>
 <div class="ttc" id="agroup__game_html_ga8543fc9b527fa4fd3687297747807f71"><div class="ttname"><a href="group__game.html#ga8543fc9b527fa4fd3687297747807f71">draw_sentence</a></div><div class="ttdeci">int draw_sentence(letter *sentence, uint16_t x, uint16_t y)</div><div class="ttdef"><b>Definition:</b> game.c:782</div></div>
+<div class="ttc" id="agroup__video__graphics_html_ga484929b3e33f236cd9087e18e1521ee3"><div class="ttname"><a href="group__video__graphics.html#ga484929b3e33f236cd9087e18e1521ee3">get_vres</a></div><div class="ttdeci">int get_vres()</div><div class="ttdoc">Get vertical resolution in pixels.</div><div class="ttdef"><b>Definition:</b> vg.c:305</div></div>
+<div class="ttc" id="agame_8c_html_a52995113506f1089bf7501f1eaa1a51f"><div class="ttname"><a href="game_8c.html#a52995113506f1089bf7501f1eaa1a51f">menu_leave_img</a></div><div class="ttdeci">xpm_image_t menu_leave_img</div><div class="ttdef"><b>Definition:</b> vg.c:22</div></div>
+<div class="ttc" id="agame_8c_html_a542a728626de559689a80b4223eeb80b"><div class="ttname"><a href="game_8c.html#a542a728626de559689a80b4223eeb80b">prevStartMenuEntry</a></div><div class="ttdeci">static StartMenuEntry prevStartMenuEntry</div><div class="ttdef"><b>Definition:</b> game.c:20</div></div>
+<div class="ttc" id="ay_8h_html_a2598f408b2a405231757cc828acb9432"><div class="ttname"><a href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a></div><div class="ttdeci">static const xpm_row_t y[]</div><div class="ttdef"><b>Definition:</b> y.h:2</div></div>
+<div class="ttc" id="agame_8c_html_a320fa0f201f15543fd8ecddea65231b9"><div class="ttname"><a href="game_8c.html#a320fa0f201f15543fd8ecddea65231b9">menu_rules</a></div><div class="ttdeci">uint8_t * menu_rules</div><div class="ttdef"><b>Definition:</b> vg.c:37</div></div>
+<div class="ttc" id="agame_8c_html_aa4aa50a62e375e826b4d7bd2b0f708a1"><div class="ttname"><a href="game_8c.html#aa4aa50a62e375e826b4d7bd2b0f708a1">menu_single</a></div><div class="ttdeci">uint8_t * menu_single</div><div class="ttdef"><b>Definition:</b> vg.c:35</div></div>
+<div class="ttc" id="ak_8h_html_a20c0bd4e22002476f2f8435492c9db7e"><div class="ttname"><a href="k_8h.html#a20c0bd4e22002476f2f8435492c9db7e">k</a></div><div class="ttdeci">static const xpm_row_t k[]</div><div class="ttdef"><b>Definition:</b> k.h:2</div></div>
 <div class="ttc" id="astructMouse_html_ab71e2490a2a3ef5cf748d2e9304248ee"><div class="ttname"><a href="structMouse.html#ab71e2490a2a3ef5cf748d2e9304248ee">Mouse::lmb</a></div><div class="ttdeci">bool lmb</div><div class="ttdef"><b>Definition:</b> game.h:16</div></div>
 <div class="ttc" id="astructState_html_af5f85b1e391adec977ddb78f62d6e211"><div class="ttname"><a href="structState.html#af5f85b1e391adec977ddb78f62d6e211">State::drawInput</a></div><div class="ttdeci">bool drawInput</div><div class="ttdef"><b>Definition:</b> game.h:42</div></div>
+<div class="ttc" id="agame_8c_html_a42c13eb2845c2cc12f284f269528eb5c"><div class="ttname"><a href="game_8c.html#a42c13eb2845c2cc12f284f269528eb5c">startMenuEntry</a></div><div class="ttdeci">static StartMenuEntry startMenuEntry</div><div class="ttdef"><b>Definition:</b> game.c:19</div></div>
 <div class="ttc" id="agroup__game_html_gga1b42fa71e74637bf79d803a8b43b6320a3388f7110f6f25a54e215eb75d5d7516"><div class="ttname"><a href="group__game.html#gga1b42fa71e74637bf79d803a8b43b6320a3388f7110f6f25a54e215eb75d5d7516">SINGLE</a></div><div class="ttdeci">@ SINGLE</div><div class="ttdef"><b>Definition:</b> game.h:21</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

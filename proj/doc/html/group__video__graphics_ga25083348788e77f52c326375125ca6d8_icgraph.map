@@ -1,0 +1,17 @@
+<map id="vg_draw_xpm" name="vg_draw_xpm">
+<area shape="rect" id="node1" title="draw horizontal line" alt="" coords="713,219,827,245"/>
+<area shape="rect" id="node2" href="$group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5" title="change menu state" alt="" coords="315,41,453,68"/>
+<area shape="rect" id="node5" href="$group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f" title="draw input sentence" alt="" coords="505,41,665,68"/>
+<area shape="rect" id="node6" href="$group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,143,457,169"/>
+<area shape="rect" id="node7" href="$group__game.html#ga8543fc9b527fa4fd3687297747807f71" title=" " alt="" coords="525,143,645,169"/>
+<area shape="rect" id="node8" href="$group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe" title="draw mouse" alt="" coords="335,244,433,271"/>
+<area shape="rect" id="node9" href="$group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc" title="draw Pause Menu" alt="" coords="521,295,649,321"/>
+<area shape="rect" id="node11" href="$group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2" title="Draws rules menu." alt="" coords="522,345,649,372"/>
+<area shape="rect" id="node13" href="$group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1" title="Game menu." alt="" coords="355,396,413,423"/>
+<area shape="rect" id="node14" href="$group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="516,193,655,220"/>
+<area shape="rect" id="node15" href="$group__game.html#ga363cc9b19cd21711fe8b6427762e28cb" title="Winners menu." alt="" coords="535,447,636,473"/>
+<area shape="rect" id="node3" href="$group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,295,263,321"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,295,128,321"/>
+<area shape="rect" id="node10" href="$group__game.html#gad74637df8ab081f644cb8f2175df273f" title="Pause Menu." alt="" coords="353,295,415,321"/>
+<area shape="rect" id="node12" href="$group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6" title="change to rules menu" alt="" coords="357,345,411,372"/>
+</map>

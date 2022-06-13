@@ -1,0 +1,8 @@
+<map id="mouse_handler" name="mouse_handler">
+<area shape="rect" id="node1" title="mouse interrupt handler" alt="" coords="5,81,128,108"/>
+<area shape="rect" id="node2" href="$group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed" title="clears xpm by drawing background" alt="" coords="176,5,344,32"/>
+<area shape="rect" id="node4" href="$group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e" title="Get horizontal resolution in pixels." alt="" coords="221,56,299,83"/>
+<area shape="rect" id="node5" href="$group__video__graphics.html#ga484929b3e33f236cd9087e18e1521ee3" title="Get vertical resolution in pixels." alt="" coords="221,107,299,133"/>
+<area shape="rect" id="node6" href="$group__mouse__collision.html#ga651f5988f0ac19869078b989c1dd0289" title=" " alt="" coords="213,157,307,184"/>
+<area shape="rect" id="node3" href="$group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="392,5,507,32"/>
+</map>

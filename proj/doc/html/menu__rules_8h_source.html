@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('menu__rules_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,18 +90,13 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4768879b15733c4f0f88b1ecd58b4754.html">xpms</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">menu_rules.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="menu__rules_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* XPM */</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">static</span> xpm_row_t <span class="keyword">const</span> menu_rules_xpm[] = {</div>
+<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="menu__rules_8h.html#ab2155f9482101f4767c019ae35157a54">    2</a></span>&#160;<span class="keyword">static</span> xpm_row_t <span class="keyword">const</span> <a class="code" href="menu__rules_8h.html#ab2155f9482101f4767c019ae35157a54">menu_rules_xpm</a>[] = {</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/* columns rows colors chars-per-pixel */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="stringliteral">&quot;1152 864 256 2 &quot;</span>,</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="stringliteral">&quot;   c #040015&quot;</span>,</div>
@@ -1196,11 +1222,16 @@ $(function() {
 <div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;<span class="stringliteral">&quot;w e e w e e w e w e e e e w e w e e e w e e w e w k h e e w e w g e e e k e e e k h e e e e e g e k e e k k e w w k e w e w w w h w w w h w w h w h w h w w w w h h w w h w h w w h h w w w w h w w h w h w w w h w h w w h w h w w q w w w q w w w 7 9 q w w w q w w w w w w 3 w w w 7 q 7 w 7 w w 3 3 w w w w 3 w w w w 6 q w 7 7 q 9 3 w w q w 7 7 7 7 7 q 9 7 7 7 6 6 3 6 3 6 6 3 6 6 1 7 1 3 6 7 7 7 7 7 6 3 6 1 6 1 6 6 7 7 7 3 6 7 1 7 6 7 6 7 3 7 6 7 3 7 6 7 1 7 6 1 7 6 7 7 1 7 6 1 7 7 7 3 6 3 6 7 7 1 7 6 3 7 6 7 3 6 7 7 1 7 6 3 6 7 7 3 6 3 6 7 3 6 7 7 1 7 6 3 7 6 7 1 6 7 7 6 7 7 1 7 7 6 3 7 6 1 7 7 7 7 7 q 6 7 7 7 7 7 6 3 7 7 6 3 7 6 6 7 7 7 1 7 6 3 6 7 7 1 7 6 3 7 6 7 1 7 3 6 7 1 6 6 3 7 6 1 7 7 6 1 7 6 3 6 7 6 1 7 1 7 6 6 7 3 7 1 6 6 1 7 3 7 6 3 6 7 3 6 7 6 1 6 7 1 1 6 1 6 6 6 1 6 1 6 1 6 1 6 1 1 1 1 6 1 6 1 1 6 1 1 1 1 6 1 1 1 6 1 6 1 1 6 1 1 1 1 1 1 6 1 6 1 1 6 1 1 1 1 1 1 1 6 6 1 6 6 1 1 1 1 6 1 1 6 1 1 6 1 1 5 1 1 1 &lt; - 6 1 1 1 - 1 1 - 1 - 5 &lt; 1 1 6 5 1 - 6 1 - 6 1 1 1 - 1 - 5 - 5 1 - 5 1 5 1 - 1 - 6 5 1 1 5 5 1 5 - 1 1 &gt; 1 1 &gt; - - 1 1 &gt; - 1 1 1 - 1 - 1 1 1 - 1 - 1 1 - 1 1 1 - 1 - 1 1 - 5 1 1 - 1 1 - 1 1 - - 6 1 1 1 1 1 1 1 6 1 1 1 1 1 1 1 - 1 - 6 1 - 6 1 - 5 5 1 1 1 &lt; 1 5 1 1 1 1 1 - 6 1 - 5 1 &lt; &lt; 1 1 1 1 1 - 1 1 &gt; &lt; &lt; &lt; : &lt; : &lt; : &lt; &lt; 2 &lt; &lt; &lt; &lt; &lt; &lt; &lt; 2 : 2 &lt; &lt; : &lt; &lt; &lt; &lt; &lt; : &lt; &lt; &lt; 2 &lt; : 2 &lt; : : 2 &lt; : 2 &lt; &lt; ; : &lt; &lt; &lt; : &lt; &lt; &lt; &lt; &lt; : &lt; 2 &lt; &lt; &lt; &lt; : &lt; ; &lt; &lt; : &lt; &lt; 2 &lt; &lt; ; &lt; &lt; &lt; &lt; : ; &lt; &lt; &lt; ; &lt; : &lt; &lt; &lt; : &lt; : &gt; &lt; &lt; : &lt; : &lt; &lt; : &lt; &lt; : &lt; 2 &lt; &lt; &lt; &lt; : &lt; &lt; : &lt; : - &lt; : ; : ; &lt; &lt; : &lt; ; - : &lt; : &lt; ; ; &lt; ; &lt; &lt; &lt; : &lt; 2 &lt; &lt; &lt; &lt; ; 2 : : 2 &lt; &lt; : &lt; ; &lt; : - &gt; &lt; : &gt; ; &lt; ; &lt; ; &lt; &lt; &lt; : ; &lt; : &lt; : &gt; ; &lt; &lt; : &lt; ; &lt; : &gt; &lt; : &lt; : 2 ; ; &lt; : : &lt; ; &gt; : &lt; ; &lt; : &lt; : &gt; : &lt; &lt; : &lt; ; &lt; &lt; ; ; ; : - &gt; ; &lt; - &gt; : &lt; : : &lt; : : &lt; : : ; &lt; : : ; : ; : - : - ; : ; ; : - &gt; &lt; ; &lt; : ; : : - ; &lt; ; ; ; ; ; - &gt; ; ; ; ; ; ; &lt; ; ; ; ; ; - ; - ; ; &lt; = ; ; - : - ; - = ; - = ; ; ; ; ; ; ; : # : : 2 : : : ; : : ; : : : ; : : : : # : : # r # : : : : : : ; ; ; ; &gt; - &gt; &gt; - - ; ; ; ; ; = - ; ; ; ; - ; - ; ; &gt; ; = : ; : ; ; ; ; ; ; : = ; : - ; &gt; : ; : - : - = 5 : : - : ; - ; ; ; ; ; &lt; &lt; ; ; ; ; ; ; : : ; ; : : = : : = : : = = ; = ; # = ; ; 2 ; : * = ; ; = ; = = ; : : = : ; ; ; : - = = ; , , z OX&gt;X#X*X@X#X-X@X@X@X@X#X@X$X:X,X#X#X#X#X#X#X#X$X$X:X#X:X:X:X#X#X:X#X:X:X:X$X:X:X$X:X$X:X:X$X$X#X@X@X@X@X0.@X@X:X0.j j +X0.@X0.0.@X0.+X@XK @X+X@X@X&quot;</span></div>
 <div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="amenu__rules_8h_html_ab2155f9482101f4767c019ae35157a54"><div class="ttname"><a href="menu__rules_8h.html#ab2155f9482101f4767c019ae35157a54">menu_rules_xpm</a></div><div class="ttdeci">static const xpm_row_t menu_rules_xpm[]</div><div class="ttdef"><b>Definition:</b> menu_rules.h:2</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4768879b15733c4f0f88b1ecd58b4754.html">xpms</a></li><li class="navelem"><a class="el" href="menu__rules_8h.html">menu_rules.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

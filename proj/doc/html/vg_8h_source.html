@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('vg_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">vg.h</div>  </div>
@@ -81,14 +107,14 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;int (<a class="code" href="group__video__graphics.html#gaf1bf9e7f07f92f3f1561df4630ce33d1">map_memory</a>)(uint16_t mode);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;int (<a class="code" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a>)(uint16_t x, uint16_t y, uint32_t color);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;int (<a class="code" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a>)(uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint32_t color);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;int (<a class="code" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a>)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;int (<a class="code" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a>)(uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t len, uint32_t color);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;int (<a class="code" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a>)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;int (<a class="code" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a>)(uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t width, uint16_t height, uint32_t color);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;int (<a class="code" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a>)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;int (<a class="code" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a>)(uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, xpm_image_t img, uint8_t *map);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;int (<a class="code" href="group__video__graphics.html#gafecc19faa706051803b1e975686a2ea7">vg_move_xpm</a>)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
@@ -108,31 +134,104 @@ $(function() {
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;int(<a class="code" href="group__video__graphics.html#ga79bda8abbcc6e61e59d039de828f83df">load_all_xpms</a>)();</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a>(uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *background_map);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a>(uint16_t <a class="code" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="code" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *background_map);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __VC_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aupp_8h_html_a4ae144022e3e0f489b75ad774091ba8c"><div class="ttname"><a href="upp_8h.html#a4ae144022e3e0f489b75ad774091ba8c">upper_xpm</a></div><div class="ttdeci">static const xpm_row_t upper_xpm[]</div><div class="ttdef"><b>Definition:</b> upp.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a5077a1a703b40b073dc6b5c1129ab0a1"><div class="ttname"><a href="vg_8c.html#a5077a1a703b40b073dc6b5c1129ab0a1">video_mem</a></div><div class="ttdeci">static void * video_mem</div><div class="ttdef"><b>Definition:</b> vg.c:7</div></div>
+<div class="ttc" id="avg_8c_html_a52995113506f1089bf7501f1eaa1a51f"><div class="ttname"><a href="vg_8c.html#a52995113506f1089bf7501f1eaa1a51f">menu_leave_img</a></div><div class="ttdeci">xpm_image_t menu_leave_img</div><div class="ttdef"><b>Definition:</b> vg.c:22</div></div>
+<div class="ttc" id="aj_8h_html_a47c0e056bfc4b0cc5c76d4026bfe4830"><div class="ttname"><a href="j_8h.html#a47c0e056bfc4b0cc5c76d4026bfe4830">j</a></div><div class="ttdeci">static const xpm_row_t j[]</div><div class="ttdef"><b>Definition:</b> j.h:2</div></div>
+<div class="ttc" id="ax_8h_html_a8cf7d295b43621780dc437744034d5e4"><div class="ttname"><a href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a></div><div class="ttdeci">static const xpm_row_t x[]</div><div class="ttdef"><b>Definition:</b> x.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a69ffdd86a45f352b3369c8f1da453f2a"><div class="ttname"><a href="vg_8c.html#a69ffdd86a45f352b3369c8f1da453f2a">menu_multi</a></div><div class="ttdeci">uint8_t * menu_multi</div><div class="ttdef"><b>Definition:</b> vg.c:36</div></div>
+<div class="ttc" id="avg_8c_html_a2f12caa00d4804e466cc380ee0773e55"><div class="ttname"><a href="vg_8c.html#a2f12caa00d4804e466cc380ee0773e55">next</a></div><div class="ttdeci">uint8_t * next</div><div class="ttdef"><b>Definition:</b> vg.c:44</div></div>
+<div class="ttc" id="ar_8h_html_a64ef4d3865ba9bb1ac9b71651fb73406"><div class="ttname"><a href="r_8h.html#a64ef4d3865ba9bb1ac9b71651fb73406">r</a></div><div class="ttdeci">static const xpm_row_t r[]</div><div class="ttdef"><b>Definition:</b> r.h:2</div></div>
+<div class="ttc" id="avg_8c_html_addf445d818e1aaccd1c2bb542c2e68eb"><div class="ttname"><a href="vg_8c.html#addf445d818e1aaccd1c2bb542c2e68eb">regras_img</a></div><div class="ttdeci">xpm_image_t regras_img</div><div class="ttdef"><b>Definition:</b> vg.c:32</div></div>
+<div class="ttc" id="avg_8c_html_aa3b05db7dca7a1fd396ecb42c0432467"><div class="ttname"><a href="vg_8c.html#aa3b05db7dca7a1fd396ecb42c0432467">double_buf</a></div><div class="ttdeci">char * double_buf</div><div class="ttdef"><b>Definition:</b> vg.c:8</div></div>
+<div class="ttc" id="avg_8c_html_a0bf0ffc325ded66095069d1aab65d96e"><div class="ttname"><a href="vg_8c.html#a0bf0ffc325ded66095069d1aab65d96e">menu_pause_img</a></div><div class="ttdeci">xpm_image_t menu_pause_img</div><div class="ttdef"><b>Definition:</b> vg.c:23</div></div>
+<div class="ttc" id="axpm_8h_html"><div class="ttname"><a href="xpm_8h.html">xpm.h</a></div></div>
+<div class="ttc" id="avg_8c_html_a320fa0f201f15543fd8ecddea65231b9"><div class="ttname"><a href="vg_8c.html#a320fa0f201f15543fd8ecddea65231b9">menu_rules</a></div><div class="ttdeci">uint8_t * menu_rules</div><div class="ttdef"><b>Definition:</b> vg.c:37</div></div>
+<div class="ttc" id="amenu_8h_html_a83e5a889e876d12709bfae1aec506dcd"><div class="ttname"><a href="menu_8h.html#a83e5a889e876d12709bfae1aec506dcd">menu_xpm</a></div><div class="ttdeci">static const xpm_row_t menu_xpm[]</div><div class="ttdef"><b>Definition:</b> menu.h:2</div></div>
+<div class="ttc" id="awin_8h_html_a567af0d8fac393311bd7f8aeb3a4bb0a"><div class="ttname"><a href="win_8h.html#a567af0d8fac393311bd7f8aeb3a4bb0a">win_menu_xpm</a></div><div class="ttdeci">static const xpm_row_t win_menu_xpm[]</div><div class="ttdef"><b>Definition:</b> win.h:2</div></div>
+<div class="ttc" id="amenu__single_8h_html_aad535f5f48e3c5222bc56911e26571f8"><div class="ttname"><a href="menu__single_8h.html#aad535f5f48e3c5222bc56911e26571f8">menu_single_xpm</a></div><div class="ttdeci">static const xpm_row_t menu_single_xpm[]</div><div class="ttdef"><b>Definition:</b> menu_single.h:2</div></div>
 <div class="ttc" id="agroup__video__graphics_html_gaa01f9bbad6332518ec591451ecff15d2"><div class="ttname"><a href="group__video__graphics.html#gaa01f9bbad6332518ec591451ecff15d2">R</a></div><div class="ttdeci">uint8_t() R(uint32_t color)</div><div class="ttdoc">masks red color into red position</div><div class="ttdef"><b>Definition:</b> vg.c:247</div></div>
+<div class="ttc" id="avg_8c_html_a58dc63ab7cc79c74c0e9f9a536010269"><div class="ttname"><a href="vg_8c.html#a58dc63ab7cc79c74c0e9f9a536010269">next_img</a></div><div class="ttdeci">xpm_image_t next_img</div><div class="ttdef"><b>Definition:</b> vg.c:28</div></div>
+<div class="ttc" id="avg_8c_html_a245260f6f74972558f61b85227df5aae"><div class="ttname"><a href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a></div><div class="ttdeci">static unsigned size</div><div class="ttdef"><b>Definition:</b> vg.c:15</div></div>
+<div class="ttc" id="avg_8c_html_a86ddea3938f3279ba809b7df3a445ec2"><div class="ttname"><a href="vg_8c.html#a86ddea3938f3279ba809b7df3a445ec2">regras</a></div><div class="ttdeci">uint8_t * regras</div><div class="ttdef"><b>Definition:</b> vg.c:48</div></div>
+<div class="ttc" id="avg_8c_html_a7338a4f4a970a000ea011d762e7866db"><div class="ttname"><a href="vg_8c.html#a7338a4f4a970a000ea011d762e7866db">mouse_cursor</a></div><div class="ttdeci">uint8_t * mouse_cursor</div><div class="ttdef"><b>Definition:</b> vg.c:33</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga6402ca094cd1aace6adedd01b2b5496e"><div class="ttname"><a href="group__video__graphics.html#ga6402ca094cd1aace6adedd01b2b5496e">get_hres</a></div><div class="ttdeci">int get_hres()</div><div class="ttdoc">Get horizontal resolution in pixels.</div><div class="ttdef"><b>Definition:</b> vg.c:301</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga53f6c1a60eaac0030d48bc8932255693"><div class="ttname"><a href="group__video__graphics.html#ga53f6c1a60eaac0030d48bc8932255693">double_buffering</a></div><div class="ttdeci">void() double_buffering()</div><div class="ttdoc">double buffer setup</div><div class="ttdef"><b>Definition:</b> vg.c:309</div></div>
+<div class="ttc" id="avg_8c_html_a2eddc583119d75b9adaace90ae19559d"><div class="ttname"><a href="vg_8c.html#a2eddc583119d75b9adaace90ae19559d">menu_single_img</a></div><div class="ttdeci">xpm_image_t menu_single_img</div><div class="ttdef"><b>Definition:</b> vg.c:19</div></div>
+<div class="ttc" id="avg_8c_html_a40be353997ba7583c2321795c9576978"><div class="ttname"><a href="vg_8c.html#a40be353997ba7583c2321795c9576978">game_background</a></div><div class="ttdeci">uint8_t * game_background</div><div class="ttdef"><b>Definition:</b> vg.c:42</div></div>
+<div class="ttc" id="avg_8c_html_aa1bd1a4751a6ac92c3bde83bcf8e4f4b"><div class="ttname"><a href="vg_8c.html#aa1bd1a4751a6ac92c3bde83bcf8e4f4b">menu_start</a></div><div class="ttdeci">uint8_t * menu_start</div><div class="ttdef"><b>Definition:</b> vg.c:34</div></div>
+<div class="ttc" id="avg_8c_html_a174cae25c733d45db94019d45ded3f44"><div class="ttname"><a href="vg_8c.html#a174cae25c733d45db94019d45ded3f44">game_background_img</a></div><div class="ttdeci">xpm_image_t game_background_img</div><div class="ttdef"><b>Definition:</b> vg.c:26</div></div>
 <div class="ttc" id="agroup__video__graphics_html_gaf1bf9e7f07f92f3f1561df4630ce33d1"><div class="ttname"><a href="group__video__graphics.html#gaf1bf9e7f07f92f3f1561df4630ce33d1">map_memory</a></div><div class="ttdeci">int() map_memory(uint16_t mode)</div><div class="ttdef"><b>Definition:</b> vg.c:175</div></div>
+<div class="ttc" id="aregras_8h_html_abb11a88973472f029c6313ae54b26b0c"><div class="ttname"><a href="regras_8h.html#abb11a88973472f029c6313ae54b26b0c">regras_xpm</a></div><div class="ttdeci">static const xpm_row_t regras_xpm[]</div><div class="ttdef"><b>Definition:</b> regras.h:2</div></div>
+<div class="ttc" id="avg__macros_8h_html_ad4a1284cb93ee5ab0785b5422d262ce2"><div class="ttname"><a href="vg__macros_8h.html#ad4a1284cb93ee5ab0785b5422d262ce2">VBE_SUPPORTED</a></div><div class="ttdeci">#define VBE_SUPPORTED</div><div class="ttdef"><b>Definition:</b> vg_macros.h:19</div></div>
+<div class="ttc" id="avg_8c_html_ad1dfeaaaa70c88289dc47ad950c483ec"><div class="ttname"><a href="vg_8c.html#ad1dfeaaaa70c88289dc47ad950c483ec">menu_pause_exit</a></div><div class="ttdeci">uint8_t * menu_pause_exit</div><div class="ttdef"><b>Definition:</b> vg.c:41</div></div>
+<div class="ttc" id="avg_8c_html_acdfff5e981a53afe307e9f68cb94aeeb"><div class="ttname"><a href="vg_8c.html#acdfff5e981a53afe307e9f68cb94aeeb">upper</a></div><div class="ttdeci">uint8_t * upper</div><div class="ttdef"><b>Definition:</b> vg.c:45</div></div>
 <div class="ttc" id="agroup__video__graphics_html_gafecc19faa706051803b1e975686a2ea7"><div class="ttname"><a href="group__video__graphics.html#gafecc19faa706051803b1e975686a2ea7">vg_move_xpm</a></div><div class="ttdeci">int() vg_move_xpm(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed)</div><div class="ttdoc">draw horizontal line</div></div>
+<div class="ttc" id="avg_8c_html_a89fa3fb58e975d148fcb2413e24b78a1"><div class="ttname"><a href="vg_8c.html#a89fa3fb58e975d148fcb2413e24b78a1">bits_per_pixel</a></div><div class="ttdeci">static unsigned bits_per_pixel</div><div class="ttdef"><b>Definition:</b> vg.c:13</div></div>
+<div class="ttc" id="amenu__leave_8h_html_abe700b4f215fa70c5054580cc1543dce"><div class="ttname"><a href="menu__leave_8h.html#abe700b4f215fa70c5054580cc1543dce">menu_leave_xpm</a></div><div class="ttdeci">static const xpm_row_t menu_leave_xpm[]</div><div class="ttdef"><b>Definition:</b> menu_leave.h:2</div></div>
+<div class="ttc" id="apause__menu__resume_8h_html_a4b25ac45b916b0687988e872f402c9ae"><div class="ttname"><a href="pause__menu__resume_8h.html#a4b25ac45b916b0687988e872f402c9ae">pause_menu_resume_xpm</a></div><div class="ttdeci">static const xpm_row_t pause_menu_resume_xpm[]</div><div class="ttdef"><b>Definition:</b> pause_menu_resume.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a4a9509fdd9e7f267e3b55bbb088c05cd"><div class="ttname"><a href="vg_8c.html#a4a9509fdd9e7f267e3b55bbb088c05cd">menu_multi_img</a></div><div class="ttdeci">xpm_image_t menu_multi_img</div><div class="ttdef"><b>Definition:</b> vg.c:20</div></div>
+<div class="ttc" id="amenu__rules_8h_html_ab2155f9482101f4767c019ae35157a54"><div class="ttname"><a href="menu__rules_8h.html#ab2155f9482101f4767c019ae35157a54">menu_rules_xpm</a></div><div class="ttdeci">static const xpm_row_t menu_rules_xpm[]</div><div class="ttdef"><b>Definition:</b> menu_rules.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a47f16eebbc07c33b26f4963b23ff4a46"><div class="ttname"><a href="vg_8c.html#a47f16eebbc07c33b26f4963b23ff4a46">red_car</a></div><div class="ttdeci">uint8_t * red_car</div><div class="ttdef"><b>Definition:</b> vg.c:43</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga074ef4ad6b93f178c51610bfce7d94b8"><div class="ttname"><a href="group__video__graphics.html#ga074ef4ad6b93f178c51610bfce7d94b8">get_double_buffer</a></div><div class="ttdeci">char *() get_double_buffer()</div><div class="ttdef"><b>Definition:</b> vg.c:313</div></div>
+<div class="ttc" id="avg_8c_html_aa4aa50a62e375e826b4d7bd2b0f708a1"><div class="ttname"><a href="vg_8c.html#aa4aa50a62e375e826b4d7bd2b0f708a1">menu_single</a></div><div class="ttdeci">uint8_t * menu_single</div><div class="ttdef"><b>Definition:</b> vg.c:35</div></div>
+<div class="ttc" id="avg_8c_html_acedbef62c47b27c4109d02b2d985572b"><div class="ttname"><a href="vg_8c.html#acedbef62c47b27c4109d02b2d985572b">menu_leave</a></div><div class="ttdeci">uint8_t * menu_leave</div><div class="ttdef"><b>Definition:</b> vg.c:38</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga24e0201c0056d4d68aa7a34ae360ed87"><div class="ttname"><a href="group__video__graphics.html#ga24e0201c0056d4d68aa7a34ae360ed87">B</a></div><div class="ttdeci">uint8_t() B(uint32_t color)</div><div class="ttdoc">masks blue color into blue position</div><div class="ttdef"><b>Definition:</b> vg.c:249</div></div>
-<div class="ttc" id="agroup__video__graphics_html_ga5e5b25bd525250f61f40b9e9f212d5e6"><div class="ttname"><a href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a></div><div class="ttdeci">int() vg_draw_hline(uint16_t x, uint16_t y, uint16_t len, uint32_t color)</div><div class="ttdoc">draw horizontal line</div><div class="ttdef"><b>Definition:</b> vg.c:226</div></div>
+<div class="ttc" id="avg_8c_html_a75dbfb966a8eb5c4019aecbc432ab522"><div class="ttname"><a href="vg_8c.html#a75dbfb966a8eb5c4019aecbc432ab522">menu_pause_exit_img</a></div><div class="ttdeci">xpm_image_t menu_pause_exit_img</div><div class="ttdef"><b>Definition:</b> vg.c:25</div></div>
+<div class="ttc" id="avg_8c_html_a144d9a9cabab9de0142a6baee835ca6b"><div class="ttname"><a href="vg_8c.html#a144d9a9cabab9de0142a6baee835ca6b">bytes_per_pixel</a></div><div class="ttdeci">static unsigned bytes_per_pixel</div><div class="ttdef"><b>Definition:</b> vg.c:14</div></div>
+<div class="ttc" id="avg_8c_html_a7690c1f5a12b2725762a5f6a685a3d06"><div class="ttname"><a href="vg_8c.html#a7690c1f5a12b2725762a5f6a685a3d06">red_car_img</a></div><div class="ttdeci">xpm_image_t red_car_img</div><div class="ttdef"><b>Definition:</b> vg.c:27</div></div>
+<div class="ttc" id="avg_8c_html_a0219ac12a59e7955360cfe34bb272c45"><div class="ttname"><a href="vg_8c.html#a0219ac12a59e7955360cfe34bb272c45">win_exit</a></div><div class="ttdeci">uint8_t * win_exit</div><div class="ttdef"><b>Definition:</b> vg.c:47</div></div>
+<div class="ttc" id="avg__macros_8h_html_a0ab1b58dbc6c6d4c63156c11f0a4d854"><div class="ttname"><a href="vg__macros_8h.html#a0ab1b58dbc6c6d4c63156c11f0a4d854">VBE_INT</a></div><div class="ttdeci">#define VBE_INT</div><div class="ttdef"><b>Definition:</b> vg_macros.h:17</div></div>
+<div class="ttc" id="agroup__video__graphics_html_ga5e5b25bd525250f61f40b9e9f212d5e6"><div class="ttname"><a href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a></div><div class="ttdeci">int() vg_draw_hline(uint16_t x, uint16_t y, uint16_t width, uint32_t color)</div><div class="ttdoc">draw horizontal line</div><div class="ttdef"><b>Definition:</b> vg.c:226</div></div>
+<div class="ttc" id="avg__macros_8h_html_a4c0fc77ef6be735083fcfec5f449f55f"><div class="ttname"><a href="vg__macros_8h.html#a4c0fc77ef6be735083fcfec5f449f55f">VBE_VIDEO</a></div><div class="ttdeci">#define VBE_VIDEO</div><div class="ttdef"><b>Definition:</b> vg_macros.h:21</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga25083348788e77f52c326375125ca6d8"><div class="ttname"><a href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a></div><div class="ttdeci">int() vg_draw_xpm(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map)</div><div class="ttdoc">draw horizontal line</div><div class="ttdef"><b>Definition:</b> vg.c:252</div></div>
+<div class="ttc" id="avg_8h_html"><div class="ttname"><a href="vg_8h.html">vg.h</a></div></div>
+<div class="ttc" id="amouse__cursor_8h_html_a799d2eab19beaf8db7c773deff060779"><div class="ttname"><a href="mouse__cursor_8h.html#a799d2eab19beaf8db7c773deff060779">mouse_cursor_xpm</a></div><div class="ttdeci">static const xpm_row_t mouse_cursor_xpm[]</div><div class="ttdef"><b>Definition:</b> mouse_cursor.h:2</div></div>
+<div class="ttc" id="anext_8h_html_aeafa768bfe0df9919ec0c595466c48b3"><div class="ttname"><a href="next_8h.html#aeafa768bfe0df9919ec0c595466c48b3">next_xpm</a></div><div class="ttdeci">static const xpm_row_t next_xpm[]</div><div class="ttdef"><b>Definition:</b> next.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a43e7e5a0a8f9069e6413b2066ca52f3e"><div class="ttname"><a href="vg_8c.html#a43e7e5a0a8f9069e6413b2066ca52f3e">h_res</a></div><div class="ttdeci">static unsigned h_res</div><div class="ttdef"><b>Definition:</b> vg.c:11</div></div>
+<div class="ttc" id="avg__macros_8h_html"><div class="ttname"><a href="vg__macros_8h.html">vg_macros.h</a></div></div>
+<div class="ttc" id="avg_8c_html_a02dc74e0759c257cd1203fafbf1ce872"><div class="ttname"><a href="vg_8c.html#a02dc74e0759c257cd1203fafbf1ce872">win_menu</a></div><div class="ttdeci">uint8_t * win_menu</div><div class="ttdef"><b>Definition:</b> vg.c:46</div></div>
+<div class="ttc" id="avg_8c_html_a0048327837a030ec9604b900fde6ba3c"><div class="ttname"><a href="vg_8c.html#a0048327837a030ec9604b900fde6ba3c">win_exit_img</a></div><div class="ttdeci">xpm_image_t win_exit_img</div><div class="ttdef"><b>Definition:</b> vg.c:31</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga99d2da2559e11200c6b40c469e9977ec"><div class="ttname"><a href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a></div><div class="ttdeci">int() vg_draw_rectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color)</div><div class="ttdoc">draw rectangle</div><div class="ttdef"><b>Definition:</b> vg.c:216</div></div>
+<div class="ttc" id="avg_8c_html_aafe415d63350750268abd20d544487c9"><div class="ttname"><a href="vg_8c.html#aafe415d63350750268abd20d544487c9">menu_pause</a></div><div class="ttdeci">uint8_t * menu_pause</div><div class="ttdef"><b>Definition:</b> vg.c:39</div></div>
 <div class="ttc" id="agroup__video__graphics_html_gaa89a5f2a11a43a41f21cd218f0c5c0d5"><div class="ttname"><a href="group__video__graphics.html#gaa89a5f2a11a43a41f21cd218f0c5c0d5">vg_change_mode</a></div><div class="ttdeci">int() vg_change_mode(uint16_t mode)</div><div class="ttdef"><b>Definition:</b> vg.c:152</div></div>
-<div class="ttc" id="agroup__video__graphics_html_gad8ecf93bc2bbc0c728143b0ff7a741ed"><div class="ttname"><a href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a></div><div class="ttdeci">int clear_xpm_with_cover(uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *background_map)</div><div class="ttdoc">clears xpm by drawing background</div><div class="ttdef"><b>Definition:</b> vg.c:317</div></div>
+<div class="ttc" id="agroup__video__graphics_html_gad8ecf93bc2bbc0c728143b0ff7a741ed"><div class="ttname"><a href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a></div><div class="ttdeci">int clear_xpm_with_cover(uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *map)</div><div class="ttdoc">clears xpm by drawing background</div><div class="ttdef"><b>Definition:</b> vg.c:317</div></div>
+<div class="ttc" id="apause__menu__exit_8h_html_a03fc1ab94fedd936d2b3210c48f9a4dc"><div class="ttname"><a href="pause__menu__exit_8h.html#a03fc1ab94fedd936d2b3210c48f9a4dc">pause_menu_exit_xpm</a></div><div class="ttdeci">static const xpm_row_t pause_menu_exit_xpm[]</div><div class="ttdef"><b>Definition:</b> pause_menu_exit.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a2ca214fb48ab5f9384a0813a9c39652e"><div class="ttname"><a href="vg_8c.html#a2ca214fb48ab5f9384a0813a9c39652e">win_menu_img</a></div><div class="ttdeci">xpm_image_t win_menu_img</div><div class="ttdef"><b>Definition:</b> vg.c:30</div></div>
+<div class="ttc" id="avg_8c_html_a5bda1b499253a8fbf3cab646f8760391"><div class="ttname"><a href="vg_8c.html#a5bda1b499253a8fbf3cab646f8760391">v_res</a></div><div class="ttdeci">static unsigned v_res</div><div class="ttdef"><b>Definition:</b> vg.c:12</div></div>
+<div class="ttc" id="aexit_8h_html_a5fbac6a8a5c51b4a4fe0d1a8f4597e92"><div class="ttname"><a href="exit_8h.html#a5fbac6a8a5c51b4a4fe0d1a8f4597e92">win_exit_xpm</a></div><div class="ttdeci">static const xpm_row_t win_exit_xpm[]</div><div class="ttdef"><b>Definition:</b> exit.h:2</div></div>
+<div class="ttc" id="ared__car_8h_html_a15c002a0625d8f09a575ec712ee8eb40"><div class="ttname"><a href="red__car_8h.html#a15c002a0625d8f09a575ec712ee8eb40">red_car_xpm</a></div><div class="ttdeci">static const xpm_row_t red_car_xpm[]</div><div class="ttdef"><b>Definition:</b> red_car.h:2</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga79bda8abbcc6e61e59d039de828f83df"><div class="ttname"><a href="group__video__graphics.html#ga79bda8abbcc6e61e59d039de828f83df">load_all_xpms</a></div><div class="ttdeci">int() load_all_xpms()</div><div class="ttdoc">Loads all game xpms.</div><div class="ttdef"><b>Definition:</b> vg.c:50</div></div>
+<div class="ttc" id="avg_8c_html_ad7028aff940c6aaa9a4b5685e2ef887b"><div class="ttname"><a href="vg_8c.html#ad7028aff940c6aaa9a4b5685e2ef887b">menu_rules_img</a></div><div class="ttdeci">xpm_image_t menu_rules_img</div><div class="ttdef"><b>Definition:</b> vg.c:21</div></div>
+<div class="ttc" id="aoutput_8txt_html_a974ff07538c0fb2ace1fd662f6d3416a"><div class="ttname"><a href="output_8txt.html#a974ff07538c0fb2ace1fd662f6d3416a">i</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock i</div><div class="ttdef"><b>Definition:</b> output.txt:909</div></div>
+<div class="ttc" id="avg_8c_html_a71ff82b6dc8e834762aee5b3c302f68f"><div class="ttname"><a href="vg_8c.html#a71ff82b6dc8e834762aee5b3c302f68f">menu_start_img</a></div><div class="ttdeci">xpm_image_t menu_start_img</div><div class="ttdef"><b>Definition:</b> vg.c:18</div></div>
+<div class="ttc" id="avg_8c_html_ad9a295cc385b528c964724a23ec2c59c"><div class="ttname"><a href="vg_8c.html#ad9a295cc385b528c964724a23ec2c59c">upper_img</a></div><div class="ttdeci">xpm_image_t upper_img</div><div class="ttdef"><b>Definition:</b> vg.c:29</div></div>
+<div class="ttc" id="avg_8c_html_ac3106dc5b51827d911b34e5333092dad"><div class="ttname"><a href="vg_8c.html#ac3106dc5b51827d911b34e5333092dad">mouse_img</a></div><div class="ttdeci">xpm_image_t mouse_img</div><div class="ttdef"><b>Definition:</b> vg.c:17</div></div>
+<div class="ttc" id="avg_8c_html_a5c2a70d3b91f825ad0a8460062f53082"><div class="ttname"><a href="vg_8c.html#a5c2a70d3b91f825ad0a8460062f53082">menu_pause_resume_img</a></div><div class="ttdeci">xpm_image_t menu_pause_resume_img</div><div class="ttdef"><b>Definition:</b> vg.c:24</div></div>
+<div class="ttc" id="avg_8c_html_a5a497b778c58ae5a36e14ef54a53e356"><div class="ttname"><a href="vg_8c.html#a5a497b778c58ae5a36e14ef54a53e356">vg_clean_xpm</a></div><div class="ttdeci">int() vg_clean_xpm(xpm_map_t xpm, uint16_t x, uint16_t y)</div><div class="ttdef"><b>Definition:</b> vg.c:275</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga951a38a1459357ffe379b5dea65522b2"><div class="ttname"><a href="group__video__graphics.html#ga951a38a1459357ffe379b5dea65522b2">G</a></div><div class="ttdeci">uint8_t() G(uint32_t color)</div><div class="ttdoc">masks green color into green position</div><div class="ttdef"><b>Definition:</b> vg.c:248</div></div>
+<div class="ttc" id="avg_8c_html_aed8a517711263842c55b5b0d70ac8028"><div class="ttname"><a href="vg_8c.html#aed8a517711263842c55b5b0d70ac8028">menu_pause_resume</a></div><div class="ttdeci">uint8_t * menu_pause_resume</div><div class="ttdef"><b>Definition:</b> vg.c:40</div></div>
+<div class="ttc" id="avg__macros_8h_html_a134e61028d6a1f66ac651197c0229e4d"><div class="ttname"><a href="vg__macros_8h.html#a134e61028d6a1f66ac651197c0229e4d">VBE_VG</a></div><div class="ttdeci">#define VBE_VG</div><div class="ttdef"><b>Definition:</b> vg_macros.h:22</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga484929b3e33f236cd9087e18e1521ee3"><div class="ttname"><a href="group__video__graphics.html#ga484929b3e33f236cd9087e18e1521ee3">get_vres</a></div><div class="ttdeci">int get_vres()</div><div class="ttdoc">Get vertical resolution in pixels.</div><div class="ttdef"><b>Definition:</b> vg.c:305</div></div>
+<div class="ttc" id="ay_8h_html_a2598f408b2a405231757cc828acb9432"><div class="ttname"><a href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a></div><div class="ttdeci">static const xpm_row_t y[]</div><div class="ttdef"><b>Definition:</b> y.h:2</div></div>
+<div class="ttc" id="amenu__multi_8h_html_a9654a0b03d27b9d28c0fe0f5ebf72af6"><div class="ttname"><a href="menu__multi_8h.html#a9654a0b03d27b9d28c0fe0f5ebf72af6">menu_multi_xpm</a></div><div class="ttdeci">static const xpm_row_t menu_multi_xpm[]</div><div class="ttdef"><b>Definition:</b> menu_multi.h:2</div></div>
 <div class="ttc" id="agroup__video__graphics_html_ga08c498ffeb0a3962e3b7711b57397741"><div class="ttname"><a href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a></div><div class="ttdeci">int() vg_draw_pixel(uint16_t x, uint16_t y, uint32_t color)</div><div class="ttdef"><b>Definition:</b> vg.c:237</div></div>
+<div class="ttc" id="agame__background_8h_html_a80dbcc31fb5ac0efc6d54a407e080ab1"><div class="ttname"><a href="game__background_8h.html#a80dbcc31fb5ac0efc6d54a407e080ab1">background_xpm</a></div><div class="ttdeci">static const xpm_row_t background_xpm[]</div><div class="ttdef"><b>Definition:</b> game_background.h:2</div></div>
+<div class="ttc" id="apause__menu_8h_html_a7af96ed3198ba3264905682846eb07ad"><div class="ttname"><a href="pause__menu_8h.html#a7af96ed3198ba3264905682846eb07ad">pause_menu_xpm</a></div><div class="ttdeci">static const xpm_row_t pause_menu_xpm[]</div><div class="ttdef"><b>Definition:</b> pause_menu.h:2</div></div>
+<div class="ttc" id="avg_8c_html_a0cb3d0ba34458283fd5bfe568bc6b2ac"><div class="ttname"><a href="vg_8c.html#a0cb3d0ba34458283fd5bfe568bc6b2ac">info</a></div><div class="ttdeci">vbe_mode_info_t info</div><div class="ttdef"><b>Definition:</b> vg.c:10</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_c5a9e8daeda247e4e65f90af631991f9.html">graphics</a></li><li class="navelem"><a class="el" href="vg_8h.html">vg.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

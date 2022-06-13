@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,17 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('globals_vars.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,412 +98,15 @@ $(function() {
 : <a class="el" href="output_8txt.html#a97c0ac56f7861a230508aba1edc8e674">output.txt</a>
 </li>
 </ul>
-
-
-<h3><a id="index_a"></a>- a -</h3><ul>
-<li>a
-: <a class="el" href="trace_8txt.html#a0b0c68d3c8e519b29f99edc437080ebb">trace.txt</a>
-</li>
-<li>addr
-: <a class="el" href="trace_8txt.html#ab4ceeaad90ce9072a55a8c4c5f4d66ac">trace.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_b"></a>- b -</h3><ul>
-<li>b
-: <a class="el" href="output_8txt.html#ac686696a8c75140e352efde00886f1bd">output.txt</a>
-</li>
-<li>be
-: <a class="el" href="output_8txt.html#a63efc43ad2b196aa16b2d946183864da">output.txt</a>
-</li>
-<li>Breakcode
-: <a class="el" href="output_8txt.html#ad7f90554c6ce81d73e6c34fb26bcc9d7">output.txt</a>
-</li>
-<li>but
-: <a class="el" href="output_8txt.html#a9c36c2be9f46c978169b648cff0bffdb">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_c"></a>- c -</h3><ul>
-<li>c
-: <a class="el" href="trace_8txt.html#ac27bc06a21c0d23c2f136c730fd87f75">trace.txt</a>
-</li>
-<li>code
-: <a class="el" href="kbd_8c.html#a966576744a473fafb7687f8e5649941f">kbd.c</a>
-, <a class="el" href="proj_8c.html#a966576744a473fafb7687f8e5649941f">proj.c</a>
-, <a class="el" href="game_8c.html#a966576744a473fafb7687f8e5649941f">game.c</a>
-</li>
-<li>counter_kbd
-: <a class="el" href="kbd_8c.html#aa075d15986bd3e562cdd5c3fc3702b1d">kbd.c</a>
-, <a class="el" href="game_8c.html#aa075d15986bd3e562cdd5c3fc3702b1d">game.c</a>
-, <a class="el" href="proj_8c.html#aa075d15986bd3e562cdd5c3fc3702b1d">proj.c</a>
-</li>
-<li>counter_timer
-: <a class="el" href="timer_8c.html#ae459ed5f5a565d171b67af71b9a41a94">timer.c</a>
-, <a class="el" href="game_8c.html#ae459ed5f5a565d171b67af71b9a41a94">game.c</a>
-, <a class="el" href="proj_8c.html#ae459ed5f5a565d171b67af71b9a41a94">proj.c</a>
-</li>
-<li>current_menu
-: <a class="el" href="game_8c.html#ac7a43cd11e135e74adf5e09e5b17a95d">game.c</a>
-</li>
-<li>current_menu_img
-: <a class="el" href="game_8c.html#a81eedff4e4b58f58b785ad8922d113e4">game.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>double_buf
-: <a class="el" href="vg_8c.html#aa3b05db7dca7a1fd396ecb42c0432467">vg.c</a>
-, <a class="el" href="proj_8c.html#aa3b05db7dca7a1fd396ecb42c0432467">proj.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_e"></a>- e -</h3><ul>
-<li>error
-: <a class="el" href="kbd_8c.html#a7a3172cc98e93d8eadfb9ab30373799e">kbd.c</a>
-, <a class="el" href="mouse_8c.html#a7a3172cc98e93d8eadfb9ab30373799e">mouse.c</a>
-</li>
-<li>errorMessage
-: <a class="el" href="group__letters.html#ga2c4d78df5d5c8187390832dc5475e8b9">letters.h</a>
-</li>
-<li>Exch
-: <a class="el" href="output_8txt.html#aed6992e9ccc7313e89c8242a8da16e2d">output.txt</a>
-</li>
-<li>Exchan
-: <a class="el" href="output_8txt.html#a0a48c7023cf0dcac8d1f6099aa24e22a">output.txt</a>
-</li>
-<li>Exchang
-: <a class="el" href="output_8txt.html#a0564a8a35181fa75e798affaa1464ef9">output.txt</a>
-</li>
-<li>Exchange
-: <a class="el" href="output_8txt.html#a2577435426b91ba02034d9932e0838a5">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>fight
-: <a class="el" href="output_8txt.html#ac83b17e5190d57ff6f06840fcbaabc08">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>game
-: <a class="el" href="group__game.html#ga58bdb5643d0814ac4e697a1564b79b70">game.h</a>
-</li>
-<li>game_background
-: <a class="el" href="vg_8c.html#a40be353997ba7583c2321795c9576978">vg.c</a>
-, <a class="el" href="game_8c.html#a40be353997ba7583c2321795c9576978">game.c</a>
-</li>
-<li>game_background_img
-: <a class="el" href="vg_8c.html#a174cae25c733d45db94019d45ded3f44">vg.c</a>
-, <a class="el" href="game_8c.html#a174cae25c733d45db94019d45ded3f44">game.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>hook_id
-: <a class="el" href="timer_8c.html#a96f78a87d064e47d627d222f67a8d012">timer.c</a>
-</li>
-<li>hook_id_kbd
-: <a class="el" href="kbd_8c.html#a7d15e4ad49d56102e73bfb92c6e43a22">kbd.c</a>
-</li>
-<li>hook_id_mouse
-: <a class="el" href="mouse_8c.html#a0b0da21bbdff62b7b28e9af7ec3d0d76">mouse.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>i
-: <a class="el" href="output_8txt.html#a974ff07538c0fb2ace1fd662f6d3416a">output.txt</a>
-</li>
-<li>info
-: <a class="el" href="vg_8c.html#a0cb3d0ba34458283fd5bfe568bc6b2ac">vg.c</a>
-</li>
-<li>it
-: <a class="el" href="output_8txt.html#a521c7024e9aa22916489f8f8da4b3692">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_k"></a>- k -</h3><ul>
-<li>kb_bit_no
-: <a class="el" href="game_8c.html#aa7968c3382ed27f364c0c029db9cfc96">game.c</a>
-, <a class="el" href="proj_8c.html#aa7968c3382ed27f364c0c029db9cfc96">proj.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_l"></a>- l -</h3><ul>
-<li>leaveOpt
-: <a class="el" href="game_8c.html#aa703f6599751d6d0c2c3582b35d8f03e">game.c</a>
-</li>
-<li>letters
-: <a class="el" href="group__letters.html#ga3473a75605cd752401ec13ef8074557d">game.c</a>
-, <a class="el" href="group__letters.html#ga3473a75605cd752401ec13ef8074557d">letters.h</a>
-</li>
-<li>limpar
-: <a class="el" href="output_8txt.html#ac2eb0b38d259e244b183d836a34aa245">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>m
-: <a class="el" href="output_8txt.html#ace98771945ffbee6ae5d731c861711d6">output.txt</a>
-</li>
-<li>Makecode
-: <a class="el" href="output_8txt.html#aaaaeb089ec051300c3e5c5aa97919854">output.txt</a>
-</li>
-<li>menu_leave
-: <a class="el" href="game_8c.html#acedbef62c47b27c4109d02b2d985572b">game.c</a>
-, <a class="el" href="vg_8c.html#acedbef62c47b27c4109d02b2d985572b">vg.c</a>
-</li>
-<li>menu_leave_img
-: <a class="el" href="vg_8c.html#a52995113506f1089bf7501f1eaa1a51f">vg.c</a>
-, <a class="el" href="game_8c.html#a52995113506f1089bf7501f1eaa1a51f">game.c</a>
-</li>
-<li>menu_multi
-: <a class="el" href="game_8c.html#a69ffdd86a45f352b3369c8f1da453f2a">game.c</a>
-, <a class="el" href="vg_8c.html#a69ffdd86a45f352b3369c8f1da453f2a">vg.c</a>
-</li>
-<li>menu_multi_img
-: <a class="el" href="vg_8c.html#a4a9509fdd9e7f267e3b55bbb088c05cd">vg.c</a>
-, <a class="el" href="game_8c.html#a4a9509fdd9e7f267e3b55bbb088c05cd">game.c</a>
-</li>
-<li>menu_pause
-: <a class="el" href="vg_8c.html#aafe415d63350750268abd20d544487c9">vg.c</a>
-, <a class="el" href="game_8c.html#aafe415d63350750268abd20d544487c9">game.c</a>
-</li>
-<li>menu_pause_exit
-: <a class="el" href="vg_8c.html#ad1dfeaaaa70c88289dc47ad950c483ec">vg.c</a>
-, <a class="el" href="game_8c.html#ad1dfeaaaa70c88289dc47ad950c483ec">game.c</a>
-</li>
-<li>menu_pause_exit_img
-: <a class="el" href="game_8c.html#a75dbfb966a8eb5c4019aecbc432ab522">game.c</a>
-, <a class="el" href="vg_8c.html#a75dbfb966a8eb5c4019aecbc432ab522">vg.c</a>
-</li>
-<li>menu_pause_img
-: <a class="el" href="vg_8c.html#a0bf0ffc325ded66095069d1aab65d96e">vg.c</a>
-, <a class="el" href="game_8c.html#a0bf0ffc325ded66095069d1aab65d96e">game.c</a>
-</li>
-<li>menu_pause_resume
-: <a class="el" href="vg_8c.html#aed8a517711263842c55b5b0d70ac8028">vg.c</a>
-, <a class="el" href="game_8c.html#aed8a517711263842c55b5b0d70ac8028">game.c</a>
-</li>
-<li>menu_pause_resume_img
-: <a class="el" href="vg_8c.html#a5c2a70d3b91f825ad0a8460062f53082">vg.c</a>
-, <a class="el" href="game_8c.html#a5c2a70d3b91f825ad0a8460062f53082">game.c</a>
-</li>
-<li>menu_rules
-: <a class="el" href="vg_8c.html#a320fa0f201f15543fd8ecddea65231b9">vg.c</a>
-, <a class="el" href="game_8c.html#a320fa0f201f15543fd8ecddea65231b9">game.c</a>
-</li>
-<li>menu_rules_img
-: <a class="el" href="vg_8c.html#ad7028aff940c6aaa9a4b5685e2ef887b">vg.c</a>
-, <a class="el" href="game_8c.html#ad7028aff940c6aaa9a4b5685e2ef887b">game.c</a>
-</li>
-<li>menu_single
-: <a class="el" href="vg_8c.html#aa4aa50a62e375e826b4d7bd2b0f708a1">vg.c</a>
-, <a class="el" href="game_8c.html#aa4aa50a62e375e826b4d7bd2b0f708a1">game.c</a>
-</li>
-<li>menu_single_img
-: <a class="el" href="vg_8c.html#a2eddc583119d75b9adaace90ae19559d">vg.c</a>
-, <a class="el" href="game_8c.html#a2eddc583119d75b9adaace90ae19559d">game.c</a>
-</li>
-<li>menu_start
-: <a class="el" href="game_8c.html#aa1bd1a4751a6ac92c3bde83bcf8e4f4b">game.c</a>
-, <a class="el" href="vg_8c.html#aa1bd1a4751a6ac92c3bde83bcf8e4f4b">vg.c</a>
-</li>
-<li>menu_start_img
-: <a class="el" href="vg_8c.html#a71ff82b6dc8e834762aee5b3c302f68f">vg.c</a>
-, <a class="el" href="game_8c.html#a71ff82b6dc8e834762aee5b3c302f68f">game.c</a>
-</li>
-<li>mouse_bit_no
-: <a class="el" href="proj_8c.html#a33926598f4dd9062811599f0bf843da8">proj.c</a>
-, <a class="el" href="game_8c.html#a33926598f4dd9062811599f0bf843da8">game.c</a>
-</li>
-<li>mouse_cursor
-: <a class="el" href="vg_8c.html#a7338a4f4a970a000ea011d762e7866db">vg.c</a>
-, <a class="el" href="game_8c.html#a7338a4f4a970a000ea011d762e7866db">game.c</a>
-</li>
-<li>mouse_img
-: <a class="el" href="vg_8c.html#ac3106dc5b51827d911b34e5333092dad">vg.c</a>
-, <a class="el" href="game_8c.html#ac3106dc5b51827d911b34e5333092dad">game.c</a>
-</li>
-<li>mu
-: <a class="el" href="output_8txt.html#a0693e7a583cdada04f9b2dbe69221ae9">output.txt</a>
-</li>
-<li>multiPlayerOpt
-: <a class="el" href="game_8c.html#adbbbc85ec1935d924ebf51083c22edfb">game.c</a>
-</li>
-<li>mus
-: <a class="el" href="output_8txt.html#adc624e267d28dbc1b28d503177decf4c">output.txt</a>
-</li>
-<li>must
-: <a class="el" href="output_8txt.html#aa4a8588eb7f994476fea532060489475">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>next
-: <a class="el" href="vg_8c.html#a2f12caa00d4804e466cc380ee0773e55">vg.c</a>
-, <a class="el" href="game_8c.html#a2f12caa00d4804e466cc380ee0773e55">game.c</a>
-</li>
-<li>next_img
-: <a class="el" href="game_8c.html#a58dc63ab7cc79c74c0e9f9a536010269">game.c</a>
-, <a class="el" href="vg_8c.html#a58dc63ab7cc79c74c0e9f9a536010269">vg.c</a>
-</li>
-<li>number_Letters1
-: <a class="el" href="game_8c.html#aee0193519a1b588fc8002d07eb49d425">game.c</a>
-</li>
-<li>number_Letters2
-: <a class="el" href="game_8c.html#a6efd04bb68ee7e536da100a157835c14">game.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>packet
-: <a class="el" href="mouse_8c.html#a15f30eb0027f44ecb399b8f6e738a16d">mouse.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>red_car
-: <a class="el" href="vg_8c.html#a47f16eebbc07c33b26f4963b23ff4a46">vg.c</a>
-, <a class="el" href="game_8c.html#a47f16eebbc07c33b26f4963b23ff4a46">game.c</a>
-</li>
-<li>red_car_img
-: <a class="el" href="game_8c.html#a7690c1f5a12b2725762a5f6a685a3d06">game.c</a>
-, <a class="el" href="vg_8c.html#a7690c1f5a12b2725762a5f6a685a3d06">vg.c</a>
-</li>
-<li>regras
-: <a class="el" href="vg_8c.html#a86ddea3938f3279ba809b7df3a445ec2">vg.c</a>
-, <a class="el" href="game_8c.html#a86ddea3938f3279ba809b7df3a445ec2">game.c</a>
-</li>
-<li>regras_img
-: <a class="el" href="game_8c.html#addf445d818e1aaccd1c2bb542c2e68eb">game.c</a>
-, <a class="el" href="vg_8c.html#addf445d818e1aaccd1c2bb542c2e68eb">vg.c</a>
-</li>
-<li>rulesOpt
-: <a class="el" href="game_8c.html#ac34fd707342a46a4706ae5d1bf5bb2d1">game.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>selectorMenu
-: <a class="el" href="game_8c.html#adb94a163ce647fae5850e371138bddb8">game.c</a>
-</li>
-<li>selectorPause
-: <a class="el" href="game_8c.html#a5ca07cec5599a7d2cdb76f24507a9a05">game.c</a>
-</li>
-<li>selectorWin
-: <a class="el" href="game_8c.html#a4a5135241de82f6d9fed529e9183e040">game.c</a>
-</li>
-<li>sentences
-: <a class="el" href="group__letters.html#gad9383479c1fc9cf22dfe67c1c7226f7a">letters.h</a>
-</li>
-<li>singlePlayerOpt
-: <a class="el" href="game_8c.html#a718a611e0003275b9edc07ce40624818">game.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>timer_bit_no
-: <a class="el" href="game_8c.html#a6bdcfe1b8246db3682ddf162252d2107">game.c</a>
-, <a class="el" href="proj_8c.html#a6bdcfe1b8246db3682ddf162252d2107">proj.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_u"></a>- u -</h3><ul>
-<li>unfortunately
-: <a class="el" href="output_8txt.html#ad870620b1a2b4c50c6f5bee704430a08">output.txt</a>
-</li>
-<li>upper
-: <a class="el" href="vg_8c.html#acdfff5e981a53afe307e9f68cb94aeeb">vg.c</a>
-, <a class="el" href="game_8c.html#acdfff5e981a53afe307e9f68cb94aeeb">game.c</a>
-</li>
-<li>upper_img
-: <a class="el" href="vg_8c.html#ad9a295cc385b528c964724a23ec2c59c">vg.c</a>
-, <a class="el" href="game_8c.html#ad9a295cc385b528c964724a23ec2c59c">game.c</a>
-</li>
-</ul>
-
-
-<h3><a id="index_v"></a>- v -</h3><ul>
-<li>v
-: <a class="el" href="output_8txt.html#acaf2d732943a2bb6621bf30cd2cf613f">output.txt</a>
-</li>
-<li>va
-: <a class="el" href="output_8txt.html#a04f5e69d608c4b227eff767f169732df">output.txt</a>
-</li>
-<li>val
-: <a class="el" href="output_8txt.html#ad880f82c2318ea5a58d38c0f18ca9ca4">output.txt</a>
-</li>
-<li>valu
-: <a class="el" href="output_8txt.html#ac762e821f9183b19c527e9dd84307ac5">output.txt</a>
-</li>
-<li>valua
-: <a class="el" href="output_8txt.html#a81437bbfb3da0be9d44543ef1f78d76d">output.txt</a>
-</li>
-<li>valuab
-: <a class="el" href="output_8txt.html#a542f79ae8d6ddcb4b6f5b61cbe389ff5">output.txt</a>
-</li>
-<li>valuabl
-: <a class="el" href="output_8txt.html#a26df93bb09415f97219c02fb71803f8c">output.txt</a>
-</li>
-<li>valuable
-: <a class="el" href="output_8txt.html#a1d02cf590f65c419d3404c098fd0f880">output.txt</a>
-</li>
-<li>ve
-: <a class="el" href="output_8txt.html#afc8a16e156e39816747585c8b2ca40a6">output.txt</a>
-</li>
-<li>ver
-: <a class="el" href="output_8txt.html#a40be6e33d8944652929c1e4802eb3dd4">output.txt</a>
-</li>
-<li>very
-: <a class="el" href="output_8txt.html#a6f33a9aa011484582338c81b458f3b3d">output.txt</a>
-</li>
-</ul>
-
-
-<h3><a id="index_w"></a>- w -</h3><ul>
-<li>win_exit
-: <a class="el" href="vg_8c.html#a0219ac12a59e7955360cfe34bb272c45">vg.c</a>
-, <a class="el" href="game_8c.html#a0219ac12a59e7955360cfe34bb272c45">game.c</a>
-</li>
-<li>win_exit_img
-: <a class="el" href="game_8c.html#a0048327837a030ec9604b900fde6ba3c">game.c</a>
-, <a class="el" href="vg_8c.html#a0048327837a030ec9604b900fde6ba3c">vg.c</a>
-</li>
-<li>win_menu
-: <a class="el" href="vg_8c.html#a02dc74e0759c257cd1203fafbf1ce872">vg.c</a>
-, <a class="el" href="game_8c.html#a02dc74e0759c257cd1203fafbf1ce872">game.c</a>
-</li>
-<li>win_menu_img
-: <a class="el" href="game_8c.html#a2ca214fb48ab5f9384a0813a9c39652e">game.c</a>
-, <a class="el" href="vg_8c.html#a2ca214fb48ab5f9384a0813a9c39652e">vg.c</a>
-</li>
-</ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

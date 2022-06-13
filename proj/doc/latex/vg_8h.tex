@@ -4,9 +4,21 @@
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 Include dependency graph for vg.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{vg_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vg_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,13 +26,13 @@ int() \mbox{\hyperlink{group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5
 \item 
 int() \mbox{\hyperlink{group__video__graphics_gaf1bf9e7f07f92f3f1561df4630ce33d1}{map\+\_\+memory}} (uint16\+\_\+t mode)
 \item 
-int() \mbox{\hyperlink{group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741}{vg\+\_\+draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+int() \mbox{\hyperlink{group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741}{vg\+\_\+draw\+\_\+pixel}} (uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, uint32\+\_\+t color)
 \item 
-int() \mbox{\hyperlink{group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6}{vg\+\_\+draw\+\_\+hline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+int() \mbox{\hyperlink{group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6}{vg\+\_\+draw\+\_\+hline}} (uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, uint16\+\_\+t len, uint32\+\_\+t color)
 \begin{DoxyCompactList}\small\item\em draw horizontal line \end{DoxyCompactList}\item 
-int() \mbox{\hyperlink{group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec}{vg\+\_\+draw\+\_\+rectangle}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color)
+int() \mbox{\hyperlink{group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec}{vg\+\_\+draw\+\_\+rectangle}} (uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color)
 \begin{DoxyCompactList}\small\item\em draw rectangle \end{DoxyCompactList}\item 
-int() \mbox{\hyperlink{group__video__graphics_ga25083348788e77f52c326375125ca6d8}{vg\+\_\+draw\+\_\+xpm}} (uint16\+\_\+t x, uint16\+\_\+t y, xpm\+\_\+image\+\_\+t img, uint8\+\_\+t $\ast$map)
+int() \mbox{\hyperlink{group__video__graphics_ga25083348788e77f52c326375125ca6d8}{vg\+\_\+draw\+\_\+xpm}} (uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, xpm\+\_\+image\+\_\+t img, uint8\+\_\+t $\ast$map)
 \begin{DoxyCompactList}\small\item\em draw horizontal line \end{DoxyCompactList}\item 
 int() \mbox{\hyperlink{group__video__graphics_gafecc19faa706051803b1e975686a2ea7}{vg\+\_\+move\+\_\+xpm}} (xpm\+\_\+map\+\_\+t xpm, uint16\+\_\+t $\ast$xi, uint16\+\_\+t $\ast$yi, uint16\+\_\+t xf, uint16\+\_\+t yf, uint16\+\_\+t speed)
 \begin{DoxyCompactList}\small\item\em draw horizontal line \end{DoxyCompactList}\item 
@@ -40,5 +52,5 @@ char $\ast$() \mbox{\hyperlink{group__video__graphics_ga074ef4ad6b93f178c51610bf
 \item 
 int() \mbox{\hyperlink{group__video__graphics_ga79bda8abbcc6e61e59d039de828f83df}{load\+\_\+all\+\_\+xpms}} ()
 \begin{DoxyCompactList}\small\item\em Loads all game xpms. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed}{clear\+\_\+xpm\+\_\+with\+\_\+cover}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t maxX, uint16\+\_\+t maxY, xpm\+\_\+image\+\_\+t background\+\_\+img, uint8\+\_\+t $\ast$background\+\_\+map)
+int \mbox{\hyperlink{group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed}{clear\+\_\+xpm\+\_\+with\+\_\+cover}} (uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, uint16\+\_\+t maxX, uint16\+\_\+t maxY, xpm\+\_\+image\+\_\+t background\+\_\+img, uint8\+\_\+t $\ast$background\+\_\+map)
 \begin{DoxyCompactList}\small\item\em clears xpm by drawing background \end{DoxyCompactList}\end{DoxyCompactItemize}

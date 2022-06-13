@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,17 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('group__video__graphics.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,15 +107,15 @@ Functions</h2></td></tr>
 <tr class="separator:gaa89a5f2a11a43a41f21cd218f0c5c0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf1bf9e7f07f92f3f1561df4630ce33d1"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gaf1bf9e7f07f92f3f1561df4630ce33d1">map_memory</a> (uint16_t mode)</td></tr>
 <tr class="separator:gaf1bf9e7f07f92f3f1561df4630ce33d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga08c498ffeb0a3962e3b7711b57397741"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a> (uint16_t x, uint16_t y, uint32_t color)</td></tr>
+<tr class="memitem:ga08c498ffeb0a3962e3b7711b57397741"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741">vg_draw_pixel</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint32_t color)</td></tr>
 <tr class="separator:ga08c498ffeb0a3962e3b7711b57397741"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a> (uint16_t x, uint16_t y, uint16_t len, uint32_t color)</td></tr>
+<tr class="memitem:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t len, uint32_t color)</td></tr>
 <tr class="memdesc:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw horizontal line  <a href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6">More...</a><br /></td></tr>
 <tr class="separator:ga5e5b25bd525250f61f40b9e9f212d5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99d2da2559e11200c6b40c469e9977ec"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a> (uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color)</td></tr>
+<tr class="memitem:ga99d2da2559e11200c6b40c469e9977ec"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">vg_draw_rectangle</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t width, uint16_t height, uint32_t color)</td></tr>
 <tr class="memdesc:ga99d2da2559e11200c6b40c469e9977ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw rectangle  <a href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec">More...</a><br /></td></tr>
 <tr class="separator:ga99d2da2559e11200c6b40c469e9977ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga25083348788e77f52c326375125ca6d8"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a> (uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map)</td></tr>
+<tr class="memitem:ga25083348788e77f52c326375125ca6d8"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">vg_draw_xpm</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, xpm_image_t img, uint8_t *map)</td></tr>
 <tr class="memdesc:ga25083348788e77f52c326375125ca6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw horizontal line  <a href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8">More...</a><br /></td></tr>
 <tr class="separator:ga25083348788e77f52c326375125ca6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafecc19faa706051803b1e975686a2ea7"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gafecc19faa706051803b1e975686a2ea7">vg_move_xpm</a> (xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed)</td></tr>
@@ -114,7 +144,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga79bda8abbcc6e61e59d039de828f83df"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#ga79bda8abbcc6e61e59d039de828f83df">load_all_xpms</a> ()</td></tr>
 <tr class="memdesc:ga79bda8abbcc6e61e59d039de828f83df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all game xpms.  <a href="group__video__graphics.html#ga79bda8abbcc6e61e59d039de828f83df">More...</a><br /></td></tr>
 <tr class="separator:ga79bda8abbcc6e61e59d039de828f83df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a> (uint16_t x, uint16_t y, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *background_map)</td></tr>
+<tr class="memitem:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">clear_xpm_with_cover</a> (uint16_t <a class="el" href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a>, uint16_t <a class="el" href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a>, uint16_t maxX, uint16_t maxY, xpm_image_t background_img, uint8_t *background_map)</td></tr>
 <tr class="memdesc:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears xpm by drawing background  <a href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed">More...</a><br /></td></tr>
 <tr class="separator:gad8ecf93bc2bbc0c728143b0ff7a741ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -210,6 +240,27 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_cgraph.png" border="0" usemap="#group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_cgraph" alt=""/></div>
+<map name="group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_cgraph" id="group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_cgraph">
+<area shape="rect" title="clears xpm by drawing background" alt="" coords="5,5,173,32"/>
+<area shape="rect" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="221,5,336,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_icgraph.png" border="0" usemap="#group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_icgraph" alt=""/></div>
+<map name="group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_icgraph" id="group__video__graphics_gad8ecf93bc2bbc0c728143b0ff7a741ed_icgraph">
+<area shape="rect" title="clears xpm by drawing background" alt="" coords="505,31,673,57"/>
+<area shape="rect" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd" title="mouse interrupt handler" alt="" coords="323,5,445,32"/>
+<area shape="rect" href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,56,457,83"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,31,263,57"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -229,6 +280,25 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>double buffer setup </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga53f6c1a60eaac0030d48bc8932255693_icgraph.png" border="0" usemap="#group__video__graphics_ga53f6c1a60eaac0030d48bc8932255693_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga53f6c1a60eaac0030d48bc8932255693_icgraph" id="group__video__graphics_ga53f6c1a60eaac0030d48bc8932255693_icgraph">
+<area shape="rect" title="double buffer setup" alt="" coords="692,157,823,184"/>
+<area shape="rect" href="group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5" title="change menu state" alt="" coords="315,5,453,32"/>
+<area shape="rect" href="group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe" title="draw mouse" alt="" coords="335,56,433,83"/>
+<area shape="rect" href="group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc" title="draw Pause Menu" alt="" coords="511,107,639,133"/>
+<area shape="rect" href="group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2" title="Draws rules menu." alt="" coords="511,157,638,184"/>
+<area shape="rect" href="group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1" title="Game menu." alt="" coords="545,208,604,235"/>
+<area shape="rect" href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,259,457,285"/>
+<area shape="rect" href="group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="505,309,644,336"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,132,263,159"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,132,128,159"/>
+<area shape="rect" href="group__game.html#gad74637df8ab081f644cb8f2175df273f" title="Pause Menu." alt="" coords="353,107,415,133"/>
+<area shape="rect" href="group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6" title="change to rules menu" alt="" coords="357,157,411,184"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -293,6 +363,18 @@ Functions</h2></td></tr>
 
 <p>Get horizontal resolution in pixels. </p>
 <dl class="section return"><dt>Returns</dt><dd>horizontal resolution </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga6402ca094cd1aace6adedd01b2b5496e_icgraph.png" border="0" usemap="#group__video__graphics_ga6402ca094cd1aace6adedd01b2b5496e_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga6402ca094cd1aace6adedd01b2b5496e_icgraph" id="group__video__graphics_ga6402ca094cd1aace6adedd01b2b5496e_icgraph">
+<area shape="rect" title="Get horizontal resolution in pixels." alt="" coords="505,24,584,51"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,24,263,51"/>
+<area shape="rect" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd" title="mouse interrupt handler" alt="" coords="323,24,445,51"/>
+<area shape="rect" href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,75,457,102"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,24,128,51"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -313,6 +395,18 @@ Functions</h2></td></tr>
 
 <p>Get vertical resolution in pixels. </p>
 <dl class="section return"><dt>Returns</dt><dd>vertical resolution </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga484929b3e33f236cd9087e18e1521ee3_icgraph.png" border="0" usemap="#group__video__graphics_ga484929b3e33f236cd9087e18e1521ee3_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga484929b3e33f236cd9087e18e1521ee3_icgraph" id="group__video__graphics_ga484929b3e33f236cd9087e18e1521ee3_icgraph">
+<area shape="rect" title="Get vertical resolution in pixels." alt="" coords="505,31,584,57"/>
+<area shape="rect" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd" title="mouse interrupt handler" alt="" coords="323,5,445,32"/>
+<area shape="rect" href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,56,457,83"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,31,263,57"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -333,6 +427,15 @@ Functions</h2></td></tr>
 
 <p>Loads all game xpms. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga79bda8abbcc6e61e59d039de828f83df_icgraph.png" border="0" usemap="#group__video__graphics_ga79bda8abbcc6e61e59d039de828f83df_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga79bda8abbcc6e61e59d039de828f83df_icgraph" id="group__video__graphics_ga79bda8abbcc6e61e59d039de828f83df_icgraph">
+<area shape="rect" title="Loads all game xpms." alt="" coords="176,5,292,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -352,6 +455,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_gaf1bf9e7f07f92f3f1561df4630ce33d1_icgraph.png" border="0" usemap="#group__video__graphics_gaf1bf9e7f07f92f3f1561df4630ce33d1_icgraph" alt=""/></div>
+<map name="group__video__graphics_gaf1bf9e7f07f92f3f1561df4630ce33d1_icgraph" id="group__video__graphics_gaf1bf9e7f07f92f3f1561df4630ce33d1_icgraph">
+<area shape="rect" title=" " alt="" coords="360,5,473,32"/>
+<area shape="rect" href="group__video__graphics.html#gaa89a5f2a11a43a41f21cd218f0c5c0d5" title=" " alt="" coords="176,5,312,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -403,6 +516,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_cgraph.png" border="0" usemap="#group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_cgraph" alt=""/></div>
+<map name="group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_cgraph" id="group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,141,32"/>
+<area shape="rect" href="group__video__graphics.html#gaf1bf9e7f07f92f3f1561df4630ce33d1" title=" " alt="" coords="189,5,303,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_icgraph.png" border="0" usemap="#group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_icgraph" alt=""/></div>
+<map name="group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_icgraph" id="group__video__graphics_gaa89a5f2a11a43a41f21cd218f0c5c0d5_icgraph">
+<area shape="rect" title=" " alt="" coords="176,5,312,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -455,6 +586,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_cgraph.png" border="0" usemap="#group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_cgraph" alt=""/></div>
+<map name="group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_cgraph" id="group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_cgraph">
+<area shape="rect" title="draw horizontal line" alt="" coords="5,5,121,32"/>
+<area shape="rect" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="169,5,284,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_icgraph.png" border="0" usemap="#group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_icgraph" id="group__video__graphics_ga5e5b25bd525250f61f40b9e9f212d5e6_icgraph">
+<area shape="rect" title="draw horizontal line" alt="" coords="199,5,315,32"/>
+<area shape="rect" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec" title="draw rectangle" alt="" coords="5,5,151,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -498,6 +647,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741_icgraph.png" border="0" usemap="#group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741_icgraph" id="group__video__graphics_ga08c498ffeb0a3962e3b7711b57397741_icgraph">
+<area shape="rect" title=" " alt="" coords="885,81,1000,108"/>
+<area shape="rect" href="group__video__graphics.html#gad8ecf93bc2bbc0c728143b0ff7a741ed" title="clears xpm by drawing background" alt="" coords="505,5,673,32"/>
+<area shape="rect" href="vg_8c.html#a5a497b778c58ae5a36e14ef54a53e356" title=" " alt="" coords="721,56,837,83"/>
+<area shape="rect" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6" title="draw horizontal line" alt="" coords="721,107,837,133"/>
+<area shape="rect" href="group__video__graphics.html#ga25083348788e77f52c326375125ca6d8" title="draw horizontal line" alt="" coords="723,309,836,336"/>
+<area shape="rect" href="group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd" title="mouse interrupt handler" alt="" coords="323,69,445,96"/>
+<area shape="rect" href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,183,457,209"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,385,263,412"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,385,128,412"/>
+<area shape="rect" href="group__video__graphics.html#ga99d2da2559e11200c6b40c469e9977ec" title="draw rectangle" alt="" coords="517,56,662,83"/>
+<area shape="rect" href="group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5" title="change menu state" alt="" coords="315,309,453,336"/>
+<area shape="rect" href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f" title="draw input sentence" alt="" coords="509,157,669,184"/>
+<area shape="rect" href="group__game.html#ga8543fc9b527fa4fd3687297747807f71" title=" " alt="" coords="529,208,649,235"/>
+<area shape="rect" href="group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe" title="draw mouse" alt="" coords="335,360,433,387"/>
+<area shape="rect" href="group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc" title="draw Pause Menu" alt="" coords="525,411,653,437"/>
+<area shape="rect" href="group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2" title="Draws rules menu." alt="" coords="526,461,653,488"/>
+<area shape="rect" href="group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1" title="Game menu." alt="" coords="355,512,413,539"/>
+<area shape="rect" href="group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="520,259,659,285"/>
+<area shape="rect" href="group__game.html#ga363cc9b19cd21711fe8b6427762e28cb" title="Winners menu." alt="" coords="333,563,435,589"/>
+<area shape="rect" href="group__game.html#gad74637df8ab081f644cb8f2175df273f" title="Pause Menu." alt="" coords="353,411,415,437"/>
+<area shape="rect" href="group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6" title="change to rules menu" alt="" coords="357,461,411,488"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -557,6 +734,16 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec_cgraph.png" border="0" usemap="#group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec_cgraph" alt=""/></div>
+<map name="group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec_cgraph" id="group__video__graphics_ga99d2da2559e11200c6b40c469e9977ec_cgraph">
+<area shape="rect" title="draw rectangle" alt="" coords="5,5,151,32"/>
+<area shape="rect" href="group__video__graphics.html#ga5e5b25bd525250f61f40b9e9f212d5e6" title="draw horizontal line" alt="" coords="199,5,315,32"/>
+<area shape="rect" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="363,5,477,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -609,6 +796,37 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga25083348788e77f52c326375125ca6d8_cgraph.png" border="0" usemap="#group__video__graphics_ga25083348788e77f52c326375125ca6d8_cgraph" alt=""/></div>
+<map name="group__video__graphics_ga25083348788e77f52c326375125ca6d8_cgraph" id="group__video__graphics_ga25083348788e77f52c326375125ca6d8_cgraph">
+<area shape="rect" title="draw horizontal line" alt="" coords="5,5,119,32"/>
+<area shape="rect" href="group__video__graphics.html#ga08c498ffeb0a3962e3b7711b57397741" title=" " alt="" coords="167,5,281,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__video__graphics_ga25083348788e77f52c326375125ca6d8_icgraph.png" border="0" usemap="#group__video__graphics_ga25083348788e77f52c326375125ca6d8_icgraph" alt=""/></div>
+<map name="group__video__graphics_ga25083348788e77f52c326375125ca6d8_icgraph" id="group__video__graphics_ga25083348788e77f52c326375125ca6d8_icgraph">
+<area shape="rect" title="draw horizontal line" alt="" coords="713,219,827,245"/>
+<area shape="rect" href="group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5" title="change menu state" alt="" coords="315,41,453,68"/>
+<area shape="rect" href="group__game.html#ga7920be8cc13fda145a4dcabdd9bf3b7f" title="draw input sentence" alt="" coords="505,41,665,68"/>
+<area shape="rect" href="group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,143,457,169"/>
+<area shape="rect" href="group__game.html#ga8543fc9b527fa4fd3687297747807f71" title=" " alt="" coords="525,143,645,169"/>
+<area shape="rect" href="group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe" title="draw mouse" alt="" coords="335,244,433,271"/>
+<area shape="rect" href="group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc" title="draw Pause Menu" alt="" coords="521,295,649,321"/>
+<area shape="rect" href="group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2" title="Draws rules menu." alt="" coords="522,345,649,372"/>
+<area shape="rect" href="group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1" title="Game menu." alt="" coords="355,396,413,423"/>
+<area shape="rect" href="group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="516,193,655,220"/>
+<area shape="rect" href="group__game.html#ga363cc9b19cd21711fe8b6427762e28cb" title="Winners menu." alt="" coords="535,447,636,473"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,295,263,321"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,295,128,321"/>
+<area shape="rect" href="group__game.html#gad74637df8ab081f644cb8f2175df273f" title="Pause Menu." alt="" coords="353,295,415,321"/>
+<area shape="rect" href="group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6" title="change to rules menu" alt="" coords="357,345,411,372"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -679,11 +897,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

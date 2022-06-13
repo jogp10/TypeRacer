@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('mouse__collision_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_d3490a261b8f5324b0d265fedb266924.html">utils</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">mouse_collision.h</div>  </div>
@@ -82,16 +108,51 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__mouse__collision.html#ga651f5988f0ac19869078b989c1dd0289">isInsideOpt</a>(<a class="code" href="structPoint.html">Point</a> opt[], <a class="code" href="structPoint.html">Point</a> mouse);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="agroup__i8254_html_gacf926951944b6cf370b7229ebd50dd8b"><div class="ttname"><a href="group__i8254.html#gacf926951944b6cf370b7229ebd50dd8b">TIMER_FREQ</a></div><div class="ttdeci">#define TIMER_FREQ</div><div class="ttdoc">clock frequency for timer in PC and AT</div><div class="ttdef"><b>Definition:</b> i8254.h:10</div></div>
+<div class="ttc" id="agroup__utils_html_ga79a031a8611f5b2d6afa4158e92b0fb4"><div class="ttname"><a href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</a></div><div class="ttdeci">int() util_sys_inb(int port, uint8_t *value)</div><div class="ttdoc">calls sys_in()</div><div class="ttdef"><b>Definition:</b> utils.c:16</div></div>
+<div class="ttc" id="agroup__i8254_html_gad2913dcf2f91453317bd035589ac0a7d"><div class="ttname"><a href="group__i8254.html#gad2913dcf2f91453317bd035589ac0a7d">TIMER_BIN</a></div><div class="ttdeci">#define TIMER_BIN</div><div class="ttdoc">Count in binary.</div><div class="ttdef"><b>Definition:</b> i8254.h:45</div></div>
+<div class="ttc" id="agroup__utils_html_ga81621440b3d65680979425e39aa8c789"><div class="ttname"><a href="group__utils.html#ga81621440b3d65680979425e39aa8c789">util_get_LSB</a></div><div class="ttdeci">int() util_get_LSB(uint16_t val, uint8_t *lsb)</div><div class="ttdoc">Gets LSB from val.</div><div class="ttdef"><b>Definition:</b> utils.c:4</div></div>
 <div class="ttc" id="astructPoint_html_a2e1b5fb2b2a83571f5c0bc0f66a73cf7"><div class="ttname"><a href="structPoint.html#a2e1b5fb2b2a83571f5c0bc0f66a73cf7">Point::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> mouse_collision.h:13</div></div>
+<div class="ttc" id="agroup__i8254_html_ga4c2eecbfb96744a9c2af71dba75ecb18"><div class="ttname"><a href="group__i8254.html#ga4c2eecbfb96744a9c2af71dba75ecb18">TIMER_RB_CMD</a></div><div class="ttdeci">#define TIMER_RB_CMD</div><div class="ttdoc">Read Back Command.</div><div class="ttdef"><b>Definition:</b> i8254.h:29</div></div>
+<div class="ttc" id="agroup__i8254_html_ga325b992a371d5d981c4eceff42fa5956"><div class="ttname"><a href="group__i8254.html#ga325b992a371d5d981c4eceff42fa5956">TIMER_BCD</a></div><div class="ttdeci">#define TIMER_BCD</div><div class="ttdoc">Count in BCD.</div><div class="ttdef"><b>Definition:</b> i8254.h:44</div></div>
+<div class="ttc" id="atimer_8c_html_a703c60b40c8c49607d6ecb6fef82d27a"><div class="ttname"><a href="timer_8c.html#a703c60b40c8c49607d6ecb6fef82d27a">timer_get_conf</a></div><div class="ttdeci">int() timer_get_conf(uint8_t timer, uint8_t *st)</div><div class="ttdef"><b>Definition:</b> timer.c:79</div></div>
+<div class="ttc" id="atimer_8c_html_ac57a7e1140a7e00ad95ac5488d2a671b"><div class="ttname"><a href="timer_8c.html#ac57a7e1140a7e00ad95ac5488d2a671b">timer_subscribe_int</a></div><div class="ttdeci">int() timer_subscribe_int(uint8_t *bit_no)</div><div class="ttdef"><b>Definition:</b> timer.c:57</div></div>
+<div class="ttc" id="atimer_8c_html_afabd21de449be154dd65d5fdb2d8045d"><div class="ttname"><a href="timer_8c.html#afabd21de449be154dd65d5fdb2d8045d">timer_unsubscribe_int</a></div><div class="ttdeci">int() timer_unsubscribe_int()</div><div class="ttdef"><b>Definition:</b> timer.c:67</div></div>
+<div class="ttc" id="ai8254_8h_html"><div class="ttname"><a href="i8254_8h.html">i8254.h</a></div></div>
+<div class="ttc" id="atimer_8c_html_a91a2072306c68353712a6b771287dc2c"><div class="ttname"><a href="timer_8c.html#a91a2072306c68353712a6b771287dc2c">timer_int_handler</a></div><div class="ttdeci">void() timer_int_handler()</div><div class="ttdef"><b>Definition:</b> timer.c:75</div></div>
+<div class="ttc" id="agroup__i8254_html_gac62c99c2a9289891c1b83052242cca49"><div class="ttname"><a href="group__i8254.html#gac62c99c2a9289891c1b83052242cca49">TIMER_1</a></div><div class="ttdeci">#define TIMER_1</div><div class="ttdoc">Timer 1 count register.</div><div class="ttdef"><b>Definition:</b> i8254.h:16</div></div>
+<div class="ttc" id="atimer_8c_html_a96f78a87d064e47d627d222f67a8d012"><div class="ttname"><a href="timer_8c.html#a96f78a87d064e47d627d222f67a8d012">hook_id</a></div><div class="ttdeci">int hook_id</div><div class="ttdef"><b>Definition:</b> timer.c:9</div></div>
+<div class="ttc" id="agroup__i8254_html_ga282832448fb0281ef53d243c1cd48491"><div class="ttname"><a href="group__i8254.html#ga282832448fb0281ef53d243c1cd48491">TIMER_CTRL</a></div><div class="ttdeci">#define TIMER_CTRL</div><div class="ttdoc">Control register.</div><div class="ttdef"><b>Definition:</b> i8254.h:18</div></div>
 <div class="ttc" id="astructPoint_html"><div class="ttname"><a href="structPoint.html">Point</a></div><div class="ttdef"><b>Definition:</b> mouse_collision.h:10</div></div>
 <div class="ttc" id="agroup__mouse__collision_html_ga332e649c40b7d806629d2cfa046f3ee0"><div class="ttname"><a href="group__mouse__collision.html#ga332e649c40b7d806629d2cfa046f3ee0">Point</a></div><div class="ttdeci">struct Point Point</div></div>
+<div class="ttc" id="agroup__i8254_html_ga6c248216df24b5e9d907d126d80bd195"><div class="ttname"><a href="group__i8254.html#ga6c248216df24b5e9d907d126d80bd195">TIMER_RB_COUNT_</a></div><div class="ttdeci">#define TIMER_RB_COUNT_</div><div class="ttdef"><b>Definition:</b> i8254.h:49</div></div>
+<div class="ttc" id="agroup__utils_html_ga6a880076cd2ec468834438b6e0c58836"><div class="ttname"><a href="group__utils.html#ga6a880076cd2ec468834438b6e0c58836">util_get_MSB</a></div><div class="ttdeci">int() util_get_MSB(uint16_t val, uint8_t *msb)</div><div class="ttdoc">Gets MSB from val.</div><div class="ttdef"><b>Definition:</b> utils.c:10</div></div>
+<div class="ttc" id="agroup__i8254_html_ga8c0f1933323274c765e23837e4fbc8c7"><div class="ttname"><a href="group__i8254.html#ga8c0f1933323274c765e23837e4fbc8c7">TIMER_LSB_MSB</a></div><div class="ttdeci">#define TIMER_LSB_MSB</div><div class="ttdoc">Initialize LSB first and MSB afterwards.</div><div class="ttdef"><b>Definition:</b> i8254.h:35</div></div>
+<div class="ttc" id="agroup__i8254_html_gaf598b17740e07842a0545af512714711"><div class="ttname"><a href="group__i8254.html#gaf598b17740e07842a0545af512714711">TIMER_RB_SEL</a></div><div class="ttdeci">#define TIMER_RB_SEL(n)</div><div class="ttdef"><b>Definition:</b> i8254.h:51</div></div>
+<div class="ttc" id="amouse__collision_8h_html"><div class="ttname"><a href="mouse__collision_8h.html">mouse_collision.h</a></div></div>
+<div class="ttc" id="agroup__i8254_html_gac18cb814ebd0d67235392c330e0e3504"><div class="ttname"><a href="group__i8254.html#gac18cb814ebd0d67235392c330e0e3504">TIMER_LSB</a></div><div class="ttdeci">#define TIMER_LSB</div><div class="ttdoc">Initialize Counter LSB only.</div><div class="ttdef"><b>Definition:</b> i8254.h:33</div></div>
+<div class="ttc" id="agroup__i8254_html_gacc9ff9df4a9674a1ce9ba08fc4a4679e"><div class="ttname"><a href="group__i8254.html#gacc9ff9df4a9674a1ce9ba08fc4a4679e">TIMER_0</a></div><div class="ttdeci">#define TIMER_0</div><div class="ttdoc">Timer 0 count register.</div><div class="ttdef"><b>Definition:</b> i8254.h:15</div></div>
 <div class="ttc" id="agroup__mouse__collision_html_ga651f5988f0ac19869078b989c1dd0289"><div class="ttname"><a href="group__mouse__collision.html#ga651f5988f0ac19869078b989c1dd0289">isInsideOpt</a></div><div class="ttdeci">int isInsideOpt(Point opt[], Point mouse)</div><div class="ttdef"><b>Definition:</b> mouse_collision.c:3</div></div>
+<div class="ttc" id="atrace_8txt_html_ac00797d821acc8cd978de07f8259feeb"><div class="ttname"><a href="trace_8txt.html#ac00797d821acc8cd978de07f8259feeb">sys_irqsetpolicy</a></div><div class="ttdeci">lcflib lcf_start home lcom labs proj src devices kbc kbd kbd_subscribe_int sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE|IRQ_EXCLUSIVE, &amp;hook_id_kbd) &gt; sys_irqsetpolicy(1</div></div>
+<div class="ttc" id="agroup__i8254_html_ga6a4822642d40c248435692324a818010"><div class="ttname"><a href="group__i8254.html#ga6a4822642d40c248435692324a818010">TIMER_SEL0</a></div><div class="ttdeci">#define TIMER_SEL0</div><div class="ttdoc">Control Word for Timer 0.</div><div class="ttdef"><b>Definition:</b> i8254.h:26</div></div>
+<div class="ttc" id="agroup__i8254_html_ga2a8a6d363c612d756cd8d78480f7cd04"><div class="ttname"><a href="group__i8254.html#ga2a8a6d363c612d756cd8d78480f7cd04">TIMER_MSB</a></div><div class="ttdeci">#define TIMER_MSB</div><div class="ttdoc">Initialize Counter MSB only.</div><div class="ttdef"><b>Definition:</b> i8254.h:34</div></div>
+<div class="ttc" id="agroup__i8254_html_ga8349623fd8d99f9cc5d8ae29d78594fc"><div class="ttname"><a href="group__i8254.html#ga8349623fd8d99f9cc5d8ae29d78594fc">TIMER_SEL1</a></div><div class="ttdeci">#define TIMER_SEL1</div><div class="ttdoc">Control Word for Timer 1.</div><div class="ttdef"><b>Definition:</b> i8254.h:27</div></div>
+<div class="ttc" id="atimer_8c_html_ae459ed5f5a565d171b67af71b9a41a94"><div class="ttname"><a href="timer_8c.html#ae459ed5f5a565d171b67af71b9a41a94">counter_timer</a></div><div class="ttdeci">unsigned int counter_timer</div><div class="ttdef"><b>Definition:</b> timer.c:8</div></div>
 <div class="ttc" id="astructPoint_html_a8c779e11e694b20e0946105a9f5de842"><div class="ttname"><a href="structPoint.html#a8c779e11e694b20e0946105a9f5de842">Point::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> mouse_collision.h:12</div></div>
+<div class="ttc" id="agroup__i8254_html_ga30bf84c312af248cb81bb224e09f9ba8"><div class="ttname"><a href="group__i8254.html#ga30bf84c312af248cb81bb224e09f9ba8">TIMER0_IRQ</a></div><div class="ttdeci">#define TIMER0_IRQ</div><div class="ttdoc">Timer 0 IRQ line.</div><div class="ttdef"><b>Definition:</b> i8254.h:11</div></div>
+<div class="ttc" id="atimer_8c_html_af2c04fa8e97ffa748fd3f612886a92a7"><div class="ttname"><a href="timer_8c.html#af2c04fa8e97ffa748fd3f612886a92a7">timer_set_frequency</a></div><div class="ttdeci">int() timer_set_frequency(uint8_t timer, uint32_t freq)</div><div class="ttdef"><b>Definition:</b> timer.c:11</div></div>
+<div class="ttc" id="agroup__i8254_html_ga142a255de0dbc48aeabd45fc10c33672"><div class="ttname"><a href="group__i8254.html#ga142a255de0dbc48aeabd45fc10c33672">TIMER_SEL2</a></div><div class="ttdeci">#define TIMER_SEL2</div><div class="ttdoc">Control Word for Timer 2.</div><div class="ttdef"><b>Definition:</b> i8254.h:28</div></div>
+<div class="ttc" id="atimer_8c_html_a140d8f092c0913cabdca949c4a1cc650"><div class="ttname"><a href="timer_8c.html#a140d8f092c0913cabdca949c4a1cc650">timer_display_conf</a></div><div class="ttdeci">int() timer_display_conf(uint8_t timer, uint8_t st, enum timer_status_field field)</div><div class="ttdef"><b>Definition:</b> timer.c:116</div></div>
+<div class="ttc" id="agroup__i8254_html_ga1f34f18ad0ab8cace46b615773b48735"><div class="ttname"><a href="group__i8254.html#ga1f34f18ad0ab8cace46b615773b48735">TIMER_2</a></div><div class="ttdeci">#define TIMER_2</div><div class="ttdoc">Timer 2 count register.</div><div class="ttdef"><b>Definition:</b> i8254.h:17</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2.html">devices</a></li><li class="navelem"><a class="el" href="dir_d3490a261b8f5324b0d265fedb266924.html">utils</a></li><li class="navelem"><a class="el" href="mouse__collision_8h.html">mouse_collision.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

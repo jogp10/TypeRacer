@@ -1,0 +1,14 @@
+<map id="double_buffering" name="double_buffering">
+<area shape="rect" id="node1" title="double buffer setup" alt="" coords="692,157,823,184"/>
+<area shape="rect" id="node2" href="$group__game.html#ga9e96894bf80aa84d53d41008b32b4ca5" title="change menu state" alt="" coords="315,5,453,32"/>
+<area shape="rect" id="node5" href="$group__game.html#ga52f58182a38f638ecb23904dbcbf0cbe" title="draw mouse" alt="" coords="335,56,433,83"/>
+<area shape="rect" id="node6" href="$group__game.html#ga2b79fbfc716ff3d02c0660f2db2087bc" title="draw Pause Menu" alt="" coords="511,107,639,133"/>
+<area shape="rect" id="node8" href="$group__game.html#ga3125bdaabf4cc3d8a603663ffe0e12f2" title="Draws rules menu." alt="" coords="511,157,638,184"/>
+<area shape="rect" id="node10" href="$group__game.html#gae83fcdbeb2b6757fc741ae953b633ee1" title="Game menu." alt="" coords="545,208,604,235"/>
+<area shape="rect" id="node11" href="$group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,259,457,285"/>
+<area shape="rect" id="node12" href="$group__game.html#gaecce96dde93ddb9804a5291586d5a367" title="starts single player mode" alt="" coords="505,309,644,336"/>
+<area shape="rect" id="node3" href="$group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,132,263,159"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,132,128,159"/>
+<area shape="rect" id="node7" href="$group__game.html#gad74637df8ab081f644cb8f2175df273f" title="Pause Menu." alt="" coords="353,107,415,133"/>
+<area shape="rect" id="node9" href="$group__game.html#gac2bf81c8d178fb8a48f3115c0d630fe6" title="change to rules menu" alt="" coords="357,157,411,184"/>
+</map>

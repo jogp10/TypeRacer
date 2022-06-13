@@ -14,7 +14,13 @@
 {\ttfamily \#include \char`\"{}letters.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}devices/utils/mouse\+\_\+collision.\+h\char`\"{}}\newline
 Include dependency graph for game.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,7 +32,7 @@ void \mbox{\hyperlink{group__game_gac2bf81c8d178fb8a48f3115c0d630fe6}{rules}} ()
 \begin{DoxyCompactList}\small\item\em change to rules menu \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{group__game_ga3125bdaabf4cc3d8a603663ffe0e12f2}{draw\+Rules\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em Draws rules menu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__game_gaca85c5fc48080fe3e5fc63cbfd15e3dd}{mouse\+\_\+handler}} (struct \mbox{\hyperlink{mouse_8c_a15f30eb0027f44ecb399b8f6e738a16d}{packet}} $\ast$p)
+void \mbox{\hyperlink{group__game_gaca85c5fc48080fe3e5fc63cbfd15e3dd}{mouse\+\_\+handler}} (struct \mbox{\hyperlink{mouse_8c_a15f30eb0027f44ecb399b8f6e738a16d}{packet}} $\ast$\mbox{\hyperlink{p_8h_ab8084aeb873155a361307d4c90485c3e}{p}})
 \begin{DoxyCompactList}\small\item\em mouse interrupt handler \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{group__game_ga52f58182a38f638ecb23904dbcbf0cbe}{draw\+Mouse}} ()
 \begin{DoxyCompactList}\small\item\em draw mouse \end{DoxyCompactList}\item 
@@ -48,9 +54,9 @@ int \mbox{\hyperlink{group__game_gad74637df8ab081f644cb8f2175df273f}{pause}} ()
 \begin{DoxyCompactList}\small\item\em Pause Menu. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{group__game_ga2b79fbfc716ff3d02c0660f2db2087bc}{draw\+Pause\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em draw Pause Menu \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__game_ga8543fc9b527fa4fd3687297747807f71}{draw\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t x, uint16\+\_\+t y)
+int \mbox{\hyperlink{group__game_ga8543fc9b527fa4fd3687297747807f71}{draw\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}})
 \item 
-int \mbox{\hyperlink{group__game_ga7920be8cc13fda145a4dcabdd9bf3b7f}{draw\+\_\+input\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$input, \mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t x, uint16\+\_\+t y, int size)
+int \mbox{\hyperlink{group__game_ga7920be8cc13fda145a4dcabdd9bf3b7f}{draw\+\_\+input\+\_\+sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$input, \mbox{\hyperlink{structletter}{letter}} $\ast$sentence, uint16\+\_\+t \mbox{\hyperlink{x_8h_a8cf7d295b43621780dc437744034d5e4}{x}}, uint16\+\_\+t \mbox{\hyperlink{y_8h_a2598f408b2a405231757cc828acb9432}{y}}, int \mbox{\hyperlink{vg_8c_a245260f6f74972558f61b85227df5aae}{size}})
 \begin{DoxyCompactList}\small\item\em draw input sentence \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group__game_gadd65dc8f95bf138a25e8242a855a82c2}{generate\+Sentence}} (\mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$sentence, \mbox{\hyperlink{structletter}{letter}} $\ast$$\ast$sentence2)
 \begin{DoxyCompactList}\small\item\em draw generated sentence \end{DoxyCompactList}\item 
@@ -76,6 +82,14 @@ int \mbox{\hyperlink{game_8c_a4a5135241de82f6d9fed529e9183e040}{selector\+Win}} 
 unsigned int \mbox{\hyperlink{game_8c_aee0193519a1b588fc8002d07eb49d425}{number\+\_\+\+Letters1}} = 0
 \item 
 unsigned int \mbox{\hyperlink{game_8c_a6efd04bb68ee7e536da100a157835c14}{number\+\_\+\+Letters2}} = 0
+\item 
+static \mbox{\hyperlink{group__game_ga1b42fa71e74637bf79d803a8b43b6320}{Start\+Menu\+Entry}} \mbox{\hyperlink{game_8c_a42c13eb2845c2cc12f284f269528eb5c}{start\+Menu\+Entry}}
+\item 
+static \mbox{\hyperlink{group__game_ga1b42fa71e74637bf79d803a8b43b6320}{Start\+Menu\+Entry}} \mbox{\hyperlink{game_8c_a542a728626de559689a80b4223eeb80b}{prev\+Start\+Menu\+Entry}}
+\item 
+static int \mbox{\hyperlink{game_8c_ab6403ad97e1809a744d444bb34c51ef0}{is\+Upper}} = 0
+\item 
+static int \mbox{\hyperlink{game_8c_a797edd7a0be82277eb839f048eaf1353}{is\+Shift}} = 0
 \item 
 unsigned int \mbox{\hyperlink{game_8c_aa075d15986bd3e562cdd5c3fc3702b1d}{counter\+\_\+kbd}}
 \item 
@@ -205,6 +219,18 @@ uint8\+\_\+t $\ast$ \mbox{\hyperlink{game_8c_ac7a43cd11e135e74adf5e09e5b17a95d}{
 \index{game\_background\_img@{game\_background\_img}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{game\_background\_img}{game\_background\_img}}
 {\footnotesize\ttfamily xpm\+\_\+image\+\_\+t game\+\_\+background\+\_\+img}
+
+\mbox{\Hypertarget{game_8c_a797edd7a0be82277eb839f048eaf1353}\label{game_8c_a797edd7a0be82277eb839f048eaf1353}} 
+\index{game.c@{game.c}!isShift@{isShift}}
+\index{isShift@{isShift}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{isShift}{isShift}}
+{\footnotesize\ttfamily int is\+Shift = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{game_8c_ab6403ad97e1809a744d444bb34c51ef0}\label{game_8c_ab6403ad97e1809a744d444bb34c51ef0}} 
+\index{game.c@{game.c}!isUpper@{isUpper}}
+\index{isUpper@{isUpper}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{isUpper}{isUpper}}
+{\footnotesize\ttfamily int is\+Upper = 0\hspace{0.3cm}{\ttfamily [static]}}
 
 \mbox{\Hypertarget{game_8c_aa7968c3382ed27f364c0c029db9cfc96}\label{game_8c_aa7968c3382ed27f364c0c029db9cfc96}} 
 \index{game.c@{game.c}!kb\_bit\_no@{kb\_bit\_no}}
@@ -362,6 +388,12 @@ uint8\+\_\+t $\ast$ \mbox{\hyperlink{game_8c_ac7a43cd11e135e74adf5e09e5b17a95d}{
 \doxysubsubsection{\texorpdfstring{number\_Letters2}{number\_Letters2}}
 {\footnotesize\ttfamily unsigned int number\+\_\+\+Letters2 = 0}
 
+\mbox{\Hypertarget{game_8c_a542a728626de559689a80b4223eeb80b}\label{game_8c_a542a728626de559689a80b4223eeb80b}} 
+\index{game.c@{game.c}!prevStartMenuEntry@{prevStartMenuEntry}}
+\index{prevStartMenuEntry@{prevStartMenuEntry}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{prevStartMenuEntry}{prevStartMenuEntry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__game_ga1b42fa71e74637bf79d803a8b43b6320}{Start\+Menu\+Entry}} prev\+Start\+Menu\+Entry\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{game_8c_a47f16eebbc07c33b26f4963b23ff4a46}\label{game_8c_a47f16eebbc07c33b26f4963b23ff4a46}} 
 \index{game.c@{game.c}!red\_car@{red\_car}}
 \index{red\_car@{red\_car}!game.c@{game.c}}
@@ -415,6 +447,12 @@ uint8\+\_\+t $\ast$ \mbox{\hyperlink{game_8c_ac7a43cd11e135e74adf5e09e5b17a95d}{
 \index{singlePlayerOpt@{singlePlayerOpt}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{singlePlayerOpt}{singlePlayerOpt}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} single\+Player\+Opt\mbox{[}$\,$\mbox{]} = \{\{516,340\}, \{420,440\}\}}
+
+\mbox{\Hypertarget{game_8c_a42c13eb2845c2cc12f284f269528eb5c}\label{game_8c_a42c13eb2845c2cc12f284f269528eb5c}} 
+\index{game.c@{game.c}!startMenuEntry@{startMenuEntry}}
+\index{startMenuEntry@{startMenuEntry}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{startMenuEntry}{startMenuEntry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__game_ga1b42fa71e74637bf79d803a8b43b6320}{Start\+Menu\+Entry}} start\+Menu\+Entry\hspace{0.3cm}{\ttfamily [static]}}
 
 \mbox{\Hypertarget{game_8c_a6bdcfe1b8246db3682ddf162252d2107}\label{game_8c_a6bdcfe1b8246db3682ddf162252d2107}} 
 \index{game.c@{game.c}!timer\_bit\_no@{timer\_bit\_no}}

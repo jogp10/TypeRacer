@@ -1,0 +1,7 @@
+<map id="get_hres" name="get_hres">
+<area shape="rect" id="node1" title="Get horizontal resolution in pixels." alt="" coords="505,24,584,51"/>
+<area shape="rect" id="node2" href="$group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,24,263,51"/>
+<area shape="rect" id="node4" href="$group__game.html#gaca85c5fc48080fe3e5fc63cbfd15e3dd" title="mouse interrupt handler" alt="" coords="323,24,445,51"/>
+<area shape="rect" id="node5" href="$group__game.html#ga1305dbaa30c16f5108177fcf46cf1fbb" title="change game state to single player" alt="" coords="311,75,457,102"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,24,128,51"/>
+</map>

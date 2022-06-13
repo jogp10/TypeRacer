@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer_5fbit_5fno_602',['timer_bit_no',['../game_8c.html#a6bdcfe1b8246db3682ddf162252d2107',1,'timer_bit_no():&#160;game.c'],['../proj_8c.html#a6bdcfe1b8246db3682ddf162252d2107',1,'timer_bit_no():&#160;game.c']]]
+  ['q_679',['q',['../q_8h.html#a6dc4b9ee89a753579e7cc5ca4a0d2408',1,'q():&#160;q.h'],['../Q_8h.html#a67d3389524b89efe1ba87ce22417e42c',1,'Q():&#160;Q.h']]]
 ];

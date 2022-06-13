@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,17 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('group__keyboard.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -82,7 +112,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gaca842ab89e3fc03d8cca103dd6808895"><td class="memItemLeft" align="right" valign="top">void()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895">kbd_ih</a> ()</td></tr>
 <tr class="memdesc:gaca842ab89e3fc03d8cca103dd6808895"><td class="mdescLeft">&#160;</td><td class="mdescRight">KBC interrupt handler.  <a href="group__keyboard.html#gaca842ab89e3fc03d8cca103dd6808895">More...</a><br /></td></tr>
 <tr class="separator:gaca842ab89e3fc03d8cca103dd6808895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="memItemLeft" align="right" valign="top">bool()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">kbd_code_complete</a> (uint8_t scan_code[], uint8_t *size)</td></tr>
+<tr class="memitem:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="memItemLeft" align="right" valign="top">bool()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">kbd_code_complete</a> (uint8_t scan_code[], uint8_t *<a class="el" href="vg_8c.html#a245260f6f74972558f61b85227df5aae">size</a>)</td></tr>
 <tr class="memdesc:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks code if completed.  <a href="group__keyboard.html#ga83a7a5a5b8f8d0582ad9012666b381c8">More...</a><br /></td></tr>
 <tr class="separator:ga83a7a5a5b8f8d0582ad9012666b381c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4aa0264996b3da11559782ac8768d242"><td class="memItemLeft" align="right" valign="top">int()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga4aa0264996b3da11559782ac8768d242">kbd_reenable_int</a> ()</td></tr>
@@ -121,6 +151,27 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_cgraph.png" border="0" usemap="#group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_cgraph" alt=""/></div>
+<map name="group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_cgraph" id="group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,164,32"/>
+<area shape="rect" href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="212,5,311,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_icgraph.png" border="0" usemap="#group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_icgraph" alt=""/></div>
+<map name="group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_icgraph" id="group__keyboard_ga18f5b27fb222774ef1e96b88317d907f_icgraph">
+<area shape="rect" title=" " alt="" coords="471,56,629,83"/>
+<area shape="rect" href="group__mouse.html#ga61ab3828bd2f69b7edaeb37731e34ddc" title=" " alt="" coords="244,56,423,83"/>
+<area shape="rect" href="group__mouse.html#gacbd36cda77fb29a336617f076e2b2608" title="disables mouse data reporting" alt="" coords="9,5,193,32"/>
+<area shape="rect" href="group__mouse.html#gac1a63e8f183c3fd9afc9cb12af5c2cad" title="enables mouse data reporting" alt="" coords="10,56,191,83"/>
+<area shape="rect" href="group__mouse.html#ga93acf4a9d966fc892f0aa4156b0b15e7" title="sets mouse to stream mode" alt="" coords="5,107,196,133"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -139,6 +190,27 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_cgraph.png" border="0" usemap="#group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_cgraph" alt=""/></div>
+<map name="group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_cgraph" id="group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,227,32"/>
+<area shape="rect" href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="275,5,373,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_icgraph.png" border="0" usemap="#group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_icgraph" alt=""/></div>
+<map name="group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_icgraph" id="group__keyboard_gabfc4477fca72f29e82a65b31d693ed8f_icgraph">
+<area shape="rect" title=" " alt="" coords="471,56,692,83"/>
+<area shape="rect" href="group__mouse.html#ga61ab3828bd2f69b7edaeb37731e34ddc" title=" " alt="" coords="244,56,423,83"/>
+<area shape="rect" href="group__mouse.html#gacbd36cda77fb29a336617f076e2b2608" title="disables mouse data reporting" alt="" coords="9,5,193,32"/>
+<area shape="rect" href="group__mouse.html#gac1a63e8f183c3fd9afc9cb12af5c2cad" title="enables mouse data reporting" alt="" coords="10,56,191,83"/>
+<area shape="rect" href="group__mouse.html#ga93acf4a9d966fc892f0aa4156b0b15e7" title="sets mouse to stream mode" alt="" coords="5,107,196,133"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -160,6 +232,27 @@ Functions</h2></td></tr>
 
 <p>Reads acknowledgemnt byte. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gad7d379ee6637be74dbee83e5305bec58_cgraph.png" border="0" usemap="#group__keyboard_gad7d379ee6637be74dbee83e5305bec58_cgraph" alt=""/></div>
+<map name="group__keyboard_gad7d379ee6637be74dbee83e5305bec58_cgraph" id="group__keyboard_gad7d379ee6637be74dbee83e5305bec58_cgraph">
+<area shape="rect" title="Reads acknowledgemnt byte." alt="" coords="5,5,205,32"/>
+<area shape="rect" href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="253,5,352,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gad7d379ee6637be74dbee83e5305bec58_icgraph.png" border="0" usemap="#group__keyboard_gad7d379ee6637be74dbee83e5305bec58_icgraph" alt=""/></div>
+<map name="group__keyboard_gad7d379ee6637be74dbee83e5305bec58_icgraph" id="group__keyboard_gad7d379ee6637be74dbee83e5305bec58_icgraph">
+<area shape="rect" title="Reads acknowledgemnt byte." alt="" coords="471,56,671,83"/>
+<area shape="rect" href="group__mouse.html#ga61ab3828bd2f69b7edaeb37731e34ddc" title=" " alt="" coords="244,56,423,83"/>
+<area shape="rect" href="group__mouse.html#gacbd36cda77fb29a336617f076e2b2608" title="disables mouse data reporting" alt="" coords="9,5,193,32"/>
+<area shape="rect" href="group__mouse.html#gac1a63e8f183c3fd9afc9cb12af5c2cad" title="enables mouse data reporting" alt="" coords="10,56,191,83"/>
+<area shape="rect" href="group__mouse.html#ga93acf4a9d966fc892f0aa4156b0b15e7" title="sets mouse to stream mode" alt="" coords="5,107,196,133"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -191,6 +284,16 @@ Functions</h2></td></tr>
 
 <p>Checks code if completed. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return true upon completion and false otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8_icgraph.png" border="0" usemap="#group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8_icgraph" alt=""/></div>
+<map name="group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8_icgraph" id="group__keyboard_ga83a7a5a5b8f8d0582ad9012666b381c8_icgraph">
+<area shape="rect" title="Checks code if completed." alt="" coords="311,5,463,32"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,5,263,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -211,6 +314,25 @@ Functions</h2></td></tr>
 
 <p>KBC interrupt handler. </p>
 <p>Read scan code </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_cgraph.png" border="0" usemap="#group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_cgraph" alt=""/></div>
+<map name="group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_cgraph" id="group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_cgraph">
+<area shape="rect" title="KBC interrupt handler." alt="" coords="5,5,71,32"/>
+<area shape="rect" href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="119,5,217,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_icgraph.png" border="0" usemap="#group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_icgraph" alt=""/></div>
+<map name="group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_icgraph" id="group__keyboard_gaca842ab89e3fc03d8cca103dd6808895_icgraph">
+<area shape="rect" title="KBC interrupt handler." alt="" coords="311,5,376,32"/>
+<area shape="rect" href="group__game.html#ga9067ee636a0cf113862b1112cdaf8c8a" title="Game initiaon." alt="" coords="176,5,263,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -231,6 +353,15 @@ Functions</h2></td></tr>
 
 <p>Reenable kbc interrupts. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_ga4aa0264996b3da11559782ac8768d242_cgraph.png" border="0" usemap="#group__keyboard_ga4aa0264996b3da11559782ac8768d242_cgraph" alt=""/></div>
+<map name="group__keyboard_ga4aa0264996b3da11559782ac8768d242_cgraph" id="group__keyboard_ga4aa0264996b3da11559782ac8768d242_cgraph">
+<area shape="rect" title="Reenable kbc interrupts." alt="" coords="5,5,140,32"/>
+<area shape="rect" href="group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="calls sys_in()" alt="" coords="188,5,287,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -258,6 +389,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_cgraph.png" border="0" usemap="#group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_cgraph" alt=""/></div>
+<map name="group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_cgraph" id="group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_cgraph">
+<area shape="rect" title="Subscribes and enables KBC interrupts." alt="" coords="5,5,144,32"/>
+<area shape="rect" href="trace_8txt.html#ac00797d821acc8cd978de07f8259feeb" title=" " alt="" coords="192,5,319,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_icgraph.png" border="0" usemap="#group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_icgraph" alt=""/></div>
+<map name="group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_icgraph" id="group__keyboard_ga4ac9231a99a664d6a9f0b69767e0d707_icgraph">
+<area shape="rect" title="Subscribes and enables KBC interrupts." alt="" coords="176,5,315,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -278,15 +427,27 @@ Functions</h2></td></tr>
 
 <p>Unsubscribes KBC interrupts. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__keyboard_gaee0a7b54ee426fade9c780418d110fe0_icgraph.png" border="0" usemap="#group__keyboard_gaee0a7b54ee426fade9c780418d110fe0_icgraph" alt=""/></div>
+<map name="group__keyboard_gaee0a7b54ee426fade9c780418d110fe0_icgraph" id="group__keyboard_gaee0a7b54ee426fade9c780418d110fe0_icgraph">
+<area shape="rect" title="Unsubscribes KBC interrupts." alt="" coords="176,5,331,32"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>
+</div>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

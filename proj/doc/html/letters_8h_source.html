@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">LCOM_T04_G06
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('letters_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">letters.h</div>  </div>
@@ -90,7 +116,7 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//The sentences cant have &quot;.&quot;s in the middle of them or else the program dies.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> sentencesChar[8][500]={</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="group__letters.html#gaf7e874746f10b2fa0ecc37730ddc4dfa">   28</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> <a class="code" href="group__letters.html#gaf7e874746f10b2fa0ecc37730ddc4dfa">sentencesChar</a>[8][500]={</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {<span class="stringliteral">&quot;Racism is a part of it, though somewhat muted in recent days - wrote Kirkpatrick Sale in his book.&quot;</span>}, </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {<span class="stringliteral">&quot;We still have a couple of big decisions to make, let&#39;s focus.&quot;</span>}, </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {<span class="stringliteral">&quot;A not-that-rare occurence in Manhattan parks, unfortunately, but, after the fight, it wasn&#39;t clear who won.&quot;</span>},</div>
@@ -114,26 +140,94 @@ $(function() {
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __LETTERS_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aH_8h_html_aa954de190f7c644295552513f80e501e"><div class="ttname"><a href="H_8h.html#aa954de190f7c644295552513f80e501e">H</a></div><div class="ttdeci">static const xpm_row_t H[]</div><div class="ttdef"><b>Definition:</b> H.h:2</div></div>
+<div class="ttc" id="aX_8h_html_a654f698538885562827a4067ed2de42b"><div class="ttname"><a href="X_8h.html#a654f698538885562827a4067ed2de42b">X</a></div><div class="ttdeci">static const xpm_row_t X[]</div><div class="ttdef"><b>Definition:</b> X.h:2</div></div>
+<div class="ttc" id="aS_8h_html_a4a661c8366fe229c6e63069819ba06bc"><div class="ttname"><a href="S_8h.html#a4a661c8366fe229c6e63069819ba06bc">S</a></div><div class="ttdeci">static const xpm_row_t S[]</div><div class="ttdef"><b>Definition:</b> S.h:2</div></div>
+<div class="ttc" id="aletters_8h_html"><div class="ttname"><a href="letters_8h.html">letters.h</a></div></div>
+<div class="ttc" id="aj_8h_html_a47c0e056bfc4b0cc5c76d4026bfe4830"><div class="ttname"><a href="j_8h.html#a47c0e056bfc4b0cc5c76d4026bfe4830">j</a></div><div class="ttdeci">static const xpm_row_t j[]</div><div class="ttdef"><b>Definition:</b> j.h:2</div></div>
+<div class="ttc" id="ax_8h_html_a8cf7d295b43621780dc437744034d5e4"><div class="ttname"><a href="x_8h.html#a8cf7d295b43621780dc437744034d5e4">x</a></div><div class="ttdeci">static const xpm_row_t x[]</div><div class="ttdef"><b>Definition:</b> x.h:2</div></div>
+<div class="ttc" id="ar_8h_html_a64ef4d3865ba9bb1ac9b71651fb73406"><div class="ttname"><a href="r_8h.html#a64ef4d3865ba9bb1ac9b71651fb73406">r</a></div><div class="ttdeci">static const xpm_row_t r[]</div><div class="ttdef"><b>Definition:</b> r.h:2</div></div>
+<div class="ttc" id="aB_8h_html_a33d36746bcac760d100adb8cc2d18bb0"><div class="ttname"><a href="B_8h.html#a33d36746bcac760d100adb8cc2d18bb0">B_upper</a></div><div class="ttdeci">static const xpm_row_t B_upper[]</div><div class="ttdef"><b>Definition:</b> B.h:2</div></div>
+<div class="ttc" id="aM_8h_html_a84db9311a1ce0bffa49897d2ae3655fe"><div class="ttname"><a href="M_8h.html#a84db9311a1ce0bffa49897d2ae3655fe">M</a></div><div class="ttdeci">static const xpm_row_t M[]</div><div class="ttdef"><b>Definition:</b> M.h:2</div></div>
+<div class="ttc" id="axpm_8h_html"><div class="ttname"><a href="xpm_8h.html">xpm.h</a></div></div>
+<div class="ttc" id="atrace_8txt_html_a0b0c68d3c8e519b29f99edc437080ebb"><div class="ttname"><a href="trace_8txt.html#a0b0c68d3c8e519b29f99edc437080ebb">a</a></div><div class="ttdeci">lcflib a</div><div class="ttdef"><b>Definition:</b> trace.txt:1</div></div>
+<div class="ttc" id="aq_8h_html_a6dc4b9ee89a753579e7cc5ca4a0d2408"><div class="ttname"><a href="q_8h.html#a6dc4b9ee89a753579e7cc5ca4a0d2408">q</a></div><div class="ttdeci">static const xpm_row_t q[]</div><div class="ttdef"><b>Definition:</b> q.h:2</div></div>
+<div class="ttc" id="aK_8h_html_a3991cb455970214ab15bcd9e734d4dc3"><div class="ttname"><a href="K_8h.html#a3991cb455970214ab15bcd9e734d4dc3">K</a></div><div class="ttdeci">static const xpm_row_t K[]</div><div class="ttdef"><b>Definition:</b> K.h:2</div></div>
+<div class="ttc" id="aQ_8h_html_a67d3389524b89efe1ba87ce22417e42c"><div class="ttname"><a href="Q_8h.html#a67d3389524b89efe1ba87ce22417e42c">Q</a></div><div class="ttdeci">static const xpm_row_t Q[]</div><div class="ttdef"><b>Definition:</b> Q.h:2</div></div>
+<div class="ttc" id="aoutput_8txt_html_ace98771945ffbee6ae5d731c861711d6"><div class="ttname"><a href="output_8txt.html#ace98771945ffbee6ae5d731c861711d6">m</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock unfort The company is listed on the Tokyo Stock unfortu The company is listed on the Tokyo Stock unfortun The company is listed on the Tokyo Stock it m</div><div class="ttdef"><b>Definition:</b> output.txt:956</div></div>
+<div class="ttc" id="aD_8h_html_a062566112e71548d94cc82f26c8c2154"><div class="ttname"><a href="D_8h.html#a062566112e71548d94cc82f26c8c2154">D</a></div><div class="ttdeci">static const xpm_row_t D[]</div><div class="ttdef"><b>Definition:</b> D.h:2</div></div>
+<div class="ttc" id="aJ_8h_html_a0859e621e674b3929fc5ca64eb16d0c2"><div class="ttname"><a href="J_8h.html#a0859e621e674b3929fc5ca64eb16d0c2">J</a></div><div class="ttdeci">static const xpm_row_t J[]</div><div class="ttdef"><b>Definition:</b> J.h:2</div></div>
+<div class="ttc" id="al_8h_html_aab4c1feee879b6eae1418f78f0162a35"><div class="ttname"><a href="l_8h.html#aab4c1feee879b6eae1418f78f0162a35">l</a></div><div class="ttdeci">static const xpm_row_t l[]</div><div class="ttdef"><b>Definition:</b> l.h:2</div></div>
+<div class="ttc" id="aespaco_8h_html_aecfc92976c7f77aa290103896571f786"><div class="ttname"><a href="espaco_8h.html#aecfc92976c7f77aa290103896571f786">espaco</a></div><div class="ttdeci">static const xpm_row_t espaco[]</div><div class="ttdef"><b>Definition:</b> espaco.h:2</div></div>
+<div class="ttc" id="au_8h_html_a3af50cb36968b62f7df53a727b7c84e2"><div class="ttname"><a href="u_8h.html#a3af50cb36968b62f7df53a727b7c84e2">u</a></div><div class="ttdeci">static const xpm_row_t u[]</div><div class="ttdef"><b>Definition:</b> u.h:2</div></div>
+<div class="ttc" id="agroup__letters_html_gaf7e874746f10b2fa0ecc37730ddc4dfa"><div class="ttname"><a href="group__letters.html#gaf7e874746f10b2fa0ecc37730ddc4dfa">sentencesChar</a></div><div class="ttdeci">static char sentencesChar[8][500]</div><div class="ttdef"><b>Definition:</b> letters.h:28</div></div>
+<div class="ttc" id="ad_8h_html_a3f85a01485a5ae3df56e8e5fcd796007"><div class="ttname"><a href="d_8h.html#a3f85a01485a5ae3df56e8e5fcd796007">d</a></div><div class="ttdeci">static const xpm_row_t d[]</div><div class="ttdef"><b>Definition:</b> d.h:2</div></div>
+<div class="ttc" id="aW_8h_html_a9a436c16ff4eefb469db2a24f8ad9eec"><div class="ttname"><a href="W_8h.html#a9a436c16ff4eefb469db2a24f8ad9eec">W</a></div><div class="ttdeci">static const xpm_row_t W[]</div><div class="ttdef"><b>Definition:</b> W.h:2</div></div>
+<div class="ttc" id="aoutput_8txt_html_ac686696a8c75140e352efde00886f1bd"><div class="ttname"><a href="output_8txt.html#ac686696a8c75140e352efde00886f1bd">b</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock unfort The company is listed on the Tokyo Stock unfortu The company is listed on the Tokyo Stock unfortun The company is listed on the Tokyo Stock it unfortuna The company is listed on the Tokyo Stock it unfortunat The company is listed on the Tokyo Stock it unfortunate The company is listed on the Tokyo Stock it unfortunatel The company is listed on the Tokyo Stock it unfortunately The company is listed on the Tokyo Stock it must b</div><div class="ttdef"><b>Definition:</b> output.txt:1042</div></div>
 <div class="ttc" id="agroup__letters_html_ga7745112d26b762ba2d12b7f324710869"><div class="ttname"><a href="group__letters.html#ga7745112d26b762ba2d12b7f324710869">destroySentencesAndLetters</a></div><div class="ttdeci">void destroySentencesAndLetters()</div><div class="ttdoc">frees sentences memory usage</div><div class="ttdef"><b>Definition:</b> letters.c:345</div></div>
+<div class="ttc" id="af_8h_html_aeebf80de311a48b4d27613a06f647dc8"><div class="ttname"><a href="f_8h.html#aeebf80de311a48b4d27613a06f647dc8">f</a></div><div class="ttdeci">static const xpm_row_t f[]</div><div class="ttdef"><b>Definition:</b> f.h:2</div></div>
+<div class="ttc" id="at_8h_html_a800d1670273e42e4b3a0daef632ab583"><div class="ttname"><a href="t_8h.html#a800d1670273e42e4b3a0daef632ab583">t</a></div><div class="ttdeci">static const xpm_row_t t[]</div><div class="ttdef"><b>Definition:</b> t.h:2</div></div>
 <div class="ttc" id="agroup__letters_html_ga333241a09272e2178bb6bce651b92167"><div class="ttname"><a href="group__letters.html#ga333241a09272e2178bb6bce651b92167">free2dArray</a></div><div class="ttdeci">void free2dArray(letter **ptr, int row, int col)</div><div class="ttdoc">free memory</div><div class="ttdef"><b>Definition:</b> letters.c:338</div></div>
+<div class="ttc" id="aapostrofe_8h_html_a2e8add9dc897860295a2b53adcd32431"><div class="ttname"><a href="apostrofe_8h.html#a2e8add9dc897860295a2b53adcd32431">apostrofe</a></div><div class="ttdeci">static const xpm_row_t apostrofe[]</div><div class="ttdef"><b>Definition:</b> apostrofe.h:2</div></div>
 <div class="ttc" id="agroup__letters_html_ga9c190c5de3d7b253b05eff01cc84a109"><div class="ttname"><a href="group__letters.html#ga9c190c5de3d7b253b05eff01cc84a109">loadSentences</a></div><div class="ttdeci">void loadSentences()</div><div class="ttdoc">load sentences xpms</div><div class="ttdef"><b>Definition:</b> letters.c:315</div></div>
+<div class="ttc" id="apontovirgula_8h_html_ae02cfa9a7c61fb313528766d20cf4fbb"><div class="ttname"><a href="pontovirgula_8h.html#ae02cfa9a7c61fb313528766d20cf4fbb">pontoVirgula</a></div><div class="ttdeci">static const xpm_row_t pontoVirgula[]</div><div class="ttdef"><b>Definition:</b> pontovirgula.h:2</div></div>
 <div class="ttc" id="agroup__letters_html_ga3b6237caf1ef8186e7884ba0c5811032"><div class="ttname"><a href="group__letters.html#ga3b6237caf1ef8186e7884ba0c5811032">load</a></div><div class="ttdeci">int() load()</div><div class="ttdoc">load alphabet xpms</div><div class="ttdef"><b>Definition:</b> letters.c:5</div></div>
+<div class="ttc" id="ag_8h_html_af28aec27f0a924e24e62c165de3783aa"><div class="ttname"><a href="g_8h.html#af28aec27f0a924e24e62c165de3783aa">g</a></div><div class="ttdeci">static const xpm_row_t g[]</div><div class="ttdef"><b>Definition:</b> g.h:2</div></div>
 <div class="ttc" id="astructletter_html_a7a59050ee5ac3e4401d3d746f94ad17d"><div class="ttname"><a href="structletter.html#a7a59050ee5ac3e4401d3d746f94ad17d">letter::xpm</a></div><div class="ttdeci">uint8_t * xpm</div><div class="ttdef"><b>Definition:</b> letters.h:16</div></div>
+<div class="ttc" id="adoispontos_8h_html_aa601880105d6b2e524e4ef9704bf0f44"><div class="ttname"><a href="doispontos_8h.html#aa601880105d6b2e524e4ef9704bf0f44">doisPontos</a></div><div class="ttdeci">static const xpm_row_t doisPontos[]</div><div class="ttdef"><b>Definition:</b> doispontos.h:2</div></div>
+<div class="ttc" id="aE_8h_html_a8eec42dd228dde498d5008f30a19045f"><div class="ttname"><a href="E_8h.html#a8eec42dd228dde498d5008f30a19045f">E</a></div><div class="ttdeci">static const xpm_row_t E[]</div><div class="ttdef"><b>Definition:</b> E.h:2</div></div>
+<div class="ttc" id="ah_8h_html_a15f5f589500bdf92edb7503649a4b2a7"><div class="ttname"><a href="h_8h.html#a15f5f589500bdf92edb7503649a4b2a7">h</a></div><div class="ttdeci">static const xpm_row_t h[]</div><div class="ttdef"><b>Definition:</b> h.h:2</div></div>
+<div class="ttc" id="aZ_8h_html_ace26d96d045e150a74917dff6ae94762"><div class="ttname"><a href="Z_8h.html#ace26d96d045e150a74917dff6ae94762">Z</a></div><div class="ttdeci">static const xpm_row_t Z[]</div><div class="ttdef"><b>Definition:</b> Z.h:2</div></div>
+<div class="ttc" id="ao_8h_html_a940e57c9693210d6e0afbf3708b6481b"><div class="ttname"><a href="o_8h.html#a940e57c9693210d6e0afbf3708b6481b">o</a></div><div class="ttdeci">static const xpm_row_t o[]</div><div class="ttdef"><b>Definition:</b> o.h:2</div></div>
+<div class="ttc" id="avirgula_8h_html_a8d7bcce37c0b8b439ba5c90405f1b9cd"><div class="ttname"><a href="virgula_8h.html#a8d7bcce37c0b8b439ba5c90405f1b9cd">virgula</a></div><div class="ttdeci">static const xpm_row_t virgula[]</div><div class="ttdef"><b>Definition:</b> virgula.h:2</div></div>
+<div class="ttc" id="aO_8h_html_a3a208f0e9ad15b11b3c0fe4c22680fbc"><div class="ttname"><a href="O_8h.html#a3a208f0e9ad15b11b3c0fe4c22680fbc">O</a></div><div class="ttdeci">static const xpm_row_t O[]</div><div class="ttdef"><b>Definition:</b> O.h:2</div></div>
+<div class="ttc" id="aw_8h_html_a4bd7c829ae08b05eb2f1019823d3212a"><div class="ttname"><a href="w_8h.html#a4bd7c829ae08b05eb2f1019823d3212a">w</a></div><div class="ttdeci">static const xpm_row_t w[]</div><div class="ttdef"><b>Definition:</b> w.h:2</div></div>
+<div class="ttc" id="aY_8h_html_a122cb41591168709b8304e965674ee31"><div class="ttname"><a href="Y_8h.html#a122cb41591168709b8304e965674ee31">Y</a></div><div class="ttdeci">static const xpm_row_t Y[]</div><div class="ttdef"><b>Definition:</b> Y.h:2</div></div>
 <div class="ttc" id="agroup__letters_html_ga3473a75605cd752401ec13ef8074557d"><div class="ttname"><a href="group__letters.html#ga3473a75605cd752401ec13ef8074557d">letters</a></div><div class="ttdeci">letter * letters</div><div class="ttdef"><b>Definition:</b> letters.h:20</div></div>
 <div class="ttc" id="agroup__letters_html_gad9383479c1fc9cf22dfe67c1c7226f7a"><div class="ttname"><a href="group__letters.html#gad9383479c1fc9cf22dfe67c1c7226f7a">sentences</a></div><div class="ttdeci">letter ** sentences</div><div class="ttdef"><b>Definition:</b> letters.h:22</div></div>
+<div class="ttc" id="as_8h_html_ad53ae3b1f3d69abe7c7c207acbd8ca9c"><div class="ttname"><a href="s_8h.html#ad53ae3b1f3d69abe7c7c207acbd8ca9c">s</a></div><div class="ttdeci">static const xpm_row_t s[]</div><div class="ttdef"><b>Definition:</b> s.h:2</div></div>
+<div class="ttc" id="ap_8h_html_ab8084aeb873155a361307d4c90485c3e"><div class="ttname"><a href="p_8h.html#ab8084aeb873155a361307d4c90485c3e">p</a></div><div class="ttdeci">static const xpm_row_t p[]</div><div class="ttdef"><b>Definition:</b> p.h:2</div></div>
 <div class="ttc" id="astructletter_html"><div class="ttname"><a href="structletter.html">letter</a></div><div class="ttdef"><b>Definition:</b> letters.h:12</div></div>
 <div class="ttc" id="astructletter_html_aa278494fc1ea3f799e27a896fa735b42"><div class="ttname"><a href="structletter.html#aa278494fc1ea3f799e27a896fa735b42">letter::img</a></div><div class="ttdeci">xpm_image_t img</div><div class="ttdef"><b>Definition:</b> letters.h:15</div></div>
+<div class="ttc" id="aF_8h_html_a21fac580b9ac834a2c6845c34b076d7c"><div class="ttname"><a href="F_8h.html#a21fac580b9ac834a2c6845c34b076d7c">F</a></div><div class="ttdeci">static const xpm_row_t F[]</div><div class="ttdef"><b>Definition:</b> F.h:2</div></div>
+<div class="ttc" id="ae_8h_html_a3b01f9a12ebd29f1cb1f6a8a8b2a3713"><div class="ttname"><a href="e_8h.html#a3b01f9a12ebd29f1cb1f6a8a8b2a3713">e</a></div><div class="ttdeci">static const xpm_row_t e[]</div><div class="ttdef"><b>Definition:</b> e.h:2</div></div>
 <div class="ttc" id="astructletter_html_ad127d3d1922905d51e52e97359dc3bbf"><div class="ttname"><a href="structletter.html#ad127d3d1922905d51e52e97359dc3bbf">letter::shift</a></div><div class="ttdeci">int shift</div><div class="ttdef"><b>Definition:</b> letters.h:17</div></div>
+<div class="ttc" id="aA_8h_html_ac6c1a4dae6f3f1d33829426b0b0414aa"><div class="ttname"><a href="A_8h.html#ac6c1a4dae6f3f1d33829426b0b0414aa">A</a></div><div class="ttdeci">static const xpm_row_t A[]</div><div class="ttdef"><b>Definition:</b> A.h:2</div></div>
+<div class="ttc" id="aoutput_8txt_html_acaf2d732943a2bb6621bf30cd2cf613f"><div class="ttname"><a href="output_8txt.html#acaf2d732943a2bb6621bf30cd2cf613f">v</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock unfort The company is listed on the Tokyo Stock unfortu The company is listed on the Tokyo Stock unfortun The company is listed on the Tokyo Stock it unfortuna The company is listed on the Tokyo Stock it unfortunat The company is listed on the Tokyo Stock it unfortunate The company is listed on the Tokyo Stock it unfortunatel The company is listed on the Tokyo Stock it unfortunately The company is listed on the Tokyo Stock it must The company is listed on the Tokyo Stock it must The company is listed on the Tokyo Stock it must b The company is listed on the Tokyo Stock it must be v</div><div class="ttdef"><b>Definition:</b> output.txt:1211</div></div>
 <div class="ttc" id="agroup__letters_html_ga2c4d78df5d5c8187390832dc5475e8b9"><div class="ttname"><a href="group__letters.html#ga2c4d78df5d5c8187390832dc5475e8b9">errorMessage</a></div><div class="ttdeci">letter * errorMessage</div><div class="ttdef"><b>Definition:</b> letters.h:24</div></div>
 <div class="ttc" id="agroup__letters_html_ga1d31552311b792bf12610bdf96c2ae42"><div class="ttname"><a href="group__letters.html#ga1d31552311b792bf12610bdf96c2ae42">allocate2dArray</a></div><div class="ttdeci">letter ** allocate2dArray(int row, int col)</div><div class="ttdef"><b>Definition:</b> letters.c:329</div></div>
+<div class="ttc" id="atrace_8txt_html_ac27bc06a21c0d23c2f136c730fd87f75"><div class="ttname"><a href="trace_8txt.html#ac27bc06a21c0d23c2f136c730fd87f75">c</a></div><div class="ttdeci">lcflib lcf_start home lcom labs proj src devices kbc kbd c</div><div class="ttdef"><b>Definition:</b> trace.txt:4</div></div>
+<div class="ttc" id="aR_8h_html_a554b10ef99191e1ef02f510484e245b9"><div class="ttname"><a href="R_8h.html#a554b10ef99191e1ef02f510484e245b9">R_upper</a></div><div class="ttdeci">static const xpm_row_t R_upper[]</div><div class="ttdef"><b>Definition:</b> R.h:2</div></div>
 <div class="ttc" id="astructletter_html_a4bb58367ecea995c64a5d92d5ec60502"><div class="ttname"><a href="structletter.html#a4bb58367ecea995c64a5d92d5ec60502">letter::letter</a></div><div class="ttdeci">char letter</div><div class="ttdef"><b>Definition:</b> letters.h:13</div></div>
+<div class="ttc" id="apontoexclamacao_8h_html_acd75d85374ce951e0155d2d6168b58a9"><div class="ttname"><a href="pontoexclamacao_8h.html#acd75d85374ce951e0155d2d6168b58a9">pontoExclamacao</a></div><div class="ttdeci">static const xpm_row_t pontoExclamacao[]</div><div class="ttdef"><b>Definition:</b> pontoexclamacao.h:2</div></div>
+<div class="ttc" id="az_8h_html_ab6d20bd0b7fb45e4671ed67cb2c7a54a"><div class="ttname"><a href="z_8h.html#ab6d20bd0b7fb45e4671ed67cb2c7a54a">z</a></div><div class="ttdeci">static const xpm_row_t z[]</div><div class="ttdef"><b>Definition:</b> z.h:2</div></div>
+<div class="ttc" id="atraco_8h_html_a308ab792ece27bce723168948511368b"><div class="ttname"><a href="traco_8h.html#a308ab792ece27bce723168948511368b">traco</a></div><div class="ttdeci">static const xpm_row_t traco[]</div><div class="ttdef"><b>Definition:</b> traco.h:2</div></div>
+<div class="ttc" id="apontointerrogacao_8h_html_a1aa44a4d8901d33bda2e98af7fbd1b87"><div class="ttname"><a href="pontointerrogacao_8h.html#a1aa44a4d8901d33bda2e98af7fbd1b87">pontoInterrogacao</a></div><div class="ttdeci">static const xpm_row_t pontoInterrogacao[]</div><div class="ttdef"><b>Definition:</b> pontointerrogacao.h:2</div></div>
+<div class="ttc" id="aT_8h_html_a9d93a50d8159f11984e4e8afb23e0691"><div class="ttname"><a href="T_8h.html#a9d93a50d8159f11984e4e8afb23e0691">T</a></div><div class="ttdeci">static const xpm_row_t T[]</div><div class="ttdef"><b>Definition:</b> T.h:2</div></div>
+<div class="ttc" id="aU_8h_html_ad5f22a96a826a43434670d9a9d4a5853"><div class="ttname"><a href="U_8h.html#ad5f22a96a826a43434670d9a9d4a5853">U</a></div><div class="ttdeci">static const xpm_row_t U[]</div><div class="ttdef"><b>Definition:</b> U.h:2</div></div>
+<div class="ttc" id="aL_8h_html_a1b7b769e5120673bf303154fee715bed"><div class="ttname"><a href="L_8h.html#a1b7b769e5120673bf303154fee715bed">L</a></div><div class="ttdeci">static const xpm_row_t L[]</div><div class="ttdef"><b>Definition:</b> L.h:2</div></div>
+<div class="ttc" id="aoutput_8txt_html_a974ff07538c0fb2ace1fd662f6d3416a"><div class="ttname"><a href="output_8txt.html#a974ff07538c0fb2ace1fd662f6d3416a">i</a></div><div class="ttdeci">Makecode The company is listed on the Tokyo Stock The company is listed on the Tokyo Stock u The company is listed on the Tokyo Stock un The company is listed on the Tokyo Stock unf The company is listed on the Tokyo Stock unfor The company is listed on the Tokyo Stock i</div><div class="ttdef"><b>Definition:</b> output.txt:909</div></div>
+<div class="ttc" id="aponto_8h_html_a5d5ec997883bb6b59db3e764d851183d"><div class="ttname"><a href="ponto_8h.html#a5d5ec997883bb6b59db3e764d851183d">ponto</a></div><div class="ttdeci">static const xpm_row_t ponto[]</div><div class="ttdef"><b>Definition:</b> ponto.h:2</div></div>
+<div class="ttc" id="aN_8h_html_a52c90bce7bd20f354ab02ba04face756"><div class="ttname"><a href="N_8h.html#a52c90bce7bd20f354ab02ba04face756">N</a></div><div class="ttdeci">static const xpm_row_t N[]</div><div class="ttdef"><b>Definition:</b> N.h:2</div></div>
+<div class="ttc" id="aP_8h_html_a4d6bfab17f51811e54aa6e49d06e62fb"><div class="ttname"><a href="P_8h.html#a4d6bfab17f51811e54aa6e49d06e62fb">P</a></div><div class="ttdeci">static const xpm_row_t P[]</div><div class="ttdef"><b>Definition:</b> P.h:2</div></div>
+<div class="ttc" id="aC_8h_html_a7831b5b57b8ff48115faeb25803fd680"><div class="ttname"><a href="C_8h.html#a7831b5b57b8ff48115faeb25803fd680">C</a></div><div class="ttdeci">static const xpm_row_t C[]</div><div class="ttdef"><b>Definition:</b> C.h:1</div></div>
+<div class="ttc" id="an_8h_html_a810e4eb6b6c7239d6a620caeb703d019"><div class="ttname"><a href="n_8h.html#a810e4eb6b6c7239d6a620caeb703d019">n</a></div><div class="ttdeci">static const xpm_row_t n[]</div><div class="ttdef"><b>Definition:</b> n.h:2</div></div>
+<div class="ttc" id="ay_8h_html_a2598f408b2a405231757cc828acb9432"><div class="ttname"><a href="y_8h.html#a2598f408b2a405231757cc828acb9432">y</a></div><div class="ttdeci">static const xpm_row_t y[]</div><div class="ttdef"><b>Definition:</b> y.h:2</div></div>
+<div class="ttc" id="ak_8h_html_a20c0bd4e22002476f2f8435492c9db7e"><div class="ttname"><a href="k_8h.html#a20c0bd4e22002476f2f8435492c9db7e">k</a></div><div class="ttdeci">static const xpm_row_t k[]</div><div class="ttdef"><b>Definition:</b> k.h:2</div></div>
+<div class="ttc" id="aG_8h_html_a306132b9da31d8192e02a146968ba233"><div class="ttname"><a href="G_8h.html#a306132b9da31d8192e02a146968ba233">G_upper</a></div><div class="ttdeci">static const xpm_row_t G_upper[]</div><div class="ttdef"><b>Definition:</b> G.h:2</div></div>
+<div class="ttc" id="aV_8h_html_ae650afe536e3c5ef61d0ae596b0a8cc4"><div class="ttname"><a href="V_8h.html#ae650afe536e3c5ef61d0ae596b0a8cc4">V</a></div><div class="ttdeci">static const xpm_row_t V[]</div><div class="ttdef"><b>Definition:</b> V.h:2</div></div>
+<div class="ttc" id="aI_8h_html_ab31dcc3061ce0dedc7101422c2d13c16"><div class="ttname"><a href="I_8h.html#ab31dcc3061ce0dedc7101422c2d13c16">I</a></div><div class="ttdeci">static const xpm_row_t I[]</div><div class="ttdef"><b>Definition:</b> I.h:2</div></div>
 <div class="ttc" id="astructletter_html_a84cc93431c045ae59cc9718cab1193ee"><div class="ttname"><a href="structletter.html#a84cc93431c045ae59cc9718cab1193ee">letter::makeCode</a></div><div class="ttdeci">uint8_t makeCode</div><div class="ttdef"><b>Definition:</b> letters.h:14</div></div>
 <div class="ttc" id="agroup__letters_html_ga9bac7a3ce4627f36eb20eb0829fa1025"><div class="ttname"><a href="group__letters.html#ga9bac7a3ce4627f36eb20eb0829fa1025">letter</a></div><div class="ttdeci">struct letter letter</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="letters_8h.html">letters.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['leaveopt_549',['leaveOpt',['../game_8c.html#aa703f6599751d6d0c2c3582b35d8f03e',1,'game.c']]],
-  ['letter_550',['letter',['../structletter.html#a4bb58367ecea995c64a5d92d5ec60502',1,'letter']]],
-  ['letters_551',['letters',['../group__letters.html#ga3473a75605cd752401ec13ef8074557d',1,'letters():&#160;letters.h'],['../group__letters.html#ga3473a75605cd752401ec13ef8074557d',1,'letters():&#160;letters.h']]],
-  ['limpar_552',['limpar',['../output_8txt.html#ac2eb0b38d259e244b183d836a34aa245',1,'output.txt']]],
-  ['lmb_553',['lmb',['../structMouse.html#ab71e2490a2a3ef5cf748d2e9304248ee',1,'Mouse']]]
+  ['k_619',['k',['../k_8h.html#a20c0bd4e22002476f2f8435492c9db7e',1,'k():&#160;k.h'],['../K_8h.html#a3991cb455970214ab15bcd9e734d4dc3',1,'K():&#160;K.h']]],
+  ['kb_5fbit_5fno_620',['kb_bit_no',['../game_8c.html#aa7968c3382ed27f364c0c029db9cfc96',1,'kb_bit_no():&#160;game.c'],['../proj_8c.html#aa7968c3382ed27f364c0c029db9cfc96',1,'kb_bit_no():&#160;proj.c']]]
 ];

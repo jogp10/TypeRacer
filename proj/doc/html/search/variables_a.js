@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kb_5fbit_5fno_548',['kb_bit_no',['../game_8c.html#aa7968c3382ed27f364c0c029db9cfc96',1,'kb_bit_no():&#160;game.c'],['../proj_8c.html#aa7968c3382ed27f364c0c029db9cfc96',1,'kb_bit_no():&#160;proj.c']]]
+  ['j_618',['j',['../j_8h.html#a47c0e056bfc4b0cc5c76d4026bfe4830',1,'j():&#160;j.h'],['../J_8h.html#a0859e621e674b3929fc5ca64eb16d0c2',1,'J():&#160;J.h']]]
 ];

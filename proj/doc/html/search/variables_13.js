@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['v_606',['v',['../output_8txt.html#acaf2d732943a2bb6621bf30cd2cf613f',1,'output.txt']]],
-  ['va_607',['va',['../output_8txt.html#a04f5e69d608c4b227eff767f169732df',1,'output.txt']]],
-  ['val_608',['val',['../output_8txt.html#ad880f82c2318ea5a58d38c0f18ca9ca4',1,'output.txt']]],
-  ['valu_609',['valu',['../output_8txt.html#ac762e821f9183b19c527e9dd84307ac5',1,'output.txt']]],
-  ['valua_610',['valua',['../output_8txt.html#a81437bbfb3da0be9d44543ef1f78d76d',1,'output.txt']]],
-  ['valuab_611',['valuab',['../output_8txt.html#a542f79ae8d6ddcb4b6f5b61cbe389ff5',1,'output.txt']]],
-  ['valuabl_612',['valuabl',['../output_8txt.html#a26df93bb09415f97219c02fb71803f8c',1,'output.txt']]],
-  ['valuable_613',['valuable',['../output_8txt.html#a1d02cf590f65c419d3404c098fd0f880',1,'output.txt']]],
-  ['ve_614',['ve',['../output_8txt.html#afc8a16e156e39816747585c8b2ca40a6',1,'output.txt']]],
-  ['ver_615',['ver',['../output_8txt.html#a40be6e33d8944652929c1e4802eb3dd4',1,'output.txt']]],
-  ['very_616',['very',['../output_8txt.html#a6f33a9aa011484582338c81b458f3b3d',1,'output.txt']]]
+  ['s_689',['S',['../S_8h.html#a4a661c8366fe229c6e63069819ba06bc',1,'S():&#160;S.h'],['../s_8h.html#ad53ae3b1f3d69abe7c7c207acbd8ca9c',1,'s():&#160;s.h']]],
+  ['selectormenu_690',['selectorMenu',['../game_8c.html#adb94a163ce647fae5850e371138bddb8',1,'game.c']]],
+  ['selectorpause_691',['selectorPause',['../game_8c.html#a5ca07cec5599a7d2cdb76f24507a9a05',1,'game.c']]],
+  ['selectorwin_692',['selectorWin',['../game_8c.html#a4a5135241de82f6d9fed529e9183e040',1,'game.c']]],
+  ['sentence_693',['sentence',['../structState.html#a155bba47f13044dc3bcc48dff191cb52',1,'State']]],
+  ['sentences_694',['sentences',['../group__letters.html#gad9383479c1fc9cf22dfe67c1c7226f7a',1,'letters.h']]],
+  ['sentenceschar_695',['sentencesChar',['../group__letters.html#gaf7e874746f10b2fa0ecc37730ddc4dfa',1,'letters.h']]],
+  ['shift_696',['shift',['../structletter.html#ad127d3d1922905d51e52e97359dc3bbf',1,'letter']]],
+  ['singleplayeropt_697',['singlePlayerOpt',['../game_8c.html#a718a611e0003275b9edc07ce40624818',1,'game.c']]],
+  ['size_698',['size',['../vg_8c.html#a245260f6f74972558f61b85227df5aae',1,'vg.c']]],
+  ['start_699',['start',['../structState.html#a4af346841fc664a0d8fee48148e77c20',1,'State']]],
+  ['startmenuentry_700',['startMenuEntry',['../game_8c.html#a42c13eb2845c2cc12f284f269528eb5c',1,'game.c']]],
+  ['state_701',['state',['../structGame.html#a5791ba44fba153d53e2ded354e927c34',1,'Game']]]
 ];
