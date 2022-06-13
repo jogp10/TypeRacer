@@ -5,7 +5,7 @@
 #include <math.h>
 
 static void *video_mem;         /* VBE information on input mode */
-static char *double_buf;
+char *double_buf;
 
 vbe_mode_info_t info;           /* VBE information on input mode */
 static unsigned h_res;	        /* Horizontal resolution in pixels */
@@ -27,6 +27,9 @@ xpm_image_t game_background_img;
 xpm_image_t red_car_img;
 xpm_image_t next_img;
 xpm_image_t upper_img;
+xpm_image_t win_menu_img;
+xpm_image_t win_exit_img;
+xpm_image_t regras_img;
 uint8_t *mouse_cursor;
 uint8_t *menu_start;
 uint8_t *menu_single;
@@ -40,6 +43,10 @@ uint8_t *game_background;
 uint8_t *red_car;
 uint8_t *next;
 uint8_t *upper;
+uint8_t *win_menu;
+uint8_t *win_exit;
+uint8_t *regras;
+
 int(load_all_xpms)(){
   // get the pixmap from the XPM
   mouse_cursor = xpm_load(mouse_cursor_xpm, XPM_8_8_8_8, &mouse_img);
@@ -90,6 +97,18 @@ int(load_all_xpms)(){
     return 1;
   }
 
+  win_menu = xpm_load(win_menu_xpm, XPM_8_8_8_8, &win_menu_img);
+  if(win_menu == NULL){
+    printf("win menu no load");
+    return 1;
+  }
+
+  win_exit = xpm_load(win_exit_xpm, XPM_8_8_8_8, &win_exit_img);
+  if(win_exit == NULL){
+    printf("win_exit no load");
+    return 1;
+  }
+
   menu_pause_exit = xpm_load(pause_menu_exit_xpm, XPM_8_8_8_8, &menu_pause_exit_img);
   if(menu_pause_exit == NULL){
     printf("pause exit menu no load");
@@ -107,17 +126,24 @@ int(load_all_xpms)(){
     printf("red car no load");
     return 1;
   }
+
   next = xpm_load(next_xpm, XPM_8_8_8_8, &next_img);
   if(next == NULL){
     printf("next no load");
     return 1;
   }
+
   upper = xpm_load(upper_xpm, XPM_8_8_8_8, &upper_img);
   if(upper == NULL){
-    printf("next no load");
+    printf("upper no load");
     return 1;
   }
 
+  regras = xpm_load(regras_xpm, XPM_8_8_8_8, &regras_img);
+  if(regras == NULL){
+    printf("regras no load");
+    return 1;
+  }
 
   return 0;
 
@@ -212,20 +238,15 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
     if (x < 0 || x >= h_res || y >= v_res || y < 0 ) return 0;
     uint8_t *pixel = (uint8_t *) double_buf + (( (y * h_res) + x ) * bytes_per_pixel);
 
-    /*for (int i = 0; i < BPP; i++) {
-        *pixel = color & 0xFF;
-        color >>= 8;
-        pixel++;
-    }*/
     memcpy(pixel, &color, bytes_per_pixel);
 
     return 0;
 }
 
 
-//uint8_t (R)(uint32_t color) {return color >> info.RedFieldPosition % BIT(info.RedMaskSize);}
-//uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.GreenMaskSize);}
-//uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
+uint8_t (R)(uint32_t color) {return color >> info.RedFieldPosition % BIT(info.RedMaskSize);}
+uint8_t (G)(uint32_t color) {return color >> info.GreenFieldPosition % BIT(info.GreenMaskSize);}
+uint8_t (B)(uint32_t color) {return color >> info.BlueFieldPosition % BIT(info.BlueMaskSize);}
 
 
 int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map) {
@@ -242,9 +263,6 @@ int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t img, uint8_t *map) {
   for (unsigned int i=0; i<img.width; i++) {
     for (unsigned int j=0; j<img.height; j++) {
       uint32_t color;
-      //color =*((uint32_t *)map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0));
-      //memcpy(&color, color =*((uint32_t *)map + (j * img.width + i) * (int) ceil(bits_per_pixel / 8.0)), ceil(bits_per_pixel / 8.0));
-      
       memcpy(&color, map + (j * img.width + i) * bytes_per_pixel, bytes_per_pixel);
       if (color != xpm_transparency_color(img.type)) vg_draw_pixel(x + i, y + j, color);
     }
@@ -279,32 +297,6 @@ int (vg_clean_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   return 0;
 }
-/*
-int (vg_move_xpm)(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, uint16_t speed) {
-  if (vg_clean_xpm(xpm, *xi, *yi)) {
-    printf("Failed to erase xpm\n");
-    return 1;
-  }
-
-  if (xf!=*xi) {
-    if(abs(xf-*xi)<speed) speed = abs(xf-*xi);
-    if(xf-*xi>0) *xi = *xi + speed;
-    else *xi = *xi - speed;
-  }
-
-  if (yf!=*yi) {
-    if(abs(yf-*yi)<speed) speed = abs(yf-*yi);
-    if(yf-*yi>0) *yi = *yi + speed;
-    else *yi = *yi - speed;
-  }
-
-
-  if (vg_draw_xpm(xpm, *xi, *yi)) {
-    printf("Failed to draw xpm\n");
-    return 1;
-  }
-  return 0;
-}*/
 
 int get_hres(){
   return h_res;

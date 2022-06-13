@@ -10,7 +10,7 @@
 #include "devices/utils/utils.h"
 #include "game.h"
 #include "xpms/xpm.h"
-
+extern char *double_buf;
 #include <unistd.h>
 
 int main(int argc, char *argv[]) {
@@ -68,7 +68,28 @@ int(proj_main_loop)(int argc, char* argv[])
     return 1;
   }
 
-  load_all_xpms();
+  if(load_all_xpms() == 1){
+    if (mouse_unsubscribe_int()){
+    printf("Error unsubscribing mouse interrupt with: %d.\n", r);
+    return 1;
+  }
+
+    if (timer_unsubscribe_int()){
+      printf("Error unsubscribing timer interrupt with: %d.\n", r);
+      return 1;
+    }
+
+    if (kbd_unsubscribe_int()){
+      printf("Error unsubscribing kbc interrupt with: %d.\n", r);
+      return 1;
+    }
+
+    if(vg_exit()){
+      printf("%s: Error exiting graphics mode.", __func__);
+      return 1;
+    }
+  }
+
 
   Game game;
   game_init(&game);
@@ -93,7 +114,7 @@ int(proj_main_loop)(int argc, char* argv[])
     printf("%s: Error exiting graphics mode.", __func__);
     return 1;
   }
-
+  free(double_buf);
   return 0;
 }
 

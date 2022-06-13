@@ -20,13 +20,34 @@ int (mouse_subscribe_int)(uint8_t *bit_no);
  */
 int (mouse_unsubscribe_int)();
 
-int (mouse_enable_int)();
-int (mouse_disable_int)();
-
+/**
+ * @brief
+ * 
+ * @param cmd command to be issued
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (mouse_issue_command)(uint8_t cmd);
 
+/**
+ * @brief sets mouse to stream mode
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (mouse_set_stream_mode)();
+
+/**
+ * @brief enables mouse data reporting
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (mouse_enable_data_rep)();
+
+/**
+ * @brief disables mouse data reporting
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (mouse_disable_data_rep)();
 
 /**
@@ -43,6 +64,11 @@ void (mouse_ih)();
  */
 bool (mouse_packet_complete)(uint8_t packets[], uint8_t *size);
 
+/**
+ * @brief Builds mouse packets
+ * 
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int (build_packet_struct)(uint8_t packets[], struct packet *pp);
 
 
