@@ -89,7 +89,7 @@ int drawRulesMenu();
  * @param sentence first sentece to be written
  * @param sentence2 second sentence to be written
  * @param inputSentence array with input from user
- * @param idx index of sentence to be played
+ * @param idx size of input sentence
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
@@ -148,7 +148,7 @@ void mouse_handler(struct packet * p);
  * @param sentence first sentence to be written
  * @param sentence2 second sentence to be written
  * @param inputSentence array with user input sentence
- * @param idx index of sentence to be played
+ * @param idx size of input sentence
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
